@@ -1,6 +1,6 @@
-name: Fix!
-description: 수정사항이 생길 때 사용합니다.
-title: "[Fix] <제목>"
+name: ⚒️ Fix!
+description: 수정사항을 추가할 때 사용합니다.
+title: "[Fix] <제목>"
 labels: ["Fix"]
 body:
 - type: textarea
