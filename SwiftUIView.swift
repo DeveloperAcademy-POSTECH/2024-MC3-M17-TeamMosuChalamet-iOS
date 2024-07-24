@@ -15,7 +15,7 @@ struct MyPageView: View {
             }
 
             Button("click!!") {
-                profile = useCase.getUser(id: "asdf")
+                profile = useCase.getProfile(id: "asdf")
             }
         }
     }

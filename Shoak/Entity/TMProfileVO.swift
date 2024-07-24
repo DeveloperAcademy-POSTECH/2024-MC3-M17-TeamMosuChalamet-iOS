@@ -15,6 +15,18 @@ struct TMProfileVO {
 
 extension TMProfileVO {
     static var mockData: TMProfileVO {
-        TMProfileVO(memberID: "TestData from VO",imageURLString: "https://picsum.photos/200/200", name: "TestName from VO")
+        TMProfileVO(memberID: "TestData from VO", imageURLString: "https://picsum.photos/200/200", name: "TestName from VO")
+    }
+    static var mockData2: TMProfileVO {
+        TMProfileVO(memberID: "TestData from VO 2", imageURLString: "https://picsum.photos/200/200", name: "TestName from VO 2")
+    }
+}
+
+extension Array where Element == TMProfileVO {
+    static var mockData: [Element] {
+        [
+            .mockData,
+            .mockData2
+        ]
     }
 }

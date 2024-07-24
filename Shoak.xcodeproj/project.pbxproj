@@ -15,14 +15,17 @@
 		6FF9B7942C50E6A700FC0CB2 /* SwiftUIView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7932C50E6A700FC0CB2 /* SwiftUIView2.swift */; };
 		6FF9B7962C50E6B300FC0CB2 /* SwiftUIView3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7952C50E6B300FC0CB2 /* SwiftUIView3.swift */; };
 		6FF9B7982C50E6BD00FC0CB2 /* SwiftUIView4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7972C50E6BD00FC0CB2 /* SwiftUIView4.swift */; };
-		6FF9B79A2C50E6CB00FC0CB2 /* ShoakUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7992C50E6CB00FC0CB2 /* ShoakUseCase.swift */; };
+		6FF9B79A2C50E6CB00FC0CB2 /* UserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7992C50E6CB00FC0CB2 /* UserUseCase.swift */; };
 		6FF9B79C2C50E6D700FC0CB2 /* SampleUseCase2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B79B2C50E6D700FC0CB2 /* SampleUseCase2.swift */; };
-		6FF9B79E2C50E6DE00FC0CB2 /* SampleUseCase3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B79D2C50E6DE00FC0CB2 /* SampleUseCase3.swift */; };
+		6FF9B79E2C50E6DE00FC0CB2 /* AccountUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B79D2C50E6DE00FC0CB2 /* AccountUseCase.swift */; };
 		6FF9B7A02C50E6E500FC0CB2 /* SampleUseCase4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B79F2C50E6E500FC0CB2 /* SampleUseCase4.swift */; };
 		6FF9B7A22C50E88300FC0CB2 /* TMProfileDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7A12C50E88300FC0CB2 /* TMProfileDTO.swift */; };
 		6FF9B7A42C50E8A000FC0CB2 /* TMMemberID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7A32C50E8A000FC0CB2 /* TMMemberID.swift */; };
 		6FF9B7A62C50E90100FC0CB2 /* TMProfileVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7A52C50E90100FC0CB2 /* TMProfileVO.swift */; };
 		6FF9B7A82C50ECD200FC0CB2 /* Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7A72C50ECD200FC0CB2 /* Sample.swift */; };
+		6FF9B7AA2C512C9F00FC0CB2 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7A92C512C9F00FC0CB2 /* Errors.swift */; };
+		6FF9B7AC2C51322900FC0CB2 /* SendShoakIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7AB2C51322900FC0CB2 /* SendShoakIntent.swift */; };
+		6FF9B7AE2C51340000FC0CB2 /* SendShoakUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7AD2C51340000FC0CB2 /* SendShoakUseCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,14 +38,17 @@
 		6FF9B7932C50E6A700FC0CB2 /* SwiftUIView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView2.swift; sourceTree = "<group>"; };
 		6FF9B7952C50E6B300FC0CB2 /* SwiftUIView3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView3.swift; sourceTree = "<group>"; };
 		6FF9B7972C50E6BD00FC0CB2 /* SwiftUIView4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView4.swift; sourceTree = "<group>"; };
-		6FF9B7992C50E6CB00FC0CB2 /* ShoakUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoakUseCase.swift; sourceTree = "<group>"; };
+		6FF9B7992C50E6CB00FC0CB2 /* UserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserUseCase.swift; sourceTree = "<group>"; };
 		6FF9B79B2C50E6D700FC0CB2 /* SampleUseCase2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleUseCase2.swift; sourceTree = "<group>"; };
-		6FF9B79D2C50E6DE00FC0CB2 /* SampleUseCase3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleUseCase3.swift; sourceTree = "<group>"; };
+		6FF9B79D2C50E6DE00FC0CB2 /* AccountUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountUseCase.swift; sourceTree = "<group>"; };
 		6FF9B79F2C50E6E500FC0CB2 /* SampleUseCase4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleUseCase4.swift; sourceTree = "<group>"; };
 		6FF9B7A12C50E88300FC0CB2 /* TMProfileDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMProfileDTO.swift; sourceTree = "<group>"; };
 		6FF9B7A32C50E8A000FC0CB2 /* TMMemberID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMMemberID.swift; sourceTree = "<group>"; };
 		6FF9B7A52C50E90100FC0CB2 /* TMProfileVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMProfileVO.swift; sourceTree = "<group>"; };
 		6FF9B7A72C50ECD200FC0CB2 /* Sample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sample.swift; sourceTree = "<group>"; };
+		6FF9B7A92C512C9F00FC0CB2 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		6FF9B7AB2C51322900FC0CB2 /* SendShoakIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendShoakIntent.swift; sourceTree = "<group>"; };
+		6FF9B7AD2C51340000FC0CB2 /* SendShoakUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendShoakUseCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +126,7 @@
 				6FF9B7A32C50E8A000FC0CB2 /* TMMemberID.swift */,
 				6FF9B7A12C50E88300FC0CB2 /* TMProfileDTO.swift */,
 				6FF9B7A52C50E90100FC0CB2 /* TMProfileVO.swift */,
+				6FF9B7A92C512C9F00FC0CB2 /* Errors.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -127,6 +134,7 @@
 		6FF9B7842C50E5FF00FC0CB2 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				6FF9B7AF2C51400400FC0CB2 /* Intents */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -170,7 +178,8 @@
 		6FF9B7892C50E65700FC0CB2 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
-				6FF9B7992C50E6CB00FC0CB2 /* ShoakUseCase.swift */,
+				6FF9B7992C50E6CB00FC0CB2 /* UserUseCase.swift */,
+				6FF9B7AD2C51340000FC0CB2 /* SendShoakUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -194,7 +203,7 @@
 		6FF9B78C2C50E67B00FC0CB2 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
-				6FF9B79D2C50E6DE00FC0CB2 /* SampleUseCase3.swift */,
+				6FF9B79D2C50E6DE00FC0CB2 /* AccountUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -229,6 +238,14 @@
 				6FF9B7972C50E6BD00FC0CB2 /* SwiftUIView4.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		6FF9B7AF2C51400400FC0CB2 /* Intents */ = {
+			isa = PBXGroup;
+			children = (
+				6FF9B7AB2C51322900FC0CB2 /* SendShoakIntent.swift */,
+			);
+			path = Intents;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,14 +318,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6FF9B79E2C50E6DE00FC0CB2 /* SampleUseCase3.swift in Sources */,
+				6FF9B79E2C50E6DE00FC0CB2 /* AccountUseCase.swift in Sources */,
+				6FF9B7AA2C512C9F00FC0CB2 /* Errors.swift in Sources */,
+				6FF9B7AE2C51340000FC0CB2 /* SendShoakUseCase.swift in Sources */,
 				6FF9B7A42C50E8A000FC0CB2 /* TMMemberID.swift in Sources */,
 				6FF9B7A22C50E88300FC0CB2 /* TMProfileDTO.swift in Sources */,
 				6FF9B7A62C50E90100FC0CB2 /* TMProfileVO.swift in Sources */,
 				6FF9B7762C4F896800FC0CB2 /* ContentView.swift in Sources */,
 				6FF9B79C2C50E6D700FC0CB2 /* SampleUseCase2.swift in Sources */,
 				6FF9B7742C4F896800FC0CB2 /* ShoakApp.swift in Sources */,
-				6FF9B79A2C50E6CB00FC0CB2 /* ShoakUseCase.swift in Sources */,
+				6FF9B7AC2C51322900FC0CB2 /* SendShoakIntent.swift in Sources */,
+				6FF9B79A2C50E6CB00FC0CB2 /* UserUseCase.swift in Sources */,
 				6FF9B7982C50E6BD00FC0CB2 /* SwiftUIView4.swift in Sources */,
 				6FF9B7942C50E6A700FC0CB2 /* SwiftUIView2.swift in Sources */,
 				6FF9B7A02C50E6E500FC0CB2 /* SampleUseCase4.swift in Sources */,
