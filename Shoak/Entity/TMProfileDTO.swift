@@ -9,12 +9,12 @@ import Foundation
 
 struct TMProfileDTO {
     var memberID: TMMemberID
-    var image: Data?
+    var imageURLString: String?
     var name: String
 }
 
 extension TMProfileDTO {
     static var mockData: TMProfileDTO {
-        TMProfileDTO(memberID: "TestData", name: "TestName")
+        TMProfileDTO(memberID: "TestData", imageURLString: "https://picsum.photos/200/300", name: "TestName")
     }
 }

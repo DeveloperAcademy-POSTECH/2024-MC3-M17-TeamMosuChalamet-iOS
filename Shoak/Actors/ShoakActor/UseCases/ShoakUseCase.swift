@@ -8,9 +8,6 @@ class ShoakUseCase {
     }
 
     private func translate(_ dto: TMProfileDTO) -> TMProfileVO {
-        return TMProfileVO(
-            memberID: dto.memberID,
-            name: dto.name
-        )
+        return TMProfileVO.mockData
     }
 }

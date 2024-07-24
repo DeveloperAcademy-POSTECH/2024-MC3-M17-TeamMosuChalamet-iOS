@@ -6,10 +6,17 @@ struct MyPageView: View {
 
     @State private var profile: TMProfileVO = TMProfileVO(memberID: "initial", name: "initial")
     var body: some View {
-        Text("my name : \(profile.name)")
+        VStack {
+            Text("my name : \(profile.name)")
 
-        Button("click!!") {
-            profile = useCase.getUser(id: "asdf")
+            if let url = URL(string: profile.imageURLString ?? "") {
+                AsyncImage(url: url)
+                    .frame(width: 200, height: 200)
+            }
+
+            Button("click!!") {
+                profile = useCase.getUser(id: "asdf")
+            }
         }
     }
 }
