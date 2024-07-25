@@ -11,7 +11,8 @@ import SwiftUI
 struct ShoakApp: App {
     var body: some Scene {
         WindowGroup {
-            MyPageView(useCase: ShoakUseCase())
+            //MyPageView(useCase: ShoakUseCase())
+            AppleLoginView(useCase: AppleUseCase())
         }
     }
 }
