@@ -34,9 +34,9 @@ extension NavigationModel {
 #if os(iOS)
             switch self {
             case .friendList:
-                WatchFriendListView()
+                FriendListView()
             case .settings:
-                WatchSettingView()
+                SettingView()
             }
 #elseif os(watchOS)
             switch self {
