@@ -83,11 +83,9 @@
 		6FF9B7912C50E6A000FC0CB2 /* FriendListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListView.swift; sourceTree = SOURCE_ROOT; };
 		6FF9B7932C50E6A700FC0CB2 /* SwiftUIView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView2.swift; sourceTree = "<group>"; };
 		6FF9B7952C50E6B300FC0CB2 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
-		6FF9B7972C50E6BD00FC0CB2 /* SwiftUIView4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView4.swift; sourceTree = "<group>"; };
 		6FF9B7992C50E6CB00FC0CB2 /* UserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserUseCase.swift; sourceTree = "<group>"; };
 		6FF9B79B2C50E6D700FC0CB2 /* SampleUseCase2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleUseCase2.swift; sourceTree = "<group>"; };
 		6FF9B79D2C50E6DE00FC0CB2 /* AccountUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountUseCase.swift; sourceTree = "<group>"; };
-		6FF9B79F2C50E6E500FC0CB2 /* SampleUseCase4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleUseCase4.swift; sourceTree = "<group>"; };
 		6FF9B7A12C50E88300FC0CB2 /* TMProfileDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMProfileDTO.swift; sourceTree = "<group>"; };
 		6FF9B7A32C50E8A000FC0CB2 /* TMMemberID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMMemberID.swift; sourceTree = "<group>"; };
 		6FF9B7A52C50E90100FC0CB2 /* TMProfileVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMProfileVO.swift; sourceTree = "<group>"; };
@@ -136,8 +134,6 @@
 		6FC0A1252C5334AF004560E3 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
-				6FF9B7972C50E6BD00FC0CB2 /* SwiftUIView4.swift */,
-				6FF9B79F2C50E6E500FC0CB2 /* SampleUseCase4.swift */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
