@@ -1,15 +1,15 @@
 //
-//  ShoakApp.swift
-//  Shoak
+//  ShoakWatchApp.swift
+//  ShoakWatch Watch App
 //
-//  Created by 정종인 on 7/23/24.
+//  Created by 정종인 on 7/25/24.
 //
 
 import SwiftUI
 import AppIntents
 
 @main
-struct ShoakApp: App {
+struct ShoakWatch_Watch_AppApp: App {
     private var shoakDataManager: ShoakDataManager
     private let navigationModel: NavigationModel
 
@@ -26,11 +26,9 @@ struct ShoakApp: App {
 
     var body: some Scene {
         WindowGroup {
-            //RootView()
-                //.environment(shoakDataManager)
-                //.environment(navigationModel)
-            //MyPageView(useCase: ShoakUseCase())
-            AppleLoginView(useCase: AppleUseCase())
+            ContentView()
+                .environment(shoakDataManager)
+                .environment(navigationModel)
         }
     }
 }

@@ -11,20 +11,67 @@
 		1E2939822C51E07E00B321DC /* AppleUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2939812C51E07E00B321DC /* AppleUseCase.swift */; };
 		1E2939852C51F2A200B321DC /* AppleSignInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2939842C51F2A200B321DC /* AppleSignInButton.swift */; };
 		6FF9B7742C4F896800FC0CB2 /* ShoakApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7732C4F896800FC0CB2 /* ShoakApp.swift */; };
-		6FF9B7762C4F896800FC0CB2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7752C4F896800FC0CB2 /* ContentView.swift */; };
 		6FF9B7782C4F896A00FC0CB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6FF9B7772C4F896A00FC0CB2 /* Assets.xcassets */; };
 		6FF9B77B2C4F896A00FC0CB2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6FF9B77A2C4F896A00FC0CB2 /* Preview Assets.xcassets */; };
-		6FF9B7922C50E6A000FC0CB2 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7912C50E6A000FC0CB2 /* SwiftUIView.swift */; };
+		6FF9B7922C50E6A000FC0CB2 /* FriendListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7912C50E6A000FC0CB2 /* FriendListView.swift */; };
 		6FF9B7942C50E6A700FC0CB2 /* SwiftUIView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7932C50E6A700FC0CB2 /* SwiftUIView2.swift */; };
-		6FF9B7962C50E6B300FC0CB2 /* SwiftUIView3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7952C50E6B300FC0CB2 /* SwiftUIView3.swift */; };
-		6FF9B79A2C50E6CB00FC0CB2 /* ShoakUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7992C50E6CB00FC0CB2 /* ShoakUseCase.swift */; };
+		6FF9B7962C50E6B300FC0CB2 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7952C50E6B300FC0CB2 /* SettingView.swift */; };
+		6FF9B7982C50E6BD00FC0CB2 /* SwiftUIView4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7972C50E6BD00FC0CB2 /* SwiftUIView4.swift */; };
+		6FF9B79A2C50E6CB00FC0CB2 /* UserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7992C50E6CB00FC0CB2 /* UserUseCase.swift */; };
 		6FF9B79C2C50E6D700FC0CB2 /* SampleUseCase2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B79B2C50E6D700FC0CB2 /* SampleUseCase2.swift */; };
-		6FF9B79E2C50E6DE00FC0CB2 /* SampleUseCase3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B79D2C50E6DE00FC0CB2 /* SampleUseCase3.swift */; };
+		6FF9B79E2C50E6DE00FC0CB2 /* AccountUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B79D2C50E6DE00FC0CB2 /* AccountUseCase.swift */; };
+		6FF9B7A02C50E6E500FC0CB2 /* SampleUseCase4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B79F2C50E6E500FC0CB2 /* SampleUseCase4.swift */; };
 		6FF9B7A22C50E88300FC0CB2 /* TMProfileDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7A12C50E88300FC0CB2 /* TMProfileDTO.swift */; };
 		6FF9B7A42C50E8A000FC0CB2 /* TMMemberID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7A32C50E8A000FC0CB2 /* TMMemberID.swift */; };
 		6FF9B7A62C50E90100FC0CB2 /* TMProfileVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7A52C50E90100FC0CB2 /* TMProfileVO.swift */; };
-		6FF9B7A82C50ECD200FC0CB2 /* Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7A72C50ECD200FC0CB2 /* Sample.swift */; };
+		6FF9B7A82C50ECD200FC0CB2 /* CaseIterable+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7A72C50ECD200FC0CB2 /* CaseIterable+.swift */; };
+		6FF9B7AA2C512C9F00FC0CB2 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7A92C512C9F00FC0CB2 /* Errors.swift */; };
+		6FF9B7AC2C51322900FC0CB2 /* StartShoakProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7AB2C51322900FC0CB2 /* StartShoakProcess.swift */; };
+		6FF9B7AE2C51340000FC0CB2 /* SendShoakUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7AD2C51340000FC0CB2 /* SendShoakUseCase.swift */; };
+		6FF9B7B12C51F82B00FC0CB2 /* ShoakDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7B02C51F82B00FC0CB2 /* ShoakDataManager.swift */; };
+		6FF9B7B32C51F84600FC0CB2 /* NavigationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7B22C51F84600FC0CB2 /* NavigationModel.swift */; };
+		6FF9B7B52C52211A00FC0CB2 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7B42C52211A00FC0CB2 /* RootView.swift */; };
+		6FF9B7BD2C52378B00FC0CB2 /* ShoakWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7BC2C52378B00FC0CB2 /* ShoakWatchApp.swift */; };
+		6FF9B7BF2C52378B00FC0CB2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7BE2C52378B00FC0CB2 /* ContentView.swift */; };
+		6FF9B7C12C52378C00FC0CB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6FF9B7C02C52378C00FC0CB2 /* Assets.xcassets */; };
+		6FF9B7C42C52378C00FC0CB2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6FF9B7C32C52378C00FC0CB2 /* Preview Assets.xcassets */; };
+		6FF9B7C72C52378C00FC0CB2 /* ShoakWatch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 6FF9B7BA2C52378B00FC0CB2 /* ShoakWatch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		6FF9B7CC2C52380200FC0CB2 /* ShoakDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7B02C51F82B00FC0CB2 /* ShoakDataManager.swift */; };
+		6FF9B7CE2C52390200FC0CB2 /* TMProfileVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7A52C50E90100FC0CB2 /* TMProfileVO.swift */; };
+		6FF9B7CF2C52399500FC0CB2 /* TMMemberID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7A32C50E8A000FC0CB2 /* TMMemberID.swift */; };
+		6FF9B7D02C52399E00FC0CB2 /* TMProfileDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7A12C50E88300FC0CB2 /* TMProfileDTO.swift */; };
+		6FF9B7D12C5239A400FC0CB2 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7A92C512C9F00FC0CB2 /* Errors.swift */; };
+		6FF9B7D22C5239B300FC0CB2 /* AccountUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B79D2C50E6DE00FC0CB2 /* AccountUseCase.swift */; };
+		6FF9B7D52C5243C700FC0CB2 /* CaseIterable+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7A72C50ECD200FC0CB2 /* CaseIterable+.swift */; };
+		6FF9B7D72C5243DC00FC0CB2 /* WatchFriendListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7D62C5243DC00FC0CB2 /* WatchFriendListView.swift */; };
+		6FF9B7DA2C52441700FC0CB2 /* WatchSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7D92C52441700FC0CB2 /* WatchSettingView.swift */; };
+		6FF9B7DB2C5244B400FC0CB2 /* StartShoakProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7AB2C51322900FC0CB2 /* StartShoakProcess.swift */; };
+		6FF9B7DC2C5246A000FC0CB2 /* NavigationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7B22C51F84600FC0CB2 /* NavigationModel.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6FF9B7C52C52378C00FC0CB2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6FF9B7682C4F896800FC0CB2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6FF9B7B92C52378B00FC0CB2;
+			remoteInfo = "ShoakWatch Watch App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		6FF9B7CB2C52378C00FC0CB2 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				6FF9B7C72C52378C00FC0CB2 /* ShoakWatch Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1E29397E2C51DF1900B321DC /* Shoak.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Shoak.entitlements; sourceTree = "<group>"; };
@@ -33,23 +80,44 @@
 		1E2939842C51F2A200B321DC /* AppleSignInButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleSignInButton.swift; sourceTree = "<group>"; };
 		6FF9B7702C4F896800FC0CB2 /* Shoak.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shoak.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FF9B7732C4F896800FC0CB2 /* ShoakApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoakApp.swift; sourceTree = "<group>"; };
-		6FF9B7752C4F896800FC0CB2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6FF9B7772C4F896A00FC0CB2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6FF9B77A2C4F896A00FC0CB2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		6FF9B7912C50E6A000FC0CB2 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = SOURCE_ROOT; };
+		6FF9B7912C50E6A000FC0CB2 /* FriendListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListView.swift; sourceTree = SOURCE_ROOT; };
 		6FF9B7932C50E6A700FC0CB2 /* SwiftUIView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView2.swift; sourceTree = "<group>"; };
-		6FF9B7952C50E6B300FC0CB2 /* SwiftUIView3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView3.swift; sourceTree = "<group>"; };
-		6FF9B7992C50E6CB00FC0CB2 /* ShoakUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoakUseCase.swift; sourceTree = "<group>"; };
+		6FF9B7952C50E6B300FC0CB2 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		6FF9B7972C50E6BD00FC0CB2 /* SwiftUIView4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView4.swift; sourceTree = "<group>"; };
+		6FF9B7992C50E6CB00FC0CB2 /* UserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserUseCase.swift; sourceTree = "<group>"; };
 		6FF9B79B2C50E6D700FC0CB2 /* SampleUseCase2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleUseCase2.swift; sourceTree = "<group>"; };
-		6FF9B79D2C50E6DE00FC0CB2 /* SampleUseCase3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleUseCase3.swift; sourceTree = "<group>"; };
+		6FF9B79D2C50E6DE00FC0CB2 /* AccountUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountUseCase.swift; sourceTree = "<group>"; };
+		6FF9B79F2C50E6E500FC0CB2 /* SampleUseCase4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleUseCase4.swift; sourceTree = "<group>"; };
 		6FF9B7A12C50E88300FC0CB2 /* TMProfileDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMProfileDTO.swift; sourceTree = "<group>"; };
 		6FF9B7A32C50E8A000FC0CB2 /* TMMemberID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMMemberID.swift; sourceTree = "<group>"; };
 		6FF9B7A52C50E90100FC0CB2 /* TMProfileVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMProfileVO.swift; sourceTree = "<group>"; };
-		6FF9B7A72C50ECD200FC0CB2 /* Sample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sample.swift; sourceTree = "<group>"; };
+		6FF9B7A72C50ECD200FC0CB2 /* CaseIterable+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CaseIterable+.swift"; sourceTree = "<group>"; };
+		6FF9B7A92C512C9F00FC0CB2 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		6FF9B7AB2C51322900FC0CB2 /* StartShoakProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartShoakProcess.swift; sourceTree = "<group>"; };
+		6FF9B7AD2C51340000FC0CB2 /* SendShoakUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendShoakUseCase.swift; sourceTree = "<group>"; };
+		6FF9B7B02C51F82B00FC0CB2 /* ShoakDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoakDataManager.swift; sourceTree = "<group>"; };
+		6FF9B7B22C51F84600FC0CB2 /* NavigationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationModel.swift; sourceTree = "<group>"; };
+		6FF9B7B42C52211A00FC0CB2 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		6FF9B7BA2C52378B00FC0CB2 /* ShoakWatch Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ShoakWatch Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6FF9B7BC2C52378B00FC0CB2 /* ShoakWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoakWatchApp.swift; sourceTree = "<group>"; };
+		6FF9B7BE2C52378B00FC0CB2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		6FF9B7C02C52378C00FC0CB2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6FF9B7C32C52378C00FC0CB2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		6FF9B7D62C5243DC00FC0CB2 /* WatchFriendListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchFriendListView.swift; sourceTree = "<group>"; };
+		6FF9B7D92C52441700FC0CB2 /* WatchSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchSettingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		6FF9B76D2C4F896800FC0CB2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6FF9B7B72C52378B00FC0CB2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -71,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				6FF9B7722C4F896800FC0CB2 /* Shoak */,
+				6FF9B7BB2C52378B00FC0CB2 /* ShoakWatch Watch App */,
 				6FF9B7712C4F896800FC0CB2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -79,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				6FF9B7702C4F896800FC0CB2 /* Shoak.app */,
+				6FF9B7BA2C52378B00FC0CB2 /* ShoakWatch Watch App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -92,7 +162,7 @@
 				6FF9B7832C50E5FB00FC0CB2 /* Entity */,
 				6FF9B7842C50E5FF00FC0CB2 /* Common */,
 				6FF9B7732C4F896800FC0CB2 /* ShoakApp.swift */,
-				6FF9B7752C4F896800FC0CB2 /* ContentView.swift */,
+				6FF9B7B42C52211A00FC0CB2 /* RootView.swift */,
 				6FF9B7772C4F896A00FC0CB2 /* Assets.xcassets */,
 				6FF9B7792C4F896A00FC0CB2 /* Preview Content */,
 			);
@@ -121,7 +191,7 @@
 		6FF9B7822C50E5F500FC0CB2 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				6FF9B7A72C50ECD200FC0CB2 /* Sample.swift */,
+				6FF9B7A72C50ECD200FC0CB2 /* CaseIterable+.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -132,6 +202,7 @@
 				6FF9B7A32C50E8A000FC0CB2 /* TMMemberID.swift */,
 				6FF9B7A12C50E88300FC0CB2 /* TMProfileDTO.swift */,
 				6FF9B7A52C50E90100FC0CB2 /* TMProfileVO.swift */,
+				6FF9B7A92C512C9F00FC0CB2 /* Errors.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -139,6 +210,9 @@
 		6FF9B7842C50E5FF00FC0CB2 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				6FF9B7AF2C51400400FC0CB2 /* Intents */,
+				6FF9B7B02C51F82B00FC0CB2 /* ShoakDataManager.swift */,
+				6FF9B7B22C51F84600FC0CB2 /* NavigationModel.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -182,7 +256,8 @@
 		6FF9B7892C50E65700FC0CB2 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
-				6FF9B7992C50E6CB00FC0CB2 /* ShoakUseCase.swift */,
+				6FF9B7992C50E6CB00FC0CB2 /* UserUseCase.swift */,
+				6FF9B7AD2C51340000FC0CB2 /* SendShoakUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -190,7 +265,7 @@
 		6FF9B78A2C50E65C00FC0CB2 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				6FF9B7912C50E6A000FC0CB2 /* SwiftUIView.swift */,
+				6FF9B7912C50E6A000FC0CB2 /* FriendListView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -206,7 +281,7 @@
 		6FF9B78C2C50E67B00FC0CB2 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
-				6FF9B79D2C50E6DE00FC0CB2 /* SampleUseCase3.swift */,
+				6FF9B79D2C50E6DE00FC0CB2 /* AccountUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -230,7 +305,7 @@
 		6FF9B78F2C50E68900FC0CB2 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				6FF9B7952C50E6B300FC0CB2 /* SwiftUIView3.swift */,
+				6FF9B7952C50E6B300FC0CB2 /* SettingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -240,6 +315,43 @@
 			children = (
 				1E29397F2C51E00D00B321DC /* AppleLoginView.swift */,
 				1E2939832C51F24A00B321DC /* Components */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6FF9B7AF2C51400400FC0CB2 /* Intents */ = {
+			isa = PBXGroup;
+			children = (
+				6FF9B7AB2C51322900FC0CB2 /* StartShoakProcess.swift */,
+			);
+			path = Intents;
+			sourceTree = "<group>";
+		};
+		6FF9B7BB2C52378B00FC0CB2 /* ShoakWatch Watch App */ = {
+			isa = PBXGroup;
+			children = (
+				6FF9B7D82C52440200FC0CB2 /* View */,
+				6FF9B7BC2C52378B00FC0CB2 /* ShoakWatchApp.swift */,
+				6FF9B7C02C52378C00FC0CB2 /* Assets.xcassets */,
+				6FF9B7C22C52378C00FC0CB2 /* Preview Content */,
+			);
+			path = "ShoakWatch Watch App";
+			sourceTree = "<group>";
+		};
+		6FF9B7C22C52378C00FC0CB2 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				6FF9B7C32C52378C00FC0CB2 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		6FF9B7D82C52440200FC0CB2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6FF9B7BE2C52378B00FC0CB2 /* ContentView.swift */,
+				6FF9B7D62C5243DC00FC0CB2 /* WatchFriendListView.swift */,
+				6FF9B7D92C52441700FC0CB2 /* WatchSettingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -254,14 +366,33 @@
 				6FF9B76C2C4F896800FC0CB2 /* Sources */,
 				6FF9B76D2C4F896800FC0CB2 /* Frameworks */,
 				6FF9B76E2C4F896800FC0CB2 /* Resources */,
+				6FF9B7CB2C52378C00FC0CB2 /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6FF9B7C62C52378C00FC0CB2 /* PBXTargetDependency */,
+			);
+			name = Shoak;
+			productName = Shoak;
+			productReference = 6FF9B7702C4F896800FC0CB2 /* Shoak.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6FF9B7B92C52378B00FC0CB2 /* ShoakWatch Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6FF9B7C82C52378C00FC0CB2 /* Build configuration list for PBXNativeTarget "ShoakWatch Watch App" */;
+			buildPhases = (
+				6FF9B7B62C52378B00FC0CB2 /* Sources */,
+				6FF9B7B72C52378B00FC0CB2 /* Frameworks */,
+				6FF9B7B82C52378B00FC0CB2 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = Shoak;
-			productName = Shoak;
-			productReference = 6FF9B7702C4F896800FC0CB2 /* Shoak.app */;
+			name = "ShoakWatch Watch App";
+			productName = "ShoakWatch Watch App";
+			productReference = 6FF9B7BA2C52378B00FC0CB2 /* ShoakWatch Watch App.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -275,6 +406,9 @@
 				LastUpgradeCheck = 1540;
 				TargetAttributes = {
 					6FF9B76F2C4F896800FC0CB2 = {
+						CreatedOnToolsVersion = 15.4;
+					};
+					6FF9B7B92C52378B00FC0CB2 = {
 						CreatedOnToolsVersion = 15.4;
 					};
 				};
@@ -294,6 +428,7 @@
 			projectRoot = "";
 			targets = (
 				6FF9B76F2C4F896800FC0CB2 /* Shoak */,
+				6FF9B7B92C52378B00FC0CB2 /* ShoakWatch Watch App */,
 			);
 		};
 /* End PBXProject section */
@@ -308,6 +443,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6FF9B7B82C52378B00FC0CB2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6FF9B7C42C52378C00FC0CB2 /* Preview Assets.xcassets in Resources */,
+				6FF9B7C12C52378C00FC0CB2 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -315,25 +459,60 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FF9B79E2C50E6DE00FC0CB2 /* AccountUseCase.swift in Sources */,
+				6FF9B7AA2C512C9F00FC0CB2 /* Errors.swift in Sources */,
+				6FF9B7AE2C51340000FC0CB2 /* SendShoakUseCase.swift in Sources */,
 				1E2939822C51E07E00B321DC /* AppleUseCase.swift in Sources */,
 				1E2939852C51F2A200B321DC /* AppleSignInButton.swift in Sources */,
-				6FF9B79E2C50E6DE00FC0CB2 /* SampleUseCase3.swift in Sources */,
 				1E2939802C51E00D00B321DC /* AppleLoginView.swift in Sources */,
 				6FF9B7A42C50E8A000FC0CB2 /* TMMemberID.swift in Sources */,
 				6FF9B7A22C50E88300FC0CB2 /* TMProfileDTO.swift in Sources */,
 				6FF9B7A62C50E90100FC0CB2 /* TMProfileVO.swift in Sources */,
-				6FF9B7762C4F896800FC0CB2 /* ContentView.swift in Sources */,
+				6FF9B7B52C52211A00FC0CB2 /* RootView.swift in Sources */,
 				6FF9B79C2C50E6D700FC0CB2 /* SampleUseCase2.swift in Sources */,
 				6FF9B7742C4F896800FC0CB2 /* ShoakApp.swift in Sources */,
-				6FF9B79A2C50E6CB00FC0CB2 /* ShoakUseCase.swift in Sources */,
+				6FF9B7B32C51F84600FC0CB2 /* NavigationModel.swift in Sources */,
+				6FF9B7AC2C51322900FC0CB2 /* StartShoakProcess.swift in Sources */,
+				6FF9B79A2C50E6CB00FC0CB2 /* UserUseCase.swift in Sources */,
+				6FF9B7982C50E6BD00FC0CB2 /* SwiftUIView4.swift in Sources */,
+				6FF9B7B12C51F82B00FC0CB2 /* ShoakDataManager.swift in Sources */,
 				6FF9B7942C50E6A700FC0CB2 /* SwiftUIView2.swift in Sources */,
-				6FF9B7A82C50ECD200FC0CB2 /* Sample.swift in Sources */,
-				6FF9B7922C50E6A000FC0CB2 /* SwiftUIView.swift in Sources */,
-				6FF9B7962C50E6B300FC0CB2 /* SwiftUIView3.swift in Sources */,
+				6FF9B7A02C50E6E500FC0CB2 /* SampleUseCase4.swift in Sources */,
+				6FF9B7A82C50ECD200FC0CB2 /* CaseIterable+.swift in Sources */,
+				6FF9B7922C50E6A000FC0CB2 /* FriendListView.swift in Sources */,
+				6FF9B7962C50E6B300FC0CB2 /* SettingView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6FF9B7B62C52378B00FC0CB2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6FF9B7D02C52399E00FC0CB2 /* TMProfileDTO.swift in Sources */,
+				6FF9B7CE2C52390200FC0CB2 /* TMProfileVO.swift in Sources */,
+				6FF9B7CF2C52399500FC0CB2 /* TMMemberID.swift in Sources */,
+				6FF9B7D52C5243C700FC0CB2 /* CaseIterable+.swift in Sources */,
+				6FF9B7CC2C52380200FC0CB2 /* ShoakDataManager.swift in Sources */,
+				6FF9B7D12C5239A400FC0CB2 /* Errors.swift in Sources */,
+				6FF9B7D22C5239B300FC0CB2 /* AccountUseCase.swift in Sources */,
+				6FF9B7BF2C52378B00FC0CB2 /* ContentView.swift in Sources */,
+				6FF9B7DB2C5244B400FC0CB2 /* StartShoakProcess.swift in Sources */,
+				6FF9B7D72C5243DC00FC0CB2 /* WatchFriendListView.swift in Sources */,
+				6FF9B7DA2C52441700FC0CB2 /* WatchSettingView.swift in Sources */,
+				6FF9B7BD2C52378B00FC0CB2 /* ShoakWatchApp.swift in Sources */,
+				6FF9B7DC2C5246A000FC0CB2 /* NavigationModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6FF9B7C62C52378C00FC0CB2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6FF9B7B92C52378B00FC0CB2 /* ShoakWatch Watch App */;
+			targetProxy = 6FF9B7C52C52378C00FC0CB2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		6FF9B77C2C4F896A00FC0CB2 /* Debug */ = {
@@ -458,6 +637,7 @@
 		6FF9B77F2C4F896A00FC0CB2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Shoak/Shoak.entitlements;
@@ -488,6 +668,7 @@
 		6FF9B7802C4F896A00FC0CB2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Shoak/Shoak.entitlements;
@@ -515,6 +696,66 @@
 			};
 			name = Release;
 		};
+		6FF9B7C92C52378C00FC0CB2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ShoakWatch Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = ShoakWatch;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = team.mosuchalamet.Shoak;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = team.mosuchalamet.Shoak.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.5;
+			};
+			name = Debug;
+		};
+		6FF9B7CA2C52378C00FC0CB2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ShoakWatch Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = ShoakWatch;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = team.mosuchalamet.Shoak;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = team.mosuchalamet.Shoak.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.5;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -532,6 +773,15 @@
 			buildConfigurations = (
 				6FF9B77F2C4F896A00FC0CB2 /* Debug */,
 				6FF9B7802C4F896A00FC0CB2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6FF9B7C82C52378C00FC0CB2 /* Build configuration list for PBXNativeTarget "ShoakWatch Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6FF9B7C92C52378C00FC0CB2 /* Debug */,
+				6FF9B7CA2C52378C00FC0CB2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
