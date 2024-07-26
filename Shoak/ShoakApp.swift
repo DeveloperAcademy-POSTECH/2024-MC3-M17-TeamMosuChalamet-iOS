@@ -26,9 +26,11 @@ struct ShoakApp: App {
 
     var body: some Scene {
         WindowGroup {
-            RootView()
-                .environment(shoakDataManager)
-                .environment(navigationModel)
+            //RootView()
+                //.environment(shoakDataManager)
+                //.environment(navigationModel)
+            //MyPageView(useCase: ShoakUseCase())
+            AppleLoginView(useCase: AppleUseCase())
         }
     }
 }
