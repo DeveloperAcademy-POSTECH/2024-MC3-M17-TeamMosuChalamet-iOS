@@ -10,6 +10,9 @@ struct FriendListView: View {
             List(shoakDataManager.friends, id: \.memberID) { member in
                 Text("member name : \(member.name)")
             }
+            .refreshable {
+                shoakDataManager.refreshFriends()
+            }
 
             Button("Go to Setting") {
                 navigationManager.setView(to: .settings)

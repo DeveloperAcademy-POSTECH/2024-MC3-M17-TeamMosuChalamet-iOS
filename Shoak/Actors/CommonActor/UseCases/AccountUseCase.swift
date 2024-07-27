@@ -5,7 +5,7 @@ final class AccountUseCase {
     }
 
     func getMyMemberID() -> TMMemberID? {
-        return "My Member ID"
+        return 12323423442
     }
 }
 
