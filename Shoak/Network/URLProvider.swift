@@ -26,6 +26,7 @@ public struct ShoakURLProvider: URLProvider {
 
     public func provide(version: URLVersion) -> URL {
         #if TEST
+        // TODO: 아직 scheme과 custom flag 설정 안해둠. configuration은 해둠.
         URL(string: testURL + version.rawValue)!
         #else
         URL(string: baseURL + version.rawValue)!
