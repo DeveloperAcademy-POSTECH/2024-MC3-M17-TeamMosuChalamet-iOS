@@ -9,6 +9,7 @@ import Foundation
 import Moya
 
 enum UserAPI {
+    case getProfile
     case getFriends
 }
 
@@ -19,6 +20,8 @@ extension UserAPI: NeedAuthTargetType {
 
     var path: String {
         switch self {
+        case .getProfile:
+            "/api/profile"
         case .getFriends:
             "/api/friend"
         }
@@ -26,13 +29,22 @@ extension UserAPI: NeedAuthTargetType {
 
     var method: Moya.Method {
         switch self {
-        case .getFriends:
+        case .getProfile, .getFriends:
             return .get
         }
     }
 
     var sampleData: Data {
         switch self {
+        case .getProfile:
+            return Data(
+                """
+                {
+                    "name": "이빈치",
+                    "imageURL": "https://ada-mc3.s3.ap-northeast-2.amazonaws.com/profile/a7b899ae-528e-4e37-a6f1-e9ac08ab50c9vinci.jpeg"
+                }
+                """.utf8
+            )
         case .getFriends:
             return Data(
                 """
@@ -55,7 +67,7 @@ extension UserAPI: NeedAuthTargetType {
 
     var task: Task {
         switch self {
-        case .getFriends:
+        case .getProfile, .getFriends:
             return .requestPlain
         }
     }

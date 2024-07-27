@@ -7,12 +7,18 @@ final class UserUseCase {
         self.userRepository = userRepository
     }
 
-    func getProfile(id: TMMemberID) -> Result<TMProfileVO, Errors> {
-        let serverData: TMProfileDTO = .mockData // 서버 통신 후 가져온 DTO
-        return .success(toVO(serverData)) // VO를 리턴
+    func getProfile() async -> Result<TMProfileVO, NetworkError> {
+        let result = await userRepository.getProfile()
+        switch result {
+        case .success(let dto):
+            let vo = toVO(dto)
+            return .success(vo)
+        case .failure(let failure):
+            return .failure(failure)
+        }
     }
 
-    func getFriends() async -> Result<[TMProfileVO], NetworkError> {
+    func getFriends() async -> Result<[TMFriendVO], NetworkError> {
         let result = await userRepository.getFriends()
         switch result {
         case .success(let dto):
@@ -26,11 +32,15 @@ final class UserUseCase {
 
 // MARK: - Translater
 extension UserUseCase {
-    private func toVO(_ dto: TMProfileDTO) -> TMProfileVO {
-        TMProfileVO(
+    private func toVO(_ dto: TMFriendDTO) -> TMFriendVO {
+        TMFriendVO(
             memberID: dto.id,
             imageURLString: dto.imageURL,
             name: dto.name
         )
+    }
+
+    private func toVO(_ dto: TMProfileDTO) -> TMProfileVO {
+        TMProfileVO(name: dto.name, imageURL: dto.imageURL)
     }
 }

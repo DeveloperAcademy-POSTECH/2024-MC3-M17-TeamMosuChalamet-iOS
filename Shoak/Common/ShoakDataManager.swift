@@ -13,7 +13,7 @@ class ShoakDataManager: @unchecked Sendable {
 
     private let userUseCase: UserUseCase
 
-    var friends: [TMProfileVO]
+    var friends: [TMFriendVO]
 
     private init() {
         self.friends = .mockData

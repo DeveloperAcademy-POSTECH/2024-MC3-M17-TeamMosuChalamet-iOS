@@ -27,7 +27,17 @@ final class UserUseCaseTests: XCTestCase {
         let result = await userUseCase.getFriends()
         switch result {
         case .success(let success):
-            XCTAssertEqual(success, [TMProfileVO].testData)
+            XCTAssertEqual(success, [TMFriendVO].testData)
+        case .failure(let failure):
+            XCTFail(failure.errorDescription)
+        }
+    }
+
+    func test_프로필_불러오기() async throws {
+        let result = await userUseCase.getProfile()
+        switch result {
+        case .success(let success):
+            XCTAssertEqual(success, TMProfileVO.testData)
         case .failure(let failure):
             XCTFail(failure.errorDescription)
         }
