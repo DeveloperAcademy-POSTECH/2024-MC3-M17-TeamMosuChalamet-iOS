@@ -1,7 +1,7 @@
 
 final class AccountUseCase {
     func isLoggedIn() -> Bool {
-        return true
+        return false
     }
 
     func getMyMemberID() -> TMMemberID? {

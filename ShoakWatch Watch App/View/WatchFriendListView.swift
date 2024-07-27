@@ -9,7 +9,7 @@ import SwiftUI
 
 struct WatchFriendListView: View {
     @Environment(ShoakDataManager.self) private var shoakDataManager
-    @Environment(NavigationModel.self) private var navigationModel
+    @Environment(NavigationManager.self) private var navigationManager
 
     var body: some View {
         VStack {
@@ -18,7 +18,7 @@ struct WatchFriendListView: View {
             }
 
             Button("Go to Setting") {
-                navigationModel.setView(to: .settings)
+                navigationManager.setView(to: .settings)
             }
         }
     }

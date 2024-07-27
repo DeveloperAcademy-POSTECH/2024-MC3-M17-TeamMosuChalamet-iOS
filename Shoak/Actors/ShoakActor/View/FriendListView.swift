@@ -3,7 +3,7 @@ import SwiftUI
 
 struct FriendListView: View {
     @Environment(ShoakDataManager.self) private var shoakDataManager
-    @Environment(NavigationModel.self) private var navigationModel
+    @Environment(NavigationManager.self) private var navigationManager
 
     var body: some View {
         VStack {
@@ -12,7 +12,11 @@ struct FriendListView: View {
             }
 
             Button("Go to Setting") {
-                navigationModel.setView(to: .settings)
+                navigationManager.setView(to: .settings)
+            }
+
+            Button("Go to Onboarding") {
+                navigationManager.setView(to: .onboarding)
             }
         }
     }

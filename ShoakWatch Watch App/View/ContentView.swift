@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
-    @Environment(NavigationModel.self) private var navigationModel
+    @Environment(NavigationManager.self) private var navigationManager
     var body: some View {
-        navigationModel.view
+        navigationManager.view
     }
 }
 

@@ -11,24 +11,24 @@ import AppIntents
 @main
 struct ShoakWatch_Watch_AppApp: App {
     private var shoakDataManager: ShoakDataManager
-    private let navigationModel: NavigationModel
+    private let navigationManager: NavigationManager
 
     init() {
         let shoakDataManager = ShoakDataManager.shared
         self.shoakDataManager = shoakDataManager
 
-        let navigationModel = NavigationModel()
-        self.navigationModel = navigationModel
+        let navigationManager = NavigationManager()
+        self.navigationManager = navigationManager
 
         AppDependencyManager.shared.add(dependency: shoakDataManager)
-        AppDependencyManager.shared.add(dependency: navigationModel)
+        AppDependencyManager.shared.add(dependency: navigationManager)
     }
 
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environment(shoakDataManager)
-                .environment(navigationModel)
+                .environment(navigationManager)
         }
     }
 }

@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct WatchSettingView: View {
-    @Environment(NavigationModel.self) private var navigationModel
+    @Environment(NavigationManager.self) private var navigationManager
     var body: some View {
         Text("Setting")
 
         Button("Go to Friend List") {
-            navigationModel.setView(to: .friendList)
+            navigationManager.setView(to: .friendList)
         }
     }
 }

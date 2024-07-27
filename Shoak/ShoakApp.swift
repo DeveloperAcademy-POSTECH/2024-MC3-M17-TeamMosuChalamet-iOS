@@ -11,26 +11,30 @@ import AppIntents
 @main
 struct ShoakApp: App {
     private var shoakDataManager: ShoakDataManager
-    private let navigationModel: NavigationModel
+    private var accountManager: AccountManager
+    private let navigationManager: NavigationManager
 
     init() {
         let shoakDataManager = ShoakDataManager.shared
         self.shoakDataManager = shoakDataManager
 
-        let navigationModel = NavigationModel()
-        self.navigationModel = navigationModel
+        let accountManager = AccountManager.shared
+        self.accountManager = accountManager
+
+        let navigationManager = NavigationManager()
+        self.navigationManager = navigationManager
 
         AppDependencyManager.shared.add(dependency: shoakDataManager)
-        AppDependencyManager.shared.add(dependency: navigationModel)
+        AppDependencyManager.shared.add(dependency: accountManager)
+        AppDependencyManager.shared.add(dependency: navigationManager)
     }
 
     var body: some Scene {
         WindowGroup {
-            //RootView()
-                //.environment(shoakDataManager)
-                //.environment(navigationModel)
-            //MyPageView(useCase: ShoakUseCase())
-            AppleLoginView(useCase: AppleUseCase())
+            RootView()
+                .environment(shoakDataManager)
+                .environment(accountManager)
+                .environment(navigationManager)
         }
     }
 }

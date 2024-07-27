@@ -15,12 +15,12 @@ struct StartShoakProcess: AppIntent {
     static var authenticationPolicy: IntentAuthenticationPolicy = .requiresLocalDeviceAuthentication
 
     func perform() async throws -> some IntentResult {
-        await navigationModel.setView(to: .friendList)
+        await navigationManager.setView(to: .friendList)
         return .result()
     }
 
     @Dependency
-    private var navigationModel: NavigationModel
+    private var navigationManager: NavigationManager
 
     @Dependency
     private var dataManager: ShoakDataManager
