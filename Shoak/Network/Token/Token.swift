@@ -9,12 +9,14 @@ import Foundation
 
 protocol Token: Codable {
     var token: String { get }
+    /// 1970년 1월 1일부터 현재까지 초단위로 센 값
     var expiredTime: TimeInterval { get }
 }
 
 extension Token {
+    /// 1970년 1월 1일부터 현재까지 초단위로 센 값
     var now: TimeInterval {
-        Date().timeIntervalSince1970 * 1000
+        Date().timeIntervalSince1970
     }
 
     func isValidate() -> Bool {
@@ -46,3 +48,7 @@ public struct RefreshToken: Token {
     }
 }
 
+public struct TokenPair: Codable {
+    let accessToken: AccessToken
+    let refreshToken: RefreshToken
+}
