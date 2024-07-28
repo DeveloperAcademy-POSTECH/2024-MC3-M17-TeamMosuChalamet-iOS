@@ -13,6 +13,12 @@ public protocol APIClient {
 }
 
 final public class DefaultAPIClient: APIClient {
+    private let tokenManager: TokenManager
+
+    init(tokenManager: TokenManager) {
+        self.tokenManager = tokenManager
+    }
+
     public func resolve<Target: TargetType>(for target: Target.Type) -> MoyaProvider<Target> {
         return createProvider(for: target)
     }
@@ -37,8 +43,15 @@ extension DefaultAPIClient {
             }
 
             // 헤더에 Authorization 키가 있다면, 그 값을 채워준다.
-            // 1. 먼저 토큰 로직이 Valid한지 검사한다.
-            // 1-1. 토큰 로직이 Valid하지 않는다면 refresh
+            self?.tokenManager.validTokenAndAddHeader(request: request, completion: { tokenValidationResult in
+                switch tokenValidationResult {
+                case .success(let success):
+                    done(.success(success))
+                case .failure(let failure):
+                    print("token validation failed : \(failure.localizedDescription)")
+                    done(.failure(.requestMapping(endpoint.url)))
+                }
+            })
         }
 
         return requestClosure

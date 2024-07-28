@@ -17,7 +17,9 @@ class ShoakDataManager: @unchecked Sendable {
 
     private init() {
         self.friends = .mockData
-        let apiClient = DefaultAPIClient()
+        let refreshAPIService = TokenRefreshAPIService()
+        let tokenManager = TokenManager(refreshAPIService: refreshAPIService)
+        let apiClient = DefaultAPIClient(tokenManager: tokenManager)
         let userRepository = UserRepository(apiClient: apiClient)
         self.userUseCase = UserUseCase(userRepository: userRepository)
     }
