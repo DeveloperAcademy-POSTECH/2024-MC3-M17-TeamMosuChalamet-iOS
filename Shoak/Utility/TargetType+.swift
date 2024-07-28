@@ -8,14 +8,30 @@
 import Foundation
 import Moya
 
-public protocol NeedAuthTargetType: TargetType {}
+public protocol NeedAuthTargetType: TargetType {
+    var contentType: ContentType { get }
+}
 
 extension NeedAuthTargetType {
     public var headers: [String : String]? {
-        var headers = ["Content-Type": "application/json"]
+        var headers = contentType.header
 
 //        headers["Authorization"] = ""
 
         return headers
+    }
+}
+
+public enum ContentType {
+    case json
+    case formData
+
+    var header: [String: String] {
+        switch self {
+        case .json:
+            ["Content-Type": "application/json"]
+        case .formData:
+            ["Content-Type": "multipart/form-data"]
+        }
     }
 }

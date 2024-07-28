@@ -20,7 +20,6 @@ class ShoakDataManager: @unchecked Sendable {
         let apiClient = DefaultAPIClient()
         let userRepository = UserRepository(apiClient: apiClient)
         self.userUseCase = UserUseCase(userRepository: userRepository)
-        refreshFriends()
     }
 
     public func refreshFriends() {

@@ -39,6 +39,7 @@
 		6FC0A1752C554C9E004560E3 /* TMProfileDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0A1732C554C9E004560E3 /* TMProfileDTO.swift */; };
 		6FC0A1772C554CC6004560E3 /* TMProfileVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0A1762C554CC6004560E3 /* TMProfileVO.swift */; };
 		6FC0A1782C554CC6004560E3 /* TMProfileVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0A1762C554CC6004560E3 /* TMProfileVO.swift */; };
+		6FC0A17C2C561499004560E3 /* TestAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6FC0A17B2C561499004560E3 /* TestAssets.xcassets */; };
 		6FF9B7742C4F896800FC0CB2 /* ShoakApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7732C4F896800FC0CB2 /* ShoakApp.swift */; };
 		6FF9B7782C4F896A00FC0CB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6FF9B7772C4F896A00FC0CB2 /* Assets.xcassets */; };
 		6FF9B77B2C4F896A00FC0CB2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6FF9B77A2C4F896A00FC0CB2 /* Preview Assets.xcassets */; };
@@ -130,6 +131,7 @@
 		6FC0A1702C554B40004560E3 /* NetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
 		6FC0A1732C554C9E004560E3 /* TMProfileDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMProfileDTO.swift; sourceTree = "<group>"; };
 		6FC0A1762C554CC6004560E3 /* TMProfileVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMProfileVO.swift; sourceTree = "<group>"; };
+		6FC0A17B2C561499004560E3 /* TestAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = TestAssets.xcassets; sourceTree = "<group>"; };
 		6FF9B7702C4F896800FC0CB2 /* Shoak.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shoak.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FF9B7732C4F896800FC0CB2 /* ShoakApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoakApp.swift; sourceTree = "<group>"; };
 		6FF9B7772C4F896A00FC0CB2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -243,6 +245,7 @@
 			isa = PBXGroup;
 			children = (
 				6FC0A1692C552FAC004560E3 /* UserUseCaseTests.swift */,
+				6FC0A17B2C561499004560E3 /* TestAssets.xcassets */,
 			);
 			path = ShoakTests;
 			sourceTree = "<group>";
@@ -587,6 +590,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FC0A17C2C561499004560E3 /* TestAssets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
