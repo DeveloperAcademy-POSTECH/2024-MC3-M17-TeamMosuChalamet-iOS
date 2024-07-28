@@ -19,8 +19,8 @@ struct MessageComposeView: UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> UIViewController {
         guard let messageComposeVC = useCase.createMessageComposeViewController() else {
             context.coordinator.isPresented = false
-            let alertController = UIAlertController(title: "Error", message: "This device cannot send text messages.", preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "OK", style: .default))
+            let alertController = UIAlertController(title: "에러", message: "이 장치는 문자 메시지를 보낼 수 없습니다.", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "확인", style: .default))
             return alertController
         }
         messageComposeVC.messageComposeDelegate = context.coordinator

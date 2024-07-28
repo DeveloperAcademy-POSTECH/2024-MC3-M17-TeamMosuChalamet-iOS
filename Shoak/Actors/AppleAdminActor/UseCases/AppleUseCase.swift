@@ -38,7 +38,7 @@ class AppleUseCase: NSObject, MFMessageComposeViewControllerDelegate  {
         let messageComposeVC = MFMessageComposeViewController()
         let templateLayout = MSMessageTemplateLayout()
         templateLayout.image = UIImage(systemName: "circle")
-        templateLayout.caption = "caption"
+        templateLayout.caption = "캡션"
         let layout = MSMessageLiveLayout(alternateLayout: templateLayout)
         
         let message = MSMessage()
