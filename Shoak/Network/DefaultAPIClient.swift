@@ -31,12 +31,21 @@ extension DefaultAPIClient {
                 return
             }
 
-            done(.success(request))
+            guard self?.needToken(endpoint) == true else {
+                done(.success(request)) // Authorization 헤더가 없으면 그냥 넘어간다.
+                return
+            }
 
-            // TODO: Token Logic 추가
+            // 헤더에 Authorization 키가 있다면, 그 값을 채워준다.
+            // 1. 먼저 토큰 로직이 Valid한지 검사한다.
+            // 1-1. 토큰 로직이 Valid하지 않는다면 refresh
         }
 
         return requestClosure
+    }
+
+    private func needToken(_ endpoint: Endpoint) -> Bool {
+        endpoint.httpHeaderFields?.keys.contains("Authorization") ?? false
     }
 }
 
