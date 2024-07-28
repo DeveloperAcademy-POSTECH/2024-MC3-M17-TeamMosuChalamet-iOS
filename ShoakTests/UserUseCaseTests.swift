@@ -14,7 +14,7 @@ final class UserUseCaseTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        let apiClient = TestAPIClient()
+        let apiClient = DefaultAPIClient()
         let userRepository = UserRepository(apiClient: apiClient)
         self.userUseCase = UserUseCase(userRepository: userRepository)
     }
@@ -44,7 +44,10 @@ final class UserUseCaseTests: XCTestCase {
     }
 
     func test_프로필_이미지_업로드하기() async throws {
-        let image = UIImage(systemName: "figure.sailing")!
+        guard let image = UIImage(named: "Vinci", in: Bundle(for: type(of: self)), compatibleWith: nil) else {
+            XCTFail("Image not found in test assets")
+            return
+        }
         let result = await userUseCase.uploadProfileImage(image: image)
         switch result {
         case .success(let success):
