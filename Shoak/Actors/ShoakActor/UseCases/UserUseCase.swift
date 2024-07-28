@@ -1,4 +1,9 @@
 import Foundation
+#if canImport(UIKit)
+import UIKit
+#elseif canImport(AppKit)
+import AppKit
+#endif
 
 final class UserUseCase {
     let userRepository: UserRepository
@@ -28,6 +33,38 @@ final class UserUseCase {
             return .failure(failure)
         }
     }
+
+    #if canImport(UIKit)
+    func uploadProfileImage(image: UIImage) async -> Result<TMProfileVO, NetworkError> {
+        let compressionQuality: CGFloat = 0.1 // 압축 퀄리티. 0은 최저품질, 1은 최고품질
+        guard let jpegData = image.jpegData(compressionQuality: compressionQuality) else {
+            return .failure(.other("JPEG 데이터로 만들 수 없는 이미지입니다."))
+        }
+        let result = await userRepository.uploadProfileImage(data: jpegData)
+        switch result {
+        case .success(let dto):
+            let vo = toVO(dto)
+            return .success(vo)
+        case .failure(let failure):
+            return .failure(failure)
+        }
+    }
+    #elseif canImport(AppKit)
+    func uploadProfileImage(image: NSImage) async -> Result<TMProfileVO, NetworkError> {
+        let compressionQuality: CGFloat = 0.1 // 압축 퀄리티. 0은 최저품질, 1은 최고품질
+        guard let jpegData = image.jpegData(compressionQuality: compressionQuality) else {
+            return .failure(.other("JPEG 데이터로 만들 수 없는 이미지입니다."))
+        }
+        let result = await userRepository.uploadProfileImage(data: jpegData)
+        switch result {
+        case .success(let dto):
+            let vo = toVO(dto)
+            return .success(vo)
+        case .failure(let failure):
+            return .failure(failure)
+        }
+    }
+    #endif
 }
 
 // MARK: - Translater

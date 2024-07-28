@@ -34,4 +34,14 @@ final class UserRepository {
             return .failure(.other(failure.localizedDescription))
         }
     }
+
+    func uploadProfileImage(data: Data) async -> Result<TMProfileDTO, NetworkError> {
+        let response = await provider.request(.uploadProfileImage(data: data))
+        switch response {
+        case .success(let success):
+            return NetworkHandler.requestDecoded(by: success)
+        case .failure(let failure):
+            return .failure(.other(failure.localizedDescription))
+        }
+    }
 }

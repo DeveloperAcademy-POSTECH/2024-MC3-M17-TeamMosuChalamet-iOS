@@ -11,6 +11,7 @@ import Moya
 enum UserAPI {
     case getProfile
     case getFriends
+    case uploadProfileImage(data: Data)
 }
 
 extension UserAPI: NeedAuthTargetType {
@@ -20,10 +21,19 @@ extension UserAPI: NeedAuthTargetType {
 
     var path: String {
         switch self {
-        case .getProfile:
+        case .getProfile, .uploadProfileImage:
             "/api/profile"
         case .getFriends:
             "/api/friend"
+        }
+    }
+
+    var contentType: ContentType {
+        switch self {
+        case .getProfile, .getFriends:
+            .json
+        case .uploadProfileImage:
+            .formData
         }
     }
 
@@ -31,6 +41,8 @@ extension UserAPI: NeedAuthTargetType {
         switch self {
         case .getProfile, .getFriends:
             return .get
+        case .uploadProfileImage:
+            return .patch
         }
     }
 
@@ -62,6 +74,15 @@ extension UserAPI: NeedAuthTargetType {
                 ]
                 """.utf8
             )
+        case .uploadProfileImage:
+            return Data(
+                """
+                {
+                    "name": "이빈치",
+                    "imageURL": "https://ada-mc3.s3.ap-northeast-2.amazonaws.com/profile/a7b899ae-528e-4e37-a6f1-e9ac08ab50c9vinci.jpeg"
+                }
+                """.utf8
+            )
         }
     }
 
@@ -69,6 +90,12 @@ extension UserAPI: NeedAuthTargetType {
         switch self {
         case .getProfile, .getFriends:
             return .requestPlain
+        case let .uploadProfileImage(data):
+            let jpegData = MultipartFormData(provider: .data(data), name: "profileImage", fileName: "example.jpeg", mimeType: "image/jpeg")
+
+            let multipartData: [MultipartFormData] = [jpegData]
+
+            return .uploadMultipart(multipartData)
         }
     }
 }

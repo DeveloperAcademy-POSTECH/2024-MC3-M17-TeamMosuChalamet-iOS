@@ -43,6 +43,18 @@ final class UserUseCaseTests: XCTestCase {
         }
     }
 
+    func test_프로필_이미지_업로드하기() async throws {
+        let image = UIImage(systemName: "figure.sailing")!
+        let result = await userUseCase.uploadProfileImage(image: image)
+        switch result {
+        case .success(let success):
+            dump(success)
+            XCTAssert((success as Any) is TMProfileVO)
+        case .failure(let failure):
+            XCTFail(failure.errorDescription)
+        }
+    }
+
 //    func testPerformanceExample() throws {
 //        // This is an example of a performance test case.
 //        self.measure {
