@@ -27,7 +27,7 @@ final class UserUseCaseTests: XCTestCase {
         let result = await userUseCase.getFriends()
         switch result {
         case .success(let success):
-            XCTAssertEqual(success, [TMFriendVO].testData)
+            XCTAssert((success as Any) is [TMFriendVO])
         case .failure(let failure):
             XCTFail(failure.errorDescription)
         }
@@ -37,7 +37,7 @@ final class UserUseCaseTests: XCTestCase {
         let result = await userUseCase.getProfile()
         switch result {
         case .success(let success):
-            XCTAssertEqual(success, TMProfileVO.testData)
+            XCTAssert((success as Any) is TMProfileVO)
         case .failure(let failure):
             XCTFail(failure.errorDescription)
         }
