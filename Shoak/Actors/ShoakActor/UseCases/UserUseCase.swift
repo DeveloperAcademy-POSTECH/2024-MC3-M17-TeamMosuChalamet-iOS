@@ -1,20 +1,46 @@
 import Foundation
 
 final class UserUseCase {
-    func getProfile(id: TMMemberID) -> Result<TMProfileVO, Errors> {
-        let serverData: TMProfileDTO = .mockData // 서버 통신 후 가져온 DTO
-        return .success(toVO(serverData)) // VO를 리턴
+    let userRepository: UserRepository
+
+    init(userRepository: UserRepository) {
+        self.userRepository = userRepository
     }
 
-    func getFriends(id: TMMemberID) -> Result<[TMProfileVO], Errors> {
-        return .success(.mockData)
+    func getProfile() async -> Result<TMProfileVO, NetworkError> {
+        let result = await userRepository.getProfile()
+        switch result {
+        case .success(let dto):
+            let vo = toVO(dto)
+            return .success(vo)
+        case .failure(let failure):
+            return .failure(failure)
+        }
     }
 
+    func getFriends() async -> Result<[TMFriendVO], NetworkError> {
+        let result = await userRepository.getFriends()
+        switch result {
+        case .success(let dto):
+            let vo = dto.map(toVO)
+            return .success(vo)
+        case .failure(let failure):
+            return .failure(failure)
+        }
+    }
 }
 
 // MARK: - Translater
 extension UserUseCase {
+    private func toVO(_ dto: TMFriendDTO) -> TMFriendVO {
+        TMFriendVO(
+            memberID: dto.id,
+            imageURLString: dto.imageURL,
+            name: dto.name
+        )
+    }
+
     private func toVO(_ dto: TMProfileDTO) -> TMProfileVO {
-        return TMProfileVO.mockData
+        TMProfileVO(name: dto.name, imageURL: dto.imageURL)
     }
 }

@@ -2,31 +2,18 @@
 //  TMProfileVO.swift
 //  Shoak
 //
-//  Created by 정종인 on 7/24/24.
+//  Created by 정종인 on 7/28/24.
 //
 
-import SwiftUI
+import Foundation
 
-struct TMProfileVO {
-    var memberID: TMMemberID
-    var imageURLString: String?
+struct TMProfileVO: Codable, Equatable {
     var name: String
+    var imageURL: String?
 }
 
 extension TMProfileVO {
-    static var mockData: TMProfileVO {
-        TMProfileVO(memberID: "TestData from VO", imageURLString: "https://picsum.photos/200/200", name: "TestName from VO")
-    }
-    static var mockData2: TMProfileVO {
-        TMProfileVO(memberID: "TestData from VO 2", imageURLString: "https://picsum.photos/200/200", name: "TestName from VO 2")
-    }
-}
-
-extension Array where Element == TMProfileVO {
-    static var mockData: [Element] {
-        [
-            .mockData,
-            .mockData2
-        ]
+    static var testData: TMProfileVO {
+        TMProfileVO(name: "이빈치", imageURL: "https://ada-mc3.s3.ap-northeast-2.amazonaws.com/profile/a7b899ae-528e-4e37-a6f1-e9ac08ab50c9vinci.jpeg")
     }
 }

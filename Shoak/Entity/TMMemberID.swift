@@ -7,4 +7,4 @@
 
 import Foundation
 
-typealias TMMemberID = String
+typealias TMMemberID = Int64
