@@ -43,7 +43,7 @@ class AppleUseCase: NSObject, MFMessageComposeViewControllerDelegate  {
         
         let message = MSMessage()
         message.layout = layout
-        message.summaryText = "메세지 요약 텍스트"
+        message.summaryText = "shoak 친구 초대 메세지"
         
         messageComposeVC.message = message
         messageComposeVC.body = "친구 초대 메세지입니다."
