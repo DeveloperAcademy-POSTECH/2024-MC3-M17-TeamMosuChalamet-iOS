@@ -56,15 +56,6 @@ extension DefaultAPIClient {
                     done(.failure(.requestMapping(endpoint.url)))
                 }
             }
-//            self?.tokenManager.validTokenAndAddHeader(request: request, completion: { tokenValidationResult in
-//                switch tokenValidationResult {
-//                case .success(let success):
-//                    done(.success(success))
-//                case .failure(let failure):
-//                    print("token validation failed : \(failure.localizedDescription)")
-//                    done(.failure(.requestMapping(endpoint.url)))
-//                }
-//            })
         }
 
         return requestClosure
