@@ -43,15 +43,28 @@ extension DefaultAPIClient {
             }
 
             // 헤더에 Authorization 키가 있다면, 그 값을 채워준다.
-            self?.tokenManager.validTokenAndAddHeader(request: request, completion: { tokenValidationResult in
-                switch tokenValidationResult {
+            _Concurrency.Task.detached { [self] in
+                guard let validResult = await self?.tokenManager.validTokenAndAddHeader(request: request) else {
+                    return
+                }
+
+                switch validResult {
                 case .success(let success):
                     done(.success(success))
                 case .failure(let failure):
                     print("token validation failed : \(failure.localizedDescription)")
                     done(.failure(.requestMapping(endpoint.url)))
                 }
-            })
+            }
+//            self?.tokenManager.validTokenAndAddHeader(request: request, completion: { tokenValidationResult in
+//                switch tokenValidationResult {
+//                case .success(let success):
+//                    done(.success(success))
+//                case .failure(let failure):
+//                    print("token validation failed : \(failure.localizedDescription)")
+//                    done(.failure(.requestMapping(endpoint.url)))
+//                }
+//            })
         }
 
         return requestClosure
