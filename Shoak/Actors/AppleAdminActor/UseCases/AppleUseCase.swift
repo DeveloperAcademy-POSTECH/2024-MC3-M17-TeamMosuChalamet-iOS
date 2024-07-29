@@ -24,6 +24,7 @@ class AppleUseCase: NSObject, MFMessageComposeViewControllerDelegate  {
             
             print("userID : \(userIdentifier)")
             print("name :  \(name)")
+            print("token : \(token)")
         default:
             break
         }
