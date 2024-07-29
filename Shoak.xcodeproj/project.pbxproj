@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E2168252C5686D8007463D0 /* Messages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E2168242C5686D8007463D0 /* Messages.framework */; };
+		1E2168282C5686D8007463D0 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2168272C5686D8007463D0 /* MessagesViewController.swift */; };
+		1E21682B2C5686D8007463D0 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 1E21682A2C5686D8007463D0 /* Base */; };
+		1E21682D2C5686D8007463D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E21682C2C5686D8007463D0 /* Assets.xcassets */; };
+		1E2168312C5686D8007463D0 /* InviteFriends.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 1E2168232C5686D8007463D0 /* InviteFriends.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		1E2168382C5689BF007463D0 /* MessageComposeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2168372C5689BF007463D0 /* MessageComposeView.swift */; };
 		1E2939802C51E00D00B321DC /* AppleLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E29397F2C51E00D00B321DC /* AppleLoginView.swift */; };
 		1E2939822C51E07E00B321DC /* AppleUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2939812C51E07E00B321DC /* AppleUseCase.swift */; };
 		1E2939852C51F2A200B321DC /* AppleSignInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2939842C51F2A200B321DC /* AppleSignInButton.swift */; };
@@ -78,6 +84,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		1E21682F2C5686D8007463D0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6FF9B7682C4F896800FC0CB2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1E2168222C5686D8007463D0;
+			remoteInfo = InviteFriends;
+		};
 		6FC0A1642C552E3F004560E3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6FF9B7682C4F896800FC0CB2 /* Project object */;
@@ -95,6 +108,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		1E2168362C5686D8007463D0 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				1E2168312C5686D8007463D0 /* InviteFriends.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6FF9B7CB2C52378C00FC0CB2 /* Embed Watch Content */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -109,6 +133,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1E2168232C5686D8007463D0 /* InviteFriends.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = InviteFriends.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E2168242C5686D8007463D0 /* Messages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Messages.framework; path = System/Library/Frameworks/Messages.framework; sourceTree = SDKROOT; };
+		1E2168272C5686D8007463D0 /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
+		1E21682A2C5686D8007463D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		1E21682C2C5686D8007463D0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1E21682E2C5686D8007463D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1E2168372C5689BF007463D0 /* MessageComposeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageComposeView.swift; sourceTree = "<group>"; };
 		1E29397E2C51DF1900B321DC /* Shoak.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Shoak.entitlements; sourceTree = "<group>"; };
 		1E29397F2C51E00D00B321DC /* AppleLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginView.swift; sourceTree = "<group>"; };
 		1E2939812C51E07E00B321DC /* AppleUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleUseCase.swift; sourceTree = "<group>"; };
@@ -162,6 +193,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		1E2168202C5686D8007463D0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1E2168252C5686D8007463D0 /* Messages.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6FC0A15D2C552E3F004560E3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -188,6 +227,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1E2168262C5686D8007463D0 /* InviteFriends */ = {
+			isa = PBXGroup;
+			children = (
+				1E2168272C5686D8007463D0 /* MessagesViewController.swift */,
+				1E2168292C5686D8007463D0 /* MainInterface.storyboard */,
+				1E21682C2C5686D8007463D0 /* Assets.xcassets */,
+				1E21682E2C5686D8007463D0 /* Info.plist */,
+			);
+			path = InviteFriends;
+			sourceTree = "<group>";
+		};
 		1E2939832C51F24A00B321DC /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -208,6 +258,7 @@
 		6FC0A1322C5519C8004560E3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1E2168242C5686D8007463D0 /* Messages.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -257,6 +308,7 @@
 				6FF9B7722C4F896800FC0CB2 /* Shoak */,
 				6FF9B7BB2C52378B00FC0CB2 /* ShoakWatch Watch App */,
 				6FC0A1612C552E3F004560E3 /* ShoakTests */,
+				1E2168262C5686D8007463D0 /* InviteFriends */,
 				6FF9B7712C4F896800FC0CB2 /* Products */,
 				6FC0A1322C5519C8004560E3 /* Frameworks */,
 			);
@@ -268,6 +320,7 @@
 				6FF9B7702C4F896800FC0CB2 /* Shoak.app */,
 				6FF9B7BA2C52378B00FC0CB2 /* ShoakWatch Watch App.app */,
 				6FC0A1602C552E3F004560E3 /* ShoakTests.xctest */,
+				1E2168232C5686D8007463D0 /* InviteFriends.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -433,6 +486,7 @@
 			isa = PBXGroup;
 			children = (
 				1E29397F2C51E00D00B321DC /* AppleLoginView.swift */,
+				1E2168372C5689BF007463D0 /* MessageComposeView.swift */,
 				1E2939832C51F24A00B321DC /* Components */,
 			);
 			path = View;
@@ -479,6 +533,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		1E2168222C5686D8007463D0 /* InviteFriends */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1E2168322C5686D8007463D0 /* Build configuration list for PBXNativeTarget "InviteFriends" */;
+			buildPhases = (
+				1E21681F2C5686D8007463D0 /* Sources */,
+				1E2168202C5686D8007463D0 /* Frameworks */,
+				1E2168212C5686D8007463D0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = InviteFriends;
+			productName = InviteFriends;
+			productReference = 1E2168232C5686D8007463D0 /* InviteFriends.appex */;
+			productType = "com.apple.product-type.app-extension.messages";
+		};
 		6FC0A15F2C552E3F004560E3 /* ShoakTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6FC0A1662C552E3F004560E3 /* Build configuration list for PBXNativeTarget "ShoakTests" */;
@@ -505,11 +576,13 @@
 				6FF9B76D2C4F896800FC0CB2 /* Frameworks */,
 				6FF9B76E2C4F896800FC0CB2 /* Resources */,
 				6FF9B7CB2C52378C00FC0CB2 /* Embed Watch Content */,
+				1E2168362C5686D8007463D0 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				6FF9B7C62C52378C00FC0CB2 /* PBXTargetDependency */,
+				1E2168302C5686D8007463D0 /* PBXTargetDependency */,
 			);
 			name = Shoak;
 			packageProductDependencies = (
@@ -549,6 +622,9 @@
 				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 1540;
 				TargetAttributes = {
+					1E2168222C5686D8007463D0 = {
+						CreatedOnToolsVersion = 15.4;
+					};
 					6FC0A15F2C552E3F004560E3 = {
 						CreatedOnToolsVersion = 15.4;
 						TestTargetID = 6FF9B76F2C4F896800FC0CB2;
@@ -581,11 +657,21 @@
 				6FF9B76F2C4F896800FC0CB2 /* Shoak */,
 				6FF9B7B92C52378B00FC0CB2 /* ShoakWatch Watch App */,
 				6FC0A15F2C552E3F004560E3 /* ShoakTests */,
+				1E2168222C5686D8007463D0 /* InviteFriends */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		1E2168212C5686D8007463D0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1E21682D2C5686D8007463D0 /* Assets.xcassets in Resources */,
+				1E21682B2C5686D8007463D0 /* Base in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6FC0A15E2C552E3F004560E3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -617,6 +703,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1E21681F2C5686D8007463D0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1E2168282C5686D8007463D0 /* MessagesViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6FC0A15C2C552E3F004560E3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -646,6 +740,7 @@
 				6FF9B7A42C50E8A000FC0CB2 /* TMMemberID.swift in Sources */,
 				6FF9B7A22C50E88300FC0CB2 /* TMFriendDTO.swift in Sources */,
 				6FF9B7A62C50E90100FC0CB2 /* TMFriendVO.swift in Sources */,
+				1E2168382C5689BF007463D0 /* MessageComposeView.swift in Sources */,
 				6FF9B7B52C52211A00FC0CB2 /* RootView.swift in Sources */,
 				6FF9B79C2C50E6D700FC0CB2 /* SampleUseCase2.swift in Sources */,
 				6FC0A1772C554CC6004560E3 /* TMProfileVO.swift in Sources */,
@@ -699,6 +794,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		1E2168302C5686D8007463D0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1E2168222C5686D8007463D0 /* InviteFriends */;
+			targetProxy = 1E21682F2C5686D8007463D0 /* PBXContainerItemProxy */;
+		};
 		6FC0A1652C552E3F004560E3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 6FF9B76F2C4F896800FC0CB2 /* Shoak */;
@@ -711,7 +811,111 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		1E2168292C5686D8007463D0 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1E21682A2C5686D8007463D0 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		1E2168332C5686D8007463D0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = R62RZ89ZRU;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = InviteFriends/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = InviteFriends;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ADA.mosuchalamet.Shoak.InviteFriends;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Shoak Message iOS Development";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1E2168342C5686D8007463D0 /* TEST */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = R62RZ89ZRU;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = InviteFriends/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = InviteFriends;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ADA.mosuchalamet.Shoak.InviteFriends;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Shoak Message iOS Development";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = TEST;
+		};
+		1E2168352C5686D8007463D0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = R62RZ89ZRU;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = InviteFriends/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = InviteFriends;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ADA.mosuchalamet.Shoak.InviteFriends;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Shoak Message iOS Development";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		6FC0A1672C552E3F004560E3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -816,10 +1020,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Shoak/Shoak.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Shoak/Preview Content\"";
-				DEVELOPMENT_TEAM = R62RZ89ZRU;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = R62RZ89ZRU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Shoak/Info.plist;
@@ -833,8 +1039,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = team.mosuchalamet.Shoak;
+				PRODUCT_BUNDLE_IDENTIFIER = ADA.mosuchalamet.Shoak;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Shoak iOS Development";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -846,23 +1054,27 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ShoakWatch Watch App/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=watchos*]" = R62RZ89ZRU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ShoakWatch-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = ShoakWatch;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = team.mosuchalamet.Shoak;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = ADA.mosuchalamet.Shoak;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = team.mosuchalamet.Shoak.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = ADA.mosuchalamet.Shoak.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=watchos*]" = "Shoak Watch iOS Development";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1015,10 +1227,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Shoak/Shoak.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Shoak/Preview Content\"";
-				DEVELOPMENT_TEAM = R62RZ89ZRU;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = R62RZ89ZRU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Shoak/Info.plist;
@@ -1032,8 +1246,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = team.mosuchalamet.Shoak;
+				PRODUCT_BUNDLE_IDENTIFIER = ADA.mosuchalamet.Shoak;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Shoak iOS Development";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1047,10 +1263,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Shoak/Shoak.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Shoak/Preview Content\"";
-				DEVELOPMENT_TEAM = R62RZ89ZRU;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = R62RZ89ZRU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Shoak/Info.plist;
@@ -1064,8 +1282,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = team.mosuchalamet.Shoak;
+				PRODUCT_BUNDLE_IDENTIFIER = ADA.mosuchalamet.Shoak;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Shoak iOS Development";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1077,23 +1297,27 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ShoakWatch Watch App/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=watchos*]" = R62RZ89ZRU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ShoakWatch-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = ShoakWatch;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = team.mosuchalamet.Shoak;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = ADA.mosuchalamet.Shoak;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = team.mosuchalamet.Shoak.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = ADA.mosuchalamet.Shoak.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=watchos*]" = "Shoak Watch iOS Development";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1108,23 +1332,27 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ShoakWatch Watch App/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=watchos*]" = R62RZ89ZRU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ShoakWatch-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = ShoakWatch;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = team.mosuchalamet.Shoak;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = ADA.mosuchalamet.Shoak;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = team.mosuchalamet.Shoak.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = ADA.mosuchalamet.Shoak.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=watchos*]" = "Shoak Watch iOS Development";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1137,6 +1365,16 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1E2168322C5686D8007463D0 /* Build configuration list for PBXNativeTarget "InviteFriends" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1E2168332C5686D8007463D0 /* Debug */,
+				1E2168342C5686D8007463D0 /* TEST */,
+				1E2168352C5686D8007463D0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		6FC0A1662C552E3F004560E3 /* Build configuration list for PBXNativeTarget "ShoakTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
