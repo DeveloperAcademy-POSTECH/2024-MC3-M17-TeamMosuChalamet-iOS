@@ -25,6 +25,7 @@ final public class TokenManager {
     }
 
     /// URLRequest에 대해 토큰이 유효하다면 Authorization 헤더에 Bearer 토큰 붙여주는 로직 (async/await 기반)
+    /// 이 함수를 부르기 전에 토큰을 붙이는 것이 필요한지 먼저 검사하십시오.
     /// - Parameter request: 토큰을 추가하고 싶은 요청
     /// - Returns: 토큰이 헤더에 추가된 요청. refresh token 만료 시 토큰에러
     func validTokenAndAddHeader(request: URLRequest) async -> Result<URLRequest, TokenError> {
