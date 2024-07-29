@@ -38,17 +38,17 @@ final public class TokenManager {
         // access Token이 만료되었으므로 refreshToken을 활용해서 refresh하기
         // (접근할 때 자동으로 만료 체크 함)
         if let refreshToken {
-            Task {
-                let refreshResult = await refreshAPIService.refresh(with: refreshToken)
+            Task.detached { [self]
+                let refreshResult = await self.refreshAPIService.refresh(with: refreshToken)
                 switch refreshResult {
                 case .success(let success):
                     self.accessToken = success.accessToken
                     self.refreshToken = success.refreshToken
-                    guard let newAccessToken = accessToken else {
+                    guard let newAccessToken = self.accessToken else {
                         completion(.failure(.cannotRefreshToken))
                         return
                     }
-                    completion(addBearerHeader(request, with: newAccessToken))
+                    completion(self.addBearerHeader(request, with: newAccessToken))
                     return
                 case .failure(let failure):
                     print("refresh failed : \(failure)")

@@ -12,40 +12,100 @@ final class TokenManagerTests: XCTestCase {
 
     var tokenManager: TokenManager!
 
+    var now: TimeInterval {
+        Date().timeIntervalSince1970
+    }
+
+    var testURLRequest: URLRequest {
+        try! URLRequest(url: URL(string: "https://mosu.blog")!, method: .get, headers: ["Authorization": ""])
+    }
+
+    var sampleAccessTokenString: String {
+        "abcdabcdabcd"
+    }
+
+    var sampleRefreshTokenString: String {
+        "bcdbcdbcdbcd"
+    }
+
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
 
-        tokenManager = TokenManager(refreshAPIService: TokenRefreshAPIService())
+        tokenManager = TokenManager(refreshAPIService: TokenRefreshAPIService(isTesting: true))
     }
 
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func test_엑세스_토큰이_유효할_때_헤더가_잘_갱신되는지() throws {
-        let now = Date().timeIntervalSince1970
-        let accessTokenExpiredTime = Int(now + 60) // 60초
-        let refreshTokenExpiredTime = Int(now + 600) // 600초
-        let sampleAccessToken = AccessToken(token: "abcdabcdabcd", expiredIn: accessTokenExpiredTime)
-        let sampleRefreshToken = RefreshToken(token: "bcdbcdbcdbcd", expiredIn: refreshTokenExpiredTime)
+    private func storeExampleAccessTokens(accessTokenExpiredTime: Int, refreshTokenExpiredTime: Int) {
+        let accessTokenExpiredTime = Int(accessTokenExpiredTime)
+        let refreshTokenExpiredTime = Int(refreshTokenExpiredTime)
+        let sampleAccessToken = AccessToken(token: sampleAccessTokenString, expiredIn: accessTokenExpiredTime)
+        let sampleRefreshToken = RefreshToken(token: sampleRefreshTokenString, expiredIn: refreshTokenExpiredTime)
 
         tokenManager.save(sampleAccessToken)
         tokenManager.save(sampleRefreshToken)
+    }
 
-        let testURLRequest = try! URLRequest(url: URL(string: "https://mosu.blog")!, method: .get, headers: ["Authorization": ""])
+    func test_엑세스_토큰이_유효할_때_헤더가_잘_갱신되는지() throws {
+        let accessTokenExpiredTime = Int(now + 60) // 60초
+        let refreshTokenExpiredTime = Int(now + 600) // 600초
+
+        storeExampleAccessTokens(accessTokenExpiredTime: accessTokenExpiredTime, refreshTokenExpiredTime: refreshTokenExpiredTime)
+
 
         tokenManager.validTokenAndAddHeader(request: testURLRequest) { validationResult in
             switch validationResult {
             case .success(let success):
-                XCTAssertEqual(success.headers["Authorization"]!, "Bearer " + sampleAccessToken.token)
+                XCTAssertEqual(success.headers["Authorization"]!, "Bearer " + self.sampleAccessTokenString)
             case .failure:
                 XCTFail()
             }
         }
     }
 
-    func test_엑세스_토큰이_유효하지_않을_때_헤더가_잘_갱신되는지() throws {
-        // TODO: 실제 서버 연동 필요
+    func test_TokenRefreshAPI가_잘_작동하는지() throws {
+        let promise = XCTestExpectation(description: "TokenRefreshAPI가 잘 작동하는지 확인합니다.")
+        let accessTokenExpiredTime = Int(now + -60) // -60초
+        let refreshTokenExpiredTime = Int(now + 600) // 600초
+
+        storeExampleAccessTokens(accessTokenExpiredTime: accessTokenExpiredTime, refreshTokenExpiredTime: refreshTokenExpiredTime)
+
+        tokenManager.validTokenAndAddHeader(request: testURLRequest) { validationResult in
+            switch validationResult {
+            case .success(let success):
+                let convertedAuthHeader = success.headers["Authorization"]!
+                print("바뀐 토큰 헤더 : \(convertedAuthHeader).")
+                XCTAssertNotEqual(convertedAuthHeader, "Bearer ")
+                XCTAssertNotEqual(convertedAuthHeader, "Bearer " + self.sampleAccessTokenString)
+                promise.fulfill()
+            case .failure:
+                XCTFail()
+            }
+        }
+
+        wait(for: [promise], timeout: 10.0)
+    }
+
+    func test_리프레쉬_토큰도_만료되었을_때_오류_잘_던지는지() throws {
+        let promise = XCTestExpectation(description: "TokenRefreshAPI가 리프레쉬 토큰이 만료되었을 때 오류를 잘 전달하는지 확인합니다.")
+        let accessTokenExpiredTime = Int(now + -60) // -60초
+        let refreshTokenExpiredTime = Int(now + -600) // -600초
+
+        storeExampleAccessTokens(accessTokenExpiredTime: accessTokenExpiredTime, refreshTokenExpiredTime: refreshTokenExpiredTime)
+
+        tokenManager.validTokenAndAddHeader(request: testURLRequest) { validationResult in
+            switch validationResult {
+            case .success(let success):
+                XCTFail()
+            case .failure(let failure):
+                XCTAssertEqual(failure, TokenError.refreshTokenExpired)
+                promise.fulfill()
+            }
+        }
+
+        wait(for: [promise], timeout: 10.0)
     }
 
 }
