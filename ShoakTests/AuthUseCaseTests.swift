@@ -14,7 +14,7 @@ final class AuthUseCaseTests: XCTestCase {
     var authUseCase: AuthUseCase!
 
     override func setUpWithError() throws {
-        let apiClient = AuthTestAPIClient()
+        let apiClient = TestAPIClient()
 //        let apiClient = DefaultAPIClient(tokenManager: TokenManager(refreshAPIService: TokenRefreshAPIService(isTesting: true)))
         self.apiClient = apiClient
         let repository = AuthRepository(apiClient: apiClient)
