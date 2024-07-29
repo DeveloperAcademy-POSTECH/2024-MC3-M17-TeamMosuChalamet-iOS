@@ -39,7 +39,7 @@ extension TokenRefreshAPI: TargetType {
 
     var sampleData: Data {
         switch self {
-        case .refresh(let refreshToken):
+        case .refresh:
             return Data(
                 """
                 {

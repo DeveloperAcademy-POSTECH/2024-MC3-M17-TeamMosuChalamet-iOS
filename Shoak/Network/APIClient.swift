@@ -12,8 +12,12 @@ public protocol APIClient {
     func resolve<Target: TargetType>(for target: Target.Type) -> MoyaProvider<Target>
 }
 
-final public class DefaultAPIClient: APIClient {
-    private let tokenManager: TokenManager
+public protocol TokenManagable {
+    var tokenManager: TokenManager { get }
+}
+
+final public class DefaultAPIClient: APIClient, TokenManagable {
+    public let tokenManager: TokenManager
 
     init(tokenManager: TokenManager) {
         self.tokenManager = tokenManager
@@ -27,7 +31,7 @@ final public class DefaultAPIClient: APIClient {
 extension DefaultAPIClient {
     private func createProvider<Target: TargetType>(for target: Target.Type) -> MoyaProvider<Target> {
         let request = createRequest(for: target)
-        return MoyaProvider<Target>(requestClosure: request, plugins: []) // TODO: Logger 추가하기
+        return MoyaProvider<Target>(requestClosure: request, plugins: [StoreTokenPlugin(tokenManager: tokenManager), LoggerPlugin()])
     }
 
     private func createRequest<Target: TargetType>(for target: Target.Type) -> MoyaProvider<Target>.RequestClosure {
@@ -77,6 +81,24 @@ public final class TestAPIClient: APIClient {
                 httpHeaderFields: target.headers
             )
         }
-        return MoyaProvider<Target>(endpointClosure: customEndpointClosure, stubClosure: MoyaProvider.immediatelyStub)
+        return MoyaProvider<Target>(endpointClosure: customEndpointClosure, stubClosure: MoyaProvider.immediatelyStub, plugins: [LoggerPlugin()])
+    }
+}
+
+/// 헤더에 토큰 설정을 추가하는 테스트 API Client
+public final class AuthTestAPIClient: APIClient, TokenManagable {
+    public var tokenManager = TokenManager(refreshAPIService: TokenRefreshAPIService(isTesting: true))
+
+    public func resolve<Target: TargetType>(for target: Target.Type) -> MoyaProvider<Target> {
+        let customEndpointClosure = { (target: Target) -> Endpoint in
+            Endpoint(
+                url: URL(target: target).absoluteString,
+                sampleResponseClosure: { .networkResponse(200, target.sampleData) },
+                method: target.method,
+                task: target.task,
+                httpHeaderFields: target.headers
+            )
+        }
+        return MoyaProvider<Target>(endpointClosure: customEndpointClosure, stubClosure: MoyaProvider.immediatelyStub, plugins: [LoggerPlugin(), StoreTokenPlugin(tokenManager: TokenManager(refreshAPIService: TokenRefreshAPIService(isTesting: true)))])
     }
 }

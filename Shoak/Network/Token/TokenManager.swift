@@ -74,6 +74,14 @@ public extension TokenManager {
         self.refreshToken = refreshToken
     }
 
+    func getAccessToken() -> AccessToken? {
+        self.accessToken
+    }
+
+    func getRefreshToken() -> RefreshToken? {
+        self.refreshToken
+    }
+
     func deleteAllTokens() {
         self.accessToken = nil
         self.refreshToken = nil
