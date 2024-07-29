@@ -37,6 +37,26 @@ extension TokenRefreshAPI: TargetType {
         return headers
     }
 
+    var sampleData: Data {
+        switch self {
+        case .refresh(let refreshToken):
+            return Data(
+                """
+                {
+                    "accessToken": {
+                        "token": "accessaccessaccessaccess",
+                        "expiredTime": 2000000000
+                    },
+                    "refreshToken": {
+                        "token": "refreshrefreshrefreshrefresh",
+                        "expiredTime": 2000000000
+                    }
+                }
+                """.utf8 // TODO: 샘플데이터 손보기
+            )
+        }
+    }
+
     var task: Task {
         switch self {
         case .refresh(let refreshToken):

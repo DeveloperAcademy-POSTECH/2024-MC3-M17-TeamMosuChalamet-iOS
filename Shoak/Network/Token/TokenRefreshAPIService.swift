@@ -9,9 +9,15 @@ import Foundation
 import Moya
 
 final public class TokenRefreshAPIService {
-    let provider = MoyaProvider<TokenRefreshAPI>()
+    let provider: MoyaProvider<TokenRefreshAPI>
 
-    public init() {}
+    public init(isTesting: Bool = false) {
+        if isTesting {
+            provider = TokenRefreshAPIService.testingProvider()
+        } else {
+            provider = MoyaProvider<TokenRefreshAPI>()
+        }
+    }
 
     func refresh(with refreshToken: RefreshToken) async -> Result<TokenPair, NetworkError> {
         let response = await provider.request(.refresh(refreshToken))
@@ -22,5 +28,18 @@ final public class TokenRefreshAPIService {
             print("cannot refresh token : \(failure)")
             return .failure(.networkFail)
         }
+    }
+
+    private static func testingProvider() -> MoyaProvider<TokenRefreshAPI> {
+        let customEndpointClosure = { (target: TokenRefreshAPI) -> Endpoint in
+            Endpoint(
+                url: URL(target: target).absoluteString,
+                sampleResponseClosure: { .networkResponse(200, target.sampleData) },
+                method: .get,
+                task: target.task,
+                httpHeaderFields: target.headers
+            )
+        }
+        return MoyaProvider<TokenRefreshAPI>(endpointClosure: customEndpointClosure, stubClosure: MoyaProvider.immediatelyStub)
     }
 }
