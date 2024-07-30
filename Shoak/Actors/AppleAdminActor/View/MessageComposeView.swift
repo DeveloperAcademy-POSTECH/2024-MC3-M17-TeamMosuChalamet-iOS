@@ -10,7 +10,7 @@ import MessageUI
 
 struct MessageComposeView: UIViewControllerRepresentable {
     @Binding var isPresented: Bool
-    let useCase: AppleUseCase
+    let useCase: InvitationUseCase
 
     func makeCoordinator() -> Coordinator {
         Coordinator(isPresented: $isPresented)

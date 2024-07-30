@@ -13,8 +13,14 @@
 		1E21682D2C5686D8007463D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E21682C2C5686D8007463D0 /* Assets.xcassets */; };
 		1E2168312C5686D8007463D0 /* InviteFriends.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 1E2168232C5686D8007463D0 /* InviteFriends.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		1E2168382C5689BF007463D0 /* MessageComposeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2168372C5689BF007463D0 /* MessageComposeView.swift */; };
+		1E2168402C578011007463D0 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1E21683F2C578011007463D0 /* SnapKit */; };
+		1E2168432C57DA55007463D0 /* AppleUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2939812C51E07E00B321DC /* AppleUseCase.swift */; };
+		1E2168452C57E67F007463D0 /* InviteFriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2168442C57E67F007463D0 /* InviteFriendsView.swift */; };
+		1E21684B2C586F01007463D0 /* InvitationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E21684A2C586F01007463D0 /* InvitationManager.swift */; };
+		1E21684F2C587223007463D0 /* InvitationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E21684E2C587223007463D0 /* InvitationUseCase.swift */; };
+		1E2168542C58751E007463D0 /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2168532C58751E007463D0 /* ColorManager.swift */; };
+		1E2168582C5876B6007463D0 /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2168572C5876B6007463D0 /* FontManager.swift */; };
 		1E2939802C51E00D00B321DC /* AppleLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E29397F2C51E00D00B321DC /* AppleLoginView.swift */; };
-		1E2939822C51E07E00B321DC /* AppleUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2939812C51E07E00B321DC /* AppleUseCase.swift */; };
 		1E2939852C51F2A200B321DC /* AppleSignInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2939842C51F2A200B321DC /* AppleSignInButton.swift */; };
 		6FC0A12A2C54C82B004560E3 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0A1292C54C82B004560E3 /* LoginView.swift */; };
 		6FC0A12C2C54CA29004560E3 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0A12B2C54CA29004560E3 /* OnboardingView.swift */; };
@@ -64,10 +70,8 @@
 		6FF9B7782C4F896A00FC0CB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6FF9B7772C4F896A00FC0CB2 /* Assets.xcassets */; };
 		6FF9B77B2C4F896A00FC0CB2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6FF9B77A2C4F896A00FC0CB2 /* Preview Assets.xcassets */; };
 		6FF9B7922C50E6A000FC0CB2 /* FriendListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7912C50E6A000FC0CB2 /* FriendListView.swift */; };
-		6FF9B7942C50E6A700FC0CB2 /* SwiftUIView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7932C50E6A700FC0CB2 /* SwiftUIView2.swift */; };
 		6FF9B7962C50E6B300FC0CB2 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7952C50E6B300FC0CB2 /* SettingView.swift */; };
 		6FF9B79A2C50E6CB00FC0CB2 /* UserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7992C50E6CB00FC0CB2 /* UserUseCase.swift */; };
-		6FF9B79C2C50E6D700FC0CB2 /* SampleUseCase2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B79B2C50E6D700FC0CB2 /* SampleUseCase2.swift */; };
 		6FF9B79E2C50E6DE00FC0CB2 /* AccountUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B79D2C50E6DE00FC0CB2 /* AccountUseCase.swift */; };
 		6FF9B7A22C50E88300FC0CB2 /* TMFriendDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7A12C50E88300FC0CB2 /* TMFriendDTO.swift */; };
 		6FF9B7A42C50E8A000FC0CB2 /* TMMemberID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7A32C50E8A000FC0CB2 /* TMMemberID.swift */; };
@@ -154,6 +158,11 @@
 		1E21682C2C5686D8007463D0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1E21682E2C5686D8007463D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1E2168372C5689BF007463D0 /* MessageComposeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageComposeView.swift; sourceTree = "<group>"; };
+		1E2168442C57E67F007463D0 /* InviteFriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteFriendsView.swift; sourceTree = "<group>"; };
+		1E21684A2C586F01007463D0 /* InvitationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitationManager.swift; sourceTree = "<group>"; };
+		1E21684E2C587223007463D0 /* InvitationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitationUseCase.swift; sourceTree = "<group>"; };
+		1E2168532C58751E007463D0 /* ColorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorManager.swift; sourceTree = "<group>"; };
+		1E2168572C5876B6007463D0 /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
 		1E29397E2C51DF1900B321DC /* Shoak.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Shoak.entitlements; sourceTree = "<group>"; };
 		1E29397F2C51E00D00B321DC /* AppleLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginView.swift; sourceTree = "<group>"; };
 		1E2939812C51E07E00B321DC /* AppleUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleUseCase.swift; sourceTree = "<group>"; };
@@ -190,10 +199,8 @@
 		6FF9B7772C4F896A00FC0CB2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6FF9B77A2C4F896A00FC0CB2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6FF9B7912C50E6A000FC0CB2 /* FriendListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FriendListView.swift; path = Shoak/Actors/ShoakActor/View/FriendListView.swift; sourceTree = SOURCE_ROOT; };
-		6FF9B7932C50E6A700FC0CB2 /* SwiftUIView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView2.swift; sourceTree = "<group>"; };
 		6FF9B7952C50E6B300FC0CB2 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		6FF9B7992C50E6CB00FC0CB2 /* UserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserUseCase.swift; sourceTree = "<group>"; };
-		6FF9B79B2C50E6D700FC0CB2 /* SampleUseCase2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleUseCase2.swift; sourceTree = "<group>"; };
 		6FF9B79D2C50E6DE00FC0CB2 /* AccountUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountUseCase.swift; sourceTree = "<group>"; };
 		6FF9B7A12C50E88300FC0CB2 /* TMFriendDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMFriendDTO.swift; sourceTree = "<group>"; };
 		6FF9B7A32C50E8A000FC0CB2 /* TMMemberID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMMemberID.swift; sourceTree = "<group>"; };
@@ -220,6 +227,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E2168252C5686D8007463D0 /* Messages.framework in Frameworks */,
+				1E2168402C578011007463D0 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +266,32 @@
 				1E21682E2C5686D8007463D0 /* Info.plist */,
 			);
 			path = InviteFriends;
+			sourceTree = "<group>";
+		};
+		1E2168502C5874E0007463D0 /* DesignSystem */ = {
+			isa = PBXGroup;
+			children = (
+				1E2168522C5874FC007463D0 /* Font */,
+				1E2168512C5874F7007463D0 /* Color */,
+				6FF9B7772C4F896A00FC0CB2 /* Assets.xcassets */,
+			);
+			path = DesignSystem;
+			sourceTree = "<group>";
+		};
+		1E2168512C5874F7007463D0 /* Color */ = {
+			isa = PBXGroup;
+			children = (
+				1E2168532C58751E007463D0 /* ColorManager.swift */,
+			);
+			path = Color;
+			sourceTree = "<group>";
+		};
+		1E2168522C5874FC007463D0 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				1E2168572C5876B6007463D0 /* FontManager.swift */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 		1E2939832C51F24A00B321DC /* Components */ = {
@@ -374,7 +408,7 @@
 				6FF9B7842C50E5FF00FC0CB2 /* Common */,
 				6FF9B7732C4F896800FC0CB2 /* ShoakApp.swift */,
 				6FF9B7B42C52211A00FC0CB2 /* RootView.swift */,
-				6FF9B7772C4F896A00FC0CB2 /* Assets.xcassets */,
+				1E2168502C5874E0007463D0 /* DesignSystem */,
 				6FF9B7792C4F896A00FC0CB2 /* Preview Content */,
 			);
 			path = Shoak;
@@ -427,6 +461,7 @@
 			isa = PBXGroup;
 			children = (
 				6FF9B7AF2C51400400FC0CB2 /* Intents */,
+				1E21684A2C586F01007463D0 /* InvitationManager.swift */,
 				6FF9B7B02C51F82B00FC0CB2 /* ShoakDataManager.swift */,
 				6FF9B7B22C51F84600FC0CB2 /* NavigationManager.swift */,
 				6FC0A12D2C54CB11004560E3 /* AccountManager.swift */,
@@ -482,7 +517,7 @@
 		6FF9B78B2C50E67600FC0CB2 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
-				6FF9B79B2C50E6D700FC0CB2 /* SampleUseCase2.swift */,
+				1E21684E2C587223007463D0 /* InvitationUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -506,7 +541,7 @@
 		6FF9B78E2C50E68500FC0CB2 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				6FF9B7932C50E6A700FC0CB2 /* SwiftUIView2.swift */,
+				1E2168442C57E67F007463D0 /* InviteFriendsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -584,6 +619,9 @@
 			dependencies = (
 			);
 			name = InviteFriends;
+			packageProductDependencies = (
+				1E21683F2C578011007463D0 /* SnapKit */,
+			);
 			productName = InviteFriends;
 			productReference = 1E2168232C5686D8007463D0 /* InviteFriends.appex */;
 			productType = "com.apple.product-type.app-extension.messages";
@@ -687,6 +725,7 @@
 			mainGroup = 6FF9B7672C4F896800FC0CB2;
 			packageReferences = (
 				6FC0A12F2C551997004560E3 /* XCRemoteSwiftPackageReference "Moya" */,
+				1E21683E2C578011007463D0 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 6FF9B7712C4F896800FC0CB2 /* Products */;
 			projectDirPath = "";
@@ -770,40 +809,43 @@
 				6FC0A1912C5696EA004560E3 /* TokenRefreshAPIService.swift in Sources */,
 				6FC0A1542C5526EE004560E3 /* MoyaProvider+.swift in Sources */,
 				6FC0A1572C552BAE004560E3 /* TargetType+.swift in Sources */,
+				1E2168582C5876B6007463D0 /* FontManager.swift in Sources */,
 				6FF9B7AA2C512C9F00FC0CB2 /* Errors.swift in Sources */,
 				6FC0A1742C554C9E004560E3 /* TMProfileDTO.swift in Sources */,
 				6FC0A1712C554B40004560E3 /* NetworkHandler.swift in Sources */,
 				6FC0A1412C551B20004560E3 /* URLProvider.swift in Sources */,
 				6FF9B7AE2C51340000FC0CB2 /* SendShoakUseCase.swift in Sources */,
 				6FC0A12E2C54CB11004560E3 /* AccountManager.swift in Sources */,
-				1E2939822C51E07E00B321DC /* AppleUseCase.swift in Sources */,
 				1E2939852C51F2A200B321DC /* AppleSignInButton.swift in Sources */,
 				1E2939802C51E00D00B321DC /* AppleLoginView.swift in Sources */,
 				6FF9B7A42C50E8A000FC0CB2 /* TMMemberID.swift in Sources */,
 				6FC0A1942C56984F004560E3 /* TokenRefreshAPI.swift in Sources */,
 				6FF9B7A22C50E88300FC0CB2 /* TMFriendDTO.swift in Sources */,
+				1E2168542C58751E007463D0 /* ColorManager.swift in Sources */,
 				6FF9B7A62C50E90100FC0CB2 /* TMFriendVO.swift in Sources */,
+				1E21684F2C587223007463D0 /* InvitationUseCase.swift in Sources */,
 				6FC0A17E2C563A02004560E3 /* TokenStorage.swift in Sources */,
 				6FC0A17E2C563A02004560E3 /* TokenStorage.swift in Sources */,
 				1E2168382C5689BF007463D0 /* MessageComposeView.swift in Sources */,
 				6FF9B7B52C52211A00FC0CB2 /* RootView.swift in Sources */,
-				6FF9B79C2C50E6D700FC0CB2 /* SampleUseCase2.swift in Sources */,
 				6FC0A1772C554CC6004560E3 /* TMProfileVO.swift in Sources */,
 				6FF9B7742C4F896800FC0CB2 /* ShoakApp.swift in Sources */,
 				6FF9B7B32C51F84600FC0CB2 /* NavigationManager.swift in Sources */,
 				6FF9B7AC2C51322900FC0CB2 /* StartShoakProcess.swift in Sources */,
 				6FC0A1852C563C42004560E3 /* KeyChain.swift in Sources */,
 				6FF9B79A2C50E6CB00FC0CB2 /* UserUseCase.swift in Sources */,
+				1E2168432C57DA55007463D0 /* AppleUseCase.swift in Sources */,
 				6FC0A12A2C54C82B004560E3 /* LoginView.swift in Sources */,
 				6FC0A1372C551A70004560E3 /* UserAPI.swift in Sources */,
 				6FF9B7B12C51F82B00FC0CB2 /* ShoakDataManager.swift in Sources */,
-				6FF9B7942C50E6A700FC0CB2 /* SwiftUIView2.swift in Sources */,
 				6FF9B7A82C50ECD200FC0CB2 /* CaseIterable+.swift in Sources */,
 				6FF9B7922C50E6A000FC0CB2 /* FriendListView.swift in Sources */,
+				1E21684B2C586F01007463D0 /* InvitationManager.swift in Sources */,
 				6FF9B7962C50E6B300FC0CB2 /* SettingView.swift in Sources */,
 				6FC0A18A2C567AB0004560E3 /* TokenManager.swift in Sources */,
 				6FC0A12C2C54CA29004560E3 /* OnboardingView.swift in Sources */,
 				6FC0A14E2C5523FF004560E3 /* DefaultAPIClient.swift in Sources */,
+				1E2168452C57E67F007463D0 /* InviteFriendsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1474,6 +1516,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		1E21683E2C578011007463D0 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
 		6FC0A12F2C551997004560E3 /* XCRemoteSwiftPackageReference "Moya" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Moya/Moya";
@@ -1485,6 +1535,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		1E21683F2C578011007463D0 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1E21683E2C578011007463D0 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
 		6FC0A1302C551997004560E3 /* Moya */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 6FC0A12F2C551997004560E3 /* XCRemoteSwiftPackageReference "Moya" */;
