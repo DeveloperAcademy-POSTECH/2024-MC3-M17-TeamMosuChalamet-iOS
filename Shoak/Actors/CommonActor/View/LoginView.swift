@@ -12,26 +12,43 @@ struct LoginView: View {
     @Environment(NavigationManager.self) private var navigationManager
 
     var body: some View {
-        VStack(spacing: 32) {
-            Button("(상황 가정 : 처음 로그인 시)\n온보딩 띄우는 로그인") {
-                navigationManager.setView(to: .onboarding)
-            }
+        VStack {
+            Spacer()
 
-            Button("(상황 가정 : 재로그인 시)\n바로 친구창으로 가는 로그인") {
-                navigationManager.setView(to: .friendList)
-            }
-            
-            Button("친구 추가") {
-                navigationManager.setView(to: .inviteFriends)
-            }
-            
-            AppleLoginView(useCase: AppleUseCase())
-                .frame(maxHeight: 200)
+            Image(systemName: "star.fill")
+                .resizable()
+                .padding()
+                .frame(width: 206, height: 206)
+                .background(Color.shoakYellow)
+                .clipShape(Circle())
+
+            Spacer()
+
+            AppleLoginView(
+                onSignInSuccess: { credential in
+                    Task {
+                        let result = await accountManager.loginOrSignUp(credential: credential)
+                        if result {
+                            navigationManager.setView(to: .onboarding)
+                        }
+                    }
+                },
+                onSignInFailure: { _ in
+                    print("애플 로그인 실패 ㅠ")
+                }
+            )
+            .frame(maxHeight: 54)
         }
+        .padding()
         .onAppear {
             if accountManager.isLoggedIn {
                 navigationManager.setView(to: .friendList)
             }
         }
     }
+}
+
+#Preview {
+    LoginView()
+        .addEnvironmentsForPreview()
 }
