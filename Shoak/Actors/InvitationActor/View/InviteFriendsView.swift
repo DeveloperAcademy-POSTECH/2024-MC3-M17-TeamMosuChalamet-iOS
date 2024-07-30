@@ -20,11 +20,11 @@ struct InviteFriendsView: View {
         VStack(spacing: 0) {
             HStack(spacing: 0){
                 Image(systemName: "person.circle.fill")
-                    .font(.Icon)
+                    .font(.icon)
                 
                 Text("내 프로필")
-                    .font(.TextBody)
-                    .foregroundStyle(Color.TextBlack)
+                    .font(.textBody)
+                    .foregroundStyle(Color.textBlack)
                     .padding(.leading, 6)
                 
                 Spacer()
@@ -42,8 +42,8 @@ struct InviteFriendsView: View {
                     .cornerRadius(30)
                 
                 Text("이름 테스트")
-                    .font(.TextTitle)
-                    .foregroundStyle(Color.TextBlack)
+                    .font(.textTitle)
+                    .foregroundStyle(Color.textBlack)
             }
             .padding(7)
             
@@ -57,12 +57,12 @@ struct InviteFriendsView: View {
             } label: {
                 HStack(alignment: .center, spacing: 10) {
                     Image(systemName: "paperplane.fill")
-                        .foregroundStyle(Color.TextBlack)
-                        .font(.Icon)
+                        .foregroundStyle(Color.textBlack)
+                        .font(.icon)
                     
                     Text("공유하기")
-                        .font(.TextButton)
-                        .foregroundStyle(Color.TextBlack)
+                        .font(.textButton)
+                        .foregroundStyle(Color.textBlack)
                 }
                 .padding(.horizontal, 41)
                 .padding(.vertical, 14)
@@ -72,7 +72,7 @@ struct InviteFriendsView: View {
                 .overlay(
                     RoundedRectangle(cornerRadius: 9)
                         .inset(by: 0.5)
-                        .stroke(Color.StrokeGray, lineWidth: 1)
+                        .stroke(Color.strokeGray, lineWidth: 1)
                 )
             }
             .alert(isPresented: $showAlert) {

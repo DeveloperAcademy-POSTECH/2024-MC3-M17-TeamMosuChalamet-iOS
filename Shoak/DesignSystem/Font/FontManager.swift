@@ -8,11 +8,11 @@
 import SwiftUI
 
 extension Font {
-    static let IconButton: Font = .system(size: 32, weight: .medium)
-    static let Icon: Font = .system(size: 20, weight: .regular)
-    static let TextPageTitle: Font = .system(size: 20, weight: .medium)
-    static let TextListTitle: Font = .system(size: 20, weight: .medium)
-    static let TextBody: Font = .system(size: 14, weight: .regular)
-    static let TextButton: Font = .system(size: 14, weight: .medium)
-    static let TextTitle: Font = .system(size: 20, weight: .medium)
+    static let iconButton: Font = .system(size: 32, weight: .medium)
+    static let icon: Font = .system(size: 20, weight: .regular)
+    static let textPageTitle: Font = .system(size: 20, weight: .medium)
+    static let textListTitle: Font = .system(size: 20, weight: .medium)
+    static let textBody: Font = .system(size: 14, weight: .regular)
+    static let textButton: Font = .system(size: 14, weight: .medium)
+    static let textTitle: Font = .system(size: 20, weight: .medium)
 }
