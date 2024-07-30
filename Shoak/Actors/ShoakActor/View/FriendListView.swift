@@ -109,6 +109,7 @@ struct FriendListView: View {
                 .frame(minHeight: 110)
                 .background(property.backgroundColor)
             }
+            .transition(.identity)
             .buttonStyle(.plain)
             .clipShapeBorder(RoundedRectangle(cornerRadius: 12), Color.strokeBlack, 1.0)
         }
