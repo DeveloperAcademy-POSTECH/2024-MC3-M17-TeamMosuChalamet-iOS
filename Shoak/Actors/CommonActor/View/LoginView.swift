@@ -20,7 +20,11 @@ struct LoginView: View {
             Button("(상황 가정 : 재로그인 시)\n바로 친구창으로 가는 로그인") {
                 navigationManager.setView(to: .friendList)
             }
-
+            
+            Button("친구 추가") {
+                navigationManager.setView(to: .inviteFriends)
+            }
+            
             AppleLoginView(useCase: AppleUseCase())
                 .frame(maxHeight: 200)
         }
