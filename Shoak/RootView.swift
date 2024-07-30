@@ -10,11 +10,11 @@ import SwiftUI
 struct RootView: View {
     @Environment(NavigationManager.self) private var navigationManager
     var body: some View {
-        Color.bgGray
-            .ignoresSafeArea()
-            .overlay {
-                navigationManager.view
-            }
+        ZStack {
+            Color.bgGray.ignoresSafeArea()
+
+            navigationManager.view
+        }
     }
 }
 

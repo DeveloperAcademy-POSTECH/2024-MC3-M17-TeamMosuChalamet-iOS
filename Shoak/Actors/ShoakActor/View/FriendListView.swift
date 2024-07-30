@@ -6,17 +6,69 @@ struct FriendListView: View {
     @Environment(NavigationManager.self) private var navigationManager
 
     var body: some View {
-        List(shoakDataManager.friends, id: \.memberID) { member in
-            FriendButton(friend: member)
-                .listRowInsets(EdgeInsets())
-                .listRowBackground(Color.clear)
-                .listRowSeparator(.hidden)
-                .padding(.horizontal, 16)
+        VStack {
+            TopButtons()
+            FriendsList()
         }
-        .listRowSpacing(5)
-        .listStyle(.plain)
-        .refreshable {
-            shoakDataManager.refreshFriends()
+    }
+
+    struct TopButtons: View {
+        var body: some View {
+            HStack {
+                Button {
+                    print("친구 추가")
+                } label: {
+                    Image(systemName: "person.fill.badge.plus")
+                        .resizable()
+                        .aspectRatio(1.0, contentMode: .fit)
+                        .frame(maxHeight: 38)
+                        .foregroundStyle(Color.textBlack)
+                        .padding(.top, 4)
+                        .padding(.leading, 4) // 아이콘 자체가 치우쳐져 있어서 미세조정
+                }
+                .buttonStyle(.plain)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(Color.shoakYellow, ignoresSafeAreaEdges: [])
+                // https://developer.apple.com/documentation/swiftui/view/background(_:ignoressafeareaedges:)
+                .clipShape(RoundedRectangle(cornerRadius: 12))
+
+
+                Button {
+                    print("친구 추가")
+                } label: {
+                    Image(systemName: "gearshape.fill")
+                        .resizable()
+                        .aspectRatio(1.0, contentMode: .fit)
+                        .frame(maxHeight: 38)
+                        .padding(.horizontal, 24)
+                        .foregroundStyle(Color.textWhite)
+                }
+                .frame(maxHeight: .infinity)
+                .background(Color.shoakRed, ignoresSafeAreaEdges: [])
+                .clipShape(RoundedRectangle(cornerRadius: 12))
+            }
+            .frame(height: 60)
+            .padding(.horizontal, 16)
+        }
+    }
+
+    struct FriendsList: View {
+        @Environment(ShoakDataManager.self) private var shoakDataManager
+        @Environment(NavigationManager.self) private var navigationManager
+
+        var body: some View {
+            List(shoakDataManager.friends, id: \.memberID) { member in
+                FriendButton(friend: member)
+                    .listRowInsets(EdgeInsets())
+                    .listRowBackground(Color.clear)
+                    .listRowSeparator(.hidden)
+                    .padding(.horizontal, 16)
+            }
+            .listRowSpacing(5)
+            .listStyle(.plain)
+            .refreshable {
+                shoakDataManager.refreshFriends()
+            }
         }
     }
 
