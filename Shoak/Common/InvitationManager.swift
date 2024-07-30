@@ -13,7 +13,7 @@ class InvitationManager: @unchecked Sendable {
     
     let inviteUseCase: InvitationUseCase
 
-    init() {
+    private init() {
         self.inviteUseCase = InvitationUseCase()
     }
 }
