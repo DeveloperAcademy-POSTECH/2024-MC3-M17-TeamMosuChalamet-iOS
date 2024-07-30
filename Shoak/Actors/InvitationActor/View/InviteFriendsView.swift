@@ -20,10 +20,11 @@ struct InviteFriendsView: View {
         VStack(spacing: 0) {
             HStack(spacing: 0){
                 Image(systemName: "person.circle.fill")
+                    .font(.Icon)
                 
                 Text("내 프로필")
-                    .font(Font.custom("SF Pro", size: 14))
-                    .foregroundColor(.black)
+                    .font(.TextBody)
+                    .foregroundStyle(Color.TextBlack)
                     .padding(.leading, 6)
                 
                 Spacer()
@@ -41,11 +42,8 @@ struct InviteFriendsView: View {
                     .cornerRadius(30)
                 
                 Text("이름 테스트")
-                    .font(
-                        Font.custom("SF Pro", size: 20)
-                            .weight(.medium)
-                    )
-                    .foregroundColor(.black)
+                    .font(.TextTitle)
+                    .foregroundStyle(Color.TextBlack)
             }
             .padding(7)
             
@@ -59,21 +57,22 @@ struct InviteFriendsView: View {
             } label: {
                 HStack(alignment: .center, spacing: 10) {
                     Image(systemName: "paperplane.fill")
-                        .foregroundStyle(.black)
+                        .foregroundStyle(Color.TextBlack)
+                        .font(.Icon)
                     
                     Text("공유하기")
-                        .font(Font.custom("SF Pro", size: 14))
-                        .foregroundColor(.black)
+                        .font(.TextButton)
+                        .foregroundStyle(Color.TextBlack)
                 }
                 .padding(.horizontal, 41)
                 .padding(.vertical, 14)
                 .frame(width: 345, alignment: .center)
-                .background(Color(red: 1, green: 0.79, blue: 0))
+                .background(Color.shoakYellow)
                 .cornerRadius(9)
                 .overlay(
                     RoundedRectangle(cornerRadius: 9)
                         .inset(by: 0.5)
-                        .stroke(.black.opacity(0.1), lineWidth: 1)
+                        .stroke(Color.StrokeGray, lineWidth: 1)
                 )
             }
             .alert(isPresented: $showAlert) {

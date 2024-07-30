@@ -14,13 +14,13 @@ class InvitationUseCase: NSObject, MFMessageComposeViewControllerDelegate  {
     func createMessageComposeViewController() -> MFMessageComposeViewController? {
         let messageComposeVC = MFMessageComposeViewController()
         let templateLayout = MSMessageTemplateLayout()
-        templateLayout.image = UIImage(systemName: "circle")
-        templateLayout.caption = "캡션"
+        //templateLayout.image = UIImage(systemName: "circle")
+        templateLayout.caption = "앱스토어에서 Shoak을 다운로드해 주세요"
         let layout = MSMessageLiveLayout(alternateLayout: templateLayout)
         
         let message = MSMessage()
         message.layout = layout
-        message.summaryText = "shoak 친구 초대 메세지"
+        message.summaryText = "Shoak 친구 초대 메세지"
         
         messageComposeVC.message = message
         messageComposeVC.body = "친구 초대 메세지입니다."

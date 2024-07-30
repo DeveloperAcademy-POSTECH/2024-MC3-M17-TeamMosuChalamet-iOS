@@ -18,6 +18,8 @@
 		1E2168452C57E67F007463D0 /* InviteFriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2168442C57E67F007463D0 /* InviteFriendsView.swift */; };
 		1E21684B2C586F01007463D0 /* InvitationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E21684A2C586F01007463D0 /* InvitationManager.swift */; };
 		1E21684F2C587223007463D0 /* InvitationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E21684E2C587223007463D0 /* InvitationUseCase.swift */; };
+		1E2168542C58751E007463D0 /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2168532C58751E007463D0 /* ColorManager.swift */; };
+		1E2168582C5876B6007463D0 /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2168572C5876B6007463D0 /* FontManager.swift */; };
 		1E2939802C51E00D00B321DC /* AppleLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E29397F2C51E00D00B321DC /* AppleLoginView.swift */; };
 		1E2939852C51F2A200B321DC /* AppleSignInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2939842C51F2A200B321DC /* AppleSignInButton.swift */; };
 		6FC0A12A2C54C82B004560E3 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0A1292C54C82B004560E3 /* LoginView.swift */; };
@@ -145,6 +147,8 @@
 		1E2168442C57E67F007463D0 /* InviteFriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteFriendsView.swift; sourceTree = "<group>"; };
 		1E21684A2C586F01007463D0 /* InvitationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitationManager.swift; sourceTree = "<group>"; };
 		1E21684E2C587223007463D0 /* InvitationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitationUseCase.swift; sourceTree = "<group>"; };
+		1E2168532C58751E007463D0 /* ColorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorManager.swift; sourceTree = "<group>"; };
+		1E2168572C5876B6007463D0 /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
 		1E29397E2C51DF1900B321DC /* Shoak.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Shoak.entitlements; sourceTree = "<group>"; };
 		1E29397F2C51E00D00B321DC /* AppleLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginView.swift; sourceTree = "<group>"; };
 		1E2939812C51E07E00B321DC /* AppleUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleUseCase.swift; sourceTree = "<group>"; };
@@ -240,6 +244,32 @@
 				1E21682E2C5686D8007463D0 /* Info.plist */,
 			);
 			path = InviteFriends;
+			sourceTree = "<group>";
+		};
+		1E2168502C5874E0007463D0 /* DesignSystem */ = {
+			isa = PBXGroup;
+			children = (
+				1E2168522C5874FC007463D0 /* Font */,
+				1E2168512C5874F7007463D0 /* Color */,
+				6FF9B7772C4F896A00FC0CB2 /* Assets.xcassets */,
+			);
+			path = DesignSystem;
+			sourceTree = "<group>";
+		};
+		1E2168512C5874F7007463D0 /* Color */ = {
+			isa = PBXGroup;
+			children = (
+				1E2168532C58751E007463D0 /* ColorManager.swift */,
+			);
+			path = Color;
+			sourceTree = "<group>";
+		};
+		1E2168522C5874FC007463D0 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				1E2168572C5876B6007463D0 /* FontManager.swift */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 		1E2939832C51F24A00B321DC /* Components */ = {
@@ -341,7 +371,7 @@
 				6FF9B7842C50E5FF00FC0CB2 /* Common */,
 				6FF9B7732C4F896800FC0CB2 /* ShoakApp.swift */,
 				6FF9B7B42C52211A00FC0CB2 /* RootView.swift */,
-				6FF9B7772C4F896A00FC0CB2 /* Assets.xcassets */,
+				1E2168502C5874E0007463D0 /* DesignSystem */,
 				6FF9B7792C4F896A00FC0CB2 /* Preview Content */,
 			);
 			path = Shoak;
@@ -737,6 +767,7 @@
 				6FF9B79E2C50E6DE00FC0CB2 /* AccountUseCase.swift in Sources */,
 				6FC0A1542C5526EE004560E3 /* MoyaProvider+.swift in Sources */,
 				6FC0A1572C552BAE004560E3 /* TargetType+.swift in Sources */,
+				1E2168582C5876B6007463D0 /* FontManager.swift in Sources */,
 				6FF9B7AA2C512C9F00FC0CB2 /* Errors.swift in Sources */,
 				6FC0A1742C554C9E004560E3 /* TMProfileDTO.swift in Sources */,
 				6FC0A1712C554B40004560E3 /* NetworkHandler.swift in Sources */,
@@ -747,6 +778,7 @@
 				1E2939802C51E00D00B321DC /* AppleLoginView.swift in Sources */,
 				6FF9B7A42C50E8A000FC0CB2 /* TMMemberID.swift in Sources */,
 				6FF9B7A22C50E88300FC0CB2 /* TMFriendDTO.swift in Sources */,
+				1E2168542C58751E007463D0 /* ColorManager.swift in Sources */,
 				6FF9B7A62C50E90100FC0CB2 /* TMFriendVO.swift in Sources */,
 				1E21684F2C587223007463D0 /* InvitationUseCase.swift in Sources */,
 				1E2168382C5689BF007463D0 /* MessageComposeView.swift in Sources */,
