@@ -13,7 +13,6 @@
 		1E21682D2C5686D8007463D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E21682C2C5686D8007463D0 /* Assets.xcassets */; };
 		1E2168312C5686D8007463D0 /* InviteFriends.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 1E2168232C5686D8007463D0 /* InviteFriends.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		1E2168382C5689BF007463D0 /* MessageComposeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2168372C5689BF007463D0 /* MessageComposeView.swift */; };
-		1E2168402C578011007463D0 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1E21683F2C578011007463D0 /* SnapKit */; };
 		1E2168432C57DA55007463D0 /* AppleUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2939812C51E07E00B321DC /* AppleUseCase.swift */; };
 		1E2168452C57E67F007463D0 /* InviteFriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2168442C57E67F007463D0 /* InviteFriendsView.swift */; };
 		1E21684B2C586F01007463D0 /* InvitationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E21684A2C586F01007463D0 /* InvitationManager.swift */; };
@@ -268,7 +267,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E2168252C5686D8007463D0 /* Messages.framework in Frameworks */,
-				1E2168402C578011007463D0 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -705,7 +703,6 @@
 			);
 			name = InviteFriends;
 			packageProductDependencies = (
-				1E21683F2C578011007463D0 /* SnapKit */,
 			);
 			productName = InviteFriends;
 			productReference = 1E2168232C5686D8007463D0 /* InviteFriends.appex */;
@@ -832,7 +829,6 @@
 			mainGroup = 6FF9B7672C4F896800FC0CB2;
 			packageReferences = (
 				6FC0A12F2C551997004560E3 /* XCRemoteSwiftPackageReference "Moya" */,
-				1E21683E2C578011007463D0 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 6FF9B7712C4F896800FC0CB2 /* Products */;
 			projectDirPath = "";
@@ -1722,14 +1718,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		1E21683E2C578011007463D0 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SnapKit/SnapKit";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.7.1;
-			};
-		};
 		6FC0A12F2C551997004560E3 /* XCRemoteSwiftPackageReference "Moya" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Moya/Moya";
@@ -1741,11 +1729,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		1E21683F2C578011007463D0 /* SnapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 1E21683E2C578011007463D0 /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = SnapKit;
-		};
 		6FC0A1302C551997004560E3 /* Moya */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 6FC0A12F2C551997004560E3 /* XCRemoteSwiftPackageReference "Moya" */;
