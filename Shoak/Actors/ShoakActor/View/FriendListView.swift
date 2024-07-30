@@ -2,8 +2,6 @@
 import SwiftUI
 
 struct FriendListView: View {
-    @Environment(ShoakDataManager.self) private var shoakDataManager
-    @Environment(NavigationManager.self) private var navigationManager
 
     var body: some View {
         VStack {
@@ -13,10 +11,11 @@ struct FriendListView: View {
     }
 
     struct TopButtons: View {
+        @Environment(NavigationManager.self) private var navigationManager
         var body: some View {
             HStack {
                 Button {
-                    print("친구 추가")
+                    navigationManager.setView(to: .inviteFriends)
                 } label: {
                     Image(systemName: "person.fill.badge.plus")
                         .resizable()
@@ -25,16 +24,16 @@ struct FriendListView: View {
                         .foregroundStyle(Color.textBlack)
                         .padding(.top, 4)
                         .padding(.leading, 4) // 아이콘 자체가 치우쳐져 있어서 미세조정
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .background(Color.shoakYellow, ignoresSafeAreaEdges: [])
+                        // https://developer.apple.com/documentation/swiftui/view/background(_:ignoressafeareaedges:)
                 }
                 .buttonStyle(.plain)
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background(Color.shoakYellow, ignoresSafeAreaEdges: [])
-                // https://developer.apple.com/documentation/swiftui/view/background(_:ignoressafeareaedges:)
                 .clipShape(RoundedRectangle(cornerRadius: 12))
 
 
                 Button {
-                    print("친구 추가")
+                    navigationManager.setView(to: .settings)
                 } label: {
                     Image(systemName: "gearshape.fill")
                         .resizable()
@@ -42,9 +41,10 @@ struct FriendListView: View {
                         .frame(maxHeight: 38)
                         .padding(.horizontal, 24)
                         .foregroundStyle(Color.textWhite)
+                        .frame(maxHeight: .infinity)
+                        .background(Color.shoakRed, ignoresSafeAreaEdges: [])
                 }
-                .frame(maxHeight: .infinity)
-                .background(Color.shoakRed, ignoresSafeAreaEdges: [])
+                .buttonStyle(.plain)
                 .clipShape(RoundedRectangle(cornerRadius: 12))
             }
             .frame(height: 60)
@@ -77,7 +77,7 @@ struct FriendListView: View {
 
         @State private var property: Properties = .default
 
-        init(friend: TMFriendVO, property: Properties = .confirm) {
+        init(friend: TMFriendVO, property: Properties = .default) {
             self.friend = friend
             self._property = State(initialValue: property)
         }
@@ -89,6 +89,7 @@ struct FriendListView: View {
                 HStack {
                     Image(systemName: "person.fill")
                         .resizable()
+                        .padding()
                         .frame(width: 80, height: 80)
                         .clipShapeBorder(RoundedRectangle(cornerRadius: 30), Color.strokeGray, 2.0)
                         .padding(15)
