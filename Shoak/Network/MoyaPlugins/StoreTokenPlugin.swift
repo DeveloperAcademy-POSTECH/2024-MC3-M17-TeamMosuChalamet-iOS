@@ -15,20 +15,26 @@ struct StoreTokenPlugin: PluginType {
     func didReceive(_ result: Result<Response, MoyaError>, target: any TargetType) {
         print("\n🐈🐈🐈🐈 Moya Store Token Plugin 🐈🐈🐈🐈")
         guard case .success(let response) = result else {
-            print("🐈🐈🐈🐈 response failed. Did nothing.")
+            print("❌❌❌❌ response failed. Did nothing.")
             return
         }
+        dump(response)
 
         if let accessTokenString = response.response?.allHeaderFields["Authorization"] as? String {
             let accessToken = AccessToken(token: accessTokenString, expiredIn: 2000000000)
             print("🐈🐈🐈🐈 try to store accessToken : \(accessToken.token)")
             tokenManager.save(accessToken)
+        } else {
+            print("❌❌❌❌ No Access Token")
         }
+
 
         if let refreshTokenString = response.response?.allHeaderFields["Authorization"] as? String {
             let refreshToken = RefreshToken(token: refreshTokenString, expiredIn: 2000000000)
             print("🐈🐈🐈🐈 try to store refreshToken : \(refreshToken.token)")
             tokenManager.save(refreshToken)
+        } else {
+            print("❌❌❌❌ No Refresh Token")
         }
     }
 }

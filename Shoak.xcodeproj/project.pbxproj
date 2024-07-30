@@ -77,6 +77,8 @@
 		6FC0A1B32C57DE6B004560E3 /* LoggerPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0A1B12C57DE6B004560E3 /* LoggerPlugin.swift */; };
 		6FDFDAD52C57E39400A98D7E /* ValidateAndAddTokenPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDFDAD42C57E39400A98D7E /* ValidateAndAddTokenPlugin.swift */; };
 		6FDFDAD62C57E39800A98D7E /* ValidateAndAddTokenPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDFDAD42C57E39400A98D7E /* ValidateAndAddTokenPlugin.swift */; };
+		6FECC4E52C5874D200C8E5D4 /* ShoakUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FECC4E42C5874D200C8E5D4 /* ShoakUITests.swift */; };
+		6FECC4E72C5874D200C8E5D4 /* ShoakUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FECC4E62C5874D200C8E5D4 /* ShoakUITestsLaunchTests.swift */; };
 		6FF9B7742C4F896800FC0CB2 /* ShoakApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7732C4F896800FC0CB2 /* ShoakApp.swift */; };
 		6FF9B7782C4F896A00FC0CB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6FF9B7772C4F896A00FC0CB2 /* Assets.xcassets */; };
 		6FF9B77B2C4F896A00FC0CB2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6FF9B77A2C4F896A00FC0CB2 /* Preview Assets.xcassets */; };
@@ -123,6 +125,13 @@
 			remoteInfo = InviteFriends;
 		};
 		6FC0A1642C552E3F004560E3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6FF9B7682C4F896800FC0CB2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6FF9B76F2C4F896800FC0CB2;
+			remoteInfo = Shoak;
+		};
+		6FECC4E82C5874D200C8E5D4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6FF9B7682C4F896800FC0CB2 /* Project object */;
 			proxyType = 1;
@@ -211,6 +220,9 @@
 		6FC0A1AB2C57DBBB004560E3 /* StoreTokenPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreTokenPlugin.swift; sourceTree = "<group>"; };
 		6FC0A1B12C57DE6B004560E3 /* LoggerPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerPlugin.swift; sourceTree = "<group>"; };
 		6FDFDAD42C57E39400A98D7E /* ValidateAndAddTokenPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateAndAddTokenPlugin.swift; sourceTree = "<group>"; };
+		6FECC4E22C5874D200C8E5D4 /* ShoakUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShoakUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6FECC4E42C5874D200C8E5D4 /* ShoakUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoakUITests.swift; sourceTree = "<group>"; };
+		6FECC4E62C5874D200C8E5D4 /* ShoakUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoakUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		6FF9B7702C4F896800FC0CB2 /* Shoak.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shoak.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FF9B7732C4F896800FC0CB2 /* ShoakApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoakApp.swift; sourceTree = "<group>"; };
 		6FF9B7772C4F896A00FC0CB2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -250,6 +262,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		6FC0A15D2C552E3F004560E3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6FECC4DF2C5874D200C8E5D4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -378,6 +397,15 @@
 			path = MoyaPlugins;
 			sourceTree = "<group>";
 		};
+		6FECC4E32C5874D200C8E5D4 /* ShoakUITests */ = {
+			isa = PBXGroup;
+			children = (
+				6FECC4E42C5874D200C8E5D4 /* ShoakUITests.swift */,
+				6FECC4E62C5874D200C8E5D4 /* ShoakUITestsLaunchTests.swift */,
+			);
+			path = ShoakUITests;
+			sourceTree = "<group>";
+		};
 		6FF9B7672C4F896800FC0CB2 = {
 			isa = PBXGroup;
 			children = (
@@ -386,6 +414,7 @@
 				6FF9B7BB2C52378B00FC0CB2 /* ShoakWatch Watch App */,
 				6FC0A1612C552E3F004560E3 /* ShoakTests */,
 				1E2168262C5686D8007463D0 /* InviteFriends */,
+				6FECC4E32C5874D200C8E5D4 /* ShoakUITests */,
 				6FF9B7712C4F896800FC0CB2 /* Products */,
 				6FC0A1322C5519C8004560E3 /* Frameworks */,
 			);
@@ -398,6 +427,7 @@
 				6FF9B7BA2C52378B00FC0CB2 /* ShoakWatch Watch App.app */,
 				6FC0A1602C552E3F004560E3 /* ShoakTests.xctest */,
 				1E2168232C5686D8007463D0 /* InviteFriends.appex */,
+				6FECC4E22C5874D200C8E5D4 /* ShoakUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -649,6 +679,24 @@
 			productReference = 6FC0A1602C552E3F004560E3 /* ShoakTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		6FECC4E12C5874D200C8E5D4 /* ShoakUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6FECC4ED2C5874D200C8E5D4 /* Build configuration list for PBXNativeTarget "ShoakUITests" */;
+			buildPhases = (
+				6FECC4DE2C5874D200C8E5D4 /* Sources */,
+				6FECC4DF2C5874D200C8E5D4 /* Frameworks */,
+				6FECC4E02C5874D200C8E5D4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6FECC4E92C5874D200C8E5D4 /* PBXTargetDependency */,
+			);
+			name = ShoakUITests;
+			productName = ShoakUITests;
+			productReference = 6FECC4E22C5874D200C8E5D4 /* ShoakUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		6FF9B76F2C4F896800FC0CB2 /* Shoak */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6FF9B77E2C4F896A00FC0CB2 /* Build configuration list for PBXNativeTarget "Shoak" */;
@@ -710,6 +758,10 @@
 						CreatedOnToolsVersion = 15.4;
 						TestTargetID = 6FF9B76F2C4F896800FC0CB2;
 					};
+					6FECC4E12C5874D200C8E5D4 = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 6FF9B76F2C4F896800FC0CB2;
+					};
 					6FF9B76F2C4F896800FC0CB2 = {
 						CreatedOnToolsVersion = 15.4;
 					};
@@ -739,6 +791,7 @@
 				6FF9B7B92C52378B00FC0CB2 /* ShoakWatch Watch App */,
 				6FC0A15F2C552E3F004560E3 /* ShoakTests */,
 				1E2168222C5686D8007463D0 /* InviteFriends */,
+				6FECC4E12C5874D200C8E5D4 /* ShoakUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -758,6 +811,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				6FC0A17C2C561499004560E3 /* TestAssets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6FECC4E02C5874D200C8E5D4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -800,6 +860,15 @@
 				6FC0A1882C566ED3004560E3 /* KeychainTests.swift in Sources */,
 				6FC0A18F2C569607004560E3 /* TokenManagerTests.swift in Sources */,
 				6FC0A1A62C57C6E7004560E3 /* AuthUseCaseTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6FECC4DE2C5874D200C8E5D4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6FECC4E52C5874D200C8E5D4 /* ShoakUITests.swift in Sources */,
+				6FECC4E72C5874D200C8E5D4 /* ShoakUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -916,6 +985,11 @@
 			isa = PBXTargetDependency;
 			target = 6FF9B76F2C4F896800FC0CB2 /* Shoak */;
 			targetProxy = 6FC0A1642C552E3F004560E3 /* PBXContainerItemProxy */;
+		};
+		6FECC4E92C5874D200C8E5D4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6FF9B76F2C4F896800FC0CB2 /* Shoak */;
+			targetProxy = 6FECC4E82C5874D200C8E5D4 /* PBXContainerItemProxy */;
 		};
 		6FF9B7C62C52378C00FC0CB2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1217,6 +1291,54 @@
 			};
 			name = TEST;
 		};
+		6FECC4EA2C5874D200C8E5D4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = team.mosuchalamet.ShoakUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Shoak;
+			};
+			name = Debug;
+		};
+		6FECC4EB2C5874D200C8E5D4 /* TEST */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = team.mosuchalamet.ShoakUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Shoak;
+			};
+			name = TEST;
+		};
+		6FECC4EC2C5874D200C8E5D4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = team.mosuchalamet.ShoakUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Shoak;
+			};
+			name = Release;
+		};
 		6FF9B77C2C4F896A00FC0CB2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1497,6 +1619,16 @@
 				6FC0A1672C552E3F004560E3 /* Debug */,
 				6FC0A16F2C5544BE004560E3 /* TEST */,
 				6FC0A1682C552E3F004560E3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6FECC4ED2C5874D200C8E5D4 /* Build configuration list for PBXNativeTarget "ShoakUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6FECC4EA2C5874D200C8E5D4 /* Debug */,
+				6FECC4EB2C5874D200C8E5D4 /* TEST */,
+				6FECC4EC2C5874D200C8E5D4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

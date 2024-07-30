@@ -28,7 +28,7 @@ struct ValidateAndAddTokenPlugin: PluginType {
             print("\n🐈🐈🐈🐈 헤더에 Token 추가 완료!")
             return success
         case .failure(let failure):
-            print("\n🐈🐈🐈🐈 헤더에 Token 추가 실패 : \(failure.localizedDescription)")
+            print("\n❌❌❌❌ 헤더에 Token 추가 실패 : \(failure.localizedDescription)")
             return request
         }
     }

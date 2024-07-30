@@ -22,7 +22,7 @@ struct LoggerPlugin: PluginType {
             let statusCode = response.statusCode
             print("🐈🐈🐈🐈 Received success. code=\(statusCode)")
         case .failure(let failure):
-            print("🐈🐈🐈🐈 Receive failed. \(failure.localizedDescription)")
+            print("❌❌❌❌ Receive failed. \(failure.localizedDescription)")
         }
     }
 }
