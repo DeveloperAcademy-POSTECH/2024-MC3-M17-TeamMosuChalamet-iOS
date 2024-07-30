@@ -9,11 +9,12 @@ import SwiftUI
 import MessageUI
 
 struct InviteFriendsView: View {
-    let useCase: AppleUseCase
     
     @State private var showMessageCompose = false
     @State private var showAlert = false
     @State private var alertMessage = ""
+    
+    @Environment(InvitationManager.self) private var invitationManager
     
     var body: some View {
         VStack(spacing: 0) {
@@ -90,11 +91,7 @@ struct InviteFriendsView: View {
         )
         .padding(.horizontal, 16)
         .sheet(isPresented: $showMessageCompose) {
-            MessageComposeView(isPresented: $showMessageCompose, useCase: useCase)
+            MessageComposeView(isPresented: $showMessageCompose, useCase: invitationManager.inviteUseCase)
         }
     }
-}
-
-#Preview {
-    InviteFriendsView(useCase: AppleUseCase())
 }
