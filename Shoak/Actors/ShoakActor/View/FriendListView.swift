@@ -8,9 +8,13 @@ struct FriendListView: View {
     var body: some View {
         List(shoakDataManager.friends, id: \.memberID) { member in
             FriendButton(friend: member)
+                .listRowInsets(EdgeInsets())
+                .listRowBackground(Color.clear)
+                .listRowSeparator(.hidden)
+                .padding(.horizontal, 16)
         }
+        .listRowSpacing(5)
         .listStyle(.plain)
-        .listRowSeparator(.hidden)
         .refreshable {
             shoakDataManager.refreshFriends()
         }
@@ -21,7 +25,7 @@ struct FriendListView: View {
 
         @State private var property: Properties = .default
 
-        init(friend: TMFriendVO, property: Properties = .delete) {
+        init(friend: TMFriendVO, property: Properties = .confirm) {
             self.friend = friend
             self._property = State(initialValue: property)
         }
@@ -38,6 +42,7 @@ struct FriendListView: View {
                         .padding(15)
 
                     Text(friend.name)
+                        .font(.textTitle)
 
                     Spacer()
 
@@ -47,9 +52,9 @@ struct FriendListView: View {
                 }
                 .frame(minHeight: 110)
                 .background(property.backgroundColor)
-                .clipShapeBorder(RoundedRectangle(cornerRadius: 12), Color.strokeGray, 1.0)
             }
             .buttonStyle(.plain)
+            .clipShapeBorder(RoundedRectangle(cornerRadius: 12), Color.strokeBlack, 1.0)
         }
 
         enum Properties {

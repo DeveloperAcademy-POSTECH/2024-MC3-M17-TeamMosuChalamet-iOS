@@ -10,10 +10,15 @@ import SwiftUI
 struct RootView: View {
     @Environment(NavigationManager.self) private var navigationManager
     var body: some View {
-        navigationManager.view
+        Color.bgGray
+            .ignoresSafeArea()
+            .overlay {
+                navigationManager.view
+            }
     }
 }
 
 #Preview {
     RootView()
+        .addEnvironmentsForPreview()
 }
