@@ -71,8 +71,7 @@ struct InviteFriendsView: View {
                 .cornerRadius(9)
                 .overlay(
                     RoundedRectangle(cornerRadius: 9)
-                        .inset(by: 0.5)
-                        .stroke(Color.strokeGray, lineWidth: 1)
+                        .strokeBorder(Color.strokeBlack, lineWidth: 1)
                 )
             }
             .alert(isPresented: $showAlert) {
@@ -82,11 +81,11 @@ struct InviteFriendsView: View {
             
         }
         .padding(8)
-        .background(Color.white)
+        .background(Color.shoakWhite)
+        .cornerRadius(17)
         .overlay(
             RoundedRectangle(cornerRadius: 17)
-                .inset(by: 0.5)
-                .stroke(.black.opacity(0.1), lineWidth: 1)
+                .strokeBorder(Color.strokeBlack, lineWidth: 1)
         )
         .padding(.horizontal, 16)
         .sheet(isPresented: $showMessageCompose) {
