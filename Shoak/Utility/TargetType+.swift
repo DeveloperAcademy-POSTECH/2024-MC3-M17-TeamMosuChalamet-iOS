@@ -16,7 +16,7 @@ extension NeedAuthTargetType {
     public var headers: [String : String]? {
         var headers = contentType.header
 
-//        headers["Authorization"] = ""
+        headers["Authorization"] = ""
 
         return headers
     }

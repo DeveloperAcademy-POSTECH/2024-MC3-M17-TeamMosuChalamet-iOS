@@ -13,6 +13,12 @@ public protocol APIClient {
 }
 
 final public class DefaultAPIClient: APIClient {
+    private let tokenManager: TokenManager
+
+    init(tokenManager: TokenManager) {
+        self.tokenManager = tokenManager
+    }
+
     public func resolve<Target: TargetType>(for target: Target.Type) -> MoyaProvider<Target> {
         return createProvider(for: target)
     }
@@ -31,12 +37,32 @@ extension DefaultAPIClient {
                 return
             }
 
-            done(.success(request))
+            guard self?.needToken(endpoint) == true else {
+                done(.success(request)) // Authorization 헤더가 없으면 그냥 넘어간다.
+                return
+            }
 
-            // TODO: Token Logic 추가
+            // 헤더에 Authorization 키가 있다면, 그 값을 채워준다.
+            _Concurrency.Task.detached { [self] in
+                guard let validResult = await self?.tokenManager.validTokenAndAddHeader(request: request) else {
+                    return
+                }
+
+                switch validResult {
+                case .success(let success):
+                    done(.success(success))
+                case .failure(let failure):
+                    print("token validation failed : \(failure.localizedDescription)")
+                    done(.failure(.requestMapping(endpoint.url)))
+                }
+            }
         }
 
         return requestClosure
+    }
+
+    private func needToken(_ endpoint: Endpoint) -> Bool {
+        endpoint.httpHeaderFields?.keys.contains("Authorization") ?? false
     }
 }
 
