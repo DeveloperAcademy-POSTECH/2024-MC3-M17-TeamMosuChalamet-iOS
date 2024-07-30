@@ -25,7 +25,7 @@ struct ShoakApp: App {
         let navigationManager = NavigationManager()
         self.navigationManager = navigationManager
         
-        let invitationManager = InvitationManager()
+        let invitationManager = InvitationManager.shared
         self.invitationManager = invitationManager
 
         AppDependencyManager.shared.add(dependency: shoakDataManager)
