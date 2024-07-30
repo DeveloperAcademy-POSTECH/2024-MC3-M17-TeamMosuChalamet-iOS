@@ -19,7 +19,7 @@ struct FriendListView: View {
     struct FriendButton: View {
         var friend: TMFriendVO
 
-        @State private var property: Properties = .default
+        @State private var property: Properties = .complete
 
         var body: some View {
             Button {
@@ -76,6 +76,9 @@ struct FriendListView: View {
                         .background(Color.shoakNavy, in: Capsule(style: .continuous))
                 case .complete:
                     Image(systemName: "checkmark.circle")
+                        .resizable()
+                        .frame(width: 61, height: 61)
+                        .foregroundStyle(Color.shoakGreen)
                 case .delete:
                     Image(systemName: "trash.fill")
                         .background(Color.shoakNavy, in: Capsule(style: .continuous))
