@@ -19,7 +19,12 @@ struct FriendListView: View {
     struct FriendButton: View {
         var friend: TMFriendVO
 
-        @State private var property: Properties = .complete
+        @State private var property: Properties = .default
+
+        init(friend: TMFriendVO, property: Properties = .delete) {
+            self.friend = friend
+            self._property = State(initialValue: property)
+        }
 
         var body: some View {
             Button {
@@ -47,7 +52,7 @@ struct FriendListView: View {
             .buttonStyle(.plain)
         }
 
-        private enum Properties {
+        enum Properties {
             case `default`
             case confirm
             case complete
@@ -71,8 +76,7 @@ struct FriendListView: View {
                     Text("부르기")
                         .font(.textTitle)
                         .foregroundStyle(Color.shoakWhite)
-                        .padding(.horizontal, 21)
-                        .padding(.vertical, 13)
+                        .frame(width: 98, height:51)
                         .background(Color.shoakNavy, in: Capsule(style: .continuous))
                 case .complete:
                     Image(systemName: "checkmark.circle")
@@ -81,7 +85,9 @@ struct FriendListView: View {
                         .foregroundStyle(Color.shoakGreen)
                 case .delete:
                     Image(systemName: "trash.fill")
-                        .background(Color.shoakNavy, in: Capsule(style: .continuous))
+                        .foregroundStyle(Color.shoakWhite)
+                        .frame(width: 98, height:51)
+                        .background(Color.shoakRed, in: Capsule(style: .continuous))
                 }
             }
 
