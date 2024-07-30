@@ -11,12 +11,9 @@ import Messages
 
 class MessagesViewController: MSMessagesAppViewController {
     
-    private var profileIcon: UIImageView!
-    private var profileLabel: UILabel!
-    private var separatorView: UIView!
     private var imageView: UIImageView!
     private var nameLabel: UILabel!
-    private var shareButton: UIButton!
+    private var descriptionLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,22 +24,6 @@ class MessagesViewController: MSMessagesAppViewController {
     // MARK: - Setup Subviews
     
     private func setupSubviews() {
-        profileIcon = UIImageView()
-        profileIcon.image = UIImage(systemName: "person.circle.fill")
-        profileIcon.tintColor = .black
-        profileIcon.contentMode = .scaleAspectFit
-        view.addSubview(profileIcon)
-        
-        profileLabel = UILabel()
-        profileLabel.text = "내 프로필"
-        profileLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
-        profileLabel.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-        view.addSubview(profileLabel)
-        
-        separatorView = UIView()
-        separatorView.backgroundColor = UIColor.black.withAlphaComponent(0.1)
-        view.addSubview(separatorView)
-        
         imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.backgroundColor = UIColor(red: 0.851, green: 0.851, blue: 0.851, alpha: 1)
@@ -56,18 +37,11 @@ class MessagesViewController: MSMessagesAppViewController {
         nameLabel.textColor = .black
         view.addSubview(nameLabel)
         
-        shareButton = UIButton(type: .system)
-        shareButton.setTitle("  공유하기", for: .normal)
-        shareButton.setTitleColor(.black, for: .normal)
-        shareButton.backgroundColor = .systemYellow
-        shareButton.layer.cornerRadius = 9
-        shareButton.tintColor = .black
-        
-        let shareIcon = UIImage(systemName: "paperplane.fill")
-        shareButton.setImage(shareIcon, for: .normal)
-        shareButton.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .medium)
-        shareButton.addTarget(self, action: #selector(shareButtonTapped), for: .touchUpInside)
-        view.addSubview(shareButton)
+        descriptionLabel = UILabel()
+        descriptionLabel.text = "님이 친구요청을 보냈습니다."
+        descriptionLabel.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+        descriptionLabel.font = UIFont.systemFont(ofSize: 12, weight: .regular)
+        view.addSubview(descriptionLabel)
     }
     
     // MARK: - Setup Constraints
@@ -75,47 +49,25 @@ class MessagesViewController: MSMessagesAppViewController {
     private func setupConstraints() {
         let safeArea = view.safeAreaLayoutGuide
         
-        profileIcon.snp.makeConstraints { make in
-            make.top.equalTo(safeArea).offset(64)
-            make.leading.equalTo(safeArea).offset(8)
-            make.width.height.equalTo(24)
-        }
-        
-        profileLabel.snp.makeConstraints { make in
-            make.centerY.equalTo(profileIcon)
-            make.leading.equalTo(profileIcon.snp.trailing).offset(8)
-        }
-        
-        separatorView.snp.makeConstraints { make in
-            make.top.equalTo(profileLabel.snp.bottom).offset(16)
-            make.leading.trailing.equalTo(safeArea).inset(8)
-            make.height.equalTo(1)
-        }
-        
         imageView.snp.makeConstraints { make in
-            make.top.equalTo(separatorView.snp.bottom).offset(16)
+            make.top.equalTo(safeArea).offset(64)
             make.centerX.equalTo(safeArea)
             make.width.equalTo(80)
             make.height.equalTo(80)
         }
         
         nameLabel.snp.makeConstraints { make in
-            make.top.equalTo(imageView.snp.bottom).offset(16)
+            make.top.equalTo(imageView.snp.bottom).offset(17)
             make.centerX.equalTo(safeArea)
         }
         
-        shareButton.snp.makeConstraints { make in
-            make.top.equalTo(nameLabel.snp.bottom).offset(16)
-            make.leading.trailing.equalTo(safeArea).inset(8)
-            make.height.equalTo(44)
+        descriptionLabel.snp.makeConstraints { make in
+            make.top.equalTo(nameLabel.snp.bottom).offset(5)
+            make.centerX.equalTo(safeArea)
         }
     }
     
     // MARK: - Button Action
-    
-    @objc private func shareButtonTapped() {
-        print("공유하기 버튼 탭")
-    }
     
     // MARK: - Conversation Handling
     
