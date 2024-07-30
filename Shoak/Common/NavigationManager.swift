@@ -33,6 +33,7 @@ extension NavigationManager {
         case onboarding
         case friendList
         case settings
+        case inviteFriends
 
         var body: some View {
 #if os(iOS)
@@ -45,6 +46,8 @@ extension NavigationManager {
                 FriendListView()
             case .settings:
                 SettingView()
+            case .inviteFriends:
+                InviteFriendsView()
             }
 #elseif os(watchOS)
             switch self {
