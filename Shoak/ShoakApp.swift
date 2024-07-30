@@ -10,6 +10,7 @@ import AppIntents
 
 @main
 struct ShoakApp: App {
+    @UIApplicationDelegateAdaptor var delegate: ShoakAppDelegate
     private var shoakDataManager: ShoakDataManager
     private var accountManager: AccountManager
     private let navigationManager: NavigationManager

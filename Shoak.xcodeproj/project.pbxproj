@@ -26,6 +26,7 @@
 		6FA442AD2C58D4A800E3E69E /* AddEnvorinmentsForPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA442AC2C58D4A800E3E69E /* AddEnvorinmentsForPreview.swift */; };
 		6FA442AF2C591A1A00E3E69E /* TMUserCredentialVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA442AE2C591A1A00E3E69E /* TMUserCredentialVO.swift */; };
 		6FA442B02C591A1A00E3E69E /* TMUserCredentialVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA442AE2C591A1A00E3E69E /* TMUserCredentialVO.swift */; };
+		6FA442B22C59239E00E3E69E /* ShoakAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA442B12C59239E00E3E69E /* ShoakAppDelegate.swift */; };
 		6FC0A12A2C54C82B004560E3 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0A1292C54C82B004560E3 /* LoginView.swift */; };
 		6FC0A12C2C54CA29004560E3 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0A12B2C54CA29004560E3 /* OnboardingView.swift */; };
 		6FC0A12E2C54CB11004560E3 /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0A12D2C54CB11004560E3 /* AccountManager.swift */; };
@@ -200,6 +201,7 @@
 		6FA442892C58B30D00E3E69E /* ClipShapeBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipShapeBorder.swift; sourceTree = "<group>"; };
 		6FA442AC2C58D4A800E3E69E /* AddEnvorinmentsForPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEnvorinmentsForPreview.swift; sourceTree = "<group>"; };
 		6FA442AE2C591A1A00E3E69E /* TMUserCredentialVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMUserCredentialVO.swift; sourceTree = "<group>"; };
+		6FA442B12C59239E00E3E69E /* ShoakAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoakAppDelegate.swift; sourceTree = "<group>"; };
 		6FC0A1292C54C82B004560E3 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		6FC0A12B2C54CA29004560E3 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		6FC0A12D2C54CB11004560E3 /* AccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
@@ -492,6 +494,7 @@
 				6FF9B7832C50E5FB00FC0CB2 /* Entity */,
 				6FF9B7842C50E5FF00FC0CB2 /* Common */,
 				6FF9B7732C4F896800FC0CB2 /* ShoakApp.swift */,
+				6FA442B12C59239E00E3E69E /* ShoakAppDelegate.swift */,
 				6FF9B7B42C52211A00FC0CB2 /* RootView.swift */,
 				1E2168502C5874E0007463D0 /* DesignSystem */,
 				6FF9B7792C4F896A00FC0CB2 /* Preview Content */,
@@ -949,6 +952,7 @@
 				6FC0A19A2C57C119004560E3 /* AuthUseCase.swift in Sources */,
 				6FF9B7AE2C51340000FC0CB2 /* SendShoakUseCase.swift in Sources */,
 				6FC0A12E2C54CB11004560E3 /* AccountManager.swift in Sources */,
+				6FA442B22C59239E00E3E69E /* ShoakAppDelegate.swift in Sources */,
 				1E2939852C51F2A200B321DC /* AppleSignInButton.swift in Sources */,
 				1E2939802C51E00D00B321DC /* AppleLoginView.swift in Sources */,
 				6FF9B7A42C50E8A000FC0CB2 /* TMMemberID.swift in Sources */,

@@ -10,7 +10,7 @@ import SwiftUI
 import AuthenticationServices
 
 class AppleUseCase {
-    // Sign in with Apple
+    /// Sign in with Apple -> userID, name, token 추출
     func extractCredential(_ authorization: ASAuthorization) -> TMUserCredentialVO? {
         switch authorization.credential {
         case let appleIDCredential as ASAuthorizationAppleIDCredential:
