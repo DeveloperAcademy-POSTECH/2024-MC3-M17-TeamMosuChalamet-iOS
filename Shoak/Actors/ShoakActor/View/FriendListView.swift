@@ -19,7 +19,7 @@ struct FriendListView: View {
     struct FriendButton: View {
         var friend: TMFriendVO
 
-        @State private var property: Properties = .confirm
+        @State private var property: Properties = .default
 
         var body: some View {
             Button {
@@ -27,6 +27,15 @@ struct FriendListView: View {
             } label: {
                 HStack {
                     Image(systemName: "person.fill")
+                        .resizable()
+                        .frame(width: 80, height: 80)
+                        .clipShape(RoundedRectangle(cornerRadius: 30))
+                        .overlay {
+                            RoundedRectangle(cornerRadius: 30)
+                                .fill(Color.clear)
+                                .stroke(Color.strokeGray)
+                        }
+                        .padding(15)
 
                     Text(friend.name)
 
@@ -39,6 +48,7 @@ struct FriendListView: View {
             .buttonStyle(.plain)
             .frame(minHeight: 110)
             .background(property.backgroundColor)
+            .clipShape(RoundedRectangle(cornerRadius: 12))
         }
 
         private enum Properties {
