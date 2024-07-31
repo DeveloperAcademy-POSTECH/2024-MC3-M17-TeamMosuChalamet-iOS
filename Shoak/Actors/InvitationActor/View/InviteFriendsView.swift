@@ -15,6 +15,7 @@ struct InviteFriendsView: View {
     @State private var alertMessage = ""
     
     @Environment(InvitationManager.self) private var invitationManager
+    @Environment(AccountManager.self) private var accountManager
     
     var body: some View {
         VStack(spacing: 0) {
@@ -35,13 +36,29 @@ struct InviteFriendsView: View {
                 .padding(.vertical, 6)
             
             VStack(alignment: .center, spacing: 21) {
-                Rectangle()
-                    .foregroundColor(.clear)
-                    .frame(width: 80, height: 80)
-                    .background(Color(red: 0.85, green: 0.85, blue: 0.85))
-                    .cornerRadius(30)
+                if let imageURLString = accountManager.profile?.imageURL,
+                   let imageURL = URL(string: imageURLString) {
+                    AsyncImage(url: imageURL) { image in
+                        image
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 80, height: 80)
+                            .cornerRadius(30)
+                    } placeholder: {
+                        ProgressView()
+                            .frame(width: 80, height: 80)
+                            .background(Color(red: 0.85, green: 0.85, blue: 0.85))
+                            .cornerRadius(30)
+                    }
+                } else {
+                    Rectangle()
+                        .foregroundColor(.clear)
+                        .frame(width: 80, height: 80)
+                        .background(Color(red: 0.85, green: 0.85, blue: 0.85))
+                        .cornerRadius(30)
+                }
                 
-                Text("이름 테스트")
+                Text(accountManager.profile?.name ?? "다빈치")
                     .font(.textTitle)
                     .foregroundStyle(Color.textBlack)
             }
