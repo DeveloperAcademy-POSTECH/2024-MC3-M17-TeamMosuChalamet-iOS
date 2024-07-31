@@ -17,12 +17,11 @@ final class AuthRepository {
         self.provider = apiClient.resolve(for: AuthAPI.self)
     }
 
-    func loginOrSignUp(loginOrSignUpDTO: TMLoginOrSignUpDTO) async -> Result<TMProfileDTO, NetworkError> {
+    func loginOrSignUp(loginOrSignUpDTO: TMLoginOrSignUpDTO) async -> Result<Void, NetworkError> {
         let response = await provider.request(.loginOrSignUp(tmLoginOrSignUpDTO: loginOrSignUpDTO))
         switch response {
         case .success(let response):
-            // 헤더를 검사해서 토큰을 기기에 저장함
-            return NetworkHandler.requestDecoded(by: response)
+            return NetworkHandler.requestPlain(by: response)
         case .failure(let failure):
             return .failure(.other(failure.localizedDescription))
         }

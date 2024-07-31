@@ -17,10 +17,13 @@ class AccountManager: @unchecked Sendable {
 
     var profile: TMProfileVO?
 
+    private let tokenManager: TokenManager
+
     private init() {
         self.accountUseCase = AccountUseCase()
         self.appleUseCase = AppleUseCase()
-        let apiClient = TestAPIClient() // TODO: Default로 바꾸기!
+        self.tokenManager = TokenManager()
+        let apiClient = DefaultAPIClient(tokenManager: tokenManager)
         let authRepository = AuthRepository(apiClient: apiClient)
         self.authUseCase = AuthUseCase(authRepository: authRepository)
     }
@@ -28,17 +31,21 @@ class AccountManager: @unchecked Sendable {
     public func loginOrSignUp(credential: TMUserCredentialVO) async -> Bool {
         let result = await authUseCase.loginOrSignUp(credential: credential)
 
-        if case .success(let profile) = result {
-            self.profile = profile
+        if case .success = result {
             return true
         }
         return false
     }
 }
 
-// MARK: - Computed Properties
 extension AccountManager {
-    var isLoggedIn: Bool {
-        accountUseCase.isLoggedIn()
+    func isLoggedIn() -> Bool {
+//        accountUseCase.isLoggedIn()
+
+        if tokenManager.getIdentityToken() != nil && tokenManager.getAccessToken() != nil {
+            return true
+        } else {
+            return false
+        }
     }
 }

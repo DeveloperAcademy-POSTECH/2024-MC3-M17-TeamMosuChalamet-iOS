@@ -11,7 +11,7 @@ import Foundation
 /// 접근 시 자동으로 만료 체크를 함. 만료 체크는 단순히 expiration 비교로 진행.
 /// 세팅하면 자동으로 keychain에 저장함.
 @propertyWrapper
-struct TokenStorage<Item: Token> {
+struct TokenStorage<Item: Token>: Sendable {
     private let service: String
     private let key: String
     private let keychain: Keychain<Item>
@@ -26,10 +26,7 @@ struct TokenStorage<Item: Token> {
         get {
             do {
                 let item = try keychain.searchItem()
-                if item.isExpired() {
-                    deleteToken()
-                    return nil
-                }
+                print("Get \(key) from keychain")
                 return item
             } catch {
                 print("Unable to read \(key) from keychain")
@@ -45,6 +42,7 @@ struct TokenStorage<Item: Token> {
 
             do {
                 try keychain.saveItem(newValue)
+                print("Set \(key) to keychain")
             } catch {
                 print("Unable to save \(key) from keychain")
             }
