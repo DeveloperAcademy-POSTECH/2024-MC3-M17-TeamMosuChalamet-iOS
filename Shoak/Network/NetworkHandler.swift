@@ -27,4 +27,20 @@ public final class NetworkHandler {
             return .failure(.networkFail)
         }
     }
+
+    public static func requestPlain(by response: Response) -> Result<Void, NetworkError> {
+        let decoder = JSONDecoder()
+
+        switch response.statusCode {
+        case 200..<300:
+            return .success(())
+        case 300..<500:
+            guard let errorResponse = try? decoder.decode(ErrorResponse.self, from: response.data) else {
+                return .failure(.pathError)
+            }
+            return .failure(.requestError(errorResponse))
+        default:
+            return .failure(.networkFail)
+        }
+    }
 }

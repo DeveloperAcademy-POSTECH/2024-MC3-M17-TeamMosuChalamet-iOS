@@ -62,7 +62,8 @@ struct SettingView: View {
                 
                 HStack(spacing: 0) {
                     Button {
-                        
+                        TokenManager().deleteAllTokensWithoutDeviceToken()
+                        navigationManager.setView(to: .login)
                     } label: {
                         Image(systemName: "rectangle.portrait.and.arrow.right")
                             .foregroundStyle(Color.shoakRed)
@@ -169,7 +170,6 @@ struct MyProfileView: View {
                 )
             }
             .padding(.top, 6)
-            
         }
         .padding(8)
         .background(Color.shoakWhite)

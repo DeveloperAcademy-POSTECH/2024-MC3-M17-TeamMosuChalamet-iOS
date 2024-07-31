@@ -16,3 +16,5 @@ extension MoyaProvider {
         }
     }
 }
+
+extension MoyaProvider: @unchecked Sendable {}

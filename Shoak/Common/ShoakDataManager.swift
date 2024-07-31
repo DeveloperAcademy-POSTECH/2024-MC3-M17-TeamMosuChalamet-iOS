@@ -12,16 +12,20 @@ class ShoakDataManager: @unchecked Sendable {
     static let shared = ShoakDataManager()
 
     private let userUseCase: UserUseCase
+    private let shoakUseCase: SendShoakUseCase
 
     var friends: [TMFriendVO]
 
     private init() {
         self.friends = []
-        let refreshAPIService = TokenRefreshAPIService()
-        let tokenManager = TokenManager(refreshAPIService: refreshAPIService)
+        let tokenManager = TokenManager()
         let apiClient = DefaultAPIClient(tokenManager: tokenManager)
+
         let userRepository = UserRepository(apiClient: apiClient)
         self.userUseCase = UserUseCase(userRepository: userRepository)
+
+        let shoakRepository = ShoakRepository(apiClient: apiClient)
+        self.shoakUseCase = SendShoakUseCase(shoakRepository: shoakRepository)
     }
 
     public func refreshFriends() {
@@ -38,5 +42,9 @@ class ShoakDataManager: @unchecked Sendable {
         case .failure(let failure):
             print("fail! : \(failure)")
         }
+    }
+
+    public func sendShoak(to memberID: TMMemberID) async -> Result<Void, Errors> {
+        return await shoakUseCase.sendShoak(to: memberID)
     }
 }

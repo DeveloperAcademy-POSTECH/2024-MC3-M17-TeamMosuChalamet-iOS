@@ -8,7 +8,7 @@
 import Foundation
 import Moya
 
-public protocol APIClient {
+public protocol APIClient: Sendable {
     func resolve<Target: TargetType>(for target: Target.Type) -> MoyaProvider<Target>
 }
 
@@ -26,7 +26,9 @@ final public class DefaultAPIClient: APIClient, TokenManagable {
     public func resolve<Target: TargetType>(for target: Target.Type) -> MoyaProvider<Target> {
         return MoyaProvider<Target>(plugins: [
             ValidateAndAddTokenPlugin(tokenManager: tokenManager),
+            TokenRefreshPlugin(tokenManager: tokenManager),
             StoreTokenPlugin(tokenManager: tokenManager),
+            NetworkLoggerPlugin(),
             LoggerPlugin()
         ])
     }
