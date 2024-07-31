@@ -1,6 +1,7 @@
 
 import SwiftUI
 
+
 struct FriendListView: View {
     @Environment(ShoakDataManager.self) private var shoakDataManager
     var body: some View {

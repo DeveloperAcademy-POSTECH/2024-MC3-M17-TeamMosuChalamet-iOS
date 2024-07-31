@@ -52,11 +52,14 @@ extension NavigationManager {
 #elseif os(watchOS)
             switch self {
             case .friendList:
-                WatchFriendListView()
+                  EmptyView()
+//                WatchFriendListView()
             case .settings:
                 WatchSettingView()
             default:
-                EmptyView()
+                WatchFriendListView()
+//                WatchFriendListView(friend: TMFriendVO(memberID: 2, imageURLString: "https://ada-mc3.s3.ap-northeast-2.amazonaws.com/profile/kumi.jpeg", name: "백쿠미Test"))
+//                EmptyView()
             }
 #endif
         }
