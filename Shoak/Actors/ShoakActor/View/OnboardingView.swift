@@ -31,36 +31,16 @@ struct OnboardingView: View {
         var body: some View {
             HStack {
                 if currentPage != .addShortcut {
-                    BackButton(currentPage: $currentPage)
+                    BackButton {
+                        withAnimation {
+                            self.currentPage = self.currentPage.prev()
+                        }
+                    }
                 }
 
                 Spacer()
             }
             .frame(maxHeight: 44)
-        }
-
-        struct BackButton: View {
-            @Binding var currentPage: ContinuousView
-            var body: some View {
-                Button {
-                    buttonAction()
-                } label: {
-                    Image(systemName: "chevron.left")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .padding(.vertical, 13)
-                        .padding(.horizontal, 16)
-                        .background(Color.shoakWhite)
-                }
-                .buttonStyle(.plain)
-                .clipShapeBorder(RoundedRectangle(cornerRadius: 9), Color.strokeBlack, 1.0)
-            }
-
-            private func buttonAction() {
-                withAnimation {
-                    self.currentPage = self.currentPage.prev()
-                }
-            }
         }
     }
 
