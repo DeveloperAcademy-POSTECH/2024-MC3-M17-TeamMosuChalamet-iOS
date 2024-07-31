@@ -23,6 +23,7 @@ struct ShoakWatch_Watch_AppApp: App {
         AppDependencyManager.shared.add(dependency: shoakDataManager)
         AppDependencyManager.shared.add(dependency: navigationManager)
     }
+    
 
     var body: some Scene {
         WindowGroup {
@@ -30,5 +31,6 @@ struct ShoakWatch_Watch_AppApp: App {
                 .environment(shoakDataManager)
                 .environment(navigationManager)
         }
+        WKNotificationScene(controller: WatchNotificationController.self, category: "몰라")
     }
 }

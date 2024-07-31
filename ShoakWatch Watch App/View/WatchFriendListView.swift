@@ -49,16 +49,14 @@ struct WatchFriendListView: View {
                 RoundedRectangle(cornerRadius: 20)
                     .fill(tappedStates[member.memberID, default: false] ? Color.shoakGreen : Color.shoakYellow )
             )
-            .refreshable {
-                Task {
-                    await shoakDataManager.refreshFriends()
-                }
+        }
+        .refreshable {
+            Task {
+                await shoakDataManager.refreshFriends()
             }
-            //                   .onAppear {
-            //                       Task {
-            //                           await shoakDataManager.refreshFriends()
-            //                       }
-            //                   }
+        }
+        .onAppear {
+            self.shoakDataManager.friends = .mockData
         }
     }
     

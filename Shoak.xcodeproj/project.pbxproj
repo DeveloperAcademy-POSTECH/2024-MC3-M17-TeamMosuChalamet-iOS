@@ -124,6 +124,9 @@
 		6FF9B7DB2C5244B400FC0CB2 /* StartShoakProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7AB2C51322900FC0CB2 /* StartShoakProcess.swift */; };
 		6FF9B7DC2C5246A000FC0CB2 /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7B22C51F84600FC0CB2 /* NavigationManager.swift */; };
 		B80468B02C58D412008E2D24 /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2168532C58751E007463D0 /* ColorManager.swift */; };
+		B8FF5C372C59DC2000F043EB /* WatchNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FF5C362C59DC2000F043EB /* WatchNotificationView.swift */; };
+		B8FF5C392C59DE0000F043EB /* WatchNotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FF5C382C59DE0000F043EB /* WatchNotificationController.swift */; };
+		B8FF5C3B2C5A23BB00F043EB /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FF5C3A2C5A23BB00F043EB /* CircleImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -267,6 +270,9 @@
 		6FF9B7C32C52378C00FC0CB2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6FF9B7D62C5243DC00FC0CB2 /* WatchFriendListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchFriendListView.swift; sourceTree = "<group>"; };
 		6FF9B7D92C52441700FC0CB2 /* WatchSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchSettingView.swift; sourceTree = "<group>"; };
+		B8FF5C362C59DC2000F043EB /* WatchNotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchNotificationView.swift; sourceTree = "<group>"; };
+		B8FF5C382C59DE0000F043EB /* WatchNotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchNotificationController.swift; sourceTree = "<group>"; };
+		B8FF5C3A2C5A23BB00F043EB /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -692,7 +698,10 @@
 			children = (
 				6FF9B7BE2C52378B00FC0CB2 /* ContentView.swift */,
 				6FF9B7D62C5243DC00FC0CB2 /* WatchFriendListView.swift */,
+				B8FF5C362C59DC2000F043EB /* WatchNotificationView.swift */,
+				B8FF5C382C59DE0000F043EB /* WatchNotificationController.swift */,
 				6FF9B7D92C52441700FC0CB2 /* WatchSettingView.swift */,
+				B8FF5C3A2C5A23BB00F043EB /* CircleImage.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1026,6 +1035,7 @@
 				6FA4428B2C58B30D00E3E69E /* ClipShapeBorder.swift in Sources */,
 				6FDFDAD62C57E39800A98D7E /* ValidateAndAddTokenPlugin.swift in Sources */,
 				6FF9B7D72C5243DC00FC0CB2 /* WatchFriendListView.swift in Sources */,
+				B8FF5C372C59DC2000F043EB /* WatchNotificationView.swift in Sources */,
 				6FF9B7DA2C52441700FC0CB2 /* WatchSettingView.swift in Sources */,
 				6FF9B7BD2C52378B00FC0CB2 /* ShoakWatchApp.swift in Sources */,
 				6FC0A1782C554CC6004560E3 /* TMProfileVO.swift in Sources */,
@@ -1037,6 +1047,8 @@
 				6FC0A19E2C57C13B004560E3 /* AuthAPI.swift in Sources */,
 				6FC0A1862C563C42004560E3 /* Keychain.swift in Sources */,
 				6FC0A1922C5696EA004560E3 /* TokenRefreshAPIService.swift in Sources */,
+				B8FF5C3B2C5A23BB00F043EB /* CircleImage.swift in Sources */,
+				B8FF5C392C59DE0000F043EB /* WatchNotificationController.swift in Sources */,
 				6FC0A1382C551A70004560E3 /* UserAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
