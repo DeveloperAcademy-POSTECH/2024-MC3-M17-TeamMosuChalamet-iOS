@@ -1,0 +1,13 @@
+{
+    "aps": {
+        "alert": {
+            "title": "Profile Update",
+            "body": "Check out the new profile information."
+        },
+        "sound": "default"
+    },
+    "profileName": "John Doe",
+    "profileImageURL": "https://example.com/profile.jpg",
+    "message": "Your profile has been updated!",
+    "Simulator Target Bundle": "ADA.mosuchalamet.Shoak.watchkitapp"
+}

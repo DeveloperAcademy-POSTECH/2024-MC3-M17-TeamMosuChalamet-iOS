@@ -6,11 +6,18 @@
 //
 
 import SwiftUI
+import UserNotifications
 
 struct ContentView: View {
     @Environment(NavigationManager.self) private var navigationManager
     var body: some View {
         navigationManager.view
+            .task {
+                let center = UNUserNotificationCenter.current()
+                _ = try? await center.requestAuthorization(
+                    options: [.alert, .sound, .badge]
+                )
+            }
     }
 }
 

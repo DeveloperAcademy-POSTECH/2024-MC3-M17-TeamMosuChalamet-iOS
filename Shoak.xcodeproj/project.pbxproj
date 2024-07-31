@@ -127,6 +127,7 @@
 		B8FF5C372C59DC2000F043EB /* WatchNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FF5C362C59DC2000F043EB /* WatchNotificationView.swift */; };
 		B8FF5C392C59DE0000F043EB /* WatchNotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FF5C382C59DE0000F043EB /* WatchNotificationController.swift */; };
 		B8FF5C3B2C5A23BB00F043EB /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FF5C3A2C5A23BB00F043EB /* CircleImage.swift */; };
+		B8FF5C3D2C5A893900F043EB /* PushNotificationPayload.apns in Resources */ = {isa = PBXBuildFile; fileRef = B8FF5C3C2C5A893900F043EB /* PushNotificationPayload.apns */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -273,6 +274,7 @@
 		B8FF5C362C59DC2000F043EB /* WatchNotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchNotificationView.swift; sourceTree = "<group>"; };
 		B8FF5C382C59DE0000F043EB /* WatchNotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchNotificationController.swift; sourceTree = "<group>"; };
 		B8FF5C3A2C5A23BB00F043EB /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
+		B8FF5C3C2C5A893900F043EB /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -700,6 +702,7 @@
 				6FF9B7D62C5243DC00FC0CB2 /* WatchFriendListView.swift */,
 				B8FF5C362C59DC2000F043EB /* WatchNotificationView.swift */,
 				B8FF5C382C59DE0000F043EB /* WatchNotificationController.swift */,
+				B8FF5C3C2C5A893900F043EB /* PushNotificationPayload.apns */,
 				6FF9B7D92C52441700FC0CB2 /* WatchSettingView.swift */,
 				B8FF5C3A2C5A23BB00F043EB /* CircleImage.swift */,
 			);
@@ -903,6 +906,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6FC0A1482C551C7D004560E3 /* Secret.plist in Resources */,
+				B8FF5C3D2C5A893900F043EB /* PushNotificationPayload.apns in Resources */,
 				6FF9B7C42C52378C00FC0CB2 /* Preview Assets.xcassets in Resources */,
 				6FF9B7C12C52378C00FC0CB2 /* Assets.xcassets in Resources */,
 			);

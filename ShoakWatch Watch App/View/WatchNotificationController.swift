@@ -23,9 +23,11 @@ class WatchNotificationController: WKUserNotificationHostingController<WatchNoti
                                profile: profile)
     }
     
+  
+       
     override func didReceive(_ notification: UNNotification) {
         
-        //        HapticFeedback()
+                HapticFeedback()
         
         let notificationData = notification.request.content.userInfo as? [String: Any]
         
