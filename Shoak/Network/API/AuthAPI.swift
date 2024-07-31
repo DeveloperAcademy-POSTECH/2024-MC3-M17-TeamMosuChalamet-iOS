@@ -20,7 +20,7 @@ extension AuthAPI: TargetType {
     var path: String {
         switch self {
         case .loginOrSignUp:
-            "/api/signup"
+            "/api/login"
         }
     }
 

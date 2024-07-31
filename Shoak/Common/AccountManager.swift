@@ -20,7 +20,7 @@ class AccountManager: @unchecked Sendable {
     private init() {
         self.accountUseCase = AccountUseCase()
         self.appleUseCase = AppleUseCase()
-        let apiClient = TestAPIClient() // TODO: Default로 바꾸기!
+        let apiClient = DefaultAPIClient(tokenManager: TokenManager())
         let authRepository = AuthRepository(apiClient: apiClient)
         self.authUseCase = AuthUseCase(authRepository: authRepository)
     }

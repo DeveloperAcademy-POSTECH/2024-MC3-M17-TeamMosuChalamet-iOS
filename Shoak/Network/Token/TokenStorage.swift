@@ -26,10 +26,7 @@ struct TokenStorage<Item: Token> {
         get {
             do {
                 let item = try keychain.searchItem()
-                if item.isExpired() {
-                    deleteToken()
-                    return nil
-                }
+                print("Get \(key) from keychain")
                 return item
             } catch {
                 print("Unable to read \(key) from keychain")
@@ -45,6 +42,7 @@ struct TokenStorage<Item: Token> {
 
             do {
                 try keychain.saveItem(newValue)
+                print("Set \(key) to keychain")
             } catch {
                 print("Unable to save \(key) from keychain")
             }

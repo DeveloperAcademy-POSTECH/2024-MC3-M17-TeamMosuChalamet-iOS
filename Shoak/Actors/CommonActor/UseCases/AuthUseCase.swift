@@ -33,6 +33,11 @@ extension AuthUseCase {
     }
 
     private func toDTO(_ vo: TMUserCredentialVO) -> TMLoginOrSignUpDTO {
-        TMLoginOrSignUpDTO(identityToken: vo.token)
+        let deviceToken = TokenManager().getDeviceToken()?.token ?? ""
+        return TMLoginOrSignUpDTO(
+            identityToken: vo.token,
+            name: vo.name,
+            deviceToken: deviceToken
+        )
     }
 }

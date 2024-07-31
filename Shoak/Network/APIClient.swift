@@ -27,7 +27,8 @@ final public class DefaultAPIClient: APIClient, TokenManagable {
         return MoyaProvider<Target>(plugins: [
             ValidateAndAddTokenPlugin(tokenManager: tokenManager),
             StoreTokenPlugin(tokenManager: tokenManager),
-            LoggerPlugin()
+            TokenRefreshPlugin(tokenManager: tokenManager),
+            NetworkLoggerPlugin()
         ])
     }
 }

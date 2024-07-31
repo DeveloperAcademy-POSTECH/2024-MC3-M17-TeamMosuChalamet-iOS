@@ -21,7 +21,6 @@ final class AuthRepository {
         let response = await provider.request(.loginOrSignUp(tmLoginOrSignUpDTO: loginOrSignUpDTO))
         switch response {
         case .success(let response):
-            // 헤더를 검사해서 토큰을 기기에 저장함
             return NetworkHandler.requestDecoded(by: response)
         case .failure(let failure):
             return .failure(.other(failure.localizedDescription))

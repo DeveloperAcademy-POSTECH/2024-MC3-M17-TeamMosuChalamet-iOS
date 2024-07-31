@@ -7,6 +7,7 @@
 
 import Moya
 
+/// 받은 헤더에 access token과 refresh token을 인식해서 디바이스 키체인에 저장한다.
 struct StoreTokenPlugin: PluginType {
     private let tokenManager: TokenManager
     init(tokenManager: TokenManager) {
@@ -18,19 +19,17 @@ struct StoreTokenPlugin: PluginType {
             print("❌❌❌❌ response failed. Did nothing.")
             return
         }
-        dump(response)
 
-        if let accessTokenString = response.response?.allHeaderFields["Authorization"] as? String {
-            let accessToken = AccessToken(token: accessTokenString, expiredIn: 2000000000)
+        if let accessTokenString = response.response?.allHeaderFields["Access"] as? String {
+            let accessToken = AccessToken(accessTokenString)
             print("🐈🐈🐈🐈 try to store accessToken : \(accessToken.token)")
             tokenManager.save(accessToken)
         } else {
             print("❌❌❌❌ No Access Token")
         }
 
-
-        if let refreshTokenString = response.response?.allHeaderFields["Authorization"] as? String {
-            let refreshToken = RefreshToken(token: refreshTokenString, expiredIn: 2000000000)
+        if let refreshTokenString = response.response?.allHeaderFields["Refresh"] as? String {
+            let refreshToken = RefreshToken(refreshTokenString)
             print("🐈🐈🐈🐈 try to store refreshToken : \(refreshToken.token)")
             tokenManager.save(refreshToken)
         } else {
