@@ -17,10 +17,13 @@ class AccountManager: @unchecked Sendable {
 
     var profile: TMProfileVO?
 
+    private let tokenManager: TokenManager
+
     private init() {
         self.accountUseCase = AccountUseCase()
         self.appleUseCase = AppleUseCase()
-        let apiClient = DefaultAPIClient(tokenManager: TokenManager())
+        self.tokenManager = TokenManager()
+        let apiClient = DefaultAPIClient(tokenManager: tokenManager)
         let authRepository = AuthRepository(apiClient: apiClient)
         self.authUseCase = AuthUseCase(authRepository: authRepository)
     }
@@ -36,9 +39,14 @@ class AccountManager: @unchecked Sendable {
     }
 }
 
-// MARK: - Computed Properties
 extension AccountManager {
-    var isLoggedIn: Bool {
-        accountUseCase.isLoggedIn()
+    func isLoggedIn() -> Bool {
+//        accountUseCase.isLoggedIn()
+
+        if tokenManager.getIdentityToken() != nil {
+            return true
+        } else {
+            return false
+        }
     }
 }

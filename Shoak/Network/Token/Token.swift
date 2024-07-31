@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol Token: Codable {
+protocol Token: Codable, Sendable {
     var token: String { get }
 }
 

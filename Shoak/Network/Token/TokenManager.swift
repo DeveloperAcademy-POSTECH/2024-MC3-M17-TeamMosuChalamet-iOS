@@ -13,7 +13,7 @@ public enum TokenError: Error {
 }
 
 /// access token, refresh token, identityToken, deviceToken을 관리한다.
-final public class TokenManager {
+final public class TokenManager: @unchecked Sendable {
     @TokenStorage<AccessToken>() private var accessToken
     @TokenStorage<RefreshToken>() private var refreshToken
     @TokenStorage<IdentityToken>() private var identityToken

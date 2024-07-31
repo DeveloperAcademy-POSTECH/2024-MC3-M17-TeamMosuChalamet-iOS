@@ -8,7 +8,7 @@
 import Foundation
 import Moya
 
-public protocol APIClient {
+public protocol APIClient: Sendable {
     func resolve<Target: TargetType>(for target: Target.Type) -> MoyaProvider<Target>
 }
 

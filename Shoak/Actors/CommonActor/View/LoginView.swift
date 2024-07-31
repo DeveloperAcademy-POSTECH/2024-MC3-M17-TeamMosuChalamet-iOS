@@ -41,7 +41,7 @@ struct LoginView: View {
         }
         .padding()
         .onAppear {
-            if accountManager.isLoggedIn {
+            if accountManager.isLoggedIn() {
                 navigationManager.setView(to: .friendList)
             }
         }
