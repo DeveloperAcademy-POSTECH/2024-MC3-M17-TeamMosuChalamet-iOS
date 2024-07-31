@@ -35,7 +35,7 @@ struct InviteFriendsView: View {
             Divider()
                 .padding(.vertical, 6)
             
-            VStack(alignment: .center, spacing: 21) {
+            VStack(alignment: .center, spacing: 10) {
                 if let imageURLString = accountManager.profile?.imageURL,
                    let imageURL = URL(string: imageURLString) {
                     AsyncImage(url: imageURL) { image in
@@ -43,7 +43,7 @@ struct InviteFriendsView: View {
                             .resizable()
                             .aspectRatio(contentMode: .fill)
                             .frame(width: 80, height: 80)
-                            .cornerRadius(30)
+                            .clipShapeBorder(RoundedRectangle(cornerRadius: 30), Color.strokeGray, 1.0)
                     } placeholder: {
                         ProgressView()
                             .frame(width: 80, height: 80)
@@ -61,6 +61,7 @@ struct InviteFriendsView: View {
                 Text(accountManager.profile?.name ?? "다빈치")
                     .font(.textTitle)
                     .foregroundStyle(Color.textBlack)
+                    .padding(.bottom, 20)
             }
             .padding(7)
             
