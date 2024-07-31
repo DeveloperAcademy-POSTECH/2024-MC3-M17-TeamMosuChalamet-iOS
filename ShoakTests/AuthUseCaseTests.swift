@@ -28,7 +28,7 @@ final class AuthUseCaseTests: XCTestCase {
 
     func test_로그인_테스트() async throws {
         let identityToken = "abcdabcdabcdabcd"
-        let result = await authUseCase.loginOrSignUp(identityToken: identityToken)
+        let result = await authUseCase.loginOrSignUp(credential: TMUserCredentialVO(userID: "asdfasdf", name: "asdfqwer", token: identityToken))
         switch result {
         case .success(let success):
             XCTAssert((success as Any) is TMProfileVO)

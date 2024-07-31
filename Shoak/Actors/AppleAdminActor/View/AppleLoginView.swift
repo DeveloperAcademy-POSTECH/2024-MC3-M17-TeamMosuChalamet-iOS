@@ -9,19 +9,26 @@ import SwiftUI
 import AuthenticationServices
 
 struct AppleLoginView: View {
-    let useCase: AppleUseCase
-    
+    @Environment(AccountManager.self) private var accountManager
+
+    let onSignInSuccess: ((TMUserCredentialVO) -> Void)?
+    let onSignInFailure: ((Error?) -> Void)?
+
     var body: some View {
         VStack {
             AppleSignInButton(
                 onSignInSuccess: { authorization in
-                    useCase.handleSignInSuccess(authorization: authorization)
+                    guard let credential = accountManager.appleUseCase.extractCredential(authorization) else {
+                        onSignInFailure?(nil)
+                        return
+                    }
+
+                    onSignInSuccess?(credential)
                 },
                 onSignInFailure: { error in
-                    useCase.handleSignInFailure(error: error)
+                    onSignInFailure?(error)
                 }
             )
-            .frame(height:UIScreen.main.bounds.height)
         }
     }
 }
