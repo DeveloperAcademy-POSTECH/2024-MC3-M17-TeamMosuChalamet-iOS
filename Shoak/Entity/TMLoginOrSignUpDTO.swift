@@ -9,4 +9,6 @@ import Foundation
 
 struct TMLoginOrSignUpDTO: Codable {
     var identityToken: String
+    var name: String
+    var deviceToken: String
 }

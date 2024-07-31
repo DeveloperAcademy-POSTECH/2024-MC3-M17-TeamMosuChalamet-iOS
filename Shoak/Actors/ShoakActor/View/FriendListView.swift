@@ -77,6 +77,8 @@ struct FriendListView: View {
     }
 
     struct FriendButton: View {
+        @Environment(ShoakDataManager.self) private var shoakDataManager
+
         var friend: TMFriendVO
 
         @State private var property: Properties = .default
@@ -88,7 +90,25 @@ struct FriendListView: View {
 
         var body: some View {
             Button {
-                property.tapAction()
+                switch property {
+                case .default:
+                    self.property = .confirm
+                case .confirm:
+                    Task {
+                        let result = await shoakDataManager.sendShoak(to: friend.memberID)
+                        switch result {
+                        case .success:
+                            property = .complete
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                                property = .default
+                            }
+                        case .failure:
+                            property = .default
+                        }
+                    }
+                default:
+                    break
+                }
             } label: {
                 HStack {
                     Image(systemName: "person.fill")
@@ -113,6 +133,7 @@ struct FriendListView: View {
             .transition(.identity)
             .buttonStyle(.plain)
             .clipShapeBorder(RoundedRectangle(cornerRadius: 12), Color.strokeBlack, 1.0)
+            .animation(.default, value: self.property)
         }
 
         enum Properties {
@@ -139,7 +160,7 @@ struct FriendListView: View {
                     Text("부르기")
                         .font(.textTitle)
                         .foregroundStyle(Color.shoakWhite)
-                        .frame(width: 98, height:51)
+                        .frame(width: 98, height: 51)
                         .background(Color.shoakNavy, in: Capsule(style: .continuous))
                 case .complete:
                     Image(systemName: "checkmark.circle")
@@ -149,23 +170,8 @@ struct FriendListView: View {
                 case .delete:
                     Image(systemName: "trash.fill")
                         .foregroundStyle(Color.shoakWhite)
-                        .frame(width: 98, height:51)
+                        .frame(width: 98, height: 51)
                         .background(Color.shoakRed, in: Capsule(style: .continuous))
-                }
-            }
-
-            mutating func tapAction() {
-                withAnimation {
-                    switch self {
-                    case .default:
-                        self = .confirm
-                    case .confirm:
-                        self = .complete
-                    case .complete:
-                        self = .default
-                    case .delete:
-                        print("지우기 액션!!")
-                    }
                 }
             }
         }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct Keychain<Item: Codable> {
+public struct Keychain<Item: Codable>: Sendable {
     private let service: String
     private let account: String
     private let accessGroup: String?

@@ -8,8 +8,24 @@
 import Foundation
 
 final class SendShoakUseCase {
-    func sendShoak(from senderID: TMMemberID, to receiverID: TMMemberID, with message: String?) -> Result<Void, Errors> {
-        return .success(())
+    let shoakRepository: ShoakRepository
+
+    init(shoakRepository: ShoakRepository) {
+        self.shoakRepository = shoakRepository
+    }
+
+    func sendShoak(to receiverID: TMMemberID) async -> Result<Void, Errors> {
+        let destination = receiverID
+        let dto = TMShoakDestinationDTO(destinationMemberId: destination)
+        let result = await shoakRepository.sendShoak(destination: dto)
+        switch result {
+        case .success:
+            print("쇽 보내기 성공!")
+            return .success(())
+        case .failure(let failure):
+            print("쇽 보내기 실패 ㅠ")
+            return .failure(.error(description: failure.errorDescription))
+        }
     }
 }
 

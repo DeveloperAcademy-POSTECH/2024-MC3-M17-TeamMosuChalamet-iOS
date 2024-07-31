@@ -26,6 +26,7 @@ struct LoginView: View {
 
             AppleLoginView(
                 onSignInSuccess: { credential in
+                    print("credential : \(credential)")
                     Task {
                         let result = await accountManager.loginOrSignUp(credential: credential)
                         if result {
@@ -41,7 +42,7 @@ struct LoginView: View {
         }
         .padding()
         .onAppear {
-            if accountManager.isLoggedIn {
+            if accountManager.isLoggedIn() {
                 navigationManager.setView(to: .friendList)
             }
         }
