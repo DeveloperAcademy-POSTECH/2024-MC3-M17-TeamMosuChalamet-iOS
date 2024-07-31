@@ -20,7 +20,7 @@ extension AuthAPI: TargetType {
     var path: String {
         switch self {
         case .loginOrSignUp:
-            "/api/login"
+            "/login"
         }
     }
 
@@ -52,7 +52,12 @@ extension AuthAPI: TargetType {
     var task: Task {
         switch self {
         case .loginOrSignUp(let tmLoginOrSignUpDTO):
-            return .requestJSONEncodable(tmLoginOrSignUpDTO)
+            let queries: [String: Any] = [
+                "identityToken": tmLoginOrSignUpDTO.identityToken,
+                "name": tmLoginOrSignUpDTO.name,
+                "deviceToken": tmLoginOrSignUpDTO.deviceToken
+            ]
+            return .requestParameters(parameters: queries, encoding: URLEncoding.queryString)
         }
     }
 }

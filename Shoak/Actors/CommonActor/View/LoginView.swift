@@ -26,6 +26,7 @@ struct LoginView: View {
 
             AppleLoginView(
                 onSignInSuccess: { credential in
+                    print("credential : \(credential)")
                     Task {
                         let result = await accountManager.loginOrSignUp(credential: credential)
                         if result {

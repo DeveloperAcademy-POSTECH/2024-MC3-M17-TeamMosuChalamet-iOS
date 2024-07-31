@@ -14,7 +14,7 @@ enum UserAPI {
     case uploadProfileImage(data: Data)
 }
 
-extension UserAPI: NeedAuthTargetType {
+extension UserAPI: NeedAccessTokenTargetType {
     var baseURL: URL {
         ShoakURLProvider().provide(version: .none)
     }

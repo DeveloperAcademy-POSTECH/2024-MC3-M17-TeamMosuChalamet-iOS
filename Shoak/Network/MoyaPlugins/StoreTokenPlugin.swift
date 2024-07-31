@@ -31,8 +31,8 @@ struct StoreTokenPlugin: PluginType {
 
         if let refreshTokenString = response.response?.allHeaderFields["Refresh"] as? String,
            let extracted = extractToken(from: refreshTokenString) {
-            let refreshToken = RefreshToken(refreshTokenString)
-            print("🐈🐈🐈🐈 try to store refreshToken : \(refreshToken.token)")
+            let refreshToken = RefreshToken(extracted)
+            print("🐈🐈🐈🐈 try to store refreshToken : \(extracted)")
             tokenManager.save(refreshToken)
         } else {
             print("❌❌❌❌ No Refresh Token")

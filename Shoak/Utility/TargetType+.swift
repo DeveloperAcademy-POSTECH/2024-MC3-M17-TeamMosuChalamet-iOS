@@ -8,15 +8,15 @@
 import Foundation
 import Moya
 
-public protocol NeedAuthTargetType: TargetType {
+public protocol NeedAccessTokenTargetType: TargetType {
     var contentType: ContentType { get }
 }
 
-extension NeedAuthTargetType {
+extension NeedAccessTokenTargetType {
     public var headers: [String : String]? {
         var headers = contentType.header
 
-        headers["Authorization"] = ""
+        headers["Access"] = ""
 
         return headers
     }

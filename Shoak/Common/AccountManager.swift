@@ -31,8 +31,7 @@ class AccountManager: @unchecked Sendable {
     public func loginOrSignUp(credential: TMUserCredentialVO) async -> Bool {
         let result = await authUseCase.loginOrSignUp(credential: credential)
 
-        if case .success(let profile) = result {
-            self.profile = profile
+        if case .success = result {
             return true
         }
         return false
@@ -43,7 +42,7 @@ extension AccountManager {
     func isLoggedIn() -> Bool {
 //        accountUseCase.isLoggedIn()
 
-        if tokenManager.getIdentityToken() != nil {
+        if tokenManager.getIdentityToken() != nil && tokenManager.getAccessToken() != nil {
             return true
         } else {
             return false

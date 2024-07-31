@@ -13,7 +13,7 @@ struct ValidateAndAddTokenPlugin: PluginType {
     init(tokenManager: TokenManager) {
         self.tokenManager = tokenManager
     }
-    func prepare(_ request: URLRequest, target: any TargetType) async -> URLRequest {
+    func prepare(_ request: URLRequest, target: any TargetType) -> URLRequest {
         print("\n🐈🐈🐈🐈 Moya ValidateAndAddTokenPlugin 🐈🐈🐈🐈")
         // 1. 요청에 추가된 Access, Refresh 헤더가 없다면 그냥 넘어간다.
         guard needToken(request) else {
@@ -22,7 +22,7 @@ struct ValidateAndAddTokenPlugin: PluginType {
         }
 
         // 2. 헤더에 Access, Refresh이 있다면 그 값을 채워준다.
-        let validResult = await tokenManager.validTokenAndAddHeader(request: request)
+        let validResult = tokenManager.validTokenAndAddHeader(request: request)
         switch validResult {
         case .success(let success):
             print("\n🐈🐈🐈🐈 헤더에 Token 추가 완료!")
@@ -35,6 +35,6 @@ struct ValidateAndAddTokenPlugin: PluginType {
 
     private func needToken(_ request: URLRequest) -> Bool {
         (request.allHTTPHeaderFields?.keys.contains("Access") ?? false)
-        && (request.allHTTPHeaderFields?.keys.contains("Refresh") ?? false)
+        || (request.allHTTPHeaderFields?.keys.contains("Refresh") ?? false)
     }
 }
