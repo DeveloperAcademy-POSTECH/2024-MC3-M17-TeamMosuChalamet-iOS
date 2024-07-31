@@ -13,11 +13,64 @@ struct OnboardingView: View {
 
     var body: some View {
         VStack(spacing: 32) {
+            TopButtons(currentPage: $currentPage)
+
+            Spacer()
+
             currentPage
 
-            Button(currentActionLabel) {
-                Task {
-                    await currentAction()
+            Spacer()
+
+            BottomButtons(currentPage: $currentPage)
+        }
+        .padding()
+    }
+
+    struct TopButtons: View {
+        @Binding var currentPage: ContinuousView
+        var body: some View {
+            HStack {
+                if currentPage != .addShortcut {
+                    BackButton {
+                        withAnimation {
+                            self.currentPage = self.currentPage.prev()
+                        }
+                    }
+                }
+
+                Spacer()
+            }
+            .frame(maxHeight: 44)
+        }
+    }
+
+    struct BottomButtons: View {
+        @Environment(NavigationManager.self) private var navigationManager
+        @Binding var currentPage: ContinuousView
+        var body: some View {
+            Button {
+                buttonAction()
+            } label: {
+                Text("다음")
+                    .font(.textButton)
+                    .frame(maxWidth: .infinity, maxHeight: 58)
+                    .background(Color.shoakYellow)
+                    .overlay {
+                        Image(systemName: "chevron.right")
+                            .offset(x: 30)
+                    }
+            }
+            .buttonStyle(.plain)
+            .clipShapeBorder(RoundedRectangle(cornerRadius: 12), Color.strokeBlack, 1)
+        }
+
+        func buttonAction() {
+            withAnimation {
+                switch self.currentPage {
+                case .finish:
+                    Task { await self.navigationManager.setView(to: .friendList) }
+                default:
+                    self.currentPage = self.currentPage.next()
                 }
             }
         }
@@ -68,6 +121,13 @@ extension OnboardingView {
                 FinishView()
             }
         }
+
+        var label: String {
+            switch self {
+            default:
+                "다음"
+            }
+        }
     }
 }
 
@@ -100,4 +160,9 @@ private struct FinishView: View {
     var body: some View {
         Text("Onboarding Finish!")
     }
+}
+
+#Preview {
+    OnboardingView()
+        .addEnvironmentsForPreview()
 }

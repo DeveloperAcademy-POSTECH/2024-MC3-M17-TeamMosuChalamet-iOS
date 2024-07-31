@@ -27,6 +27,7 @@
 		6FA442AF2C591A1A00E3E69E /* TMUserCredentialVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA442AE2C591A1A00E3E69E /* TMUserCredentialVO.swift */; };
 		6FA442B02C591A1A00E3E69E /* TMUserCredentialVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA442AE2C591A1A00E3E69E /* TMUserCredentialVO.swift */; };
 		6FA442B22C59239E00E3E69E /* ShoakAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA442B12C59239E00E3E69E /* ShoakAppDelegate.swift */; };
+		6FA442B52C59DDA300E3E69E /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA442B42C59DDA300E3E69E /* BackButton.swift */; };
 		6FC0A12A2C54C82B004560E3 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0A1292C54C82B004560E3 /* LoginView.swift */; };
 		6FC0A12C2C54CA29004560E3 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0A12B2C54CA29004560E3 /* OnboardingView.swift */; };
 		6FC0A12E2C54CB11004560E3 /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0A12D2C54CB11004560E3 /* AccountManager.swift */; };
@@ -203,6 +204,7 @@
 		6FA442AC2C58D4A800E3E69E /* AddEnvorinmentsForPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEnvorinmentsForPreview.swift; sourceTree = "<group>"; };
 		6FA442AE2C591A1A00E3E69E /* TMUserCredentialVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMUserCredentialVO.swift; sourceTree = "<group>"; };
 		6FA442B12C59239E00E3E69E /* ShoakAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoakAppDelegate.swift; sourceTree = "<group>"; };
+		6FA442B42C59DDA300E3E69E /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
 		6FC0A1292C54C82B004560E3 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		6FC0A12B2C54CA29004560E3 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		6FC0A12D2C54CB11004560E3 /* AccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
@@ -363,6 +365,14 @@
 				6FA442AC2C58D4A800E3E69E /* AddEnvorinmentsForPreview.swift */,
 			);
 			path = ViewModifiers;
+			sourceTree = "<group>";
+		};
+		6FA442B32C59DD9700E3E69E /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				6FA442B42C59DDA300E3E69E /* BackButton.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		6FC0A1282C53873D004560E3 /* View */ = {
@@ -643,6 +653,7 @@
 		6FF9B78F2C50E68900FC0CB2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6FA442B32C59DD9700E3E69E /* Components */,
 				6FF9B7952C50E6B300FC0CB2 /* SettingView.swift */,
 				6FC0A1292C54C82B004560E3 /* LoginView.swift */,
 			);
@@ -972,6 +983,7 @@
 				6FF9B7B32C51F84600FC0CB2 /* NavigationManager.swift in Sources */,
 				6FF9B7AC2C51322900FC0CB2 /* StartShoakProcess.swift in Sources */,
 				6FC0A19D2C57C13B004560E3 /* AuthAPI.swift in Sources */,
+				6FA442B52C59DDA300E3E69E /* BackButton.swift in Sources */,
 				6FC0A1852C563C42004560E3 /* Keychain.swift in Sources */,
 				6FF9B79A2C50E6CB00FC0CB2 /* UserUseCase.swift in Sources */,
 				1E2168432C57DA55007463D0 /* AppleUseCase.swift in Sources */,
