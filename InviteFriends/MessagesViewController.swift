@@ -14,13 +14,12 @@ class MessagesViewController: MSMessagesAppViewController {
     private var descriptionLabel: UILabel!
     private var rejectButton: UIButton!
     private var acceptButton: UIButton!
+    private var statusLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSubviews()
         setupConstraints()
-        
-        view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1)
     }
     
     // MARK: - Setup Subviews
@@ -50,7 +49,7 @@ class MessagesViewController: MSMessagesAppViewController {
         
         rejectButton = UIButton(type: .system)
         rejectButton.translatesAutoresizingMaskIntoConstraints = false
-        rejectButton.setTitle("거절하기", for: .normal)
+        rejectButton.setTitle("  거절하기", for: .normal)
         rejectButton.titleLabel?.font = UIFont.systemFont(ofSize: 12, weight: .regular)
         rejectButton.setTitleColor(UIColor(red: 0.918, green: 0.336, blue: 0.139, alpha: 1), for: .normal)
         rejectButton.layer.cornerRadius = 9
@@ -66,7 +65,7 @@ class MessagesViewController: MSMessagesAppViewController {
         
         acceptButton = UIButton(type: .system)
         acceptButton.translatesAutoresizingMaskIntoConstraints = false
-        acceptButton.setTitle("추가하기", for: .normal)
+        acceptButton.setTitle("  추가하기", for: .normal)
         acceptButton.titleLabel?.font = UIFont.systemFont(ofSize: 12, weight: .regular)
         acceptButton.setTitleColor(.black, for: .normal)
         acceptButton.layer.cornerRadius = 9
@@ -79,6 +78,19 @@ class MessagesViewController: MSMessagesAppViewController {
         acceptButton.setImage(UIImage(systemName: "person.fill.checkmark")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 16)), for: .normal)
         acceptButton.tintColor = .black
         view.addSubview(acceptButton)
+        
+        statusLabel = UILabel()
+        statusLabel.translatesAutoresizingMaskIntoConstraints = false
+        statusLabel.textColor = UIColor(red: 0.918, green: 0.336, blue: 0.139, alpha: 1)
+        statusLabel.font = UIFont.systemFont(ofSize: 14, weight: .medium)
+        statusLabel.textAlignment = .center
+        statusLabel.isHidden = true
+        statusLabel.layer.cornerRadius = 9
+        statusLabel.layer.backgroundColor = UIColor.white.cgColor
+        statusLabel.layer.borderWidth = 1
+        statusLabel.layer.borderColor = UIColor.black.withAlphaComponent(0.1).cgColor
+        statusLabel.clipsToBounds = true
+        view.addSubview(statusLabel)
     }
     
     // MARK: - Setup Constraints
@@ -98,36 +110,63 @@ class MessagesViewController: MSMessagesAppViewController {
             descriptionLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 5),
             descriptionLabel.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor),
             
-            rejectButton.heightAnchor.constraint(equalToConstant: 44),
-            
-            acceptButton.heightAnchor.constraint(equalToConstant: 44),
-            
+            rejectButton.heightAnchor.constraint(equalToConstant: 38),
             rejectButton.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 20),
             rejectButton.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 16),
             rejectButton.trailingAnchor.constraint(equalTo: acceptButton.leadingAnchor, constant: -8),
             rejectButton.widthAnchor.constraint(equalTo: acceptButton.widthAnchor),
             rejectButton.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor, constant: -16),
             
+            acceptButton.heightAnchor.constraint(equalToConstant: 38),
             acceptButton.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 20),
             acceptButton.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -16),
-            acceptButton.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor, constant: -16)
+            acceptButton.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor, constant: -16),
+            
+            statusLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 20),
+            statusLabel.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 16),
+            statusLabel.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -16),
+            statusLabel.heightAnchor.constraint(equalToConstant: 38)
         ])
     }
     
     // MARK: - Button Actions
     
     @objc private func handleRejectButton() {
-        if let url = URL(string: "https://www.naver.com") {
-            extensionContext?.open(url, completionHandler: { (success) in
-                if !success {
-                    print("URL 열기에 실패했습니다.")
-                }
-            })
-        }
+        provideHapticFeedback()
+        
+        rejectButton.isHidden = true
+        acceptButton.isHidden = true
+        statusLabel.text = "친구 요청이 거절되었습니다"
+        statusLabel.isHidden = false
     }
     
     @objc private func handleAcceptButton() {
-        print("추가하기")
+        provideHapticFeedback()
+        
+        let message = MSMessage()
+        
+        let layout = MSMessageTemplateLayout()
+        layout.caption = "친구 추가가 완료되었습니다!"
+        layout.subcaption = "shoak://invite-success"  // URL 스킴을 포함한 링크 설정
+        message.layout = layout
+        
+        if let conversation = activeConversation {
+            conversation.insert(message) { error in
+                if let error = error {
+                    print("메시지 전송 오류: \(error.localizedDescription)")
+                } else {
+                    print("메시지 전송 성공")
+                }
+            }
+        } else {
+            print("활성화된 대화가 없습니다.")
+        }
+    }
+    
+    private func provideHapticFeedback() {
+        let feedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
+        feedbackGenerator.prepare()
+        feedbackGenerator.impactOccurred()
     }
     
     // MARK: - Conversation Handling
