@@ -16,7 +16,7 @@ class ShoakDataManager: @unchecked Sendable {
     var friends: [TMFriendVO]
 
     private init() {
-        self.friends = .mockData
+        self.friends = []
         let refreshAPIService = TokenRefreshAPIService()
         let tokenManager = TokenManager(refreshAPIService: refreshAPIService)
         let apiClient = DefaultAPIClient(tokenManager: tokenManager)

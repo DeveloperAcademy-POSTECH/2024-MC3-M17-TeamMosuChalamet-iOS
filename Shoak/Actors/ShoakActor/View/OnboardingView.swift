@@ -9,7 +9,7 @@ import SwiftUI
 
 struct OnboardingView: View {
     @Environment(NavigationManager.self) private var navigationManager
-    @State private var currentPage: ContinuousView = .start
+    @State private var currentPage: ContinuousView = .addShortcut
 
     var body: some View {
         VStack(spacing: 32) {
@@ -48,22 +48,22 @@ extension OnboardingView {
 // MARK: - Define Continuous View
 extension OnboardingView {
     enum ContinuousView: View, CaseIterable {
-        case start
         case addShortcut
+        case turnOnWatchApp
         case configureAccessibility
-        case addFriends
+        case activateAssistiveTouch
         case finish
 
         var body: some View {
             switch self {
-            case .start:
-                StartView()
             case .addShortcut:
                 AddShortcutView()
+            case .turnOnWatchApp:
+                TurnOnWatchAppView()
             case .configureAccessibility:
                 ConfigureAccessibilityView()
-            case .addFriends:
-                AddFriendsView()
+            case .activateAssistiveTouch:
+                ActivateAssistiveTouchView()
             case .finish:
                 FinishView()
             }
@@ -72,15 +72,15 @@ extension OnboardingView {
 }
 
 // MARK: - Views for Onboarding
-private struct StartView: View {
-    var body: some View {
-        Text("Onboarding Start!!")
-    }
-}
-
 private struct AddShortcutView: View {
     var body: some View {
         Text("Add Shortcut")
+    }
+}
+
+private struct TurnOnWatchAppView: View {
+    var body: some View {
+        Text("TurnOnWatchAppView")
     }
 }
 
@@ -90,9 +90,9 @@ private struct ConfigureAccessibilityView: View {
     }
 }
 
-private struct AddFriendsView: View {
+private struct ActivateAssistiveTouchView: View {
     var body: some View {
-        Text("Add Friend")
+        Text("ActivateAssistiveTouchView")
     }
 }
 

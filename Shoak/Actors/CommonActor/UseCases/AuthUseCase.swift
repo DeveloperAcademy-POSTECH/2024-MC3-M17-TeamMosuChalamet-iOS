@@ -14,8 +14,8 @@ final class AuthUseCase {
         self.authRepository = authRepository
     }
 
-    func loginOrSignUp(identityToken: String) async -> Result<TMProfileVO, NetworkError> {
-        let dto = TMLoginOrSignUpDTO(identityToken: identityToken)
+    func loginOrSignUp(credential: TMUserCredentialVO) async -> Result<TMProfileVO, NetworkError> {
+        let dto = toDTO(credential)
         let result = await authRepository.loginOrSignUp(loginOrSignUpDTO: dto)
         switch result {
         case .success(let dto):
@@ -30,5 +30,9 @@ final class AuthUseCase {
 extension AuthUseCase {
     private func toVO(_ dto: TMProfileDTO) -> TMProfileVO {
         TMProfileVO(name: dto.name, imageURL: dto.imageURL)
+    }
+
+    private func toDTO(_ vo: TMUserCredentialVO) -> TMLoginOrSignUpDTO {
+        TMLoginOrSignUpDTO(identityToken: vo.token)
     }
 }

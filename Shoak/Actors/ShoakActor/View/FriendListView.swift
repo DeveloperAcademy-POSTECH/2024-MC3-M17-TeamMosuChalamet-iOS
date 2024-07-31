@@ -2,11 +2,14 @@
 import SwiftUI
 
 struct FriendListView: View {
-
+    @Environment(ShoakDataManager.self) private var shoakDataManager
     var body: some View {
         VStack {
             TopButtons()
             FriendsList()
+        }
+        .onAppear {
+            shoakDataManager.refreshFriends()
         }
     }
 
@@ -106,6 +109,7 @@ struct FriendListView: View {
                 .frame(minHeight: 110)
                 .background(property.backgroundColor)
             }
+            .transition(.identity)
             .buttonStyle(.plain)
             .clipShapeBorder(RoundedRectangle(cornerRadius: 12), Color.strokeBlack, 1.0)
         }
