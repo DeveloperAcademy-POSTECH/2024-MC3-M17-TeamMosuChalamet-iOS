@@ -32,9 +32,11 @@ struct FriendListView: View {
                         .background(Color.shoakYellow, ignoresSafeAreaEdges: [])
                         // https://developer.apple.com/documentation/swiftui/view/background(_:ignoressafeareaedges:)
                 }
-                .buttonStyle(.plain)
-                .clipShape(RoundedRectangle(cornerRadius: 12))
-
+                .cornerRadius(12)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 12)
+                        .strokeBorder(Color.strokeBlack, lineWidth: 1)
+                )
 
                 Button {
                     navigationManager.setView(to: .settings)
@@ -48,8 +50,11 @@ struct FriendListView: View {
                         .frame(maxHeight: .infinity)
                         .background(Color.shoakRed, ignoresSafeAreaEdges: [])
                 }
-                .buttonStyle(.plain)
-                .clipShape(RoundedRectangle(cornerRadius: 12))
+                .cornerRadius(12)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 12)
+                        .strokeBorder(Color.strokeBlack, lineWidth: 1)
+                )
             }
             .frame(height: 60)
             .padding(.horizontal, 16)
