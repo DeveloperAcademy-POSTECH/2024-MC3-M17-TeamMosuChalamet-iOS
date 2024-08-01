@@ -1,6 +1,4 @@
-
 import SwiftUI
-
 
 struct FriendListView: View {
     @Environment(ShoakDataManager.self) private var shoakDataManager
@@ -13,7 +11,7 @@ struct FriendListView: View {
             shoakDataManager.refreshFriends()
         }
     }
-
+    
     struct TopButtons: View {
         @Environment(NavigationManager.self) private var navigationManager
         var body: some View {
@@ -30,12 +28,14 @@ struct FriendListView: View {
                         .padding(.leading, 4) // 아이콘 자체가 치우쳐져 있어서 미세조정
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                         .background(Color.shoakYellow, ignoresSafeAreaEdges: [])
-                        // https://developer.apple.com/documentation/swiftui/view/background(_:ignoressafeareaedges:)
+                    // https://developer.apple.com/documentation/swiftui/view/background(_:ignoressafeareaedges:)
                 }
-                .buttonStyle(.plain)
-                .clipShape(RoundedRectangle(cornerRadius: 12))
-
-
+                .cornerRadius(12)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 12)
+                        .strokeBorder(Color.strokeBlack, lineWidth: 1)
+                )
+                
                 Button {
                     navigationManager.setView(to: .settings)
                 } label: {
@@ -48,18 +48,21 @@ struct FriendListView: View {
                         .frame(maxHeight: .infinity)
                         .background(Color.shoakRed, ignoresSafeAreaEdges: [])
                 }
-                .buttonStyle(.plain)
-                .clipShape(RoundedRectangle(cornerRadius: 12))
+                .cornerRadius(12)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 12)
+                        .strokeBorder(Color.strokeBlack, lineWidth: 1)
+                )
             }
             .frame(height: 60)
             .padding(.horizontal, 16)
         }
     }
-
+    
     struct FriendsList: View {
         @Environment(ShoakDataManager.self) private var shoakDataManager
         @Environment(NavigationManager.self) private var navigationManager
-
+        
         var body: some View {
             List(shoakDataManager.friends, id: \.memberID) { member in
                 FriendButton(friend: member)
@@ -75,19 +78,19 @@ struct FriendListView: View {
             }
         }
     }
-
+    
     struct FriendButton: View {
         @Environment(ShoakDataManager.self) private var shoakDataManager
-
+        
         var friend: TMFriendVO
-
+        
         @State private var property: Properties = .default
-
+        
         init(friend: TMFriendVO, property: Properties = .default) {
             self.friend = friend
             self._property = State(initialValue: property)
         }
-
+        
         var body: some View {
             Button {
                 switch property {
@@ -115,14 +118,15 @@ struct FriendListView: View {
                         .resizable()
                         .padding()
                         .frame(width: 80, height: 80)
+                        .background(Color.shoakWhite)
                         .clipShapeBorder(RoundedRectangle(cornerRadius: 30), Color.strokeGray, 2.0)
                         .padding(15)
-
+                    
                     Text(friend.name)
                         .font(.textTitle)
-
+                    
                     Spacer()
-
+                    
                     property.accessoryView
                         .frame(width: 100, height: 60)
                         .padding(.trailing, 23)
@@ -135,13 +139,13 @@ struct FriendListView: View {
             .clipShapeBorder(RoundedRectangle(cornerRadius: 12), Color.strokeBlack, 1.0)
             .animation(.default, value: self.property)
         }
-
+        
         enum Properties {
             case `default`
             case confirm
             case complete
             case delete
-
+            
             var backgroundColor: Color {
                 switch self {
                 case .confirm:
@@ -150,18 +154,21 @@ struct FriendListView: View {
                     Color.shoakWhite
                 }
             }
-
+            
             @ViewBuilder
             var accessoryView: some View {
                 switch self {
                 case .default:
                     Color.clear.contentShape(Rectangle())
                 case .confirm:
-                    Text("부르기")
-                        .font(.textTitle)
-                        .foregroundStyle(Color.shoakWhite)
-                        .frame(width: 98, height: 51)
-                        .background(Color.shoakNavy, in: Capsule(style: .continuous))
+                    Image(.shoakHandGestureIcon)
+                        .frame(width: 100, height: 51)
+                        .background(Color.shoakNavy)
+                        .cornerRadius(30)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 30)
+                                .strokeBorder(Color.strokeWhite, lineWidth: 1)
+                        )
                 case .complete:
                     Image(systemName: "checkmark.circle")
                         .resizable()
@@ -184,5 +191,4 @@ struct FriendListView: View {
         .environment(AccountManager.shared)
         .environment(NavigationManager())
         .environment(InvitationManager.shared)
-
 }
