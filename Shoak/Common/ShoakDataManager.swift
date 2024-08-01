@@ -29,8 +29,8 @@ class ShoakDataManager: @unchecked Sendable {
     }
 
     public func refreshFriends() {
-        Task {
-            await getFriends()
+        Task.detached {
+            await self.getFriends()
         }
     }
 
@@ -38,7 +38,9 @@ class ShoakDataManager: @unchecked Sendable {
         let result = await userUseCase.getFriends()
         switch result {
         case .success(let success):
-            self.friends = success
+            DispatchQueue.main.async {
+                self.friends = success
+            }
         case .failure(let failure):
             print("fail! : \(failure)")
         }

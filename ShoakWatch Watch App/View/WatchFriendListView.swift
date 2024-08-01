@@ -10,49 +10,55 @@ struct WatchFriendListView: View {
     let hapticManager = HapticManager.instance
     
     var body: some View {
-        
-        List(shoakDataManager.friends, id: \.memberID) { member in
-            //리스트 눌리면 UI 변경
-            Button(action: {
-                tappedStates[member.memberID, default: false].toggle()
+        Group {
+            if shoakDataManager.friends.isEmpty {
+                ProgressView()
+            } else {
                 
-                //햅틱 피드백
-                hapticManager.playRepeatedHaptic(type: .retry, times: 3, interval: 0.00001)
-                //                hapticManager.notification(type: .retry)
-                
-                // tap 된 버튼 일정 시간 지나면 복원
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                    tappedStates[member.memberID] = false
-                }
-                print("Selected member: \(member.name)")
-
-                Task {
-                    await shoakDataManager.sendShoak(to: member.memberID)
-                }
-            }) {
-                HStack {
-                    if tappedStates[member.memberID, default: false] {
-                        Image("Check")
-                            .resizable()
-                            .frame(width: 50, height: 50)
+                List(shoakDataManager.friends, id: \.memberID) { member in
+                    //리스트 눌리면 UI 변경
+                    Button(action: {
+                        tappedStates[member.memberID, default: false].toggle()
                         
-                    } else {
-                        Image("EmptyProfile")
-                            .resizable()
-                            .frame(width: 50, height: 50)
+                        //햅틱 피드백
+                        hapticManager.playRepeatedHaptic(type: .retry, times: 3, interval: 0.00001)
+                        //                hapticManager.notification(type: .retry)
+                        
+                        // tap 된 버튼 일정 시간 지나면 복원
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                            tappedStates[member.memberID] = false
+                        }
+                        print("Selected member: \(member.name)")
+                        
+                        Task {
+                            await shoakDataManager.sendShoak(to: member.memberID)
+                        }
+                    }) {
+                        HStack {
+                            if tappedStates[member.memberID, default: false] {
+                                Image("Check")
+                                    .resizable()
+                                    .frame(width: 50, height: 50)
+                                
+                            } else {
+                                Image("EmptyProfile")
+                                    .resizable()
+                                    .frame(width: 50, height: 50)
+                            }
+                            Spacer()
+                            Text("member name : \(member.name)")
+                                .foregroundColor(tappedStates[member.memberID, default: false] ? Color.white : Color.black)
+                            
+                            
+                        }
+                        .padding()
                     }
-                    Spacer()
-                    Text("member name : \(member.name)")
-                        .foregroundColor(tappedStates[member.memberID, default: false] ? Color.white : Color.black)
-                    
-                    
+                    .listRowBackground(
+                        RoundedRectangle(cornerRadius: 20)
+                            .fill(tappedStates[member.memberID, default: false] ? Color.shoakGreen : Color.shoakYellow )
+                    )
                 }
-                .padding()
             }
-            .listRowBackground(
-                RoundedRectangle(cornerRadius: 20)
-                    .fill(tappedStates[member.memberID, default: false] ? Color.shoakGreen : Color.shoakYellow )
-            )
         }
         .onAppear {
             self.shoakDataManager.refreshFriends()

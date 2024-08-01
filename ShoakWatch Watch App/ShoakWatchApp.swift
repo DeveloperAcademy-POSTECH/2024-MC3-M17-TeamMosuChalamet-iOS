@@ -34,6 +34,7 @@ struct ShoakWatch_Watch_AppApp: App {
 
         AppDependencyManager.shared.add(dependency: shoakDataManager)
         AppDependencyManager.shared.add(dependency: navigationManager)
+        AppDependencyManager.shared.add(dependency: phoneConnectivityManager)
     }
 
     var body: some Scene {
