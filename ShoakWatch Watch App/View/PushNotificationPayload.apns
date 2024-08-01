@@ -1,13 +1,16 @@
 {
     "aps": {
         "alert": {
-            "title": "Profile Update",
-            "body": "Check out the new profile information."
+            "title": "이빈치",
+            "body": "쇽! 나를 봐줘"
         },
-        "sound": "default"
+        "sound": "default",
+        "mutable-content": 1,
+        "category": "shoakreceive"
     },
-    "profileName": "John Doe",
-    "profileImageURL": "https://example.com/profile.jpg",
-    "message": "Your profile has been updated!",
+    "profileName": "이빈치",
+    "profileImageURL": "https://ada-mc3.s3.ap-northeast-2.amazonaws.com/profile/a7b899ae-528e-4e37-a6f1-e9ac08ab50c9vinci.jpeg",
+    "message": "쇽! 나를 봐줘",
+    
     "Simulator Target Bundle": "ADA.mosuchalamet.Shoak.watchkitapp"
 }

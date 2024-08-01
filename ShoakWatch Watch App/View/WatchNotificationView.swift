@@ -25,6 +25,7 @@ WatchNotificationView: View {
                     .scaledToFit()
                     .clipShape(Circle())
                     .frame(width: 100, height: 100)
+                  
                 }
 
                 Text(profile.name)
