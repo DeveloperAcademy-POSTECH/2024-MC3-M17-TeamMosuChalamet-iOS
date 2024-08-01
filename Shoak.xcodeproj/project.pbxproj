@@ -136,6 +136,7 @@
 		6FF9B7DB2C5244B400FC0CB2 /* StartShoakProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7AB2C51322900FC0CB2 /* StartShoakProcess.swift */; };
 		6FF9B7DC2C5246A000FC0CB2 /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7B22C51F84600FC0CB2 /* NavigationManager.swift */; };
 		B80468B02C58D412008E2D24 /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2168532C58751E007463D0 /* ColorManager.swift */; };
+		B8A390092C5B4D6D00B33D9C /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A390082C5B4D6D00B33D9C /* NotificationService.swift */; };
 		B8FF5C372C59DC2000F043EB /* WatchNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FF5C362C59DC2000F043EB /* WatchNotificationView.swift */; };
 		B8FF5C392C59DE0000F043EB /* WatchNotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FF5C382C59DE0000F043EB /* WatchNotificationController.swift */; };
 		B8FF5C3B2C5A23BB00F043EB /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FF5C3A2C5A23BB00F043EB /* CircleImage.swift */; };
@@ -288,6 +289,7 @@
 		6FF9B7C32C52378C00FC0CB2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6FF9B7D62C5243DC00FC0CB2 /* WatchFriendListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchFriendListView.swift; sourceTree = "<group>"; };
 		6FF9B7D92C52441700FC0CB2 /* WatchSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchSettingView.swift; sourceTree = "<group>"; };
+		B8A390082C5B4D6D00B33D9C /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		B8FF5C362C59DC2000F043EB /* WatchNotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchNotificationView.swift; sourceTree = "<group>"; };
 		B8FF5C382C59DE0000F043EB /* WatchNotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchNotificationController.swift; sourceTree = "<group>"; };
 		B8FF5C3A2C5A23BB00F043EB /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
@@ -733,6 +735,7 @@
 				B8FF5C362C59DC2000F043EB /* WatchNotificationView.swift */,
 				B8FF5C382C59DE0000F043EB /* WatchNotificationController.swift */,
 				B8FF5C3C2C5A893900F043EB /* PushNotificationPayload.apns */,
+				B8A390082C5B4D6D00B33D9C /* NotificationService.swift */,
 				6FF9B7D92C52441700FC0CB2 /* WatchSettingView.swift */,
 				B8FF5C3A2C5A23BB00F043EB /* CircleImage.swift */,
 			);
@@ -1073,6 +1076,7 @@
 				6FA442B02C591A1A00E3E69E /* TMUserCredentialVO.swift in Sources */,
 				6FC0D51F2C5A21FB005BD525 /* SendShoakUseCase.swift in Sources */,
 				6FF9B7D22C5239B300FC0CB2 /* AccountUseCase.swift in Sources */,
+				B8A390092C5B4D6D00B33D9C /* NotificationService.swift in Sources */,
 				6FF9B7BF2C52378B00FC0CB2 /* ContentView.swift in Sources */,
 				6FF9B7DB2C5244B400FC0CB2 /* StartShoakProcess.swift in Sources */,
 				6FC0A1752C554C9E004560E3 /* TMProfileDTO.swift in Sources */,
@@ -1091,7 +1095,6 @@
 				6FC0A1A12C57C3D3004560E3 /* TMLoginOrSignUpDTO.swift in Sources */,
 				6FC0A19E2C57C13B004560E3 /* AuthAPI.swift in Sources */,
 				6FC0A1862C563C42004560E3 /* Keychain.swift in Sources */,
-				6FC0A1922C5696EA004560E3 /* TokenRefreshAPIService.swift in Sources */,
 				B8FF5C3B2C5A23BB00F043EB /* CircleImage.swift in Sources */,
 				B8FF5C392C59DE0000F043EB /* WatchNotificationController.swift in Sources */,
 				6FC0D50C2C59E62D005BD525 /* TMTokenRefreshRequestDTO.swift in Sources */,

@@ -1,10 +1,11 @@
 {
     "aps": {
         "alert": {
-            "title": "Profile Update",
-            "body": "Check out the new profile information."
+            "title": "이빈치",
+            "body": "쇽!"
         },
-        "sound": "default"
+        "sound": "default",
+        "mutable-content": 1
     },
     "profileName": "John Doe",
     "profileImageURL": "https://example.com/profile.jpg",
