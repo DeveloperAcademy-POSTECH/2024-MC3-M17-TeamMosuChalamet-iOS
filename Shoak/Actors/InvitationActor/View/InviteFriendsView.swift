@@ -69,14 +69,13 @@ struct InviteFriendsView: View {
                                 .cornerRadius(30)
                         }
                     } else {
-                        Rectangle()
-                            .foregroundColor(.clear)
+                        Image(.defaultProfile)
+                            .resizable()
                             .frame(width: 80, height: 80)
-                            .background(Color(red: 0.85, green: 0.85, blue: 0.85))
-                            .cornerRadius(30)
+                            .clipShapeBorder(RoundedRectangle(cornerRadius: 30), Color.strokeGray, 1.0)
                     }
                     
-                    Text(accountManager.profile?.name ?? "다빈치")
+                    Text(accountManager.profile?.name ?? "쇽")
                         .font(.textTitle)
                         .foregroundStyle(Color.textBlack)
                         .padding(.bottom, 20)

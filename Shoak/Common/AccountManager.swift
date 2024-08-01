@@ -11,19 +11,20 @@ import Foundation
 class AccountManager: @unchecked Sendable {
     static let shared = AccountManager()
 
-    @ObservationIgnored private let accountUseCase: AccountUseCase
     @ObservationIgnored let appleUseCase: AppleUseCase
     @ObservationIgnored private let authUseCase: AuthUseCase
 
     var profile: TMProfileVO?
 
     private let tokenManager: TokenManager
-
+    private let userUseCase: UserUseCase
+    
     private init() {
-        self.accountUseCase = AccountUseCase()
         self.appleUseCase = AppleUseCase()
         self.tokenManager = TokenManager()
         let apiClient = DefaultAPIClient(tokenManager: tokenManager)
+        let userRepository = UserRepository(apiClient: apiClient)
+        self.userUseCase = UserUseCase(userRepository: userRepository)
         let authRepository = AuthRepository(apiClient: apiClient)
         self.authUseCase = AuthUseCase(authRepository: authRepository)
     }
@@ -35,6 +36,22 @@ class AccountManager: @unchecked Sendable {
             return true
         }
         return false
+    }
+    
+    public func refreshProfile() {
+        Task {
+            await getProfile()
+        }
+    }
+
+    public func getProfile() async {
+        let result = await userUseCase.getProfile()
+        switch result {
+        case .success(let success):
+            self.profile = success
+        case .failure(let failure):
+            print("fail! : \(failure)")
+        }
     }
 }
 
