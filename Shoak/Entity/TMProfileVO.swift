@@ -8,6 +8,7 @@
 import Foundation
 
 struct TMProfileVO: Codable, Equatable {
+    
     var name: String
     var imageURL: String?
 }

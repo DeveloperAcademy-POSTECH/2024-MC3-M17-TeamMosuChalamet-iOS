@@ -7,6 +7,7 @@
 
 import SwiftUI
 import AppIntents
+import UserNotifications
 
 @main
 struct ShoakWatch_Watch_AppApp: App {
@@ -14,6 +15,13 @@ struct ShoakWatch_Watch_AppApp: App {
     private let navigationManager: NavigationManager
 
     init() {
+        
+        Task {
+                  let center = UNUserNotificationCenter.current()
+                  let options: UNAuthorizationOptions = [.alert, .sound, .badge]
+                  _ = try? await center.requestAuthorization(options: options)
+              }
+        
         let shoakDataManager = ShoakDataManager.shared
         self.shoakDataManager = shoakDataManager
 
@@ -23,6 +31,7 @@ struct ShoakWatch_Watch_AppApp: App {
         AppDependencyManager.shared.add(dependency: shoakDataManager)
         AppDependencyManager.shared.add(dependency: navigationManager)
     }
+    
 
     var body: some Scene {
         WindowGroup {
@@ -30,5 +39,6 @@ struct ShoakWatch_Watch_AppApp: App {
                 .environment(shoakDataManager)
                 .environment(navigationManager)
         }
+        WKNotificationScene(controller: WatchNotificationController.self, category: "몰라")
     }
 }

@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Emptyprofile.png",
+      "filename" : "Watchdefaultprofile.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Emptyprofile 1.png",
+      "filename" : "watchdefaultprofile2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Emptyprofile 2.png",
+      "filename" : "Watchdefaultprofile3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
