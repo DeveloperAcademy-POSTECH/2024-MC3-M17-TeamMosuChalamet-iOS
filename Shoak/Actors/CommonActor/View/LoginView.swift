@@ -15,12 +15,9 @@ struct LoginView: View {
         VStack {
             Spacer()
 
-            Image(systemName: "star.fill")
+            Image(.shoakIcon)
                 .resizable()
-                .padding()
-                .frame(width: 206, height: 206)
-                .background(Color.shoakYellow)
-                .clipShape(Circle())
+                .frame(width: 280, height: 280)
 
             Spacer()
 

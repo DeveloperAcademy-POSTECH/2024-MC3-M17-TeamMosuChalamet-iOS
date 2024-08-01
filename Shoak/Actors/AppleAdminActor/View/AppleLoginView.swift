@@ -29,6 +29,7 @@ struct AppleLoginView: View {
                     onSignInFailure?(error)
                 }
             )
+            .padding(.bottom, 57)
         }
     }
 }
