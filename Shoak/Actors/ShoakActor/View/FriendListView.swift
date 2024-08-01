@@ -113,17 +113,34 @@ struct FriendListView: View {
                     break
                 }
             } label: {
-                HStack {
-                    Image(systemName: "person.fill")
-                        .resizable()
-                        .padding()
-                        .frame(width: 80, height: 80)
-                        .background(Color.shoakWhite)
-                        .clipShapeBorder(RoundedRectangle(cornerRadius: 30), Color.strokeGray, 2.0)
-                        .padding(15)
+                HStack(spacing: 0) {
+                    if let imageURLString = friend.imageURLString,
+                       let imageURL = URL(string: imageURLString) {
+                        AsyncImage(url: imageURL) { image in
+                            image
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(width: 80, height: 80)
+                                .clipShapeBorder(RoundedRectangle(cornerRadius: 30), Color.strokeGray, 1.0)
+                                .padding(.leading, 15)
+                        } placeholder: {
+                            ProgressView()
+                                .frame(width: 80, height: 80)
+                                .background(Color(red: 0.85, green: 0.85, blue: 0.85))
+                                .cornerRadius(30)
+                                .padding(.leading, 15)
+                        }
+                    } else {
+                        Image(.defaultProfile)
+                            .resizable()
+                            .frame(width: 80, height: 80)
+                            .clipShapeBorder(RoundedRectangle(cornerRadius: 30), Color.strokeGray, 1.0)
+                            .padding(.leading, 15)
+                    }
                     
                     Text(friend.name)
                         .font(.textTitle)
+                        .padding(.leading, 19)
                     
                     Spacer()
                     
