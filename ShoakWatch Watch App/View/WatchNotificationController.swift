@@ -6,46 +6,36 @@
 //
 
 import SwiftUI
-import WatchKit
 import UserNotifications
+import WatchKit
 
-
-class WatchNotificationController: WKUserNotificationHostingController<WatchNotificationView> {
+// WatchKit에서 알림을 위한 뷰 컨트롤러
+class NotificationController: WKUserNotificationHostingController<WatchNotificationView> {
     
     var profile: TMProfileVO?
     var message: String?
     
-    let profileNameKey = "profileName"
-    let profileImageURLKey = "profileImageURL"
-    
+    // 알림을 처리하고 SwiftUI 뷰를 구성하는 메서드
     override var body: WatchNotificationView {
-        WatchNotificationView( message: message,
-                               profile: profile)
+        WatchNotificationView(message: message, profile: profile)
     }
     
-  
-       
     override func didReceive(_ notification: UNNotification) {
+        let notificationData = notification.request.content.userInfo
         
-                HapticFeedback()
+        // 'message'와 'profileImageURL' 추출
+        message = notificationData["message"] as? String
         
-        let notificationData = notification.request.content.userInfo as? [String: Any]
+              if let profileImageURL = notificationData["profileImageURL"] as? String,
+                 let profileName = notificationData["profileName"] as? String {
+                  profile = TMProfileVO(name: profileName, imageURL: profileImageURL)
+              }
         
-        let aps = notificationData?["aps"] as? [String: Any]
-        let alert = aps?["alert"] as? [String: Any]
-        
-        message = notificationData?["message"] as? String
-        
-        if let profileName = notificationData?[profileNameKey] as? String,
-           let profileImageURL = notificationData?[profileImageURLKey] as? String {
-            profile = TMProfileVO(name: profileName, imageURL: profileImageURL)
-        }
-        
+        // 선택적으로 Haptic 피드백을 추가할 수 있습니다.
+        HapticFeedback()
     }
-        private func HapticFeedback() {
-            
-            WKInterfaceDevice.current().play(.notification)
-            
-        }
+    
+    private func HapticFeedback() {
+        WKInterfaceDevice.current().play(.notification)
+    }
 }
-

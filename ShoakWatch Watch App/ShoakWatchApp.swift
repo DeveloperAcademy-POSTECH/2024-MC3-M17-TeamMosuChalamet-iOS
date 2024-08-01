@@ -39,6 +39,6 @@ struct ShoakWatch_Watch_AppApp: App {
                 .environment(shoakDataManager)
                 .environment(navigationManager)
         }
-        WKNotificationScene(controller: WatchNotificationController.self, category: "몰라")
+        WKNotificationScene(controller: NotificationController.self, category: "shoakreceive")
     }
 }
