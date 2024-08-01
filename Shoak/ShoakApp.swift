@@ -15,6 +15,7 @@ struct ShoakApp: App {
     private var accountManager: AccountManager
     private let navigationManager: NavigationManager
     private var invitationManager: InvitationManager
+    private var watchConnectivityManager: WatchConnectivityManager
 
     init() {
         let shoakDataManager = ShoakDataManager.shared
@@ -29,6 +30,9 @@ struct ShoakApp: App {
         let invitationManager = InvitationManager.shared
         self.invitationManager = invitationManager
 
+        let watchConnectivityManager = WatchConnectivityManager.shared
+        self.watchConnectivityManager = watchConnectivityManager
+
         AppDependencyManager.shared.add(dependency: shoakDataManager)
         AppDependencyManager.shared.add(dependency: accountManager)
         AppDependencyManager.shared.add(dependency: navigationManager)
@@ -41,6 +45,7 @@ struct ShoakApp: App {
                 .environment(accountManager)
                 .environment(navigationManager)
                 .environment(invitationManager)
+                .environment(watchConnectivityManager)
         }
     }
 }

@@ -10,6 +10,7 @@ import UserNotifications
 
 struct ContentView: View {
     @Environment(NavigationManager.self) private var navigationManager
+    @Environment(PhoneConnectivityManager.self) private var phoneConnectivityManager
     var body: some View {
         navigationManager.view
             .task {

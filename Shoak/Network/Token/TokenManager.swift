@@ -23,10 +23,6 @@ final public class TokenManager: @unchecked Sendable {
         // get할 때 keychain에서 가져오는 로직을 수행 함.
         self.accessToken = accessToken
         self.refreshToken = refreshToken
-        // TODO: 위에꺼로 다시 바꾸기
-//        self.accessToken = AccessToken("eyJhbGciOiJIUzI1NiJ9.eyJjYXRlZ29yeSI6ImFjY2VzcyIsInVzZXJuYW1lIjoiMTciLCJyb2xlIjoiUk9MRV9VU0VSIiwiaWF0IjoxNzIyNDM0OTUwLCJleHAiOjE3MjUwMjY5NTB9.RmcsCvh39l2aHtNJVATklJYY7fAuyrdBC8FilAHi0DI")
-//
-//        self.refreshToken = RefreshToken("eyJhbGciOiJIUzI1NiJ9.eyJjYXRlZ29yeSI6InJlZnJlc2giLCJ1c2VybmFtZSI6IkRlZmF1bHQgTmFtZSIsInJvbGUiOiJST0xFX1VTRVIiLCJpYXQiOjE3MjI0MzQ5NTAsImV4cCI6MTcyNzYxODk1MH0.jmWUHPA6tK1IX3TvPIQrYdga_4IulOFDpGGZJJv0OdY")
     }
 
     /// URLRequest에 대해 토큰이 유효하다면 Access, Refresh 헤더에 Bearer 토큰 붙여주는 로직 (async/await 기반)
@@ -54,10 +50,21 @@ final public class TokenManager: @unchecked Sendable {
 public extension TokenManager {
     func save(_ accessToken: AccessToken) {
         self.accessToken = accessToken
+        print("save access Token : \(accessToken.token)")
+
+#if os(iOS)
+        let watchConnectivity = WatchConnectivityManager.shared
+        watchConnectivity.sendMessage(data: ["Access": accessToken.token as Any, "Refresh": refreshToken?.token as Any])
+#endif
     }
 
     func save(_ refreshToken: RefreshToken) {
         self.refreshToken = refreshToken
+        print("save refresh Token : \(refreshToken.token)")
+#if os(iOS)
+        let watchConnectivity = WatchConnectivityManager.shared
+        watchConnectivity.sendMessage(data: ["Access": accessToken?.token as Any, "Refresh": refreshToken.token as Any])
+#endif
     }
 
     func save(_ identityToken: IdentityToken) {
