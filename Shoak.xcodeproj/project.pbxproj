@@ -28,6 +28,8 @@
 		6FA442B02C591A1A00E3E69E /* TMUserCredentialVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA442AE2C591A1A00E3E69E /* TMUserCredentialVO.swift */; };
 		6FA442B22C59239E00E3E69E /* ShoakAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA442B12C59239E00E3E69E /* ShoakAppDelegate.swift */; };
 		6FA442B52C59DDA300E3E69E /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA442B42C59DDA300E3E69E /* BackButton.swift */; };
+		6FBEED432C5B5F1C00431B7F /* WatchConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBEED422C5B5F1C00431B7F /* WatchConnectivityManager.swift */; };
+		6FBEED452C5B632700431B7F /* PhoneConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBEED442C5B632700431B7F /* PhoneConnectivityManager.swift */; };
 		6FC0A12A2C54C82B004560E3 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0A1292C54C82B004560E3 /* LoginView.swift */; };
 		6FC0A12C2C54CA29004560E3 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0A12B2C54CA29004560E3 /* OnboardingView.swift */; };
 		6FC0A12E2C54CB11004560E3 /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0A12D2C54CB11004560E3 /* AccountManager.swift */; };
@@ -221,6 +223,8 @@
 		6FA442AE2C591A1A00E3E69E /* TMUserCredentialVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMUserCredentialVO.swift; sourceTree = "<group>"; };
 		6FA442B12C59239E00E3E69E /* ShoakAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoakAppDelegate.swift; sourceTree = "<group>"; };
 		6FA442B42C59DDA300E3E69E /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
+		6FBEED422C5B5F1C00431B7F /* WatchConnectivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchConnectivityManager.swift; sourceTree = "<group>"; };
+		6FBEED442C5B632700431B7F /* PhoneConnectivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneConnectivityManager.swift; sourceTree = "<group>"; };
 		6FC0A1292C54C82B004560E3 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		6FC0A12B2C54CA29004560E3 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		6FC0A12D2C54CB11004560E3 /* AccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
@@ -597,6 +601,7 @@
 				6FF9B7B02C51F82B00FC0CB2 /* ShoakDataManager.swift */,
 				6FF9B7B22C51F84600FC0CB2 /* NavigationManager.swift */,
 				6FC0A12D2C54CB11004560E3 /* AccountManager.swift */,
+				6FBEED422C5B5F1C00431B7F /* WatchConnectivityManager.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -715,6 +720,7 @@
 				6FF9B7BC2C52378B00FC0CB2 /* ShoakWatchApp.swift */,
 				6FF9B7C02C52378C00FC0CB2 /* Assets.xcassets */,
 				6FF9B7C22C52378C00FC0CB2 /* Preview Content */,
+				6FBEED442C5B632700431B7F /* PhoneConnectivityManager.swift */,
 			);
 			path = "ShoakWatch Watch App";
 			sourceTree = "<group>";
@@ -1010,6 +1016,7 @@
 				1E21684F2C587223007463D0 /* InvitationUseCase.swift in Sources */,
 				6FC0A17E2C563A02004560E3 /* TokenStorage.swift in Sources */,
 				6FC0A1AC2C57DBBB004560E3 /* StoreTokenPlugin.swift in Sources */,
+				6FBEED432C5B5F1C00431B7F /* WatchConnectivityManager.swift in Sources */,
 				6FC0A17E2C563A02004560E3 /* TokenStorage.swift in Sources */,
 				1E2168382C5689BF007463D0 /* MessageComposeView.swift in Sources */,
 				6FF9B7B52C52211A00FC0CB2 /* RootView.swift in Sources */,
@@ -1090,6 +1097,7 @@
 				6FC0A1782C554CC6004560E3 /* TMProfileVO.swift in Sources */,
 				6FF9B7DC2C5246A000FC0CB2 /* NavigationManager.swift in Sources */,
 				6FC0A1522C5524DE004560E3 /* NetworkError.swift in Sources */,
+				6FBEED452C5B632700431B7F /* PhoneConnectivityManager.swift in Sources */,
 				6FC0A17F2C563A02004560E3 /* TokenStorage.swift in Sources */,
 				6FC0A14C2C5520BA004560E3 /* UserRepository.swift in Sources */,
 				6FC0A1A12C57C3D3004560E3 /* TMLoginOrSignUpDTO.swift in Sources */,

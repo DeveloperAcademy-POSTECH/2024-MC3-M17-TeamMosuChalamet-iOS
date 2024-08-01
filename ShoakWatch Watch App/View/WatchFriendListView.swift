@@ -25,6 +25,10 @@ struct WatchFriendListView: View {
                     tappedStates[member.memberID] = false
                 }
                 print("Selected member: \(member.name)")
+
+                Task {
+                    await shoakDataManager.sendShoak(to: member.memberID)
+                }
             }) {
                 HStack {
                     if tappedStates[member.memberID, default: false] {
@@ -50,13 +54,8 @@ struct WatchFriendListView: View {
                     .fill(tappedStates[member.memberID, default: false] ? Color.shoakGreen : Color.shoakYellow )
             )
         }
-        .refreshable {
-            Task {
-                await shoakDataManager.refreshFriends()
-            }
-        }
         .onAppear {
-            self.shoakDataManager.friends = .mockData
+            self.shoakDataManager.refreshFriends()
         }
     }
     
