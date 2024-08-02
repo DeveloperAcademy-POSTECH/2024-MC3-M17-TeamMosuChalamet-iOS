@@ -20,7 +20,8 @@ WatchNotificationView: View {
                     AsyncImage(url: url) { image in
                         CircleImage( image: image.resizable())
                     } placeholder: {
-                        ProgressView()
+                        
+                        CircleImage(image: Image(systemName: "person.crop.circle").resizable())
                     }
                     .scaledToFit()
                     .clipShape(Circle())
