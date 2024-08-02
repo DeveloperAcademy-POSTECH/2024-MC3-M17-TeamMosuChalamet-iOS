@@ -33,9 +33,9 @@ struct ShoakApp: App {
         let watchConnectivityManager = WatchConnectivityManager.shared
         self.watchConnectivityManager = watchConnectivityManager
 
-        AppDependencyManager.shared.add(dependency: shoakDataManager)
-        AppDependencyManager.shared.add(dependency: accountManager)
-        AppDependencyManager.shared.add(dependency: navigationManager)
+//        AppDependencyManager.shared.add(dependency: shoakDataManager)
+//        AppDependencyManager.shared.add(dependency: accountManager)
+//        AppDependencyManager.shared.add(dependency: navigationManager)
     }
 
     var body: some Scene {
