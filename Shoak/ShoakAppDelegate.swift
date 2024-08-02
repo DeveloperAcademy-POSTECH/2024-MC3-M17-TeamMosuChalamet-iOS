@@ -8,11 +8,12 @@
 import Foundation
 import UIKit
 
-class ShoakAppDelegate: NSObject, UIApplicationDelegate {
+class ShoakAppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDelegate {
     /// 앱이 시작되면 APNs 서버에 디바이스 토큰을 달라고 요청한다.
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
 
         let center = UNUserNotificationCenter.current()
+        center.delegate = self
         center.requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
 
             if let error = error {
@@ -39,5 +40,10 @@ class ShoakAppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         print("register remote notification error:\(error)")
         // Try again later.
+    }
+
+    /// In-App에서도 알람이 오게끔!
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.banner, .sound, .badge])
     }
 }
