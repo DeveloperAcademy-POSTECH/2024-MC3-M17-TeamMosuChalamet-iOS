@@ -13,7 +13,7 @@ class NavigationManager {
     var view: SwitchableView
 
     init() {
-        self.view = .onboarding
+        self.view = .login
     }
 
     public func nextPhase() {
