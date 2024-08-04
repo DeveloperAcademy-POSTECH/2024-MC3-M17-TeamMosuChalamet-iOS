@@ -26,21 +26,21 @@ class NotificationController: WKUserNotificationHostingController<WatchNotificat
         // 'message'와 'profileImageURL' 추출
         message = notificationData["message"] as? String
         
-              if let profileImageURL = notificationData["profileImageURL"] as? String,
-                 let profileName = notificationData["profileName"] as? String {
-                  profile = TMProfileVO(name: profileName, imageURL: profileImageURL)
-              }
+        if let profileImageURL = notificationData["profileImageURL"] as? String,
+           let profileName = notificationData["profileName"] as? String {
+            profile = TMProfileVO(name: profileName, imageURL: profileImageURL)
+        }
         
         // 선택적으로 Haptic 피드백을 추가할 수 있습니다.
         HapticFeedback()
     }
     
     private func HapticFeedback() {
-        for _ in 0..<3 {
-                   WKInterfaceDevice.current().play(.notification)
-             
-            Thread.sleep(forTimeInterval: 0.1)
-               }
-           }
-       }
-
+        
+        WKInterfaceDevice.current().play(.notification)
+        Thread.sleep(forTimeInterval: 0.05)
+        
+        WKInterfaceDevice.current().play(.click)
+        Thread.sleep(forTimeInterval: 0.5)
+    }
+}

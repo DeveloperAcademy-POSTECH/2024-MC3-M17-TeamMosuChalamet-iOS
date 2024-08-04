@@ -10,54 +10,70 @@ struct WatchFriendListView: View {
     let hapticManager = HapticManager.instance
     
     var body: some View {
+        
         Group {
             if shoakDataManager.friends.isEmpty {
                 ProgressView()
             } else {
                 
                 List(shoakDataManager.friends, id: \.memberID) { member in
-                    //리스트 눌리면 UI 변경
                     Button(action: {
                         tappedStates[member.memberID, default: false].toggle()
                         
-                        //햅틱 피드백
-                        hapticManager.playRepeatedHaptic(type: .retry, times: 3, interval: 0.00001)
-                        //                hapticManager.notification(type: .retry)
+                        hapticManager.notification(type: .retry)
                         
-                        // tap 된 버튼 일정 시간 지나면 복원
                         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                             tappedStates[member.memberID] = false
                         }
-                        print("Selected member: \(member.name)")
                         
                         Task {
                             await shoakDataManager.sendShoak(to: member.memberID)
                         }
                     }) {
-                        HStack {
+                        
+                        HStack(spacing: 0) {
                             if tappedStates[member.memberID, default: false] {
                                 Image("Check")
                                     .resizable()
                                     .frame(width: 50, height: 50)
                                 
                             } else {
-                                Image("EmptyProfile")
-                                    .resizable()
+                                if let urlString = member.imageURLString, let url = URL(string: urlString) {
+                                    AsyncImage(url: url) { image in
+                                        image.resizable()
+                                    } placeholder: {
+                                        ProgressView()
+                                    }
                                     .frame(width: 50, height: 50)
+                                    .clipShapeBorder(RoundedRectangle(cornerRadius: 20), Color.strokeGray, 1.0)
+                                }
+                                else{
+                                    Image("EmptyProfile")
+                                        .resizable()
+                                        .frame(width: 50, height: 50)
+                                        .clipShapeBorder(RoundedRectangle(cornerRadius: 20), Color.strokeGray, 1.0)
+                                        
+                                }
                             }
                             Spacer()
-                            Text("member name : \(member.name)")
-                                .foregroundColor(tappedStates[member.memberID, default: false] ? Color.white : Color.black)
+                                .frame(width: 24)
                             
-                            
+                            Text("\(member.name)")
+                                .font(.textListTitle)
+                                .foregroundColor(tappedStates[member.memberID, default: false] ? Color.textWhite : Color.textBlack)
+                            Spacer()
                         }
+                        .frame(width: 174, height: 82)
                         .padding()
                     }
                     .listRowBackground(
                         RoundedRectangle(cornerRadius: 20)
                             .fill(tappedStates[member.memberID, default: false] ? Color.shoakGreen : Color.shoakYellow )
+                            .clipShapeBorder(RoundedRectangle(cornerRadius: 20),tappedStates[member.memberID, default: false] ? Color.WatchStrokeGreen : Color.WatchStrokeYellow, 2)
                     )
+                    
                 }
+                
             }
         }
         .onAppear {
@@ -87,6 +103,7 @@ class HapticManager {
     }
     
 }
+
 #Preview {
     WatchFriendListView()
         .environment(ShoakDataManager.shared)

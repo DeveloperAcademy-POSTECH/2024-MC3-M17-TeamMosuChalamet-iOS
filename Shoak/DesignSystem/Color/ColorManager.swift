@@ -20,4 +20,6 @@ extension Color {
     static let strokeWhite: Color = Color(uiColor: UIColor(red: 1, green: 1, blue: 1, alpha: 0.1))
     static let strokeBlack: Color = Color(uiColor: UIColor(red: 0, green: 0, blue: 0, alpha: 0.1))
     static let strokeGray: Color = Color(uiColor: UIColor(red: 0.85, green: 0.85, blue: 0.85, alpha: 1))
+    static let WatchStrokeYellow: Color = Color(uiColor: UIColor(red: 0.898, green: 0.714, blue: 0, alpha: 1))
+    static let WatchStrokeGreen: Color = Color(uiColor: UIColor(red:0.40, green: 0.698, blue: 0.259, alpha: 1))
 }

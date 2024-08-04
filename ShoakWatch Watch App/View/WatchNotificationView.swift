@@ -19,9 +19,10 @@ WatchNotificationView: View {
                 if let imageURL = profile.imageURL, let url = URL(string: imageURL) {
                     AsyncImage(url: url) { image in
                         CircleImage( image: image.resizable())
+                        
                     } placeholder: {
                         
-                        CircleImage(image: Image(systemName: "person.crop.circle").resizable())
+                       ProgressView()
                     }
                     .scaledToFit()
                     .clipShape(Circle())
