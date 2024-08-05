@@ -11,6 +11,7 @@ import Messages
 
 struct MessageComposeView: UIViewControllerRepresentable {
     @Environment(InvitationManager.self) private var invitationManager
+    @Environment(AccountManager.self) private var accountManager
     @Binding var isPresented: Bool
 
     func makeCoordinator() -> Coordinator {
@@ -22,9 +23,18 @@ struct MessageComposeView: UIViewControllerRepresentable {
         let templateLayout = MSMessageTemplateLayout()
         templateLayout.image = UIImage(named: "ShoakLogoFilled")
 
+        let memberID = "\(123123)"
+
+        var components = URLComponents()
+        components.scheme = "https"
+        components.host = "invite"
+        components.path = "/"
+        let id = URLQueryItem(name: "memberID", value: memberID)
+        components.queryItems = [id]
+
         let message = MSMessage()
         message.layout = templateLayout
-        message.url = URL(string: "shoak://invite?id=123123")
+        message.url = components.url
         message.summaryText = "쇽 초대!"
 
         messageComposeVC.message = message

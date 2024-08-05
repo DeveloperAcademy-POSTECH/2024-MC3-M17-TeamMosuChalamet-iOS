@@ -10,9 +10,12 @@ import SwiftUI
 @MainActor
 @Observable
 class NavigationManager {
+    static let shared = NavigationManager()
     var view: SwitchableView
 
-    init() {
+    var invitation: TMMemberID?
+
+    private init() {
         self.view = .login
     }
 

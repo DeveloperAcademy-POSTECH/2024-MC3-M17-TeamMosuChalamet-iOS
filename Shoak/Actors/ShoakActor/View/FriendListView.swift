@@ -2,13 +2,22 @@ import SwiftUI
 
 struct FriendListView: View {
     @Environment(ShoakDataManager.self) private var shoakDataManager
+    @Environment(NavigationManager.self) private var navigationManager
     var body: some View {
+        @Bindable var navigationManager = navigationManager
         VStack {
             TopButtons()
             FriendsList()
         }
         .onAppear {
             shoakDataManager.refreshFriends()
+        }
+        .sheet(item: $navigationManager.invitation) { invitation in
+            Text("invitation")
+            Button("초대 수락하기") {
+                print("초대 수락!!!!!!!!!")
+                navigationManager.invitation = nil
+            }
         }
     }
     
@@ -206,6 +215,6 @@ struct FriendListView: View {
     FriendListView()
         .environment(ShoakDataManager.shared)
         .environment(AccountManager.shared)
-        .environment(NavigationManager())
+        .environment(NavigationManager.shared)
         .environment(InvitationManager.shared)
 }

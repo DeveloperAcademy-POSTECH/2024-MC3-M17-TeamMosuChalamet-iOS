@@ -7,4 +7,10 @@
 
 import Foundation
 
-typealias TMMemberID = Int64
+public typealias TMMemberID = Int64
+
+extension TMMemberID: @retroactive Identifiable {
+    public var id: TMMemberID {
+        return self
+    }
+}

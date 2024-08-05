@@ -24,7 +24,7 @@ struct ShoakApp: App {
         let accountManager = AccountManager.shared
         self.accountManager = accountManager
 
-        let navigationManager = NavigationManager()
+        let navigationManager = NavigationManager.shared
         self.navigationManager = navigationManager
         
         let invitationManager = InvitationManager.shared
@@ -46,6 +46,21 @@ struct ShoakApp: App {
                 .environment(navigationManager)
                 .environment(invitationManager)
                 .environment(watchConnectivityManager)
+                .onOpenURL { url in
+                    handleDeepLink(url: url)
+                }
         }
+    }
+
+    private func handleDeepLink(url: URL) {
+        print("Deep link URL: \(url.absoluteString)")
+
+        guard let components = URLComponents(url: url, resolvingAgainstBaseURL: true),
+        let memberID = components.queryItems?.first(where: { $0.name == "memberID" })?.value,
+        let memberIDToInt64 = Int64(memberID, radix: 10) else {
+            return
+        }
+
+        NavigationManager.shared.invitation = memberIDToInt64
     }
 }
