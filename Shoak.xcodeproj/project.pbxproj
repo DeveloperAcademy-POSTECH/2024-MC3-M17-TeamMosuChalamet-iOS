@@ -30,6 +30,10 @@
 		6FA442B52C59DDA300E3E69E /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA442B42C59DDA300E3E69E /* BackButton.swift */; };
 		6FBEED432C5B5F1C00431B7F /* WatchConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBEED422C5B5F1C00431B7F /* WatchConnectivityManager.swift */; };
 		6FBEED452C5B632700431B7F /* PhoneConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBEED442C5B632700431B7F /* PhoneConnectivityManager.swift */; };
+		6FBEED482C5C73AA00431B7F /* StartShoakShortcuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBEED472C5C73AA00431B7F /* StartShoakShortcuts.swift */; };
+		6FBEED492C5C73AA00431B7F /* StartShoakShortcuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBEED472C5C73AA00431B7F /* StartShoakShortcuts.swift */; };
+		6FBEED4B2C5D489800431B7F /* 쇽 시작하기.shortcut in Resources */ = {isa = PBXBuildFile; fileRef = 6FBEED4A2C5D489800431B7F /* 쇽 시작하기.shortcut */; };
+		6FBEED4C2C5D489800431B7F /* 쇽 시작하기.shortcut in Resources */ = {isa = PBXBuildFile; fileRef = 6FBEED4A2C5D489800431B7F /* 쇽 시작하기.shortcut */; };
 		6FC0A12A2C54C82B004560E3 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0A1292C54C82B004560E3 /* LoginView.swift */; };
 		6FC0A12C2C54CA29004560E3 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0A12B2C54CA29004560E3 /* OnboardingView.swift */; };
 		6FC0A12E2C54CB11004560E3 /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0A12D2C54CB11004560E3 /* AccountManager.swift */; };
@@ -226,6 +230,8 @@
 		6FA442B42C59DDA300E3E69E /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
 		6FBEED422C5B5F1C00431B7F /* WatchConnectivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchConnectivityManager.swift; sourceTree = "<group>"; };
 		6FBEED442C5B632700431B7F /* PhoneConnectivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneConnectivityManager.swift; sourceTree = "<group>"; };
+		6FBEED472C5C73AA00431B7F /* StartShoakShortcuts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartShoakShortcuts.swift; sourceTree = "<group>"; };
+		6FBEED4A2C5D489800431B7F /* 쇽 시작하기.shortcut */ = {isa = PBXFileReference; lastKnownFileType = file; path = "쇽 시작하기.shortcut"; sourceTree = "<group>"; };
 		6FC0A1292C54C82B004560E3 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		6FC0A12B2C54CA29004560E3 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		6FC0A12D2C54CB11004560E3 /* AccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
@@ -597,6 +603,7 @@
 		6FF9B7842C50E5FF00FC0CB2 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				6FBEED4A2C5D489800431B7F /* 쇽 시작하기.shortcut */,
 				6FF9B7AF2C51400400FC0CB2 /* Intents */,
 				1E21684A2C586F01007463D0 /* InvitationManager.swift */,
 				6FF9B7B02C51F82B00FC0CB2 /* ShoakDataManager.swift */,
@@ -709,6 +716,7 @@
 			isa = PBXGroup;
 			children = (
 				6FF9B7AB2C51322900FC0CB2 /* StartShoakProcess.swift */,
+				6FBEED472C5C73AA00431B7F /* StartShoakShortcuts.swift */,
 			);
 			path = Intents;
 			sourceTree = "<group>";
@@ -936,6 +944,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6FC0A1472C551C7D004560E3 /* Secret.plist in Resources */,
+				6FBEED4B2C5D489800431B7F /* 쇽 시작하기.shortcut in Resources */,
 				6FF9B77B2C4F896A00FC0CB2 /* Preview Assets.xcassets in Resources */,
 				6FF9B7782C4F896A00FC0CB2 /* Assets.xcassets in Resources */,
 			);
@@ -947,6 +956,7 @@
 			files = (
 				6FC0A1482C551C7D004560E3 /* Secret.plist in Resources */,
 				B8FF5C3D2C5A893900F043EB /* PushNotificationPayload.apns in Resources */,
+				6FBEED4C2C5D489800431B7F /* 쇽 시작하기.shortcut in Resources */,
 				6FF9B7C42C52378C00FC0CB2 /* Preview Assets.xcassets in Resources */,
 				6FF9B7C12C52378C00FC0CB2 /* Assets.xcassets in Resources */,
 			);
@@ -1041,6 +1051,7 @@
 				6FC0D50B2C59E62D005BD525 /* TMTokenRefreshRequestDTO.swift in Sources */,
 				6FF9B7922C50E6A000FC0CB2 /* FriendListView.swift in Sources */,
 				1E21684B2C586F01007463D0 /* InvitationManager.swift in Sources */,
+				6FBEED482C5C73AA00431B7F /* StartShoakShortcuts.swift in Sources */,
 				6FC0A1A02C57C3D3004560E3 /* TMLoginOrSignUpDTO.swift in Sources */,
 				6FF9B7962C50E6B300FC0CB2 /* SettingView.swift in Sources */,
 				6FC0A1B22C57DE6B004560E3 /* LoggerPlugin.swift in Sources */,
@@ -1065,6 +1076,7 @@
 				6FF9B7CE2C52390200FC0CB2 /* TMFriendVO.swift in Sources */,
 				6FC0A1422C551B20004560E3 /* URLProvider.swift in Sources */,
 				6FC0A1582C552BAE004560E3 /* TargetType+.swift in Sources */,
+				6FBEED492C5C73AA00431B7F /* StartShoakShortcuts.swift in Sources */,
 				6FF9B7CF2C52399500FC0CB2 /* TMMemberID.swift in Sources */,
 				6FF9B7D52C5243C700FC0CB2 /* CaseIterable+.swift in Sources */,
 				B80468B02C58D412008E2D24 /* ColorManager.swift in Sources */,

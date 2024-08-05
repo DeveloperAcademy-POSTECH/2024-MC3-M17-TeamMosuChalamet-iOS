@@ -132,9 +132,41 @@ extension OnboardingView {
 }
 
 // MARK: - Views for Onboarding
+
+import AppIntents
 private struct AddShortcutView: View {
+    @State private var showActivityView = false
+    @State private var shortcutURL: URL?
     var body: some View {
-        Text("Add Shortcut")
+        VStack {
+            Text("Add Shortcut")
+            if let url = shortcutURL {
+                ShareLink(item: url, preview: .init("쇽 시작하기 단축어 추가하기", image: Image("ShoakLogoFilled"))) {
+                    Label("Shoak 단축어 추가하기!!!", systemImage: "tray.and.arrow.down.fill")
+                }
+            }
+
+            ShortcutsLink()
+        }
+        .sheet(isPresented: $showActivityView, onDismiss: {
+            self.shortcutURL = nil
+        }) {
+            if let url = shortcutURL {
+                ShareLink(item: url)
+            } else {
+                Text("No shortcut available")
+            }
+        }
+        .onAppear {
+            loadShortcut()
+        }
+    }
+    func loadShortcut() {
+        if let url = Bundle.main.url(forResource: "쇽 시작하기", withExtension: "shortcut") {
+            self.shortcutURL = url
+        } else {
+            print("StartShoakShortcut.shortcut file not found in bundle.")
+        }
     }
 }
 
