@@ -70,13 +70,15 @@ class MessagesViewController: MSMessagesAppViewController {
 
         guard let messageURL = conversation.selectedMessage?.url?.absoluteString,
               let component = URLComponents(string: messageURL),
-        let memberID = component.queryItems?.first(where: { $0.name == "memberID" })?.value,
-        let memberIDtoInt64 = Int64(memberID, radix: 10) else {
+        let memberID = component.queryItems?.first(where: { $0.name == "memberID" })?.value?.toInt64(),
+        let name = component.queryItems?.first(where: { $0.name == "name" })?.value else {
             return
         }
 
+        let imageURL = component.queryItems?.first(where: { $0.name == "imageURL" })?.value
+
         let controller: UIViewController
-        controller = instantiateIntivationViewController(with: memberIDtoInt64)
+        controller = instantiateInvitationViewController(with: TMProfileVO(id: memberID, name: name, imageURL: imageURL))
 
         addChild(controller)
         controller.view.frame = view.bounds
@@ -93,12 +95,13 @@ class MessagesViewController: MSMessagesAppViewController {
         controller.didMove(toParent: self)
     }
 
-    private func instantiateIntivationViewController(with memberID: Int64) -> InvitationViewController {
+    private func instantiateInvitationViewController(with profile: TMProfileVO) -> InvitationViewController {
         guard let controller = storyboard?.instantiateViewController(withIdentifier: "InvitationViewController") as? InvitationViewController else {
             fatalError("Unable to instantiate and InvitationViewController from the storyboard")
         }
 
-        controller.messageURL = URL(string: "shoak://invite/?memberID=\(memberID)")
+        controller.messageURL = URL(string: "shoak://invite/?memberID=\(profile.id)")
+        controller.profile = profile
 
         return controller
     }

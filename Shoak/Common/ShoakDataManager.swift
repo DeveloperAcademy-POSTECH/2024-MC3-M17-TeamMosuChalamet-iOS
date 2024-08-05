@@ -18,7 +18,7 @@ class ShoakDataManager: @unchecked Sendable {
 
     private init() {
         self.friends = []
-        let tokenManager = TokenManager()
+        let tokenManager = TokenManager.shared
         let apiClient = DefaultAPIClient(tokenManager: tokenManager)
 
         let userRepository = UserRepository(apiClient: apiClient)

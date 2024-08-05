@@ -62,7 +62,7 @@ struct SettingView: View {
                 
                 HStack(spacing: 0) {
                     Button {
-                        TokenManager().deleteAllTokensWithoutDeviceToken()
+                        TokenManager.shared.deleteAllTokensWithoutDeviceToken()
                         navigationManager.setView(to: .login)
                     } label: {
                         Image(systemName: "rectangle.portrait.and.arrow.right")

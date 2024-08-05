@@ -78,6 +78,6 @@ extension UserUseCase {
     }
 
     private func toVO(_ dto: TMProfileDTO) -> TMProfileVO {
-        TMProfileVO(name: dto.name, imageURL: dto.imageURL)
+        TMProfileVO(id: dto.id, name: dto.name, imageURL: dto.imageURL)
     }
 }

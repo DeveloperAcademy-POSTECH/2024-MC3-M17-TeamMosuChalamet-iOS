@@ -16,12 +16,12 @@ class AccountManager: @unchecked Sendable {
 
     var profile: TMProfileVO?
 
-    private let tokenManager: TokenManager
-    private let userUseCase: UserUseCase
-    
+    @ObservationIgnored private let tokenManager: TokenManager
+    @ObservationIgnored private let userUseCase: UserUseCase
+
     private init() {
         self.appleUseCase = AppleUseCase()
-        self.tokenManager = TokenManager()
+        self.tokenManager = TokenManager.shared
         let apiClient = DefaultAPIClient(tokenManager: tokenManager)
         let userRepository = UserRepository(apiClient: apiClient)
         self.userUseCase = UserUseCase(userRepository: userRepository)

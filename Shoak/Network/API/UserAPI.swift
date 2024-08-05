@@ -52,6 +52,7 @@ extension UserAPI: NeedAccessTokenTargetType {
             return Data(
                 """
                 {
+                    "id": 1,
                     "name": "이빈치",
                     "imageURL": "https://ada-mc3.s3.ap-northeast-2.amazonaws.com/profile/a7b899ae-528e-4e37-a6f1-e9ac08ab50c9vinci.jpeg"
                 }

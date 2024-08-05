@@ -33,7 +33,7 @@ class ShoakAppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCente
             token += String(format: "%02.2hhx", deviceToken[i] as CVarArg)
         }
         print("APNs token: \(token)")
-        TokenManager().save(DeviceToken(token))
+        TokenManager.shared.save(DeviceToken(token))
     }
 
     /// APNs 서버 연결에 실패하면 에러를 뱉는다.

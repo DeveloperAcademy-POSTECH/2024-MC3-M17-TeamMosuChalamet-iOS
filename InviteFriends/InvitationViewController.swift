@@ -15,6 +15,11 @@ class InvitationViewController: UIViewController {
     private var statusLabel: UILabel!
 
     var messageURL: URL? = nil
+    var profile: TMProfileVO? = nil {
+        didSet {
+            self.loadViewIfNeeded()
+        }
+    }
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -39,7 +44,7 @@ class InvitationViewController: UIViewController {
 
         nameLabel = UILabel()
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
-        nameLabel.text = "이름테스트"
+        nameLabel.text = self.profile?.name ?? "이름 로딩중.."
         nameLabel.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         nameLabel.textColor = .black
         view.addSubview(nameLabel)
@@ -79,6 +84,32 @@ class InvitationViewController: UIViewController {
         statusLabel.layer.borderColor = UIColor.black.withAlphaComponent(0.1).cgColor
         statusLabel.clipsToBounds = true
         view.addSubview(statusLabel)
+
+
+        // 프로필 이미지 세팅
+        guard let imageURLString = profile?.imageURL,
+        let imageURL = URL(string: imageURLString) else { return }
+
+        let task = URLSession.shared.dataTask(with: imageURL) { [weak self] data, response, error in
+            // 에러가 있거나, 데이터가 없으면 리턴
+            guard let self = self, let data = data, error == nil else {
+                return
+            }
+
+            // HTTP 응답 상태 코드 확인
+            if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
+                // 받은 데이터를 UIImage로 변환
+                let image = UIImage(data: data)
+
+                // UI 업데이트는 메인 스레드에서 실행
+                DispatchQueue.main.async {
+                    self.imageView.image = image
+                }
+            }
+        }
+
+        // 네트워크 요청 실행
+        task.resume()
     }
 
     // MARK: - Setup Constraints
@@ -117,6 +148,7 @@ class InvitationViewController: UIViewController {
         provideHapticFeedback()
 
         print("messageURL: \(String(describing: messageURL))")
+        print("profile : \(String(describing: profile))")
 
         if let url = messageURL {
             self.extensionContext?.open(url, completionHandler: nil)
