@@ -19,7 +19,9 @@ final public class TokenManager: @unchecked Sendable {
     @TokenStorage<IdentityToken>() private var identityToken
     @TokenStorage<DeviceToken>() private var deviceToken
 
-    public init() {
+    static let shared = TokenManager()
+
+    private init() {
         // get할 때 keychain에서 가져오는 로직을 수행 함.
         self.accessToken = accessToken
         self.refreshToken = refreshToken
