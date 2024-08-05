@@ -12,10 +12,19 @@ class MessagesViewController: MSMessagesAppViewController {
     private var imageView: UIImageView!
     private var nameLabel: UILabel!
     private var descriptionLabel: UILabel!
-    private var rejectButton: UIButton!
     private var acceptButton: UIButton!
     private var statusLabel: UILabel!
-    
+    var id: TMMemberID
+
+    init(_ id: TMMemberID) {
+        self.id = id
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSubviews()
@@ -42,30 +51,14 @@ class MessagesViewController: MSMessagesAppViewController {
         
         descriptionLabel = UILabel()
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
-        descriptionLabel.text = "님이 친구요청을 보냈습니다."
+        descriptionLabel.text = "\(id)님이 친구요청을 보냈습니다."
         descriptionLabel.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
         descriptionLabel.font = UIFont.systemFont(ofSize: 12, weight: .regular)
         view.addSubview(descriptionLabel)
         
-        rejectButton = UIButton(type: .system)
-        rejectButton.translatesAutoresizingMaskIntoConstraints = false
-        rejectButton.setTitle("  거절하기", for: .normal)
-        rejectButton.titleLabel?.font = UIFont.systemFont(ofSize: 12, weight: .regular)
-        rejectButton.setTitleColor(UIColor(red: 0.918, green: 0.336, blue: 0.139, alpha: 1), for: .normal)
-        rejectButton.layer.cornerRadius = 9
-        rejectButton.layer.backgroundColor = UIColor.white.cgColor
-        rejectButton.layer.borderWidth = 1
-        rejectButton.layer.borderColor = UIColor.black.withAlphaComponent(0.1).cgColor
-        rejectButton.clipsToBounds = true
-        rejectButton.isHidden = true
-        rejectButton.addTarget(self, action: #selector(handleRejectButton), for: .touchUpInside)
-        rejectButton.setImage(UIImage(systemName: "person.fill.xmark")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 16)), for: .normal)
-        rejectButton.tintColor = UIColor(red: 0.918, green: 0.336, blue: 0.139, alpha: 1)
-        view.addSubview(rejectButton)
-        
         acceptButton = UIButton(type: .system)
         acceptButton.translatesAutoresizingMaskIntoConstraints = false
-        acceptButton.setTitle("  추가하기", for: .normal)
+        acceptButton.setTitle("  앱 열어서 수락하기", for: .normal)
         acceptButton.titleLabel?.font = UIFont.systemFont(ofSize: 12, weight: .regular)
         acceptButton.setTitleColor(.black, for: .normal)
         acceptButton.layer.cornerRadius = 9
@@ -110,13 +103,6 @@ class MessagesViewController: MSMessagesAppViewController {
             descriptionLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 5),
             descriptionLabel.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor),
             
-            rejectButton.heightAnchor.constraint(equalToConstant: 38),
-            rejectButton.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 20),
-            rejectButton.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 16),
-            rejectButton.trailingAnchor.constraint(equalTo: acceptButton.leadingAnchor, constant: -8),
-            rejectButton.widthAnchor.constraint(equalTo: acceptButton.widthAnchor),
-            rejectButton.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor, constant: -16),
-            
             acceptButton.heightAnchor.constraint(equalToConstant: 38),
             acceptButton.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 20),
             acceptButton.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -16),
@@ -131,35 +117,11 @@ class MessagesViewController: MSMessagesAppViewController {
     
     // MARK: - Button Actions
     
-    @objc private func handleRejectButton() {
-        provideHapticFeedback()
-        
-        rejectButton.isHidden = true
-        acceptButton.isHidden = true
-        statusLabel.text = "친구 요청이 거절되었습니다"
-        statusLabel.isHidden = false
-    }
-    
     @objc private func handleAcceptButton() {
         provideHapticFeedback()
-        
-        let message = MSMessage()
-        
-        let layout = MSMessageTemplateLayout()
-        layout.caption = "친구 추가가 완료되었습니다!"
-        layout.subcaption = "shoak://invite-success"  // URL 스킴을 포함한 링크 설정
-        message.layout = layout
-        
-        if let conversation = activeConversation {
-            conversation.insert(message) { error in
-                if let error = error {
-                    print("메시지 전송 오류: \(error.localizedDescription)")
-                } else {
-                    print("메시지 전송 성공")
-                }
-            }
-        } else {
-            print("활성화된 대화가 없습니다.")
+
+        if let url = URL(string: "shoak://invite?id=123123") {
+            self.extensionContext?.open(url, completionHandler: nil)
         }
     }
     
@@ -177,7 +139,6 @@ class MessagesViewController: MSMessagesAppViewController {
         if let senderId = conversation.selectedMessage?.senderParticipantIdentifier,
            senderId != conversation.localParticipantIdentifier {
             acceptButton.isHidden = false
-            rejectButton.isHidden = false
         }
     }
     

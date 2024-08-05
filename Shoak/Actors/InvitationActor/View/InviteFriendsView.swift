@@ -127,7 +127,12 @@ struct InviteFriendsView: View {
         }
         .padding(.horizontal, 16)
         .sheet(isPresented: $showMessageCompose) {
-            MessageComposeView(isPresented: $showMessageCompose, useCase: invitationManager.inviteUseCase)
+            MessageComposeView(isPresented: $showMessageCompose)
         }
     }
+}
+
+#Preview {
+    InviteFriendsView()
+        .addEnvironmentsForPreview()
 }
