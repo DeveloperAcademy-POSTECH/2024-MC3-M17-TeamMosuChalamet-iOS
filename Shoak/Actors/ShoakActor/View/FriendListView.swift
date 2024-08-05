@@ -3,6 +3,7 @@ import SwiftUI
 struct FriendListView: View {
     @Environment(ShoakDataManager.self) private var shoakDataManager
     @Environment(NavigationManager.self) private var navigationManager
+    @Environment(InvitationManager.self) private var invitationManager
     var body: some View {
         @Bindable var navigationManager = navigationManager
         VStack {
@@ -13,11 +14,16 @@ struct FriendListView: View {
             shoakDataManager.refreshFriends()
         }
         .sheet(item: $navigationManager.invitation) { invitation in
-            Text("invitation")
-            Button("초대 수락하기") {
-                print("초대 수락!!!!!!!!!")
-                navigationManager.invitation = nil
+            VStack(spacing: 32) {
+                Text("초대를 수락하시겠습니까?")
+                Button("초대 수락하기") {
+                    print("초대 수락!!!!!!!!!")
+                    navigationManager.invitation = nil
+                }
+                .buttonStyle(.borderedProminent)
+                .tint(.shoakYellow)
             }
+            .font(.textPageTitle)
         }
     }
     

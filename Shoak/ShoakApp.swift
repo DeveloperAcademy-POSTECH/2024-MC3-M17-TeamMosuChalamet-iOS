@@ -48,6 +48,7 @@ struct ShoakApp: App {
                 .environment(watchConnectivityManager)
                 .onOpenURL { url in
                     handleDeepLink(url: url)
+                    navigationManager.setView(to: .friendList)
                 }
         }
     }
