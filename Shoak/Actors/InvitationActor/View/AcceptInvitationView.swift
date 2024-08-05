@@ -32,8 +32,6 @@ struct AcceptInvitationView: View {
                     }
                     isLoading = false
                 }
-                print("초대 수락!!!!!!!!!")
-                navigationManager.invitation = nil
             } label: {
                 if isLoading {
                     ProgressView()
