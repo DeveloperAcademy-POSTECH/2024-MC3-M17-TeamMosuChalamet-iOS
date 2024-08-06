@@ -25,7 +25,7 @@ final public class DefaultAPIClient: APIClient, TokenManagable {
 
     public func resolve<Target: TargetType>(for target: Target.Type) -> MoyaProvider<Target> {
         return MoyaProvider<Target>(plugins: [
-            ValidateAndAddTokenPlugin(tokenManager: tokenManager),
+            AddTokenPlugin(tokenManager: tokenManager),
             TokenRefreshPlugin(tokenManager: tokenManager),
             StoreTokenPlugin(tokenManager: tokenManager),
             NetworkLoggerPlugin(),

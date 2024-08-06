@@ -8,7 +8,7 @@
 import Moya
 import Foundation
 
-struct ValidateAndAddTokenPlugin: PluginType {
+struct AddTokenPlugin: PluginType {
     private let tokenManager: TokenManager
     init(tokenManager: TokenManager) {
         self.tokenManager = tokenManager
@@ -22,7 +22,7 @@ struct ValidateAndAddTokenPlugin: PluginType {
         }
 
         // 2. 헤더에 Access, Refresh이 있다면 그 값을 채워준다.
-        let validResult = tokenManager.validTokenAndAddHeader(request: request)
+        let validResult = tokenManager.addHeader(request: request)
         switch validResult {
         case .success(let success):
             print("\n🐈🐈🐈🐈 헤더에 Token 추가 완료!")
