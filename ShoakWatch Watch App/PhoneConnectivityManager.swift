@@ -10,12 +10,13 @@ import WatchConnectivity
 
 @Observable
 class PhoneConnectivityManager: NSObject, WCSessionDelegate {
-    static let shared = PhoneConnectivityManager()
     @ObservationIgnored var session: WCSession
     var message: String = "No message received"
+    let tokenRepository: TokenRepository
 
-    private init(session: WCSession = .default) {
+    init(session: WCSession = .default, tokenRepository: TokenRepository) {
         self.session = session
+        self.tokenRepository = tokenRepository
         super.init()
         self.session.delegate = self
         session.activate()
@@ -36,12 +37,12 @@ class PhoneConnectivityManager: NSObject, WCSessionDelegate {
     }
 
     func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
-        DispatchQueue.main.async {
+        DispatchQueue.main.async { [self] in
             print("receive user info : \(applicationContext)")
             if let receivedAccessToken = applicationContext["Access"] as? String, let receivedRefreshToken = applicationContext["Refresh"] as? String {
                 self.message = receivedAccessToken
-                TokenManager.shared.save(AccessToken(receivedAccessToken))
-                TokenManager.shared.save(RefreshToken(receivedRefreshToken))
+                self.tokenRepository.save(AccessToken(receivedAccessToken))
+                self.tokenRepository.save(RefreshToken(receivedRefreshToken))
             }
         }
     }

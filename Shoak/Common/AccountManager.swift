@@ -10,24 +10,19 @@ import UIKit
 
 @Observable
 class AccountManager: @unchecked Sendable {
-    static let shared = AccountManager()
+
+    var profile: TMProfileVO? = nil
 
     @ObservationIgnored let appleUseCase: AppleUseCase
     @ObservationIgnored private let authUseCase: AuthUseCase
-
-    var profile: TMProfileVO?
-
-    @ObservationIgnored private let tokenManager: TokenManager
     @ObservationIgnored private let userUseCase: UserUseCase
+    @ObservationIgnored private let tokenUseCase: TokenUseCase
 
-    private init() {
-        self.appleUseCase = AppleUseCase()
-        self.tokenManager = TokenManager.shared
-        let apiClient = DefaultAPIClient(tokenManager: tokenManager)
-        let userRepository = UserRepository(apiClient: apiClient)
-        self.userUseCase = UserUseCase(userRepository: userRepository)
-        let authRepository = AuthRepository(apiClient: apiClient)
-        self.authUseCase = AuthUseCase(authRepository: authRepository)
+    init(appleUseCase: AppleUseCase, authUseCase: AuthUseCase, userUseCase: UserUseCase, tokenUseCase: TokenUseCase) {
+        self.appleUseCase = appleUseCase
+        self.authUseCase = authUseCase
+        self.userUseCase = userUseCase
+        self.tokenUseCase = tokenUseCase
     }
 
     public func loginOrSignUp(credential: TMUserCredentialVO) async -> Bool {
@@ -58,13 +53,24 @@ class AccountManager: @unchecked Sendable {
     public func updateProfileImage(_ image: UIImage) async -> Result<TMProfileVO, NetworkError> {
         return await userUseCase.uploadProfileImage(image: image)
     }
+
+    public func registerDeviceToken(deviceToken: DeviceToken) {
+        Task {
+            await tokenUseCase.registerDeviceToken(deviceToken: deviceToken.token)
+        }
+    }
+
+    public func logout() {
+        tokenUseCase.deleteAllTokensWithoutDeviceToken()
+        // TODO: Reset Device Token
+    }
 }
 
 extension AccountManager {
     func isLoggedIn() -> Bool {
 //        accountUseCase.isLoggedIn()
 
-        if tokenManager.getIdentityToken() != nil && tokenManager.getAccessToken() != nil {
+        if tokenUseCase.getIdentityToken() != nil && tokenUseCase.getAccessToken() != nil {
             return true
         } else {
             return false

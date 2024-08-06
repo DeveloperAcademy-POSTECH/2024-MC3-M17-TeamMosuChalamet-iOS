@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct TMDeviceTokenDTO: Codable {
+public struct TMDeviceTokenDTO: Codable {
     var deviceToken: String
 }

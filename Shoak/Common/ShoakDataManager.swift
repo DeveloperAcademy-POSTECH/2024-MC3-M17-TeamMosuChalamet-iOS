@@ -9,23 +9,17 @@ import Foundation
 
 @Observable
 class ShoakDataManager: @unchecked Sendable {
-    static let shared = ShoakDataManager()
-
-    private let userUseCase: UserUseCase
-    private let shoakUseCase: SendShoakUseCase
+    @ObservationIgnored private let userUseCase: UserUseCase
+    @ObservationIgnored private let shoakUseCase: SendShoakUseCase
 
     var friends: [TMFriendVO]
 
-    private init() {
+    var isLoading: Bool = false
+
+    init(userUseCase: UserUseCase, shoakUseCase: SendShoakUseCase) {
+        self.userUseCase = userUseCase
+        self.shoakUseCase = shoakUseCase
         self.friends = []
-        let tokenManager = TokenManager.shared
-        let apiClient = DefaultAPIClient(tokenManager: tokenManager)
-
-        let userRepository = UserRepository(apiClient: apiClient)
-        self.userUseCase = UserUseCase(userRepository: userRepository)
-
-        let shoakRepository = ShoakRepository(apiClient: apiClient)
-        self.shoakUseCase = SendShoakUseCase(shoakRepository: shoakRepository)
     }
 
     public func refreshFriends() {

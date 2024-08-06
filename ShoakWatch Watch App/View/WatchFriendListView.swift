@@ -12,10 +12,11 @@ struct WatchFriendListView: View {
     var body: some View {
         
         Group {
-            if shoakDataManager.friends.isEmpty {
+            if shoakDataManager.isLoading {
                 ProgressView()
+            } else if shoakDataManager.friends.isEmpty {
+                Text("휴대폰으로 다시 로그인 해주세요.")
             } else {
-                
                 List(shoakDataManager.friends, id: \.memberID) { member in
                     Button(action: {
                         tappedStates[member.memberID, default: false].toggle()
@@ -106,7 +107,6 @@ class HapticManager {
 
 #Preview {
     WatchFriendListView()
-        .environment(ShoakDataManager.shared)
-        .environment(NavigationManager.shared)
-    
+        .addEnvironmentsForPreview()
+
 }
