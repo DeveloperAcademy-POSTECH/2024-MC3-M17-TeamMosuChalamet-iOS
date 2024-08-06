@@ -105,39 +105,11 @@ struct FriendListView: View {
                    let imageURL = URL(string: imageURLString) {
                     AsyncImage(url: imageURL) { image in
                         image
-            Button {
-                switch property {
-                case .default:
-                    self.property = .confirm
-                case .confirm:
-                    Task {
-                        let result = await shoakDataManager.sendShoak(to: friend.memberID)
-                        switch result {
-                        case .success:
-                            property = .complete
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                                property = .default
-                            }
-                        case .failure:
-                            property = .default
-                        }
-                    }
-                case .delete:
-                    isPresentingDeleteFriendAlert = true
-                default:
-                    break
-                }
-            } label: {
-                HStack(spacing: 0) {
-                    if let imageURLString = friend.imageURLString,
-                       let imageURL = URL(string: imageURLString) {
-                        AsyncImage(url: imageURL) { image in
-                            image
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .frame(width: 80, height: 80)
-                                .clipShapeBorder(RoundedRectangle(cornerRadius: 30), Color.strokeGray, 1.0)
-                                .padding(.leading, 15)
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 80, height: 80)
+                            .clipShapeBorder(RoundedRectangle(cornerRadius: 30), Color.strokeGray, 1.0)
+                            .padding(.leading, 15)
                         } placeholder: {
                             ProgressView()
                                 .frame(width: 80, height: 80)
@@ -145,20 +117,6 @@ struct FriendListView: View {
                                 .cornerRadius(30)
                                 .padding(.leading, 15)
                         }
-                    } else {
-                        Image(.defaultProfile)
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: 80, height: 80)
-                            .clipShapeBorder(RoundedRectangle(cornerRadius: 30), Color.strokeGray, 1.0)
-                            .padding(.leading, 15)
-                    } placeholder: {
-                        ProgressView()
-                            .frame(width: 80, height: 80)
-                            .background(Color(red: 0.85, green: 0.85, blue: 0.85))
-                            .cornerRadius(30)
-                            .padding(.leading, 15)
-                    }
                 } else {
                     Image(.defaultProfile)
                         .resizable()
@@ -188,10 +146,15 @@ struct FriendListView: View {
             .background(property.backgroundColor)
             .contentShape(Rectangle())
             .onTapGesture {
-                if property == .default {
-                    property = .confirm
-                } else {
-                    property = .default
+                switch property {
+                case .default:
+                    self.property = .confirm
+                case .confirm:
+                    self.property = .default
+                case .delete:
+                    isPresentingDeleteFriendAlert = true
+                default:
+                    break
                 }
             }
             .clipShapeBorder(RoundedRectangle(cornerRadius: 12), Color.strokeBlack, 1.0)
@@ -200,7 +163,7 @@ struct FriendListView: View {
                 Button("취소", role: .cancel) {}
                 Button("삭제하기", role: .destructive) {
                     Task {
-                        if case .success(let success) = await shoakDataManager.deleteFriend(memberID: self.friend.memberID) {
+                        if case .success = await shoakDataManager.deleteFriend(memberID: self.friend.memberID) {
                             self.shoakDataManager.refreshFriends()
                         }
                     }
