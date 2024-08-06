@@ -37,6 +37,7 @@ extension NavigationManager {
         case friendList
         case settings
         case inviteFriends
+        case editProfile
         case deleteFriends
 
         var body: some View {
@@ -52,6 +53,8 @@ extension NavigationManager {
                 SettingView()
             case .inviteFriends:
                 InviteFriendsView()
+            case .editProfile:
+                EditProfileView()
             case .deleteFriends:
                 DeleteFriendView()
             }

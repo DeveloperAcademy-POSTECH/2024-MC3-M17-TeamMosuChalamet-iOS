@@ -19,6 +19,7 @@
 		1E21684F2C587223007463D0 /* InvitationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E21684E2C587223007463D0 /* InvitationUseCase.swift */; };
 		1E2168542C58751E007463D0 /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2168532C58751E007463D0 /* ColorManager.swift */; };
 		1E2168582C5876B6007463D0 /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2168572C5876B6007463D0 /* FontManager.swift */; };
+		1E236BAB2C5FDF5D009E5730 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E236BAA2C5FDF5D009E5730 /* EditProfileView.swift */; };
 		1E2939802C51E00D00B321DC /* AppleLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E29397F2C51E00D00B321DC /* AppleLoginView.swift */; };
 		1E2939852C51F2A200B321DC /* AppleSignInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2939842C51F2A200B321DC /* AppleSignInButton.swift */; };
 		6F47799C2C60A6FE0028C1D7 /* TMMemberID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7A32C50E8A000FC0CB2 /* TMMemberID.swift */; };
@@ -234,6 +235,7 @@
 		1E21684E2C587223007463D0 /* InvitationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitationUseCase.swift; sourceTree = "<group>"; };
 		1E2168532C58751E007463D0 /* ColorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorManager.swift; sourceTree = "<group>"; };
 		1E2168572C5876B6007463D0 /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
+		1E236BAA2C5FDF5D009E5730 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		1E29397E2C51DF1900B321DC /* Shoak.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Shoak.entitlements; sourceTree = "<group>"; };
 		1E29397F2C51E00D00B321DC /* AppleLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginView.swift; sourceTree = "<group>"; };
 		1E2939812C51E07E00B321DC /* AppleUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleUseCase.swift; sourceTree = "<group>"; };
@@ -725,8 +727,10 @@
 			isa = PBXGroup;
 			children = (
 				6FA442B32C59DD9700E3E69E /* Components */,
-				6FF9B7952C50E6B300FC0CB2 /* SettingView.swift */,
 				6FC0A1292C54C82B004560E3 /* LoginView.swift */,
+				6FF9B7952C50E6B300FC0CB2 /* SettingView.swift */,
+				1E236BAA2C5FDF5D009E5730 /* EditProfileView.swift */,
+				6FF9B7882C50E64500FC0CB2 /* AppleAdminActor */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1031,6 +1035,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E236BAB2C5FDF5D009E5730 /* EditProfileView.swift in Sources */,
 				6FC0A14B2C5520BA004560E3 /* UserRepository.swift in Sources */,
 				6FC0A1822C563A4B004560E3 /* Token.swift in Sources */,
 				6FC0D5112C59EAEA005BD525 /* TokenRefreshPlugin.swift in Sources */,
@@ -1458,6 +1463,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ShoakWatch-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = ShoakWatch;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "이 앱은 사용자가 자신의 사진을 선택하여 프로필 사진으로 설정할 수 있도록 접근 권한이 필요합니다.";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = ADA.mosuchalamet.Shoak;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1753,6 +1759,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ShoakWatch-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = ShoakWatch;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "이 앱은 사용자가 자신의 사진을 선택하여 프로필 사진으로 설정할 수 있도록 접근 권한이 필요합니다.";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = ADA.mosuchalamet.Shoak;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1788,6 +1795,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ShoakWatch-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = ShoakWatch;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "이 앱은 사용자가 자신의 사진을 선택하여 프로필 사진으로 설정할 수 있도록 접근 권한이 필요합니다.";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = ADA.mosuchalamet.Shoak;
 				LD_RUNPATH_SEARCH_PATHS = (

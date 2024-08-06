@@ -98,6 +98,7 @@ struct SettingView: View {
 }
 
 struct MyProfileView: View {
+    @Environment(NavigationManager.self) private var navigationManager
     @Environment(AccountManager.self) private var accountManager
     
     var body: some View {
@@ -152,7 +153,7 @@ struct MyProfileView: View {
             .padding(7)
             
             Button {
-                
+                navigationManager.setView(to: .editProfile)
             } label: {
                 HStack(alignment: .center, spacing: 10) {
                     styledIcon(named: "pencil.line")
