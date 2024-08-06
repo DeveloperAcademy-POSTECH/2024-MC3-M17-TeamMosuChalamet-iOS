@@ -159,7 +159,10 @@ struct FriendListView: View {
             }
             .clipShapeBorder(RoundedRectangle(cornerRadius: 12), Color.strokeBlack, 1.0)
             .animation(.default, value: self.property)
-            .alert("친구를 삭제하시겠습니까?", isPresented: $isPresentingDeleteFriendAlert) {
+            .alert(
+                "친구를 삭제하시겠습니까?",
+                isPresented: $isPresentingDeleteFriendAlert
+            ) {
                 Button("취소", role: .cancel) {}
                 Button("삭제하기", role: .destructive) {
                     Task {
@@ -168,6 +171,8 @@ struct FriendListView: View {
                         }
                     }
                 }
+            } message: {
+                Text("삭제 시 되돌릴 수 없으며, 다시 친구 신청을 보내야 합니다.")
             }
         }
         
