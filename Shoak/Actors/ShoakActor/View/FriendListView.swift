@@ -90,6 +90,7 @@ struct FriendListView: View {
         var friend: TMFriendVO
         
         @State private var property: Properties = .default
+        
 
         @State private var isPresentingDeleteFriendAlert = false
 
@@ -99,6 +100,11 @@ struct FriendListView: View {
         }
         
         var body: some View {
+            HStack(spacing: 0) {
+                if let imageURLString = friend.imageURLString,
+                   let imageURL = URL(string: imageURLString) {
+                    AsyncImage(url: imageURL) { image in
+                        image
             Button {
                 switch property {
                 case .default:
@@ -142,26 +148,52 @@ struct FriendListView: View {
                     } else {
                         Image(.defaultProfile)
                             .resizable()
+                            .aspectRatio(contentMode: .fill)
                             .frame(width: 80, height: 80)
                             .clipShapeBorder(RoundedRectangle(cornerRadius: 30), Color.strokeGray, 1.0)
                             .padding(.leading, 15)
+                    } placeholder: {
+                        ProgressView()
+                            .frame(width: 80, height: 80)
+                            .background(Color(red: 0.85, green: 0.85, blue: 0.85))
+                            .cornerRadius(30)
+                            .padding(.leading, 15)
                     }
-                    
-                    Text(friend.name)
-                        .font(.textTitle)
-                        .padding(.leading, 19)
-                    
-                    Spacer()
-                    
-                    property.accessoryView
-                        .frame(width: 100, height: 60)
-                        .padding(.trailing, 23)
+                } else {
+                    Image(.defaultProfile)
+                        .resizable()
+                        .frame(width: 80, height: 80)
+                        .clipShapeBorder(RoundedRectangle(cornerRadius: 30), Color.strokeGray, 1.0)
+                        .padding(.leading, 15)
                 }
-                .frame(minHeight: 110)
-                .background(property.backgroundColor)
+                
+                Text(friend.name)
+                    .font(.textTitle)
+                    .padding(.leading, 19)
+                
+                Spacer()
+                
+                property.accessoryView(onButtonTapped: {
+                    switch property {
+                    case .confirm:
+                        sendShoak()
+                    default:
+                        break
+                    }
+                })
+                .frame(width: 100, height: 60)
+                .padding(.trailing, 23)
             }
-            .transition(.identity)
-            .buttonStyle(.plain)
+            .frame(minHeight: 110)
+            .background(property.backgroundColor)
+            .contentShape(Rectangle())
+            .onTapGesture {
+                if property == .default {
+                    property = .confirm
+                } else {
+                    property = .default
+                }
+            }
             .clipShapeBorder(RoundedRectangle(cornerRadius: 12), Color.strokeBlack, 1.0)
             .animation(.default, value: self.property)
             .alert("친구를 삭제하시겠습니까?", isPresented: $isPresentingDeleteFriendAlert) {
@@ -176,6 +208,21 @@ struct FriendListView: View {
             }
         }
         
+        private func sendShoak() {
+            Task {
+                let result = await shoakDataManager.sendShoak(to: friend.memberID)
+                switch result {
+                case .success:
+                    property = .complete
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                        property = .default
+                    }
+                case .failure:
+                    property = .default
+                }
+            }
+        }
+        
         enum Properties {
             case `default`
             case confirm
@@ -185,26 +232,29 @@ struct FriendListView: View {
             var backgroundColor: Color {
                 switch self {
                 case .confirm:
-                    Color.shoakYellow
+                    return Color.shoakYellow
                 default:
-                    Color.shoakWhite
+                    return Color.shoakWhite
                 }
             }
             
             @ViewBuilder
-            var accessoryView: some View {
+            func accessoryView(onButtonTapped: @escaping () -> Void) -> some View {
                 switch self {
                 case .default:
                     Color.clear.contentShape(Rectangle())
                 case .confirm:
-                    Image(.shoakHandGestureIcon)
-                        .frame(width: 100, height: 51)
-                        .background(Color.shoakNavy)
-                        .cornerRadius(30)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 30)
-                                .strokeBorder(Color.strokeWhite, lineWidth: 1)
-                        )
+                    Button(action: onButtonTapped) {
+                        Image(.shoakHandGestureIcon)
+                            .frame(width: 100, height: 51)
+                            .background(Color.shoakNavy)
+                            .cornerRadius(30)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 30)
+                                    .strokeBorder(Color.strokeWhite, lineWidth: 1)
+                            )
+                    }
+                    .buttonStyle(PlainButtonStyle())
                 case .complete:
                     Image(systemName: "checkmark.circle")
                         .resizable()
