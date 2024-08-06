@@ -23,12 +23,14 @@ class ShoakDataManager: @unchecked Sendable {
     }
 
     public func refreshFriends() {
-        Task.detached {
-            await self.getFriends()
+        isLoading = true
+        Task.detached { [weak self] in
+            await self?.getFriends()
+            self?.isLoading = false
         }
     }
 
-    public func getFriends() async {
+    private func getFriends() async {
         let result = await userUseCase.getFriends()
         switch result {
         case .success(let success):
