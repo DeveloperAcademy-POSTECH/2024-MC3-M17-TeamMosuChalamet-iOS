@@ -22,14 +22,19 @@ struct DeleteFriendView: View {
     struct TopButtons: View {
         @Environment(NavigationManager.self) private var navigationManager
         var body: some View {
-            HStack {
-                BackButton {
-                    navigationManager.setView(to: .settings)
+            ZStack(alignment: .center) {
+                HStack {
+                    BackButton {
+                        navigationManager.setView(to: .settings)
+                    }
+                    .frame(maxHeight: 44)
+                    
+                    Spacer()
                 }
-
-                Spacer()
+                
+                Text("친구삭제")
+                    .font(.textPageTitle)
             }
-            .frame(maxHeight: 44)
             .padding(.horizontal, 16)
         }
     }
