@@ -8,6 +8,7 @@
 import Foundation
 
 struct TMProfileDTO: Codable {
+    var id: TMMemberID
     var name: String
     var imageURL: String?
 }

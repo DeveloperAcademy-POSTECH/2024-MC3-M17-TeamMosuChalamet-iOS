@@ -12,6 +12,7 @@ enum UserAPI {
     case getProfile
     case getFriends
     case uploadProfileImage(data: Data)
+    case deleteFriend(memberID: TMMemberID)
 }
 
 extension UserAPI: NeedAccessTokenTargetType {
@@ -23,7 +24,7 @@ extension UserAPI: NeedAccessTokenTargetType {
         switch self {
         case .getProfile, .uploadProfileImage:
             "/api/profile"
-        case .getFriends:
+        case .getFriends, .deleteFriend:
             "/api/friend"
         }
     }
@@ -34,6 +35,8 @@ extension UserAPI: NeedAccessTokenTargetType {
             .json
         case .uploadProfileImage:
             .formData
+        case .deleteFriend:
+            .none
         }
     }
 
@@ -43,6 +46,8 @@ extension UserAPI: NeedAccessTokenTargetType {
             return .get
         case .uploadProfileImage:
             return .patch
+        case .deleteFriend:
+            return .delete
         }
     }
 
@@ -52,6 +57,7 @@ extension UserAPI: NeedAccessTokenTargetType {
             return Data(
                 """
                 {
+                    "id": 1,
                     "name": "이빈치",
                     "imageURL": "https://ada-mc3.s3.ap-northeast-2.amazonaws.com/profile/a7b899ae-528e-4e37-a6f1-e9ac08ab50c9vinci.jpeg"
                 }
@@ -83,6 +89,8 @@ extension UserAPI: NeedAccessTokenTargetType {
                 }
                 """.utf8
             )
+        case .deleteFriend:
+            return Data("".utf8)
         }
     }
 
@@ -96,6 +104,11 @@ extension UserAPI: NeedAccessTokenTargetType {
             let multipartData: [MultipartFormData] = [jpegData]
 
             return .uploadMultipart(multipartData)
+        case .deleteFriend(let memberID):
+            let queries: [String: Any] = [
+                "friendId": memberID
+            ]
+            return .requestParameters(parameters: queries, encoding: URLEncoding.queryString)
         }
     }
 }

@@ -2,13 +2,18 @@ import SwiftUI
 
 struct FriendListView: View {
     @Environment(ShoakDataManager.self) private var shoakDataManager
+    @Environment(NavigationManager.self) private var navigationManager
     var body: some View {
+        @Bindable var navigationManager = navigationManager
         VStack {
             TopButtons()
             FriendsList()
         }
         .onAppear {
             shoakDataManager.refreshFriends()
+        }
+        .sheet(item: $navigationManager.invitation) { invitation in
+            AcceptInvitationView()
         }
     }
     
@@ -86,43 +91,25 @@ struct FriendListView: View {
         
         @State private var property: Properties = .default
         
+
+        @State private var isPresentingDeleteFriendAlert = false
+
         init(friend: TMFriendVO, property: Properties = .default) {
             self.friend = friend
             self._property = State(initialValue: property)
         }
         
         var body: some View {
-            Button {
-                switch property {
-                case .default:
-                    self.property = .confirm
-                case .confirm:
-                    Task {
-                        let result = await shoakDataManager.sendShoak(to: friend.memberID)
-                        switch result {
-                        case .success:
-                            property = .complete
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                                property = .default
-                            }
-                        case .failure:
-                            property = .default
-                        }
-                    }
-                default:
-                    break
-                }
-            } label: {
-                HStack(spacing: 0) {
-                    if let imageURLString = friend.imageURLString,
-                       let imageURL = URL(string: imageURLString) {
-                        AsyncImage(url: imageURL) { image in
-                            image
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .frame(width: 80, height: 80)
-                                .clipShapeBorder(RoundedRectangle(cornerRadius: 30), Color.strokeGray, 1.0)
-                                .padding(.leading, 15)
+            HStack(spacing: 0) {
+                if let imageURLString = friend.imageURLString,
+                   let imageURL = URL(string: imageURLString) {
+                    AsyncImage(url: imageURL) { image in
+                        image
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 80, height: 80)
+                            .clipShapeBorder(RoundedRectangle(cornerRadius: 30), Color.strokeGray, 1.0)
+                            .padding(.leading, 15)
                         } placeholder: {
                             ProgressView()
                                 .frame(width: 80, height: 80)
@@ -130,31 +117,73 @@ struct FriendListView: View {
                                 .cornerRadius(30)
                                 .padding(.leading, 15)
                         }
-                    } else {
-                        Image(.defaultProfile)
-                            .resizable()
-                            .frame(width: 80, height: 80)
-                            .clipShapeBorder(RoundedRectangle(cornerRadius: 30), Color.strokeGray, 1.0)
-                            .padding(.leading, 15)
-                    }
-                    
-                    Text(friend.name)
-                        .font(.textTitle)
-                        .padding(.leading, 19)
-                    
-                    Spacer()
-                    
-                    property.accessoryView
-                        .frame(width: 100, height: 60)
-                        .padding(.trailing, 23)
+                } else {
+                    Image(.defaultProfile)
+                        .resizable()
+                        .frame(width: 80, height: 80)
+                        .clipShapeBorder(RoundedRectangle(cornerRadius: 30), Color.strokeGray, 1.0)
+                        .padding(.leading, 15)
                 }
-                .frame(minHeight: 110)
-                .background(property.backgroundColor)
+                
+                Text(friend.name)
+                    .font(.textTitle)
+                    .padding(.leading, 19)
+                
+                Spacer()
+                
+                property.accessoryView(onButtonTapped: {
+                    switch property {
+                    case .confirm:
+                        sendShoak()
+                    default:
+                        break
+                    }
+                })
+                .frame(width: 100, height: 60)
+                .padding(.trailing, 23)
             }
-            .transition(.identity)
-            .buttonStyle(.plain)
+            .frame(minHeight: 110)
+            .background(property.backgroundColor)
+            .contentShape(Rectangle())
+            .onTapGesture {
+                switch property {
+                case .default:
+                    self.property = .confirm
+                case .confirm:
+                    self.property = .default
+                case .delete:
+                    isPresentingDeleteFriendAlert = true
+                default:
+                    break
+                }
+            }
             .clipShapeBorder(RoundedRectangle(cornerRadius: 12), Color.strokeBlack, 1.0)
             .animation(.default, value: self.property)
+            .alert("친구를 삭제하시겠습니까?", isPresented: $isPresentingDeleteFriendAlert) {
+                Button("취소", role: .cancel) {}
+                Button("삭제하기", role: .destructive) {
+                    Task {
+                        if case .success = await shoakDataManager.deleteFriend(memberID: self.friend.memberID) {
+                            self.shoakDataManager.refreshFriends()
+                        }
+                    }
+                }
+            }
+        }
+        
+        private func sendShoak() {
+            Task {
+                let result = await shoakDataManager.sendShoak(to: friend.memberID)
+                switch result {
+                case .success:
+                    property = .complete
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                        property = .default
+                    }
+                case .failure:
+                    property = .default
+                }
+            }
         }
         
         enum Properties {
@@ -166,26 +195,29 @@ struct FriendListView: View {
             var backgroundColor: Color {
                 switch self {
                 case .confirm:
-                    Color.shoakYellow
+                    return Color.shoakYellow
                 default:
-                    Color.shoakWhite
+                    return Color.shoakWhite
                 }
             }
             
             @ViewBuilder
-            var accessoryView: some View {
+            func accessoryView(onButtonTapped: @escaping () -> Void) -> some View {
                 switch self {
                 case .default:
                     Color.clear.contentShape(Rectangle())
                 case .confirm:
-                    Image(.shoakHandGestureIcon)
-                        .frame(width: 100, height: 51)
-                        .background(Color.shoakNavy)
-                        .cornerRadius(30)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 30)
-                                .strokeBorder(Color.strokeWhite, lineWidth: 1)
-                        )
+                    Button(action: onButtonTapped) {
+                        Image(.shoakHandGestureIcon)
+                            .frame(width: 100, height: 51)
+                            .background(Color.shoakNavy)
+                            .cornerRadius(30)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 30)
+                                    .strokeBorder(Color.strokeWhite, lineWidth: 1)
+                            )
+                    }
+                    .buttonStyle(PlainButtonStyle())
                 case .complete:
                     Image(systemName: "checkmark.circle")
                         .resizable()
@@ -206,6 +238,6 @@ struct FriendListView: View {
     FriendListView()
         .environment(ShoakDataManager.shared)
         .environment(AccountManager.shared)
-        .environment(NavigationManager())
+        .environment(NavigationManager.shared)
         .environment(InvitationManager.shared)
 }

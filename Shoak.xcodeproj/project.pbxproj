@@ -22,6 +22,21 @@
 		1E236BAB2C5FDF5D009E5730 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E236BAA2C5FDF5D009E5730 /* EditProfileView.swift */; };
 		1E2939802C51E00D00B321DC /* AppleLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E29397F2C51E00D00B321DC /* AppleLoginView.swift */; };
 		1E2939852C51F2A200B321DC /* AppleSignInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2939842C51F2A200B321DC /* AppleSignInButton.swift */; };
+		6F47799C2C60A6FE0028C1D7 /* TMMemberID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7A32C50E8A000FC0CB2 /* TMMemberID.swift */; };
+		6F47799F2C60FF480028C1D7 /* TMProfileVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0A1762C554CC6004560E3 /* TMProfileVO.swift */; };
+		6F4779A12C61000C0028C1D7 /* InvitationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4779A02C61000C0028C1D7 /* InvitationViewController.swift */; };
+		6F4779A32C6112570028C1D7 /* InvitationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4779A22C6112570028C1D7 /* InvitationRepository.swift */; };
+		6F4779A42C6112570028C1D7 /* InvitationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4779A22C6112570028C1D7 /* InvitationRepository.swift */; };
+		6F4779A62C6112720028C1D7 /* InvitationAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4779A52C6112720028C1D7 /* InvitationAPI.swift */; };
+		6F4779A72C6112720028C1D7 /* InvitationAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4779A52C6112720028C1D7 /* InvitationAPI.swift */; };
+		6F4779A92C6114E50028C1D7 /* AcceptInvitationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4779A82C6114E50028C1D7 /* AcceptInvitationView.swift */; };
+		6F4779AB2C611CB20028C1D7 /* Int64+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4779AA2C611CB20028C1D7 /* Int64+.swift */; };
+		6F4779AC2C611CB20028C1D7 /* Int64+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4779AA2C611CB20028C1D7 /* Int64+.swift */; };
+		6F4779AD2C611CD00028C1D7 /* Int64+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4779AA2C611CB20028C1D7 /* Int64+.swift */; };
+		6F4779AF2C611D090028C1D7 /* String+Int64.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4779AE2C611D040028C1D7 /* String+Int64.swift */; };
+		6F4779B02C611D090028C1D7 /* String+Int64.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4779AE2C611D040028C1D7 /* String+Int64.swift */; };
+		6F4779B12C611D270028C1D7 /* String+Int64.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4779AE2C611D040028C1D7 /* String+Int64.swift */; };
+		6F4779B32C61A3970028C1D7 /* DeleteFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4779B22C61A3970028C1D7 /* DeleteFriendView.swift */; };
 		6FA4428A2C58B30D00E3E69E /* ClipShapeBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA442892C58B30D00E3E69E /* ClipShapeBorder.swift */; };
 		6FA4428B2C58B30D00E3E69E /* ClipShapeBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA442892C58B30D00E3E69E /* ClipShapeBorder.swift */; };
 		6FA442AD2C58D4A800E3E69E /* AddEnvorinmentsForPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA442AC2C58D4A800E3E69E /* AddEnvorinmentsForPreview.swift */; };
@@ -31,6 +46,10 @@
 		6FA442B52C59DDA300E3E69E /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA442B42C59DDA300E3E69E /* BackButton.swift */; };
 		6FBEED432C5B5F1C00431B7F /* WatchConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBEED422C5B5F1C00431B7F /* WatchConnectivityManager.swift */; };
 		6FBEED452C5B632700431B7F /* PhoneConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBEED442C5B632700431B7F /* PhoneConnectivityManager.swift */; };
+		6FBEED482C5C73AA00431B7F /* StartShoakShortcuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBEED472C5C73AA00431B7F /* StartShoakShortcuts.swift */; };
+		6FBEED492C5C73AA00431B7F /* StartShoakShortcuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBEED472C5C73AA00431B7F /* StartShoakShortcuts.swift */; };
+		6FBEED4B2C5D489800431B7F /* 쇽 시작하기.shortcut in Resources */ = {isa = PBXBuildFile; fileRef = 6FBEED4A2C5D489800431B7F /* 쇽 시작하기.shortcut */; };
+		6FBEED4C2C5D489800431B7F /* 쇽 시작하기.shortcut in Resources */ = {isa = PBXBuildFile; fileRef = 6FBEED4A2C5D489800431B7F /* 쇽 시작하기.shortcut */; };
 		6FC0A12A2C54C82B004560E3 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0A1292C54C82B004560E3 /* LoginView.swift */; };
 		6FC0A12C2C54CA29004560E3 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0A12B2C54CA29004560E3 /* OnboardingView.swift */; };
 		6FC0A12E2C54CB11004560E3 /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0A12D2C54CB11004560E3 /* AccountManager.swift */; };
@@ -139,6 +158,7 @@
 		6FF9B7DB2C5244B400FC0CB2 /* StartShoakProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7AB2C51322900FC0CB2 /* StartShoakProcess.swift */; };
 		6FF9B7DC2C5246A000FC0CB2 /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7B22C51F84600FC0CB2 /* NavigationManager.swift */; };
 		B80468B02C58D412008E2D24 /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2168532C58751E007463D0 /* ColorManager.swift */; };
+		B86EA6A02C5FA3EA002720BA /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2168572C5876B6007463D0 /* FontManager.swift */; };
 		B8A390092C5B4D6D00B33D9C /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A390082C5B4D6D00B33D9C /* NotificationService.swift */; };
 		B8FF5C372C59DC2000F043EB /* WatchNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FF5C362C59DC2000F043EB /* WatchNotificationView.swift */; };
 		B8FF5C392C59DE0000F043EB /* WatchNotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FF5C382C59DE0000F043EB /* WatchNotificationController.swift */; };
@@ -220,6 +240,13 @@
 		1E29397F2C51E00D00B321DC /* AppleLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginView.swift; sourceTree = "<group>"; };
 		1E2939812C51E07E00B321DC /* AppleUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleUseCase.swift; sourceTree = "<group>"; };
 		1E2939842C51F2A200B321DC /* AppleSignInButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleSignInButton.swift; sourceTree = "<group>"; };
+		6F4779A02C61000C0028C1D7 /* InvitationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitationViewController.swift; sourceTree = "<group>"; };
+		6F4779A22C6112570028C1D7 /* InvitationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitationRepository.swift; sourceTree = "<group>"; };
+		6F4779A52C6112720028C1D7 /* InvitationAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitationAPI.swift; sourceTree = "<group>"; };
+		6F4779A82C6114E50028C1D7 /* AcceptInvitationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptInvitationView.swift; sourceTree = "<group>"; };
+		6F4779AA2C611CB20028C1D7 /* Int64+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int64+.swift"; sourceTree = "<group>"; };
+		6F4779AE2C611D040028C1D7 /* String+Int64.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Int64.swift"; sourceTree = "<group>"; };
+		6F4779B22C61A3970028C1D7 /* DeleteFriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteFriendView.swift; sourceTree = "<group>"; };
 		6FA442892C58B30D00E3E69E /* ClipShapeBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipShapeBorder.swift; sourceTree = "<group>"; };
 		6FA442AC2C58D4A800E3E69E /* AddEnvorinmentsForPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEnvorinmentsForPreview.swift; sourceTree = "<group>"; };
 		6FA442AE2C591A1A00E3E69E /* TMUserCredentialVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMUserCredentialVO.swift; sourceTree = "<group>"; };
@@ -227,6 +254,8 @@
 		6FA442B42C59DDA300E3E69E /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
 		6FBEED422C5B5F1C00431B7F /* WatchConnectivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchConnectivityManager.swift; sourceTree = "<group>"; };
 		6FBEED442C5B632700431B7F /* PhoneConnectivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneConnectivityManager.swift; sourceTree = "<group>"; };
+		6FBEED472C5C73AA00431B7F /* StartShoakShortcuts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartShoakShortcuts.swift; sourceTree = "<group>"; };
+		6FBEED4A2C5D489800431B7F /* 쇽 시작하기.shortcut */ = {isa = PBXFileReference; lastKnownFileType = file; path = "쇽 시작하기.shortcut"; sourceTree = "<group>"; };
 		6FC0A1292C54C82B004560E3 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		6FC0A12B2C54CA29004560E3 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		6FC0A12D2C54CB11004560E3 /* AccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
@@ -351,6 +380,7 @@
 				1E2168292C5686D8007463D0 /* MainInterface.storyboard */,
 				1E21682C2C5686D8007463D0 /* Assets.xcassets */,
 				1E21682E2C5686D8007463D0 /* Info.plist */,
+				6F4779A02C61000C0028C1D7 /* InvitationViewController.swift */,
 			);
 			path = InviteFriends;
 			sourceTree = "<group>";
@@ -411,6 +441,7 @@
 			children = (
 				6FF9B7912C50E6A000FC0CB2 /* FriendListView.swift */,
 				6FC0A12B2C54CA29004560E3 /* OnboardingView.swift */,
+				6F4779B22C61A3970028C1D7 /* DeleteFriendView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -430,6 +461,7 @@
 				6FC0A1932C56984F004560E3 /* TokenRefreshAPI.swift */,
 				6FC0A19C2C57C13B004560E3 /* AuthAPI.swift */,
 				6FC0D5162C5A1BF8005BD525 /* ShoakAPI.swift */,
+				6F4779A52C6112720028C1D7 /* InvitationAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -452,6 +484,7 @@
 		6FC0A1492C55207C004560E3 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				6F4779A22C6112570028C1D7 /* InvitationRepository.swift */,
 				6FC0A14A2C5520BA004560E3 /* UserRepository.swift */,
 				6FC0A1A22C57C4F4004560E3 /* AuthRepository.swift */,
 				6FC0D51C2C5A1D52005BD525 /* ShoakRepository.swift */,
@@ -574,6 +607,8 @@
 				6FC0A1562C552BAE004560E3 /* TargetType+.swift */,
 				6FC0A1842C563C42004560E3 /* Keychain.swift */,
 				6FC0A1A72C57CE87004560E3 /* Array+subscript.swift */,
+				6F4779AE2C611D040028C1D7 /* String+Int64.swift */,
+				6F4779AA2C611CB20028C1D7 /* Int64+.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -598,6 +633,7 @@
 		6FF9B7842C50E5FF00FC0CB2 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				6FBEED4A2C5D489800431B7F /* 쇽 시작하기.shortcut */,
 				6FF9B7AF2C51400400FC0CB2 /* Intents */,
 				1E21684A2C586F01007463D0 /* InvitationManager.swift */,
 				6FF9B7B02C51F82B00FC0CB2 /* ShoakDataManager.swift */,
@@ -681,6 +717,7 @@
 		6FF9B78E2C50E68500FC0CB2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6F4779A82C6114E50028C1D7 /* AcceptInvitationView.swift */,
 				1E2168442C57E67F007463D0 /* InviteFriendsView.swift */,
 			);
 			path = View;
@@ -712,6 +749,7 @@
 			isa = PBXGroup;
 			children = (
 				6FF9B7AB2C51322900FC0CB2 /* StartShoakProcess.swift */,
+				6FBEED472C5C73AA00431B7F /* StartShoakShortcuts.swift */,
 			);
 			path = Intents;
 			sourceTree = "<group>";
@@ -939,6 +977,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6FC0A1472C551C7D004560E3 /* Secret.plist in Resources */,
+				6FBEED4B2C5D489800431B7F /* 쇽 시작하기.shortcut in Resources */,
 				6FF9B77B2C4F896A00FC0CB2 /* Preview Assets.xcassets in Resources */,
 				6FF9B7782C4F896A00FC0CB2 /* Assets.xcassets in Resources */,
 			);
@@ -950,6 +989,7 @@
 			files = (
 				6FC0A1482C551C7D004560E3 /* Secret.plist in Resources */,
 				B8FF5C3D2C5A893900F043EB /* PushNotificationPayload.apns in Resources */,
+				6FBEED4C2C5D489800431B7F /* 쇽 시작하기.shortcut in Resources */,
 				6FF9B7C42C52378C00FC0CB2 /* Preview Assets.xcassets in Resources */,
 				6FF9B7C12C52378C00FC0CB2 /* Assets.xcassets in Resources */,
 			);
@@ -963,6 +1003,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E2168282C5686D8007463D0 /* MessagesViewController.swift in Sources */,
+				6F4779A12C61000C0028C1D7 /* InvitationViewController.swift in Sources */,
+				6F47799F2C60FF480028C1D7 /* TMProfileVO.swift in Sources */,
+				6F47799C2C60A6FE0028C1D7 /* TMMemberID.swift in Sources */,
+				6F4779B12C611D270028C1D7 /* String+Int64.swift in Sources */,
+				6F4779AD2C611CD00028C1D7 /* Int64+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1007,6 +1052,7 @@
 				6FC0A1742C554C9E004560E3 /* TMProfileDTO.swift in Sources */,
 				6FC0A1712C554B40004560E3 /* NetworkHandler.swift in Sources */,
 				6FC0A1412C551B20004560E3 /* URLProvider.swift in Sources */,
+				6F4779AF2C611D090028C1D7 /* String+Int64.swift in Sources */,
 				6FC0A19A2C57C119004560E3 /* AuthUseCase.swift in Sources */,
 				6FF9B7AE2C51340000FC0CB2 /* SendShoakUseCase.swift in Sources */,
 				6FC0A12E2C54CB11004560E3 /* AccountManager.swift in Sources */,
@@ -1017,14 +1063,17 @@
 				6FC0A1942C56984F004560E3 /* TokenRefreshAPI.swift in Sources */,
 				6FF9B7A22C50E88300FC0CB2 /* TMFriendDTO.swift in Sources */,
 				1E2168542C58751E007463D0 /* ColorManager.swift in Sources */,
+				6F4779A32C6112570028C1D7 /* InvitationRepository.swift in Sources */,
 				6FF9B7A62C50E90100FC0CB2 /* TMFriendVO.swift in Sources */,
 				1E21684F2C587223007463D0 /* InvitationUseCase.swift in Sources */,
 				6FC0A17E2C563A02004560E3 /* TokenStorage.swift in Sources */,
 				6FC0A1AC2C57DBBB004560E3 /* StoreTokenPlugin.swift in Sources */,
+				6F4779AC2C611CB20028C1D7 /* Int64+.swift in Sources */,
 				6FBEED432C5B5F1C00431B7F /* WatchConnectivityManager.swift in Sources */,
 				6FC0A17E2C563A02004560E3 /* TokenStorage.swift in Sources */,
 				1E2168382C5689BF007463D0 /* MessageComposeView.swift in Sources */,
 				6FF9B7B52C52211A00FC0CB2 /* RootView.swift in Sources */,
+				6F4779A92C6114E50028C1D7 /* AcceptInvitationView.swift in Sources */,
 				6FC0A1772C554CC6004560E3 /* TMProfileVO.swift in Sources */,
 				6FC0D51A2C5A1C39005BD525 /* TMShoakDestinationDTO.swift in Sources */,
 				6FF9B7742C4F896800FC0CB2 /* ShoakApp.swift in Sources */,
@@ -1045,13 +1094,16 @@
 				6FC0D50B2C59E62D005BD525 /* TMTokenRefreshRequestDTO.swift in Sources */,
 				6FF9B7922C50E6A000FC0CB2 /* FriendListView.swift in Sources */,
 				1E21684B2C586F01007463D0 /* InvitationManager.swift in Sources */,
+				6FBEED482C5C73AA00431B7F /* StartShoakShortcuts.swift in Sources */,
 				6FC0A1A02C57C3D3004560E3 /* TMLoginOrSignUpDTO.swift in Sources */,
 				6FF9B7962C50E6B300FC0CB2 /* SettingView.swift in Sources */,
 				6FC0A1B22C57DE6B004560E3 /* LoggerPlugin.swift in Sources */,
+				6F4779A62C6112720028C1D7 /* InvitationAPI.swift in Sources */,
 				6FDFDAD52C57E39400A98D7E /* ValidateAndAddTokenPlugin.swift in Sources */,
 				6FC0A18A2C567AB0004560E3 /* TokenManager.swift in Sources */,
 				6FC0A12C2C54CA29004560E3 /* OnboardingView.swift in Sources */,
 				1E2168452C57E67F007463D0 /* InviteFriendsView.swift in Sources */,
+				6F4779B32C61A3970028C1D7 /* DeleteFriendView.swift in Sources */,
 				6FC0A14E2C5523FF004560E3 /* APIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1065,10 +1117,13 @@
 				6FC0A1722C554B40004560E3 /* NetworkHandler.swift in Sources */,
 				6FC0D5152C5A123D005BD525 /* AccountManager.swift in Sources */,
 				6FC0A14F2C5523FF004560E3 /* APIClient.swift in Sources */,
+				6F4779AB2C611CB20028C1D7 /* Int64+.swift in Sources */,
 				6FC0A1AD2C57DBBB004560E3 /* StoreTokenPlugin.swift in Sources */,
 				6FF9B7CE2C52390200FC0CB2 /* TMFriendVO.swift in Sources */,
 				6FC0A1422C551B20004560E3 /* URLProvider.swift in Sources */,
 				6FC0A1582C552BAE004560E3 /* TargetType+.swift in Sources */,
+				6FBEED492C5C73AA00431B7F /* StartShoakShortcuts.swift in Sources */,
+				6F4779A42C6112570028C1D7 /* InvitationRepository.swift in Sources */,
 				6FF9B7CF2C52399500FC0CB2 /* TMMemberID.swift in Sources */,
 				6FF9B7D52C5243C700FC0CB2 /* CaseIterable+.swift in Sources */,
 				B80468B02C58D412008E2D24 /* ColorManager.swift in Sources */,
@@ -1082,6 +1137,7 @@
 				6FF9B7CC2C52380200FC0CB2 /* ShoakDataManager.swift in Sources */,
 				6FC0A1A42C57C4F4004560E3 /* AuthRepository.swift in Sources */,
 				6FC0A1832C563A4B004560E3 /* Token.swift in Sources */,
+				B86EA6A02C5FA3EA002720BA /* FontManager.swift in Sources */,
 				6FF9B7D12C5239A400FC0CB2 /* Errors.swift in Sources */,
 				6FC0A18B2C567AB0004560E3 /* TokenManager.swift in Sources */,
 				6FC0D51E2C5A1D52005BD525 /* ShoakRepository.swift in Sources */,
@@ -1095,6 +1151,7 @@
 				6FA4428B2C58B30D00E3E69E /* ClipShapeBorder.swift in Sources */,
 				6FC0D5182C5A1BF8005BD525 /* ShoakAPI.swift in Sources */,
 				6FDFDAD62C57E39800A98D7E /* ValidateAndAddTokenPlugin.swift in Sources */,
+				6F4779B02C611D090028C1D7 /* String+Int64.swift in Sources */,
 				6FF9B7D72C5243DC00FC0CB2 /* WatchFriendListView.swift in Sources */,
 				B8FF5C372C59DC2000F043EB /* WatchNotificationView.swift in Sources */,
 				6FF9B7DA2C52441700FC0CB2 /* WatchSettingView.swift in Sources */,
@@ -1110,6 +1167,7 @@
 				6FC0A1862C563C42004560E3 /* Keychain.swift in Sources */,
 				B8FF5C3B2C5A23BB00F043EB /* CircleImage.swift in Sources */,
 				B8FF5C392C59DE0000F043EB /* WatchNotificationController.swift in Sources */,
+				6F4779A72C6112720028C1D7 /* InvitationAPI.swift in Sources */,
 				6FC0D50C2C59E62D005BD525 /* TMTokenRefreshRequestDTO.swift in Sources */,
 				6FC0D5142C5A07B3005BD525 /* AppleUseCase.swift in Sources */,
 				6FC0A1382C551A70004560E3 /* UserAPI.swift in Sources */,
@@ -1167,6 +1225,8 @@
 				INFOPLIST_FILE = InviteFriends/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = InviteFriends;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1198,6 +1258,8 @@
 				INFOPLIST_FILE = InviteFriends/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = InviteFriends;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1229,6 +1291,8 @@
 				INFOPLIST_FILE = InviteFriends/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = InviteFriends;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1367,6 +1431,8 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1623,6 +1689,8 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1659,6 +1727,8 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

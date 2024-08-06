@@ -26,7 +26,7 @@ class AppleUseCase {
             print("userID : \(userIdentifier)") // 유저ID는 항상 동일함
             print("name :  \(name)")
             print("token : \(tokenString)") // 토큰은 로그인 할때마다 달라짐.
-            TokenManager().save(IdentityToken(tokenString))
+            TokenManager.shared.save(IdentityToken(tokenString))
             return TMUserCredentialVO(userID: userIdentifier, name: name, token: tokenString)
         default:
             return nil

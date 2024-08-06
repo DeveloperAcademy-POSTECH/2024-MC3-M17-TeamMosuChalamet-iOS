@@ -19,8 +19,10 @@ WatchNotificationView: View {
                 if let imageURL = profile.imageURL, let url = URL(string: imageURL) {
                     AsyncImage(url: url) { image in
                         CircleImage( image: image.resizable())
+                        
                     } placeholder: {
-                        ProgressView()
+                        
+                       ProgressView()
                     }
                     .scaledToFit()
                     .clipShape(Circle())
@@ -43,7 +45,7 @@ WatchNotificationView: View {
 #Preview {
     WatchNotificationView(
         message: "쇽! 날쏘고가라.",
-        profile: TMProfileVO(name: "이빈치", imageURL: "https://ada-mc3.s3.ap-northeast-2.amazonaws.com/profile/a7b899ae-528e-4e37-a6f1-e9ac08ab50c9vinci.jpeg")
+        profile: TMProfileVO(id: 1, name: "이빈치", imageURL: "https://ada-mc3.s3.ap-northeast-2.amazonaws.com/profile/a7b899ae-528e-4e37-a6f1-e9ac08ab50c9vinci.jpeg")
     )
 }
 

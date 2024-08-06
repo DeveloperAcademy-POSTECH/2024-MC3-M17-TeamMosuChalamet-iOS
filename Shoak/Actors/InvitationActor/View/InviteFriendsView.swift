@@ -37,51 +37,8 @@ struct InviteFriendsView: View {
             Spacer()
             
             VStack(spacing: 0) {
-                HStack(spacing: 0){
-                    Image(systemName: "person.circle.fill")
-                        .font(.icon)
-                    
-                    Text("내 프로필")
-                        .font(.textBody)
-                        .foregroundStyle(Color.textBlack)
-                        .padding(.leading, 6)
-                    
-                    Spacer()
-                }
-                .padding(10)
-                
-                Divider()
-                    .padding(.vertical, 6)
-                
-                VStack(alignment: .center, spacing: 10) {
-                    if let imageURLString = accountManager.profile?.imageURL,
-                       let imageURL = URL(string: imageURLString) {
-                        AsyncImage(url: imageURL) { image in
-                            image
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .frame(width: 80, height: 80)
-                                .clipShapeBorder(RoundedRectangle(cornerRadius: 30), Color.strokeGray, 1.0)
-                        } placeholder: {
-                            ProgressView()
-                                .frame(width: 80, height: 80)
-                                .background(Color(red: 0.85, green: 0.85, blue: 0.85))
-                                .cornerRadius(30)
-                        }
-                    } else {
-                        Image(.defaultProfile)
-                            .resizable()
-                            .frame(width: 80, height: 80)
-                            .clipShapeBorder(RoundedRectangle(cornerRadius: 30), Color.strokeGray, 1.0)
-                    }
-                    
-                    Text(accountManager.profile?.name ?? "쇽")
-                        .font(.textTitle)
-                        .foregroundStyle(Color.textBlack)
-                        .padding(.bottom, 20)
-                }
-                .padding(7)
-                
+                MyProfileView()
+
                 Button {
                     if MFMessageComposeViewController.canSendText() {
                         showMessageCompose = true
@@ -126,8 +83,20 @@ struct InviteFriendsView: View {
             Spacer()
         }
         .padding(.horizontal, 16)
+        .onAppear {
+            accountManager.refreshProfile()
+        }
         .sheet(isPresented: $showMessageCompose) {
-            MessageComposeView(isPresented: $showMessageCompose, useCase: invitationManager.inviteUseCase)
+            if let profile = accountManager.profile {
+                MessageComposeView(isPresented: $showMessageCompose, profile: profile)
+            } else {
+                Text("프로필을 불러올 수 없습니다. 다시 시도해주세요.")
+            }
         }
     }
+}
+
+#Preview {
+    InviteFriendsView()
+        .addEnvironmentsForPreview()
 }

@@ -10,9 +10,12 @@ import SwiftUI
 @MainActor
 @Observable
 class NavigationManager {
+    static let shared = NavigationManager()
     var view: SwitchableView
 
-    init() {
+    var invitation: TMMemberID?
+
+    private init() {
         self.view = .login
     }
 
@@ -35,6 +38,7 @@ extension NavigationManager {
         case settings
         case inviteFriends
         case editProfile
+        case deleteFriends
 
         var body: some View {
 #if os(iOS)
@@ -51,6 +55,8 @@ extension NavigationManager {
                 InviteFriendsView()
             case .editProfile:
                 EditProfileView()
+            case .deleteFriends:
+                DeleteFriendView()
             }
 #elseif os(watchOS)
             switch self {

@@ -18,7 +18,7 @@ class ShoakDataManager: @unchecked Sendable {
 
     private init() {
         self.friends = []
-        let tokenManager = TokenManager()
+        let tokenManager = TokenManager.shared
         let apiClient = DefaultAPIClient(tokenManager: tokenManager)
 
         let userRepository = UserRepository(apiClient: apiClient)
@@ -48,5 +48,17 @@ class ShoakDataManager: @unchecked Sendable {
 
     public func sendShoak(to memberID: TMMemberID) async -> Result<Void, Errors> {
         return await shoakUseCase.sendShoak(to: memberID)
+    }
+
+    public func deleteFriend(memberID: TMMemberID) async -> Result<Void, Errors> {
+        let result = await userUseCase.deleteFriend(memberID: memberID)
+        switch result {
+        case .success:
+            print("친구 삭제 성공!")
+            return .success(())
+        case .failure(let failure):
+            print("친구 삭제 실패 ㅠ")
+            return .failure(.error(description: failure.localizedDescription))
+        }
     }
 }
