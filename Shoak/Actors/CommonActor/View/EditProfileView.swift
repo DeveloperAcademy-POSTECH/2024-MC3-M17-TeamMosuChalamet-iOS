@@ -208,7 +208,9 @@ class PhotoManager: ObservableObject {
             let targetSize = CGSize(width: 123, height: 123)
             imageManager.requestImage(for: asset, targetSize: targetSize, contentMode: .aspectFill, options: requestOptions) { image, _ in
                 if let image = image {
-                    self.images.append(IdentifiableImage(image: image))
+                    DispatchQueue.main.async {
+                        self.images.append(IdentifiableImage(image: image))
+                    }
                 }
             }
         }

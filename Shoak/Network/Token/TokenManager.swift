@@ -21,29 +21,32 @@ final public class TokenManager: @unchecked Sendable {
 
     static let shared = TokenManager()
 
+    private weak var tokenRefreshRepository: TokenRefreshRepository? { TokenRefreshRepository()
+    }
+
     private init() {
         // get할 때 keychain에서 가져오는 로직을 수행 함.
         self.accessToken = accessToken
         self.refreshToken = refreshToken
     }
 
-    /// URLRequest에 대해 토큰이 유효하다면 Access, Refresh 헤더에 Bearer 토큰 붙여주는 로직 (async/await 기반)
-    /// 이 함수를 부르기 전에 토큰을 붙이는 것이 필요한지 먼저 검사하십시오.
     /// - Parameter request: 토큰을 추가하고 싶은 요청
     /// - Returns: 토큰이 헤더에 추가된 요청. 실패 시 token이 없다는 에러 리턴
-    func validTokenAndAddHeader(request: URLRequest) -> Result<URLRequest, TokenError> {
+    func addHeader(request: URLRequest, onlyAccessToken: Bool = false) -> Result<URLRequest, TokenError> {
         // access Token이 있다면 넣어주기
-        if let accessToken, let refreshToken {
-            return addBearerHeader(request, accessToken: accessToken, refreshToken: refreshToken)
+        if let accessToken {
+            return addBearerHeader(request, accessToken: accessToken, refreshToken: onlyAccessToken ? nil : refreshToken)
         }
 
         return .failure(.noTokens)
     }
 
-    private func addBearerHeader(_ request: URLRequest, accessToken: AccessToken, refreshToken: RefreshToken) -> Result<URLRequest, TokenError> {
+    private func addBearerHeader(_ request: URLRequest, accessToken: AccessToken, refreshToken: RefreshToken?) -> Result<URLRequest, TokenError> {
         var urlRequest = request
         urlRequest.setValue("Bearer " + accessToken.token, forHTTPHeaderField: "Access")
-        urlRequest.setValue("Bearer " + refreshToken.token, forHTTPHeaderField: "Refresh")
+        if let refreshToken {
+            urlRequest.setValue("Bearer " + refreshToken.token, forHTTPHeaderField: "Refresh")
+        }
 
         return .success(urlRequest)
     }
@@ -74,7 +77,15 @@ public extension TokenManager {
     }
 
     func save(_ deviceToken: DeviceToken) {
-        self.deviceToken = deviceToken
+        if self.deviceToken?.token != deviceToken.token {
+            Task {
+                if case .success = await self.tokenRefreshRepository?.registerDeviceToken(TMDeviceTokenDTO(deviceToken: deviceToken.token)) {
+                    self.deviceToken = deviceToken
+                }
+            }
+        } else {
+            print("갱신 안됨.")
+        }
     }
 
     func getAccessToken() -> AccessToken? {

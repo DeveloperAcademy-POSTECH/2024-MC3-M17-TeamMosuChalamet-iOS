@@ -37,6 +37,10 @@
 		6F4779B02C611D090028C1D7 /* String+Int64.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4779AE2C611D040028C1D7 /* String+Int64.swift */; };
 		6F4779B12C611D270028C1D7 /* String+Int64.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4779AE2C611D040028C1D7 /* String+Int64.swift */; };
 		6F4779B32C61A3970028C1D7 /* DeleteFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4779B22C61A3970028C1D7 /* DeleteFriendView.swift */; };
+		6F8602EF2C61C6FD004F417C /* TMDeviceTokenDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8602EE2C61C6FD004F417C /* TMDeviceTokenDTO.swift */; };
+		6F8602F02C61C6FD004F417C /* TMDeviceTokenDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8602EE2C61C6FD004F417C /* TMDeviceTokenDTO.swift */; };
+		6F8602F22C61CB5F004F417C /* TokenRefreshRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8602F12C61CB5F004F417C /* TokenRefreshRepository.swift */; };
+		6F8602F32C61CB5F004F417C /* TokenRefreshRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8602F12C61CB5F004F417C /* TokenRefreshRepository.swift */; };
 		6FA4428A2C58B30D00E3E69E /* ClipShapeBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA442892C58B30D00E3E69E /* ClipShapeBorder.swift */; };
 		6FA4428B2C58B30D00E3E69E /* ClipShapeBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA442892C58B30D00E3E69E /* ClipShapeBorder.swift */; };
 		6FA442AD2C58D4A800E3E69E /* AddEnvorinmentsForPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA442AC2C58D4A800E3E69E /* AddEnvorinmentsForPreview.swift */; };
@@ -120,8 +124,8 @@
 		6FC0D51D2C5A1D52005BD525 /* ShoakRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0D51C2C5A1D52005BD525 /* ShoakRepository.swift */; };
 		6FC0D51E2C5A1D52005BD525 /* ShoakRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0D51C2C5A1D52005BD525 /* ShoakRepository.swift */; };
 		6FC0D51F2C5A21FB005BD525 /* SendShoakUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7AD2C51340000FC0CB2 /* SendShoakUseCase.swift */; };
-		6FDFDAD52C57E39400A98D7E /* ValidateAndAddTokenPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDFDAD42C57E39400A98D7E /* ValidateAndAddTokenPlugin.swift */; };
-		6FDFDAD62C57E39800A98D7E /* ValidateAndAddTokenPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDFDAD42C57E39400A98D7E /* ValidateAndAddTokenPlugin.swift */; };
+		6FDFDAD52C57E39400A98D7E /* AddTokenPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDFDAD42C57E39400A98D7E /* AddTokenPlugin.swift */; };
+		6FDFDAD62C57E39800A98D7E /* AddTokenPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDFDAD42C57E39400A98D7E /* AddTokenPlugin.swift */; };
 		6FECC4E52C5874D200C8E5D4 /* ShoakUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FECC4E42C5874D200C8E5D4 /* ShoakUITests.swift */; };
 		6FECC4E72C5874D200C8E5D4 /* ShoakUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FECC4E62C5874D200C8E5D4 /* ShoakUITestsLaunchTests.swift */; };
 		6FF9B7742C4F896800FC0CB2 /* ShoakApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7732C4F896800FC0CB2 /* ShoakApp.swift */; };
@@ -247,6 +251,8 @@
 		6F4779AA2C611CB20028C1D7 /* Int64+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int64+.swift"; sourceTree = "<group>"; };
 		6F4779AE2C611D040028C1D7 /* String+Int64.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Int64.swift"; sourceTree = "<group>"; };
 		6F4779B22C61A3970028C1D7 /* DeleteFriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteFriendView.swift; sourceTree = "<group>"; };
+		6F8602EE2C61C6FD004F417C /* TMDeviceTokenDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDeviceTokenDTO.swift; sourceTree = "<group>"; };
+		6F8602F12C61CB5F004F417C /* TokenRefreshRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenRefreshRepository.swift; sourceTree = "<group>"; };
 		6FA442892C58B30D00E3E69E /* ClipShapeBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipShapeBorder.swift; sourceTree = "<group>"; };
 		6FA442AC2C58D4A800E3E69E /* AddEnvorinmentsForPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEnvorinmentsForPreview.swift; sourceTree = "<group>"; };
 		6FA442AE2C591A1A00E3E69E /* TMUserCredentialVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMUserCredentialVO.swift; sourceTree = "<group>"; };
@@ -295,7 +301,7 @@
 		6FC0D5162C5A1BF8005BD525 /* ShoakAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoakAPI.swift; sourceTree = "<group>"; };
 		6FC0D5192C5A1C39005BD525 /* TMShoakDestinationDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMShoakDestinationDTO.swift; sourceTree = "<group>"; };
 		6FC0D51C2C5A1D52005BD525 /* ShoakRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoakRepository.swift; sourceTree = "<group>"; };
-		6FDFDAD42C57E39400A98D7E /* ValidateAndAddTokenPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateAndAddTokenPlugin.swift; sourceTree = "<group>"; };
+		6FDFDAD42C57E39400A98D7E /* AddTokenPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTokenPlugin.swift; sourceTree = "<group>"; };
 		6FECC4E22C5874D200C8E5D4 /* ShoakUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShoakUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FECC4E42C5874D200C8E5D4 /* ShoakUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoakUITests.swift; sourceTree = "<group>"; };
 		6FECC4E62C5874D200C8E5D4 /* ShoakUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoakUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -488,6 +494,7 @@
 				6FC0A14A2C5520BA004560E3 /* UserRepository.swift */,
 				6FC0A1A22C57C4F4004560E3 /* AuthRepository.swift */,
 				6FC0D51C2C5A1D52005BD525 /* ShoakRepository.swift */,
+				6F8602F12C61CB5F004F417C /* TokenRefreshRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -519,7 +526,7 @@
 			children = (
 				6FC0A1AB2C57DBBB004560E3 /* StoreTokenPlugin.swift */,
 				6FC0A1B12C57DE6B004560E3 /* LoggerPlugin.swift */,
-				6FDFDAD42C57E39400A98D7E /* ValidateAndAddTokenPlugin.swift */,
+				6FDFDAD42C57E39400A98D7E /* AddTokenPlugin.swift */,
 				6FC0D5102C59EAEA005BD525 /* TokenRefreshPlugin.swift */,
 			);
 			path = MoyaPlugins;
@@ -626,6 +633,7 @@
 				6FA442AE2C591A1A00E3E69E /* TMUserCredentialVO.swift */,
 				6FC0D50A2C59E62D005BD525 /* TMTokenRefreshRequestDTO.swift */,
 				6FC0D5192C5A1C39005BD525 /* TMShoakDestinationDTO.swift */,
+				6F8602EE2C61C6FD004F417C /* TMDeviceTokenDTO.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -730,7 +738,6 @@
 				6FC0A1292C54C82B004560E3 /* LoginView.swift */,
 				6FF9B7952C50E6B300FC0CB2 /* SettingView.swift */,
 				1E236BAA2C5FDF5D009E5730 /* EditProfileView.swift */,
-				6FF9B7882C50E64500FC0CB2 /* AppleAdminActor */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1080,6 +1087,7 @@
 				6FF9B7B32C51F84600FC0CB2 /* NavigationManager.swift in Sources */,
 				6FF9B7AC2C51322900FC0CB2 /* StartShoakProcess.swift in Sources */,
 				6FC0D51D2C5A1D52005BD525 /* ShoakRepository.swift in Sources */,
+				6F8602EF2C61C6FD004F417C /* TMDeviceTokenDTO.swift in Sources */,
 				6FC0A19D2C57C13B004560E3 /* AuthAPI.swift in Sources */,
 				6FA442B52C59DDA300E3E69E /* BackButton.swift in Sources */,
 				6FC0A1852C563C42004560E3 /* Keychain.swift in Sources */,
@@ -1097,9 +1105,10 @@
 				6FBEED482C5C73AA00431B7F /* StartShoakShortcuts.swift in Sources */,
 				6FC0A1A02C57C3D3004560E3 /* TMLoginOrSignUpDTO.swift in Sources */,
 				6FF9B7962C50E6B300FC0CB2 /* SettingView.swift in Sources */,
+				6F8602F22C61CB5F004F417C /* TokenRefreshRepository.swift in Sources */,
 				6FC0A1B22C57DE6B004560E3 /* LoggerPlugin.swift in Sources */,
 				6F4779A62C6112720028C1D7 /* InvitationAPI.swift in Sources */,
-				6FDFDAD52C57E39400A98D7E /* ValidateAndAddTokenPlugin.swift in Sources */,
+				6FDFDAD52C57E39400A98D7E /* AddTokenPlugin.swift in Sources */,
 				6FC0A18A2C567AB0004560E3 /* TokenManager.swift in Sources */,
 				6FC0A12C2C54CA29004560E3 /* OnboardingView.swift in Sources */,
 				1E2168452C57E67F007463D0 /* InviteFriendsView.swift in Sources */,
@@ -1128,6 +1137,7 @@
 				6FF9B7D52C5243C700FC0CB2 /* CaseIterable+.swift in Sources */,
 				B80468B02C58D412008E2D24 /* ColorManager.swift in Sources */,
 				6FC0D51B2C5A1C39005BD525 /* TMShoakDestinationDTO.swift in Sources */,
+				6F8602F32C61CB5F004F417C /* TokenRefreshRepository.swift in Sources */,
 				6FC0A1952C56984F004560E3 /* TokenRefreshAPI.swift in Sources */,
 				6FC0A1552C5526EE004560E3 /* MoyaProvider+.swift in Sources */,
 				6FC0A1592C552D86004560E3 /* UserUseCase.swift in Sources */,
@@ -1150,7 +1160,7 @@
 				6FC0A1752C554C9E004560E3 /* TMProfileDTO.swift in Sources */,
 				6FA4428B2C58B30D00E3E69E /* ClipShapeBorder.swift in Sources */,
 				6FC0D5182C5A1BF8005BD525 /* ShoakAPI.swift in Sources */,
-				6FDFDAD62C57E39800A98D7E /* ValidateAndAddTokenPlugin.swift in Sources */,
+				6FDFDAD62C57E39800A98D7E /* AddTokenPlugin.swift in Sources */,
 				6F4779B02C611D090028C1D7 /* String+Int64.swift in Sources */,
 				6FF9B7D72C5243DC00FC0CB2 /* WatchFriendListView.swift in Sources */,
 				B8FF5C372C59DC2000F043EB /* WatchNotificationView.swift in Sources */,
@@ -1171,6 +1181,7 @@
 				6FC0D50C2C59E62D005BD525 /* TMTokenRefreshRequestDTO.swift in Sources */,
 				6FC0D5142C5A07B3005BD525 /* AppleUseCase.swift in Sources */,
 				6FC0A1382C551A70004560E3 /* UserAPI.swift in Sources */,
+				6F8602F02C61C6FD004F417C /* TMDeviceTokenDTO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

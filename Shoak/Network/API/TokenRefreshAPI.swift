@@ -10,6 +10,7 @@ import Moya
 
 enum TokenRefreshAPI {
     case refresh(TMTokenRefreshRequestDTO)
+    case registerDeviceToken(TMDeviceTokenDTO)
 }
 
 extension TokenRefreshAPI: TargetType {
@@ -21,6 +22,8 @@ extension TokenRefreshAPI: TargetType {
         switch self {
         case .refresh:
             "/api/reissue"
+        case .registerDeviceToken:
+            "/api/deviceToken"
         }
     }
 
@@ -28,23 +31,37 @@ extension TokenRefreshAPI: TargetType {
         switch self {
         case .refresh:
             .post
+        case .registerDeviceToken:
+            .patch
         }
     }
 
     var headers: [String : String]? {
-        let headers = [
-            "Content-Type": "application/json",
-            "Access": "",
-            "Refresh": ""
-        ]
+        switch self {
+        case .refresh:
+            let headers = [
+                "Content-Type": "application/json",
+                "Access": "",
+                "Refresh": ""
+            ]
 
-        return headers
+            return headers
+        case .registerDeviceToken:
+            let headers = [
+                "Content-Type": "application/json",
+                "Access": ""
+            ]
+
+            return headers
+        }
     }
 
     var task: Task {
         switch self {
         case .refresh(let dto):
             return .requestJSONEncodable(dto)
+        case .registerDeviceToken(let dto):
+            return .requestCustomJSONEncodable(dto, encoder: JSONEncoder())
         }
     }
 }
