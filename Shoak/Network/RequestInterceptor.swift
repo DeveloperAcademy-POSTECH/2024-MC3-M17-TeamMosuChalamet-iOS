@@ -11,7 +11,6 @@ import Alamofire
 
 // https://github.com/Alamofire/Alamofire/blob/master/Documentation/AdvancedUsage.md#adapting-and-retrying-requests-with-requestinterceptor
 
-
 public final class DefaultRequestInterceptor: RequestInterceptor {
     public let tokenRepository: TokenRepository
     public let tokenRefreshRepository: TokenRefreshRepository
