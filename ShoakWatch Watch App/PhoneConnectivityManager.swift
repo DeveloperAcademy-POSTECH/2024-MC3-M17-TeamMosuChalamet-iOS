@@ -40,8 +40,8 @@ class PhoneConnectivityManager: NSObject, WCSessionDelegate {
             print("receive user info : \(applicationContext)")
             if let receivedAccessToken = applicationContext["Access"] as? String, let receivedRefreshToken = applicationContext["Refresh"] as? String {
                 self.message = receivedAccessToken
-                TokenManager().save(AccessToken(receivedAccessToken))
-                TokenManager().save(RefreshToken(receivedRefreshToken))
+                TokenManager.shared.save(AccessToken(receivedAccessToken))
+                TokenManager.shared.save(RefreshToken(receivedRefreshToken))
             }
         }
     }

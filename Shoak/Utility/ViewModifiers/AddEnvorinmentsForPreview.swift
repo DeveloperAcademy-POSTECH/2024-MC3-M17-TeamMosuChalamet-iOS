@@ -10,7 +10,7 @@ import SwiftUI
 struct AddEnvorinmentsForPreview: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .environment(NavigationManager())
+            .environment(NavigationManager.shared)
             .environment(AccountManager.shared)
             .environment(ShoakDataManager.shared)
             .environment(InvitationManager.shared)

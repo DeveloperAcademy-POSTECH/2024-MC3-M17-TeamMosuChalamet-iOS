@@ -39,7 +39,7 @@ struct ShoakWatch_Watch_AppApp: App {
         let shoakDataManager = ShoakDataManager.shared
         self.shoakDataManager = shoakDataManager
         
-        let navigationManager = NavigationManager()
+        let navigationManager = NavigationManager.shared
         self.navigationManager = navigationManager
         
         let phoneConnectivityManager = PhoneConnectivityManager.shared

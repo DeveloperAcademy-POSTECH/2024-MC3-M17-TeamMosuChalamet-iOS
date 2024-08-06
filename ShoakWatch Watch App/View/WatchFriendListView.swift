@@ -107,6 +107,6 @@ class HapticManager {
 #Preview {
     WatchFriendListView()
         .environment(ShoakDataManager.shared)
-        .environment(NavigationManager())
+        .environment(NavigationManager.shared)
     
 }

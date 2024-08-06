@@ -9,7 +9,12 @@ import Messages
 import MessageUI
 
 class InvitationUseCase: NSObject, MFMessageComposeViewControllerDelegate  {
-    
+    let invitationRepository: InvitationRepository
+
+    init(invitationRepository: InvitationRepository) {
+        self.invitationRepository = invitationRepository
+    }
+
     // 초대 행위를 전달하기 (iMessage)
     func createMessageComposeViewController() -> MFMessageComposeViewController? {
         let messageComposeVC = MFMessageComposeViewController()
@@ -31,5 +36,17 @@ class InvitationUseCase: NSObject, MFMessageComposeViewControllerDelegate  {
     
     func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
         controller.dismiss(animated: true, completion: nil)
+    }
+
+    func acceptInvitation(memberID: TMMemberID) async -> Result<Void, Errors> {
+        let result = await invitationRepository.acceptInvitation(memberID: memberID)
+        switch result {
+        case .success:
+            print("초대 수락 완료!")
+            return .success(())
+        case .failure(let failure):
+            print("초대 수락 실패 ㅠ")
+            return .failure(.error(description: failure.localizedDescription))
+        }
     }
 }

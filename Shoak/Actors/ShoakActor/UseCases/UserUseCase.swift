@@ -65,6 +65,11 @@ final class UserUseCase {
         }
     }
     #endif
+
+    func deleteFriend(memberID: TMMemberID) async -> Result<Void, NetworkError> {
+        let result = await userRepository.deleteFriend(memberID: memberID)
+        return result
+    }
 }
 
 // MARK: - Translater
@@ -78,6 +83,6 @@ extension UserUseCase {
     }
 
     private func toVO(_ dto: TMProfileDTO) -> TMProfileVO {
-        TMProfileVO(name: dto.name, imageURL: dto.imageURL)
+        TMProfileVO(id: dto.id, name: dto.name, imageURL: dto.imageURL)
     }
 }

@@ -8,13 +8,13 @@
 import Foundation
 
 struct TMProfileVO: Codable, Equatable {
-    
+    var id: TMMemberID
     var name: String
     var imageURL: String?
 }
 
 extension TMProfileVO {
     static var testData: TMProfileVO {
-        TMProfileVO(name: "이빈치", imageURL: "https://ada-mc3.s3.ap-northeast-2.amazonaws.com/profile/a7b899ae-528e-4e37-a6f1-e9ac08ab50c9vinci.jpeg")
+        TMProfileVO(id: 1, name: "이빈치", imageURL: "https://ada-mc3.s3.ap-northeast-2.amazonaws.com/profile/a7b899ae-528e-4e37-a6f1-e9ac08ab50c9vinci.jpeg")
     }
 }

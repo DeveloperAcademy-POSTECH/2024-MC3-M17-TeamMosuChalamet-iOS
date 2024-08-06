@@ -14,6 +14,10 @@ class InvitationManager: @unchecked Sendable {
     let inviteUseCase: InvitationUseCase
 
     private init() {
-        self.inviteUseCase = InvitationUseCase()
+        self.inviteUseCase = InvitationUseCase(invitationRepository: InvitationRepository(apiClient: DefaultAPIClient(tokenManager: TokenManager.shared)))
+    }
+
+    func acceptInvitation(memberID: TMMemberID) async -> Result<Void, Errors> {
+        return await self.inviteUseCase.acceptInvitation(memberID: memberID)
     }
 }

@@ -7,23 +7,44 @@
 
 import SwiftUI
 import MessageUI
+import Messages
 
 struct MessageComposeView: UIViewControllerRepresentable {
+    @Environment(InvitationManager.self) private var invitationManager
+    @Environment(AccountManager.self) private var accountManager
     @Binding var isPresented: Bool
-    let useCase: InvitationUseCase
+    var profile: TMProfileVO
 
     func makeCoordinator() -> Coordinator {
         Coordinator(isPresented: $isPresented)
     }
 
     func makeUIViewController(context: Context) -> UIViewController {
-        guard let messageComposeVC = useCase.createMessageComposeViewController() else {
-            context.coordinator.isPresented = false
-            let alertController = UIAlertController(title: "에러", message: "이 장치는 문자 메시지를 보낼 수 없습니다.", preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "확인", style: .default))
-            return alertController
-        }
+        let messageComposeVC = MFMessageComposeViewController()
+        let templateLayout = MSMessageTemplateLayout()
+        templateLayout.image = UIImage(named: "ShoakLogoFilled")
+
+        let memberID = "\(profile.id)"
+        let name = "\(profile.name)"
+        let imageURL = profile.imageURL
+
+        var components = URLComponents()
+        components.scheme = "https"
+        components.host = "invite"
+        components.path = "/"
+        let idItem = URLQueryItem(name: "memberID", value: memberID)
+        let nameItem = URLQueryItem(name: "name", value: name)
+        let imageItem = URLQueryItem(name: "imageURL", value: imageURL)
+        components.queryItems = [idItem, nameItem, imageItem]
+
+        let message = MSMessage()
+        message.layout = templateLayout
+        message.url = components.url
+        message.summaryText = "쇽 초대!"
+
+        messageComposeVC.message = message
         messageComposeVC.messageComposeDelegate = context.coordinator
+        messageComposeVC.body = "Shoak 앱을 다운로드 해주세요!"
         return messageComposeVC
     }
 

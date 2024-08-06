@@ -28,11 +28,11 @@ final class AuthUseCase {
 
 extension AuthUseCase {
     private func toVO(_ dto: TMProfileDTO) -> TMProfileVO {
-        TMProfileVO(name: dto.name, imageURL: dto.imageURL)
+        TMProfileVO(id: dto.id, name: dto.name, imageURL: dto.imageURL)
     }
 
     private func toDTO(_ vo: TMUserCredentialVO) -> TMLoginOrSignUpDTO {
-        let deviceToken = TokenManager().getDeviceToken()?.token ?? ""
+        let deviceToken = TokenManager.shared.getDeviceToken()?.token ?? ""
         return TMLoginOrSignUpDTO(
             identityToken: vo.token,
             name: vo.name,

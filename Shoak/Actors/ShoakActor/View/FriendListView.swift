@@ -2,13 +2,18 @@ import SwiftUI
 
 struct FriendListView: View {
     @Environment(ShoakDataManager.self) private var shoakDataManager
+    @Environment(NavigationManager.self) private var navigationManager
     var body: some View {
+        @Bindable var navigationManager = navigationManager
         VStack {
             TopButtons()
             FriendsList()
         }
         .onAppear {
             shoakDataManager.refreshFriends()
+        }
+        .sheet(item: $navigationManager.invitation) { invitation in
+            AcceptInvitationView()
         }
     }
     
@@ -86,6 +91,14 @@ struct FriendListView: View {
         
         @State private var property: Properties = .default
         
+
+        @State private var isPresentingDeleteFriendAlert = false
+
+        init(friend: TMFriendVO, property: Properties = .default) {
+            self.friend = friend
+            self._property = State(initialValue: property)
+        }
+        
         var body: some View {
             HStack(spacing: 0) {
                 if let imageURLString = friend.imageURLString,
@@ -97,13 +110,13 @@ struct FriendListView: View {
                             .frame(width: 80, height: 80)
                             .clipShapeBorder(RoundedRectangle(cornerRadius: 30), Color.strokeGray, 1.0)
                             .padding(.leading, 15)
-                    } placeholder: {
-                        ProgressView()
-                            .frame(width: 80, height: 80)
-                            .background(Color(red: 0.85, green: 0.85, blue: 0.85))
-                            .cornerRadius(30)
-                            .padding(.leading, 15)
-                    }
+                        } placeholder: {
+                            ProgressView()
+                                .frame(width: 80, height: 80)
+                                .background(Color(red: 0.85, green: 0.85, blue: 0.85))
+                                .cornerRadius(30)
+                                .padding(.leading, 15)
+                        }
                 } else {
                     Image(.defaultProfile)
                         .resizable()
@@ -133,14 +146,29 @@ struct FriendListView: View {
             .background(property.backgroundColor)
             .contentShape(Rectangle())
             .onTapGesture {
-                if property == .default {
-                    property = .confirm
-                } else {
-                    property = .default
+                switch property {
+                case .default:
+                    self.property = .confirm
+                case .confirm:
+                    self.property = .default
+                case .delete:
+                    isPresentingDeleteFriendAlert = true
+                default:
+                    break
                 }
             }
             .clipShapeBorder(RoundedRectangle(cornerRadius: 12), Color.strokeBlack, 1.0)
             .animation(.default, value: self.property)
+            .alert("친구를 삭제하시겠습니까?", isPresented: $isPresentingDeleteFriendAlert) {
+                Button("취소", role: .cancel) {}
+                Button("삭제하기", role: .destructive) {
+                    Task {
+                        if case .success = await shoakDataManager.deleteFriend(memberID: self.friend.memberID) {
+                            self.shoakDataManager.refreshFriends()
+                        }
+                    }
+                }
+            }
         }
         
         private func sendShoak() {
@@ -210,6 +238,6 @@ struct FriendListView: View {
     FriendListView()
         .environment(ShoakDataManager.shared)
         .environment(AccountManager.shared)
-        .environment(NavigationManager())
+        .environment(NavigationManager.shared)
         .environment(InvitationManager.shared)
 }
