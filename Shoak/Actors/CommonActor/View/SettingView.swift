@@ -27,7 +27,7 @@ struct SettingView: View {
             VStack(spacing: 0) {
                 HStack(spacing: 0) {
                     Button {
-                        
+                        navigationManager.setView(to: .deleteFriends)
                     } label: {
                         styledIcon(named: "person.fill.badge.minus")
                             .padding(.leading, 18)

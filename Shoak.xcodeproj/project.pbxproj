@@ -35,6 +35,7 @@
 		6F4779AF2C611D090028C1D7 /* String+Int64.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4779AE2C611D040028C1D7 /* String+Int64.swift */; };
 		6F4779B02C611D090028C1D7 /* String+Int64.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4779AE2C611D040028C1D7 /* String+Int64.swift */; };
 		6F4779B12C611D270028C1D7 /* String+Int64.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4779AE2C611D040028C1D7 /* String+Int64.swift */; };
+		6F4779B32C61A3970028C1D7 /* DeleteFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4779B22C61A3970028C1D7 /* DeleteFriendView.swift */; };
 		6FA4428A2C58B30D00E3E69E /* ClipShapeBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA442892C58B30D00E3E69E /* ClipShapeBorder.swift */; };
 		6FA4428B2C58B30D00E3E69E /* ClipShapeBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA442892C58B30D00E3E69E /* ClipShapeBorder.swift */; };
 		6FA442AD2C58D4A800E3E69E /* AddEnvorinmentsForPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA442AC2C58D4A800E3E69E /* AddEnvorinmentsForPreview.swift */; };
@@ -243,6 +244,7 @@
 		6F4779A82C6114E50028C1D7 /* AcceptInvitationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptInvitationView.swift; sourceTree = "<group>"; };
 		6F4779AA2C611CB20028C1D7 /* Int64+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int64+.swift"; sourceTree = "<group>"; };
 		6F4779AE2C611D040028C1D7 /* String+Int64.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Int64.swift"; sourceTree = "<group>"; };
+		6F4779B22C61A3970028C1D7 /* DeleteFriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteFriendView.swift; sourceTree = "<group>"; };
 		6FA442892C58B30D00E3E69E /* ClipShapeBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipShapeBorder.swift; sourceTree = "<group>"; };
 		6FA442AC2C58D4A800E3E69E /* AddEnvorinmentsForPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEnvorinmentsForPreview.swift; sourceTree = "<group>"; };
 		6FA442AE2C591A1A00E3E69E /* TMUserCredentialVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMUserCredentialVO.swift; sourceTree = "<group>"; };
@@ -437,6 +439,7 @@
 			children = (
 				6FF9B7912C50E6A000FC0CB2 /* FriendListView.swift */,
 				6FC0A12B2C54CA29004560E3 /* OnboardingView.swift */,
+				6F4779B22C61A3970028C1D7 /* DeleteFriendView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1095,6 +1098,7 @@
 				6FC0A18A2C567AB0004560E3 /* TokenManager.swift in Sources */,
 				6FC0A12C2C54CA29004560E3 /* OnboardingView.swift in Sources */,
 				1E2168452C57E67F007463D0 /* InviteFriendsView.swift in Sources */,
+				6F4779B32C61A3970028C1D7 /* DeleteFriendView.swift in Sources */,
 				6FC0A14E2C5523FF004560E3 /* APIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

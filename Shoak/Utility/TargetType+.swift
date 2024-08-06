@@ -25,6 +25,7 @@ extension NeedAccessTokenTargetType {
 public enum ContentType {
     case json
     case formData
+    case none
 
     var header: [String: String] {
         switch self {
@@ -32,6 +33,8 @@ public enum ContentType {
             ["Content-Type": "application/json"]
         case .formData:
             ["Content-Type": "multipart/form-data"]
+        case .none:
+            [:]
         }
     }
 }

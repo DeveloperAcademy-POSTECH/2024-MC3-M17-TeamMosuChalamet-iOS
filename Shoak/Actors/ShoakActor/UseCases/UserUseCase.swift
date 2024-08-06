@@ -65,6 +65,11 @@ final class UserUseCase {
         }
     }
     #endif
+
+    func deleteFriend(memberID: TMMemberID) async -> Result<Void, NetworkError> {
+        let result = await userRepository.deleteFriend(memberID: memberID)
+        return result
+    }
 }
 
 // MARK: - Translater

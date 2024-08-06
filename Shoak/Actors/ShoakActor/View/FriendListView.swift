@@ -90,7 +90,9 @@ struct FriendListView: View {
         var friend: TMFriendVO
         
         @State private var property: Properties = .default
-        
+
+        @State private var isPresentingDeleteFriendAlert = false
+
         init(friend: TMFriendVO, property: Properties = .default) {
             self.friend = friend
             self._property = State(initialValue: property)
@@ -114,6 +116,8 @@ struct FriendListView: View {
                             property = .default
                         }
                     }
+                case .delete:
+                    isPresentingDeleteFriendAlert = true
                 default:
                     break
                 }
@@ -160,6 +164,16 @@ struct FriendListView: View {
             .buttonStyle(.plain)
             .clipShapeBorder(RoundedRectangle(cornerRadius: 12), Color.strokeBlack, 1.0)
             .animation(.default, value: self.property)
+            .alert("친구를 삭제하시겠습니까?", isPresented: $isPresentingDeleteFriendAlert) {
+                Button("취소", role: .cancel) {}
+                Button("삭제하기", role: .destructive) {
+                    Task {
+                        if case .success(let success) = await shoakDataManager.deleteFriend(memberID: self.friend.memberID) {
+                            self.shoakDataManager.refreshFriends()
+                        }
+                    }
+                }
+            }
         }
         
         enum Properties {
