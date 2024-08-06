@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 @Observable
 class AccountManager: @unchecked Sendable {
@@ -52,6 +53,10 @@ class AccountManager: @unchecked Sendable {
         case .failure(let failure):
             print("fail! : \(failure)")
         }
+    }
+
+    public func updateProfileImage(_ image: UIImage) async -> Result<TMProfileVO, NetworkError> {
+        return await userUseCase.uploadProfileImage(image: image)
     }
 }
 
