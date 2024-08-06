@@ -1,10 +1,10 @@
-
 import SwiftUI
 
 struct SettingView: View {
     @Environment(NavigationManager.self) private var navigationManager
     @Environment(AccountManager.self) private var accountManager
-    
+    @State private var showDeleteAccountAlert = false
+
     var body: some View {
         VStack(spacing: 0) {
             ZStack(alignment: .center) {
@@ -79,6 +79,36 @@ struct SettingView: View {
                     }
                 }
                 .frame(height: 60)
+                
+                HStack(spacing: 0) {
+                    Button {
+                        showDeleteAccountAlert = true
+                    } label: {
+                        Image(systemName: "rectangle.portrait.and.arrow.right")
+                            .foregroundStyle(Color.shoakRed)
+                            .font(.icon)
+                            .padding(.leading, 18)
+                        
+                        Text("회원탈퇴")
+                            .font(.textButton)
+                            .foregroundStyle(Color.shoakRed)
+                            .padding(.leading, 9)
+                        
+                        Spacer()
+                    }
+                }
+                .frame(height: 60)
+                .alert(isPresented: $showDeleteAccountAlert) {
+                    Alert(
+                        title: Text("탈퇴하시겠습니까?"),
+                        message: Text("탈퇴하면 모든 데이터가 삭제됩니다."),
+                        primaryButton: .destructive(Text("탈퇴")) {
+                            TokenManager.shared.deleteAllTokensWithoutDeviceToken()
+                            navigationManager.setView(to: .login)
+                        },
+                        secondaryButton: .cancel(Text("취소"))
+                    )
+                }
             }
             .background(Color.shoakWhite)
             .cornerRadius(17)
@@ -90,7 +120,7 @@ struct SettingView: View {
             
             Spacer()
         }
-        .onAppear(){
+        .onAppear() {
             accountManager.refreshProfile()
         }
         .padding(.horizontal, 16)
