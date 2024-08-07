@@ -9,15 +9,13 @@ import Foundation
 
 @Observable
 class InvitationManager: @unchecked Sendable {
-    static let shared = InvitationManager()
-    
-    let inviteUseCase: InvitationUseCase
+    @ObservationIgnored let invitationUseCase: InvitationUseCase
 
-    private init() {
-        self.inviteUseCase = InvitationUseCase(invitationRepository: InvitationRepository(apiClient: DefaultAPIClient(tokenManager: TokenManager.shared)))
+    init(invitationUseCase: InvitationUseCase) {
+        self.invitationUseCase = invitationUseCase
     }
 
     func acceptInvitation(memberID: TMMemberID) async -> Result<Void, Errors> {
-        return await self.inviteUseCase.acceptInvitation(memberID: memberID)
+        return await self.invitationUseCase.acceptInvitation(memberID: memberID)
     }
 }

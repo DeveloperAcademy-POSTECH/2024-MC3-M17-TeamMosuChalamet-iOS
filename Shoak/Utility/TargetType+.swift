@@ -38,3 +38,7 @@ public enum ContentType {
         }
     }
 }
+
+public extension TargetType {
+    var validationType: ValidationType { .successAndRedirectCodes }
+}
