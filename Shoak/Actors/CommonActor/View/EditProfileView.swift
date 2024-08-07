@@ -99,24 +99,33 @@ struct EditProfileView: View {
                 )
             }
             .onAppear {
-                checkPhotoLibraryPermission()
+                Task {
+                    await checkPhotoLibraryPermission()
+                }
             }
         }
     }
     
-    private func checkPhotoLibraryPermission() {
+    private func checkPhotoLibraryPermission() async {
         let status = PHPhotoLibrary.authorizationStatus()
         switch status {
         case .notDetermined:
-            PHPhotoLibrary.requestAuthorization { newStatus in
-                if newStatus == .authorized {
-                    photoManager.fetchPhotos()
+            await withCheckedContinuation { continuation in
+                PHPhotoLibrary.requestAuthorization { newStatus in
+                    if newStatus == .authorized {
+                        Task {
+                            await photoManager.fetchPhotos()
+                        }
+                    }
+                    continuation.resume()
                 }
             }
         case .restricted, .denied:
             print("권한이 없습니다.")
         case .authorized, .limited:
-            photoManager.fetchPhotos()
+            Task {
+                await photoManager.fetchPhotos()
+            }
         @unknown default:
             fatalError("알 수 없는 권한 상태입니다.")
         }
@@ -144,7 +153,7 @@ struct PhotoDetailView: View {
             
             HStack {
                 Button(action: onCancel) {
-                    HStack{
+                    HStack {
                         Image(systemName: "xmark")
                             .font(.icon)
                         
@@ -165,7 +174,7 @@ struct PhotoDetailView: View {
                 Spacer()
                 
                 Button(action: { onSave(image) }) {
-                    HStack{
+                    HStack {
                         Text("저장")
                             .font(.textButton)
                         
@@ -194,24 +203,34 @@ struct PhotoDetailView: View {
 class PhotoManager: ObservableObject {
     @Published var images: [IdentifiableImage] = []
     
-    func fetchPhotos() {
+    func fetchPhotos() async {
         let fetchOptions = PHFetchOptions()
         fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
         
         let fetchResult: PHFetchResult = PHAsset.fetchAssets(with: .image, options: fetchOptions)
         let imageManager = PHImageManager.default()
         let requestOptions = PHImageRequestOptions()
-        requestOptions.isSynchronous = true
+        requestOptions.isSynchronous = false
         requestOptions.deliveryMode = .highQualityFormat
+        requestOptions.resizeMode = .exact
         
-        fetchResult.enumerateObjects { (asset, _, _) in
-            let targetSize = CGSize(width: 123, height: 123)
-            imageManager.requestImage(for: asset, targetSize: targetSize, contentMode: .aspectFill, options: requestOptions) { image, _ in
-                if let image = image {
-                    DispatchQueue.main.async {
-                        self.images.append(IdentifiableImage(image: image))
+        await withCheckedContinuation { continuation in
+            let group = DispatchGroup()
+            for index in 0..<fetchResult.count {
+                group.enter()
+                let asset = fetchResult.object(at: index)
+                let targetSize = CGSize(width: 500, height: 500)
+                imageManager.requestImage(for: asset, targetSize: targetSize, contentMode: .aspectFill, options: requestOptions) { image, _ in
+                    if let image = image {
+                        DispatchQueue.main.async {
+                            self.images.append(IdentifiableImage(image: image))
+                            group.leave()
+                        }
                     }
                 }
+            }
+            group.notify(queue: .main) {
+                continuation.resume()
             }
         }
     }
