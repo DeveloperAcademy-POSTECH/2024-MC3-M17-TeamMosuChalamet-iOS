@@ -24,9 +24,9 @@ class ShoakDataManager: @unchecked Sendable {
 
     public func refreshFriends() {
         isLoading = true
-        Task.detached { [weak self] in
-            await self?.getFriends()
-            self?.isLoading = false
+        Task {
+            await self.getFriends()
+            self.isLoading = false
         }
     }
 
