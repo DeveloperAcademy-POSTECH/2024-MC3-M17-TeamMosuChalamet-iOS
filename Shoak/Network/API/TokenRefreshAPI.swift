@@ -9,7 +9,7 @@ import Foundation
 import Moya
 
 enum TokenRefreshAPI {
-    case refresh(TMTokenRefreshRequestDTO)
+    case refresh
     case registerDeviceToken(TMDeviceTokenDTO)
 }
 
@@ -58,8 +58,8 @@ extension TokenRefreshAPI: TargetType {
 
     var task: Task {
         switch self {
-        case .refresh(let dto):
-            return .requestJSONEncodable(dto)
+        case .refresh:
+            return .requestPlain
         case .registerDeviceToken(let dto):
             return .requestCustomJSONEncodable(dto, encoder: JSONEncoder())
         }

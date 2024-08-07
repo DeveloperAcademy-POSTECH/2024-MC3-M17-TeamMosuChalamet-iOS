@@ -41,6 +41,11 @@
 		6F8602F02C61C6FD004F417C /* TMDeviceTokenDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8602EE2C61C6FD004F417C /* TMDeviceTokenDTO.swift */; };
 		6F8602F22C61CB5F004F417C /* TokenRefreshRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8602F12C61CB5F004F417C /* TokenRefreshRepository.swift */; };
 		6F8602F32C61CB5F004F417C /* TokenRefreshRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8602F12C61CB5F004F417C /* TokenRefreshRepository.swift */; };
+		6F8602F52C624A06004F417C /* RequestInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8602F42C624A06004F417C /* RequestInterceptor.swift */; };
+		6F8602F62C624A06004F417C /* RequestInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8602F42C624A06004F417C /* RequestInterceptor.swift */; };
+		6F8602F82C625193004F417C /* AddEnvorinmentsForPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8602F72C625193004F417C /* AddEnvorinmentsForPreview.swift */; };
+		6F8602FA2C6258DD004F417C /* TokenUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8602F92C6258DD004F417C /* TokenUseCase.swift */; };
+		6F8602FB2C6258DD004F417C /* TokenUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8602F92C6258DD004F417C /* TokenUseCase.swift */; };
 		6FA4428A2C58B30D00E3E69E /* ClipShapeBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA442892C58B30D00E3E69E /* ClipShapeBorder.swift */; };
 		6FA4428B2C58B30D00E3E69E /* ClipShapeBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA442892C58B30D00E3E69E /* ClipShapeBorder.swift */; };
 		6FA442AD2C58D4A800E3E69E /* AddEnvorinmentsForPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA442AC2C58D4A800E3E69E /* AddEnvorinmentsForPreview.swift */; };
@@ -91,8 +96,8 @@
 		6FC0A1852C563C42004560E3 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0A1842C563C42004560E3 /* Keychain.swift */; };
 		6FC0A1862C563C42004560E3 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0A1842C563C42004560E3 /* Keychain.swift */; };
 		6FC0A1882C566ED3004560E3 /* KeychainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0A1872C566ED3004560E3 /* KeychainTests.swift */; };
-		6FC0A18A2C567AB0004560E3 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0A1892C567AB0004560E3 /* TokenManager.swift */; };
-		6FC0A18B2C567AB0004560E3 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0A1892C567AB0004560E3 /* TokenManager.swift */; };
+		6FC0A18A2C567AB0004560E3 /* TokenRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0A1892C567AB0004560E3 /* TokenRepository.swift */; };
+		6FC0A18B2C567AB0004560E3 /* TokenRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0A1892C567AB0004560E3 /* TokenRepository.swift */; };
 		6FC0A18F2C569607004560E3 /* TokenManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0A18E2C569607004560E3 /* TokenManagerTests.swift */; };
 		6FC0A1942C56984F004560E3 /* TokenRefreshAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0A1932C56984F004560E3 /* TokenRefreshAPI.swift */; };
 		6FC0A1952C56984F004560E3 /* TokenRefreshAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0A1932C56984F004560E3 /* TokenRefreshAPI.swift */; };
@@ -113,8 +118,6 @@
 		6FC0A1B32C57DE6B004560E3 /* LoggerPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0A1B12C57DE6B004560E3 /* LoggerPlugin.swift */; };
 		6FC0D50B2C59E62D005BD525 /* TMTokenRefreshRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0D50A2C59E62D005BD525 /* TMTokenRefreshRequestDTO.swift */; };
 		6FC0D50C2C59E62D005BD525 /* TMTokenRefreshRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0D50A2C59E62D005BD525 /* TMTokenRefreshRequestDTO.swift */; };
-		6FC0D5112C59EAEA005BD525 /* TokenRefreshPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0D5102C59EAEA005BD525 /* TokenRefreshPlugin.swift */; };
-		6FC0D5122C59EAEA005BD525 /* TokenRefreshPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0D5102C59EAEA005BD525 /* TokenRefreshPlugin.swift */; };
 		6FC0D5142C5A07B3005BD525 /* AppleUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2939812C51E07E00B321DC /* AppleUseCase.swift */; };
 		6FC0D5152C5A123D005BD525 /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0A12D2C54CB11004560E3 /* AccountManager.swift */; };
 		6FC0D5172C5A1BF8005BD525 /* ShoakAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0D5162C5A1BF8005BD525 /* ShoakAPI.swift */; };
@@ -253,6 +256,9 @@
 		6F4779B22C61A3970028C1D7 /* DeleteFriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteFriendView.swift; sourceTree = "<group>"; };
 		6F8602EE2C61C6FD004F417C /* TMDeviceTokenDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDeviceTokenDTO.swift; sourceTree = "<group>"; };
 		6F8602F12C61CB5F004F417C /* TokenRefreshRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenRefreshRepository.swift; sourceTree = "<group>"; };
+		6F8602F42C624A06004F417C /* RequestInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestInterceptor.swift; sourceTree = "<group>"; };
+		6F8602F72C625193004F417C /* AddEnvorinmentsForPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEnvorinmentsForPreview.swift; sourceTree = "<group>"; };
+		6F8602F92C6258DD004F417C /* TokenUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenUseCase.swift; sourceTree = "<group>"; };
 		6FA442892C58B30D00E3E69E /* ClipShapeBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipShapeBorder.swift; sourceTree = "<group>"; };
 		6FA442AC2C58D4A800E3E69E /* AddEnvorinmentsForPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEnvorinmentsForPreview.swift; sourceTree = "<group>"; };
 		6FA442AE2C591A1A00E3E69E /* TMUserCredentialVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMUserCredentialVO.swift; sourceTree = "<group>"; };
@@ -285,7 +291,7 @@
 		6FC0A1812C563A4B004560E3 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		6FC0A1842C563C42004560E3 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		6FC0A1872C566ED3004560E3 /* KeychainTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainTests.swift; sourceTree = "<group>"; };
-		6FC0A1892C567AB0004560E3 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
+		6FC0A1892C567AB0004560E3 /* TokenRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenRepository.swift; sourceTree = "<group>"; };
 		6FC0A18E2C569607004560E3 /* TokenManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManagerTests.swift; sourceTree = "<group>"; };
 		6FC0A1932C56984F004560E3 /* TokenRefreshAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenRefreshAPI.swift; sourceTree = "<group>"; };
 		6FC0A1992C57C119004560E3 /* AuthUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUseCase.swift; sourceTree = "<group>"; };
@@ -297,7 +303,6 @@
 		6FC0A1AB2C57DBBB004560E3 /* StoreTokenPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreTokenPlugin.swift; sourceTree = "<group>"; };
 		6FC0A1B12C57DE6B004560E3 /* LoggerPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerPlugin.swift; sourceTree = "<group>"; };
 		6FC0D50A2C59E62D005BD525 /* TMTokenRefreshRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMTokenRefreshRequestDTO.swift; sourceTree = "<group>"; };
-		6FC0D5102C59EAEA005BD525 /* TokenRefreshPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenRefreshPlugin.swift; sourceTree = "<group>"; };
 		6FC0D5162C5A1BF8005BD525 /* ShoakAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoakAPI.swift; sourceTree = "<group>"; };
 		6FC0D5192C5A1C39005BD525 /* TMShoakDestinationDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMShoakDestinationDTO.swift; sourceTree = "<group>"; };
 		6FC0D51C2C5A1D52005BD525 /* ShoakRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoakRepository.swift; sourceTree = "<group>"; };
@@ -481,6 +486,7 @@
 				6FC0A14D2C5523FF004560E3 /* APIClient.swift */,
 				6FC0A1502C5524DE004560E3 /* NetworkError.swift */,
 				6FC0A1702C554B40004560E3 /* NetworkHandler.swift */,
+				6F8602F42C624A06004F417C /* RequestInterceptor.swift */,
 				6FC0A1492C55207C004560E3 /* Repository */,
 				6FC0A1352C551A3A004560E3 /* API */,
 			);
@@ -516,7 +522,7 @@
 			children = (
 				6FC0A17D2C563A02004560E3 /* TokenStorage.swift */,
 				6FC0A1812C563A4B004560E3 /* Token.swift */,
-				6FC0A1892C567AB0004560E3 /* TokenManager.swift */,
+				6FC0A1892C567AB0004560E3 /* TokenRepository.swift */,
 			);
 			path = Token;
 			sourceTree = "<group>";
@@ -527,7 +533,6 @@
 				6FC0A1AB2C57DBBB004560E3 /* StoreTokenPlugin.swift */,
 				6FC0A1B12C57DE6B004560E3 /* LoggerPlugin.swift */,
 				6FDFDAD42C57E39400A98D7E /* AddTokenPlugin.swift */,
-				6FC0D5102C59EAEA005BD525 /* TokenRefreshPlugin.swift */,
 			);
 			path = MoyaPlugins;
 			sourceTree = "<group>";
@@ -710,6 +715,7 @@
 			children = (
 				6FF9B79D2C50E6DE00FC0CB2 /* AccountUseCase.swift */,
 				6FC0A1992C57C119004560E3 /* AuthUseCase.swift */,
+				6F8602F92C6258DD004F417C /* TokenUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -770,6 +776,7 @@
 				6FF9B7C02C52378C00FC0CB2 /* Assets.xcassets */,
 				6FF9B7C22C52378C00FC0CB2 /* Preview Content */,
 				6FBEED442C5B632700431B7F /* PhoneConnectivityManager.swift */,
+				6F8602F72C625193004F417C /* AddEnvorinmentsForPreview.swift */,
 			);
 			path = "ShoakWatch Watch App";
 			sourceTree = "<group>";
@@ -1042,10 +1049,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F8602F62C624A06004F417C /* RequestInterceptor.swift in Sources */,
 				1E236BAB2C5FDF5D009E5730 /* EditProfileView.swift in Sources */,
 				6FC0A14B2C5520BA004560E3 /* UserRepository.swift in Sources */,
 				6FC0A1822C563A4B004560E3 /* Token.swift in Sources */,
-				6FC0D5112C59EAEA005BD525 /* TokenRefreshPlugin.swift in Sources */,
 				6FC0A1512C5524DE004560E3 /* NetworkError.swift in Sources */,
 				6FF9B79E2C50E6DE00FC0CB2 /* AccountUseCase.swift in Sources */,
 				6FA4428A2C58B30D00E3E69E /* ClipShapeBorder.swift in Sources */,
@@ -1091,6 +1098,7 @@
 				6FC0A19D2C57C13B004560E3 /* AuthAPI.swift in Sources */,
 				6FA442B52C59DDA300E3E69E /* BackButton.swift in Sources */,
 				6FC0A1852C563C42004560E3 /* Keychain.swift in Sources */,
+				6F8602FA2C6258DD004F417C /* TokenUseCase.swift in Sources */,
 				6FF9B79A2C50E6CB00FC0CB2 /* UserUseCase.swift in Sources */,
 				1E2168432C57DA55007463D0 /* AppleUseCase.swift in Sources */,
 				6FC0A1A32C57C4F4004560E3 /* AuthRepository.swift in Sources */,
@@ -1109,7 +1117,7 @@
 				6FC0A1B22C57DE6B004560E3 /* LoggerPlugin.swift in Sources */,
 				6F4779A62C6112720028C1D7 /* InvitationAPI.swift in Sources */,
 				6FDFDAD52C57E39400A98D7E /* AddTokenPlugin.swift in Sources */,
-				6FC0A18A2C567AB0004560E3 /* TokenManager.swift in Sources */,
+				6FC0A18A2C567AB0004560E3 /* TokenRepository.swift in Sources */,
 				6FC0A12C2C54CA29004560E3 /* OnboardingView.swift in Sources */,
 				1E2168452C57E67F007463D0 /* InviteFriendsView.swift in Sources */,
 				6F4779B32C61A3970028C1D7 /* DeleteFriendView.swift in Sources */,
@@ -1129,6 +1137,7 @@
 				6F4779AB2C611CB20028C1D7 /* Int64+.swift in Sources */,
 				6FC0A1AD2C57DBBB004560E3 /* StoreTokenPlugin.swift in Sources */,
 				6FF9B7CE2C52390200FC0CB2 /* TMFriendVO.swift in Sources */,
+				6F8602F82C625193004F417C /* AddEnvorinmentsForPreview.swift in Sources */,
 				6FC0A1422C551B20004560E3 /* URLProvider.swift in Sources */,
 				6FC0A1582C552BAE004560E3 /* TargetType+.swift in Sources */,
 				6FBEED492C5C73AA00431B7F /* StartShoakShortcuts.swift in Sources */,
@@ -1142,18 +1151,19 @@
 				6FC0A1552C5526EE004560E3 /* MoyaProvider+.swift in Sources */,
 				6FC0A1592C552D86004560E3 /* UserUseCase.swift in Sources */,
 				6FC0A1B32C57DE6B004560E3 /* LoggerPlugin.swift in Sources */,
+				6F8602FB2C6258DD004F417C /* TokenUseCase.swift in Sources */,
 				6FC0A1A92C57CE87004560E3 /* Array+subscript.swift in Sources */,
-				6FC0D5122C59EAEA005BD525 /* TokenRefreshPlugin.swift in Sources */,
 				6FF9B7CC2C52380200FC0CB2 /* ShoakDataManager.swift in Sources */,
 				6FC0A1A42C57C4F4004560E3 /* AuthRepository.swift in Sources */,
 				6FC0A1832C563A4B004560E3 /* Token.swift in Sources */,
 				B86EA6A02C5FA3EA002720BA /* FontManager.swift in Sources */,
 				6FF9B7D12C5239A400FC0CB2 /* Errors.swift in Sources */,
-				6FC0A18B2C567AB0004560E3 /* TokenManager.swift in Sources */,
+				6FC0A18B2C567AB0004560E3 /* TokenRepository.swift in Sources */,
 				6FC0D51E2C5A1D52005BD525 /* ShoakRepository.swift in Sources */,
 				6FA442B02C591A1A00E3E69E /* TMUserCredentialVO.swift in Sources */,
 				6FC0D51F2C5A21FB005BD525 /* SendShoakUseCase.swift in Sources */,
 				6FF9B7D22C5239B300FC0CB2 /* AccountUseCase.swift in Sources */,
+				6F8602F52C624A06004F417C /* RequestInterceptor.swift in Sources */,
 				B8A390092C5B4D6D00B33D9C /* NotificationService.swift in Sources */,
 				6FF9B7BF2C52378B00FC0CB2 /* ContentView.swift in Sources */,
 				6FF9B7DB2C5244B400FC0CB2 /* StartShoakProcess.swift in Sources */,

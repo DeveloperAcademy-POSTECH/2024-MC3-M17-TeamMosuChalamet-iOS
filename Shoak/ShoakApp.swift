@@ -18,19 +18,35 @@ struct ShoakApp: App {
     private var watchConnectivityManager: WatchConnectivityManager
 
     init() {
-        let shoakDataManager = ShoakDataManager.shared
-        self.shoakDataManager = shoakDataManager
+        let tokenRepository = KeychainTokenRepository()
+        let tokenRefreshRepository = DefaultTokenRefreshRepository(tokenRepository: tokenRepository)
+        let tokenUseCase = TokenUseCase(tokenRepository: tokenRepository, tokenRefreshRepository: tokenRefreshRepository)
 
-        let accountManager = AccountManager.shared
-        self.accountManager = accountManager
+        let apiClient = DefaultAPIClient(tokenRepository: tokenRepository, tokenRefreshRepository: tokenRefreshRepository)
+
+        let authRepository = AuthRepository(apiClient: apiClient)
+        let shoakRepository = ShoakRepository(apiClient: apiClient)
+        let userRepository = UserRepository(apiClient: apiClient)
+        let invitationRepository = InvitationRepository(apiClient: apiClient)
+
+        let appleUseCase = AppleUseCase(tokenRepository: tokenRepository)
+        let authUseCase = AuthUseCase(authRepository: authRepository, tokenRepository: tokenRepository)
+        let userUseCase = UserUseCase(userRepository: userRepository)
+        let shoakUseCase = SendShoakUseCase(shoakRepository: shoakRepository)
+        let invitationUseCase = InvitationUseCase(invitationRepository: invitationRepository)
 
         let navigationManager = NavigationManager.shared
-        self.navigationManager = navigationManager
-        
-        let invitationManager = InvitationManager.shared
-        self.invitationManager = invitationManager
+        let accountManager = AccountManager(appleUseCase: appleUseCase, authUseCase: authUseCase, userUseCase: userUseCase, tokenUseCase: tokenUseCase)
+        let shoakDataManager = ShoakDataManager(userUseCase: userUseCase, shoakUseCase: shoakUseCase)
+        let invitationManager = InvitationManager(invitationUseCase: invitationUseCase)
 
         let watchConnectivityManager = WatchConnectivityManager.shared
+        self.watchConnectivityManager = watchConnectivityManager
+
+        self.shoakDataManager = shoakDataManager
+        self.accountManager = accountManager
+        self.navigationManager = navigationManager
+        self.invitationManager = invitationManager
         self.watchConnectivityManager = watchConnectivityManager
 
 //        AppDependencyManager.shared.add(dependency: shoakDataManager)
@@ -62,6 +78,6 @@ struct ShoakApp: App {
             return
         }
 
-        NavigationManager.shared.invitation = memberIDToInt64
+        navigationManager.invitation = memberIDToInt64
     }
 }

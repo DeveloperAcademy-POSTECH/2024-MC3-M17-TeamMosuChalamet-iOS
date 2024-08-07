@@ -26,13 +26,4 @@ final class AuthRepository {
             return .failure(.other(failure.localizedDescription))
         }
     }
-
-    private func saveTokens(accessToken: AccessToken, refreshToken: RefreshToken) {
-        guard let tokenManagableClient = apiClient as? TokenManagable else {
-            return
-        }
-
-        tokenManagableClient.tokenManager.save(accessToken)
-        tokenManagableClient.tokenManager.save(refreshToken)
-    }
 }

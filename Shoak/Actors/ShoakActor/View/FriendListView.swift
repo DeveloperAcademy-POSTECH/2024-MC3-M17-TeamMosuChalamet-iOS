@@ -241,8 +241,5 @@ struct FriendListView: View {
 
 #Preview {
     FriendListView()
-        .environment(ShoakDataManager.shared)
-        .environment(AccountManager.shared)
-        .environment(NavigationManager.shared)
-        .environment(InvitationManager.shared)
+        .addEnvironmentsForPreview()
 }
