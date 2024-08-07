@@ -123,6 +123,7 @@ struct WatchFriendListView: View {
             .onDisappear {
                 cancellable?.cancel()
             }
+            .animation(.default, value: isTapped)
         }
 
         private func loadImage(from url: URL) -> AnyPublisher<Image, Error> {
