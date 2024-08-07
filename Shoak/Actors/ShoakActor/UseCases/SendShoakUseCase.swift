@@ -14,6 +14,7 @@ final class SendShoakUseCase {
         self.shoakRepository = shoakRepository
     }
 
+    @MainActor
     func sendShoak(to receiverID: TMMemberID) async -> Result<Void, Errors> {
         let destination = receiverID
         let dto = TMShoakDestinationDTO(destinationMemberId: destination)

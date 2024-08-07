@@ -1,88 +1,143 @@
 
 import SwiftUI
 import WatchKit
+import Combine
 
 struct WatchFriendListView: View {
     
     @Environment(ShoakDataManager.self) private var shoakDataManager
     @Environment(NavigationManager.self) private var navigationManager
-    @State private var tappedStates: [TMMemberID: Bool] = [:]
-    let hapticManager = HapticManager.instance
-    
+
     var body: some View {
-        
         Group {
             if shoakDataManager.isLoading {
                 ProgressView()
             } else if shoakDataManager.friends.isEmpty {
                 Text("휴대폰으로 다시 로그인 해주세요.")
             } else {
-                List(shoakDataManager.friends, id: \.memberID) { member in
-                    Button(action: {
-                        tappedStates[member.memberID, default: false].toggle()
-                        
-                        hapticManager.notification(type: .retry)
-                        
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                            tappedStates[member.memberID] = false
-                        }
-                        
-                        Task {
-                            await shoakDataManager.sendShoak(to: member.memberID)
-                        }
-                    }) {
-                        
-                        HStack(spacing: 0) {
-                            if tappedStates[member.memberID, default: false] {
-                                Image("Check")
-                                    .resizable()
-                                    .frame(width: 50, height: 50)
-                                
-                            } else {
-                                if let urlString = member.imageURLString, let url = URL(string: urlString) {
-                                    AsyncImage(url: url) { image in
-                                        image.resizable()
-                                    } placeholder: {
-                                        ProgressView()
-                                    }
-                                    .frame(width: 50, height: 50)
-                                    .clipShapeBorder(RoundedRectangle(cornerRadius: 20), Color.strokeGray, 1.0)
-                                }
-                                else{
-                                    Image("EmptyProfile")
-                                        .resizable()
-                                        .frame(width: 50, height: 50)
-                                        .clipShapeBorder(RoundedRectangle(cornerRadius: 20), Color.strokeGray, 1.0)
-                                        
-                                }
-                            }
-                            Spacer()
-                                .frame(width: 24)
-                            
-                            Text("\(member.name)")
-                                .font(.textListTitle)
-                                .foregroundColor(tappedStates[member.memberID, default: false] ? Color.textWhite : Color.textBlack)
-                            Spacer()
-                        }
-                        .frame(width: 174, height: 82)
-                        .padding()
-                    }
-                    .listRowBackground(
-                        RoundedRectangle(cornerRadius: 20)
-                            .fill(tappedStates[member.memberID, default: false] ? Color.shoakGreen : Color.shoakYellow )
-                            .clipShapeBorder(RoundedRectangle(cornerRadius: 20),tappedStates[member.memberID, default: false] ? Color.WatchStrokeGreen : Color.WatchStrokeYellow, 2)
-                    )
-                    
+                List(shoakDataManager.friends, id: \.memberID) { friend in
+                    FriendButton(friend: friend)
                 }
-                
             }
         }
-        .onAppear {
+        .task {
             self.shoakDataManager.refreshFriends()
         }
     }
-    
-    
+
+    struct FriendButton: View {
+        enum TapState {
+            case none
+            case loading
+            case completed
+            case failed
+        }
+        @Environment(ShoakDataManager.self) private var shoakDataManager
+        var friend: TMFriendVO
+        let hapticManager = HapticManager.instance
+        @State private var isTapped: TapState = .none
+        @State private var friendImage: Image?
+        @State private var cancellable: AnyCancellable?
+        var body: some View {
+            Button(action: {
+                isTapped = .loading
+
+                hapticManager.notification(type: .retry)
+
+                Task {
+                    let result = await self.shoakDataManager.sendShoak(to: friend.memberID)
+                    DispatchQueue.main.async {
+                        switch result {
+                        case .success:
+                            isTapped = .completed
+                        case .failure(let failure):
+                            print(failure)
+                            isTapped = .failed
+                        }
+                        // 1초 뒤에 isTapped = .none으로 바꾸기
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                            isTapped = .none
+                        }
+                    }
+                }
+            }) {
+
+                HStack(spacing: 0) {
+                    switch isTapped {
+                    case .none:
+                        if friend.imageURLString != nil {
+                            Group {
+                                if let friendImage {
+                                    friendImage
+                                        .resizable()
+                                } else {
+                                    ProgressView()
+                                }
+                            }
+                            .frame(width: 50, height: 50)
+                            .clipShapeBorder(RoundedRectangle(cornerRadius: 20), Color.strokeGray, 1.0)
+                        }
+                        else {
+                            Image("EmptyProfile")
+                                .resizable()
+                                .frame(width: 50, height: 50)
+                                .clipShapeBorder(RoundedRectangle(cornerRadius: 20), Color.strokeGray, 1.0)
+                        }
+                    case .loading:
+                        ProgressView()
+                            .frame(width: 50, height: 50)
+                    case .completed:
+                        Image("Check")
+                            .resizable()
+                            .frame(width: 50, height: 50)
+                    case .failed:
+                        Image(systemName: "xmark")
+                            .resizable()
+                            .frame(width: 50, height: 50)
+                    }
+
+                    Spacer()
+                        .frame(width: 24)
+
+                    Text("\(friend.name)")
+                        .font(.textListTitle)
+                        .foregroundColor(isTapped == .completed ? Color.textWhite : Color.textBlack)
+                    Spacer()
+                }
+                .frame(width: 174, height: 82)
+                .padding()
+            }
+            .listRowBackground(
+                RoundedRectangle(cornerRadius: 20)
+                    .fill(isTapped == .completed ? Color.shoakGreen : Color.shoakYellow )
+                    .clipShapeBorder(RoundedRectangle(cornerRadius: 20), isTapped == .completed ? Color.WatchStrokeGreen : Color.WatchStrokeYellow, 2)
+            )
+            .onAppear {
+                if let imageURLString = friend.imageURLString, let imageURL = URL(string: imageURLString) {
+                    cancellable = loadImage(from: imageURL)
+                        .sink(receiveCompletion: { _ in }, receiveValue: { image in
+                            self.friendImage = image
+                        })
+                }
+            }
+            .onDisappear {
+                cancellable?.cancel()
+            }
+        }
+
+        private func loadImage(from url: URL) -> AnyPublisher<Image, Error> {
+            return URLSession.shared.dataTaskPublisher(for: url)
+                .tryMap { (data, response) -> Image in
+                    guard let uiImage = UIImage(data: data) else {
+                        throw URLError(.badServerResponse)
+                    }
+                    return Image(uiImage: uiImage)
+                }
+                .receive(on: DispatchQueue.main)
+                .eraseToAnyPublisher()
+        }
+    }
+
 }
 
 class HapticManager {
@@ -102,7 +157,7 @@ class HapticManager {
             }
         }
     }
-    
+
 }
 
 #Preview {
