@@ -26,7 +26,8 @@ class AccountManager: @unchecked Sendable {
     }
 
     public func loginOrSignUp(credential: TMUserCredentialVO) async -> Bool {
-        let result = await authUseCase.loginOrSignUp(credential: credential)
+        tokenUseCase.save(identityToken: credential.token)
+        let result = await authUseCase.loginOrSignUp()
 
         if case .success = result {
             return true
@@ -63,6 +64,11 @@ class AccountManager: @unchecked Sendable {
     public func logout() {
         tokenUseCase.deleteAllTokensWithoutDeviceToken()
         // TODO: Reset Device Token
+    }
+
+    public func signOut() {
+        tokenUseCase.deleteAllTokensWithoutDeviceToken()
+        // TODO: 탈퇴 로직
     }
 }
 

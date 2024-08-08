@@ -17,8 +17,8 @@ final class AuthRepository {
         self.provider = apiClient.resolve(for: AuthAPI.self)
     }
 
-    func loginOrSignUp(loginOrSignUpDTO: TMLoginOrSignUpDTO) async -> Result<Void, NetworkError> {
-        let response = await provider.request(.loginOrSignUp(tmLoginOrSignUpDTO: loginOrSignUpDTO))
+    func loginOrSignUp() async -> Result<Void, NetworkError> {
+        let response = await provider.request(.loginOrSignUp)
         switch response {
         case .success(let response):
             return NetworkHandler.requestPlain(by: response)

@@ -92,11 +92,12 @@ extension NavigationManager {
 #elseif os(watchOS)
 extension NavigationManager {
     enum SwitchableView: View, CaseIterable {
+        case login
         case friendList
 
         var body: some View {
             switch self {
-            case .friendList:
+            case .login, .friendList:
                 WatchFriendListView()
             default:
                 EmptyView()
