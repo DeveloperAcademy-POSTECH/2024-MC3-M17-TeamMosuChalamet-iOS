@@ -37,10 +37,16 @@ class NotificationController: WKUserNotificationHostingController<WatchNotificat
     
     private func HapticFeedback() {
         
-        WKInterfaceDevice.current().play(.notification)
-        Thread.sleep(forTimeInterval: 0.05)
-        
+        WKInterfaceDevice.current().play(.retry)
+               Thread.sleep(forTimeInterval: 0.1)
         WKInterfaceDevice.current().play(.click)
+        Thread.sleep(forTimeInterval: 0.3)
+        WKInterfaceDevice.current().play(.start)
         Thread.sleep(forTimeInterval: 0.5)
+        WKInterfaceDevice.current().play(.notification)
+        Thread.sleep(forTimeInterval: 0.1)
+
+
+       
     }
 }

@@ -164,7 +164,7 @@ struct FriendListView: View {
                 isPresented: $isPresentingDeleteFriendAlert
             ) {
                 Button("취소", role: .cancel) {}
-                Button("삭제하기", role: .destructive) {
+                Button("삭제", role: .destructive) {
                     Task {
                         if case .success = await shoakDataManager.deleteFriend(memberID: self.friend.memberID) {
                             self.shoakDataManager.refreshFriends()
