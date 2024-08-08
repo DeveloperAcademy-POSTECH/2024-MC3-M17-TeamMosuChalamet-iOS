@@ -1,5 +1,5 @@
 //
-//  AcceptInvitationDTO.swift
+//  TMMemberIDDTO.swift
 //  Shoak
 //
 //  Created by 정종인 on 8/8/24.
@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct AcceptInvitationDTO: Codable {
+struct TMMemberIDDTO: Codable {
     var id: TMMemberID
 }

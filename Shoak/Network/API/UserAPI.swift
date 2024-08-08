@@ -38,7 +38,7 @@ extension UserAPI: NeedAccessTokenTargetType {
         case .uploadProfileImage:
             .formData
         case .deleteFriend:
-            .none
+            .json
         }
     }
 
@@ -107,10 +107,7 @@ extension UserAPI: NeedAccessTokenTargetType {
 
             return .uploadMultipart(multipartData)
         case .deleteFriend(let memberID):
-            let queries: [String: Any] = [
-                "friendId": memberID
-            ]
-            return .requestParameters(parameters: queries, encoding: URLEncoding.queryString)
+            return .requestJSONEncodable(TMMemberIDDTO(id: memberID))
         }
     }
 }

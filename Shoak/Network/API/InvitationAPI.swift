@@ -12,7 +12,7 @@ enum InvitationAPI {
     case acceptInvitation(TMMemberID)
 }
 
-extension InvitationAPI: TargetType {
+extension InvitationAPI: NeedAccessTokenTargetType {
     var baseURL: URL {
         ShoakURLProvider().provide(version: .none)
     }
@@ -31,16 +31,17 @@ extension InvitationAPI: TargetType {
         }
     }
 
-    var headers: [String : String]? {
-        [
-            "Access": ""
-        ]
+    var contentType: ContentType {
+        switch self {
+        case .acceptInvitation(let tMMemberID):
+            return .json
+        }
     }
 
     var task: Task {
         switch self {
         case .acceptInvitation(let tmMemberID):
-            return .requestJSONEncodable(AcceptInvitationDTO(id: tmMemberID))
+            return .requestJSONEncodable(TMMemberIDDTO(id: tmMemberID))
         }
     }
 }
