@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -51,6 +51,81 @@
 		6F96CEC62C64AEE300BF5A9C /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 6F96CEC52C64AEE300BF5A9C /* Lottie */; };
 		6F96CEC82C64AEFB00BF5A9C /* Check.json in Resources */ = {isa = PBXBuildFile; fileRef = 6F96CEC72C64AEFB00BF5A9C /* Check.json */; };
 		6F96CECA2C64B0A100BF5A9C /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F96CEC92C64B09C00BF5A9C /* HapticManager.swift */; };
+		6F96CEDF2C64CAA200BF5A9C /* ShoakClip.app in Embed App Clips */ = {isa = PBXBuildFile; fileRef = 6F96CED02C64CAA000BF5A9C /* ShoakClip.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		6F96CEEB2C64CB4400BF5A9C /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0A1842C563C42004560E3 /* Keychain.swift */; };
+		6F96CEF02C64CB5A00BF5A9C /* AddTokenPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDFDAD42C57E39400A98D7E /* AddTokenPlugin.swift */; };
+		6F96CEF12C64CB5A00BF5A9C /* StoreTokenPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0A1AB2C57DBBB004560E3 /* StoreTokenPlugin.swift */; };
+		6F96CEF22C64CB5A00BF5A9C /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0A1812C563A4B004560E3 /* Token.swift */; };
+		6F96CEF32C64CB5A00BF5A9C /* TokenRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0A1892C567AB0004560E3 /* TokenRepository.swift */; };
+		6F96CEF42C64CB5A00BF5A9C /* LoggerPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0A1B12C57DE6B004560E3 /* LoggerPlugin.swift */; };
+		6F96CEF52C64CB5A00BF5A9C /* TokenStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0A17D2C563A02004560E3 /* TokenStorage.swift */; };
+		6F96CEFA2C64CB6000BF5A9C /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0A1702C554B40004560E3 /* NetworkHandler.swift */; };
+		6F96CEFB2C64CB6000BF5A9C /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0A1502C5524DE004560E3 /* NetworkError.swift */; };
+		6F96CEFC2C64CB6000BF5A9C /* URLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0A1402C551B20004560E3 /* URLProvider.swift */; };
+		6F96CEFD2C64CB6000BF5A9C /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0A14D2C5523FF004560E3 /* APIClient.swift */; };
+		6F96CEFE2C64CB6000BF5A9C /* RequestInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8602F42C624A06004F417C /* RequestInterceptor.swift */; };
+		6F96CEFF2C64CB6900BF5A9C /* ShoakRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0D51C2C5A1D52005BD525 /* ShoakRepository.swift */; };
+		6F96CF002C64CB6900BF5A9C /* TokenRefreshRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8602F12C61CB5F004F417C /* TokenRefreshRepository.swift */; };
+		6F96CF012C64CB6900BF5A9C /* AuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0A1A22C57C4F4004560E3 /* AuthRepository.swift */; };
+		6F96CF022C64CB6900BF5A9C /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0A14A2C5520BA004560E3 /* UserRepository.swift */; };
+		6F96CF032C64CB6900BF5A9C /* InvitationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4779A22C6112570028C1D7 /* InvitationRepository.swift */; };
+		6F96CF042C64CB6E00BF5A9C /* InvitationAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4779A52C6112720028C1D7 /* InvitationAPI.swift */; };
+		6F96CF052C64CB6E00BF5A9C /* AuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0A19C2C57C13B004560E3 /* AuthAPI.swift */; };
+		6F96CF062C64CB6E00BF5A9C /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0A1362C551A70004560E3 /* UserAPI.swift */; };
+		6F96CF072C64CB6E00BF5A9C /* TokenRefreshAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0A1932C56984F004560E3 /* TokenRefreshAPI.swift */; };
+		6F96CF082C64CB6E00BF5A9C /* ShoakAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0D5162C5A1BF8005BD525 /* ShoakAPI.swift */; };
+		6F96CF092C64CBB500BF5A9C /* DeleteFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4779B22C61A3970028C1D7 /* DeleteFriendView.swift */; };
+		6F96CF0A2C64CBB500BF5A9C /* FriendListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7912C50E6A000FC0CB2 /* FriendListView.swift */; };
+		6F96CF0B2C64CBBC00BF5A9C /* SendShoakUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7AD2C51340000FC0CB2 /* SendShoakUseCase.swift */; };
+		6F96CF0C2C64CBBC00BF5A9C /* UserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7992C50E6CB00FC0CB2 /* UserUseCase.swift */; };
+		6F96CF0F2C64CBC800BF5A9C /* InviteFriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2168442C57E67F007463D0 /* InviteFriendsView.swift */; };
+		6F96CF102C64CBC800BF5A9C /* AcceptInvitationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4779A82C6114E50028C1D7 /* AcceptInvitationView.swift */; };
+		6F96CF112C64CBDC00BF5A9C /* InvitationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E21684E2C587223007463D0 /* InvitationUseCase.swift */; };
+		6F96CF122C64CBE400BF5A9C /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E236BAA2C5FDF5D009E5730 /* EditProfileView.swift */; };
+		6F96CF132C64CBE400BF5A9C /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0A1292C54C82B004560E3 /* LoginView.swift */; };
+		6F96CF142C64CBE400BF5A9C /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA442B42C59DDA300E3E69E /* BackButton.swift */; };
+		6F96CF152C64CBE400BF5A9C /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7952C50E6B300FC0CB2 /* SettingView.swift */; };
+		6F96CF162C64CBEB00BF5A9C /* TokenUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8602F92C6258DD004F417C /* TokenUseCase.swift */; };
+		6F96CF172C64CBEB00BF5A9C /* AuthUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0A1992C57C119004560E3 /* AuthUseCase.swift */; };
+		6F96CF182C64CBEB00BF5A9C /* AccountUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B79D2C50E6DE00FC0CB2 /* AccountUseCase.swift */; };
+		6F96CF192C64CBF300BF5A9C /* MessageComposeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2168372C5689BF007463D0 /* MessageComposeView.swift */; };
+		6F96CF1A2C64CBF300BF5A9C /* AppleLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E29397F2C51E00D00B321DC /* AppleLoginView.swift */; };
+		6F96CF1B2C64CBF800BF5A9C /* AppleSignInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2939842C51F2A200B321DC /* AppleSignInButton.swift */; };
+		6F96CF1C2C64CBFD00BF5A9C /* AppleUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2939812C51E07E00B321DC /* AppleUseCase.swift */; };
+		6F96CF1D2C64CC0300BF5A9C /* Int64+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4779AA2C611CB20028C1D7 /* Int64+.swift */; };
+		6F96CF1E2C64CC0300BF5A9C /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F96CEC12C64A44700BF5A9C /* ButtonStyles.swift */; };
+		6F96CF1F2C64CC0300BF5A9C /* Array+subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0A1A72C57CE87004560E3 /* Array+subscript.swift */; };
+		6F96CF202C64CC0300BF5A9C /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F96CEC92C64B09C00BF5A9C /* HapticManager.swift */; };
+		6F96CF212C64CC0300BF5A9C /* String+Int64.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4779AE2C611D040028C1D7 /* String+Int64.swift */; };
+		6F96CF222C64CC0300BF5A9C /* TargetType+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0A1562C552BAE004560E3 /* TargetType+.swift */; };
+		6F96CF232C64CC0300BF5A9C /* CaseIterable+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7A72C50ECD200FC0CB2 /* CaseIterable+.swift */; };
+		6F96CF242C64CC0300BF5A9C /* ClipShapeBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA442892C58B30D00E3E69E /* ClipShapeBorder.swift */; };
+		6F96CF262C64CC0300BF5A9C /* MoyaProvider+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0A1532C5526EE004560E3 /* MoyaProvider+.swift */; };
+		6F96CF272C64CC0D00BF5A9C /* TMMemberID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7A32C50E8A000FC0CB2 /* TMMemberID.swift */; };
+		6F96CF282C64CC0D00BF5A9C /* TMProfileDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0A1732C554C9E004560E3 /* TMProfileDTO.swift */; };
+		6F96CF292C64CC0D00BF5A9C /* TMFriendVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7A52C50E90100FC0CB2 /* TMFriendVO.swift */; };
+		6F96CF2A2C64CC0D00BF5A9C /* TMFriendDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7A12C50E88300FC0CB2 /* TMFriendDTO.swift */; };
+		6F96CF2B2C64CC0D00BF5A9C /* TMTokenRefreshRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0D50A2C59E62D005BD525 /* TMTokenRefreshRequestDTO.swift */; };
+		6F96CF2C2C64CC0D00BF5A9C /* TMDeviceTokenDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8602EE2C61C6FD004F417C /* TMDeviceTokenDTO.swift */; };
+		6F96CF2D2C64CC0D00BF5A9C /* TMUserCredentialVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA442AE2C591A1A00E3E69E /* TMUserCredentialVO.swift */; };
+		6F96CF2E2C64CC0D00BF5A9C /* TMShoakDestinationDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0D5192C5A1C39005BD525 /* TMShoakDestinationDTO.swift */; };
+		6F96CF2F2C64CC0D00BF5A9C /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7A92C512C9F00FC0CB2 /* Errors.swift */; };
+		6F96CF302C64CC0D00BF5A9C /* TMLoginOrSignUpDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0A19F2C57C3D3004560E3 /* TMLoginOrSignUpDTO.swift */; };
+		6F96CF312C64CC0D00BF5A9C /* TMProfileVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0A1762C554CC6004560E3 /* TMProfileVO.swift */; };
+		6F96CF322C64CC1900BF5A9C /* InvitationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E21684A2C586F01007463D0 /* InvitationManager.swift */; };
+		6F96CF332C64CC1900BF5A9C /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0A12D2C54CB11004560E3 /* AccountManager.swift */; };
+		6F96CF342C64CC1900BF5A9C /* WatchConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBEED422C5B5F1C00431B7F /* WatchConnectivityManager.swift */; };
+		6F96CF362C64CC1900BF5A9C /* ShoakDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7B02C51F82B00FC0CB2 /* ShoakDataManager.swift */; };
+		6F96CF372C64CC2300BF5A9C /* ShoakAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA442B12C59239E00E3E69E /* ShoakAppDelegate.swift */; };
+		6F96CF382C64CC3900BF5A9C /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7B42C52211A00FC0CB2 /* RootView.swift */; };
+		6F96CF392C64CC4400BF5A9C /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2168572C5876B6007463D0 /* FontManager.swift */; };
+		6F96CF3A2C64CC4B00BF5A9C /* Check.json in Resources */ = {isa = PBXBuildFile; fileRef = 6F96CEC72C64AEFB00BF5A9C /* Check.json */; };
+		6F96CF3B2C64CC4B00BF5A9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6FF9B7772C4F896A00FC0CB2 /* Assets.xcassets */; };
+		6F96CF3C2C64CC4B00BF5A9C /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2168532C58751E007463D0 /* ColorManager.swift */; };
+		6F96CF3D2C64CF3C00BF5A9C /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7B22C51F84600FC0CB2 /* NavigationManager.swift */; };
+		6F96CF3F2C64D1A300BF5A9C /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 6F96CF3E2C64D1A300BF5A9C /* Moya */; };
+		6F96CF412C64D1AA00BF5A9C /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 6F96CF402C64D1AA00BF5A9C /* Lottie */; };
+		6F96CF452C64D36D00BF5A9C /* Secret.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6FC0A1462C551C7D004560E3 /* Secret.plist */; };
 		6FA4428A2C58B30D00E3E69E /* ClipShapeBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA442892C58B30D00E3E69E /* ClipShapeBorder.swift */; };
 		6FA4428B2C58B30D00E3E69E /* ClipShapeBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA442892C58B30D00E3E69E /* ClipShapeBorder.swift */; };
 		6FA442AD2C58D4A800E3E69E /* AddEnvorinmentsForPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA442AC2C58D4A800E3E69E /* AddEnvorinmentsForPreview.swift */; };
@@ -186,6 +261,13 @@
 			remoteGlobalIDString = 1E2168222C5686D8007463D0;
 			remoteInfo = InviteFriends;
 		};
+		6F96CEDD2C64CAA200BF5A9C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6FF9B7682C4F896800FC0CB2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6F96CECF2C64CAA000BF5A9C;
+			remoteInfo = ShoakClip;
+		};
 		6FC0A1642C552E3F004560E3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6FF9B7682C4F896800FC0CB2 /* Project object */;
@@ -219,6 +301,17 @@
 				1E2168312C5686D8007463D0 /* InviteFriends.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6F96CEE52C64CAA200BF5A9C /* Embed App Clips */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/AppClips";
+			dstSubfolderSpec = 16;
+			files = (
+				6F96CEDF2C64CAA200BF5A9C /* ShoakClip.app in Embed App Clips */,
+			);
+			name = "Embed App Clips";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		6FF9B7CB2C52378C00FC0CB2 /* Embed Watch Content */ = {
@@ -267,6 +360,7 @@
 		6F96CEC12C64A44700BF5A9C /* ButtonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyles.swift; sourceTree = "<group>"; };
 		6F96CEC72C64AEFB00BF5A9C /* Check.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Check.json; sourceTree = "<group>"; };
 		6F96CEC92C64B09C00BF5A9C /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
+		6F96CED02C64CAA000BF5A9C /* ShoakClip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShoakClip.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FA442892C58B30D00E3E69E /* ClipShapeBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipShapeBorder.swift; sourceTree = "<group>"; };
 		6FA442AC2C58D4A800E3E69E /* AddEnvorinmentsForPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEnvorinmentsForPreview.swift; sourceTree = "<group>"; };
 		6FA442AE2C591A1A00E3E69E /* TMUserCredentialVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMUserCredentialVO.swift; sourceTree = "<group>"; };
@@ -350,12 +444,35 @@
 		B8FF5C3C2C5A893900F043EB /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		6F96CEE02C64CAA200BF5A9C /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 6F96CECF2C64CAA000BF5A9C /* ShoakClip */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		6F96CED12C64CAA000BF5A9C /* ShoakClip */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (6F96CEE02C64CAA200BF5A9C /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = ShoakClip; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
 		1E2168202C5686D8007463D0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				1E2168252C5686D8007463D0 /* Messages.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6F96CECD2C64CAA000BF5A9C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6F96CF3F2C64D1A300BF5A9C /* Moya in Frameworks */,
+				6F96CF412C64D1AA00BF5A9C /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -566,6 +683,7 @@
 				6FC0A1612C552E3F004560E3 /* ShoakTests */,
 				1E2168262C5686D8007463D0 /* InviteFriends */,
 				6FECC4E32C5874D200C8E5D4 /* ShoakUITests */,
+				6F96CED12C64CAA000BF5A9C /* ShoakClip */,
 				6FF9B7712C4F896800FC0CB2 /* Products */,
 				6FC0A1322C5519C8004560E3 /* Frameworks */,
 			);
@@ -579,6 +697,7 @@
 				6FC0A1602C552E3F004560E3 /* ShoakTests.xctest */,
 				1E2168232C5686D8007463D0 /* InviteFriends.appex */,
 				6FECC4E22C5874D200C8E5D4 /* ShoakUITests.xctest */,
+				6F96CED02C64CAA000BF5A9C /* ShoakClip.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -838,6 +957,30 @@
 			productReference = 1E2168232C5686D8007463D0 /* InviteFriends.appex */;
 			productType = "com.apple.product-type.app-extension.messages";
 		};
+		6F96CECF2C64CAA000BF5A9C /* ShoakClip */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6F96CEE12C64CAA200BF5A9C /* Build configuration list for PBXNativeTarget "ShoakClip" */;
+			buildPhases = (
+				6F96CECC2C64CAA000BF5A9C /* Sources */,
+				6F96CECD2C64CAA000BF5A9C /* Frameworks */,
+				6F96CECE2C64CAA000BF5A9C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				6F96CED12C64CAA000BF5A9C /* ShoakClip */,
+			);
+			name = ShoakClip;
+			packageProductDependencies = (
+				6F96CF3E2C64D1A300BF5A9C /* Moya */,
+				6F96CF402C64D1AA00BF5A9C /* Lottie */,
+			);
+			productName = ShoakClip;
+			productReference = 6F96CED02C64CAA000BF5A9C /* ShoakClip.app */;
+			productType = "com.apple.product-type.application.on-demand-install-capable";
+		};
 		6FC0A15F2C552E3F004560E3 /* ShoakTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6FC0A1662C552E3F004560E3 /* Build configuration list for PBXNativeTarget "ShoakTests" */;
@@ -883,12 +1026,14 @@
 				6FF9B76E2C4F896800FC0CB2 /* Resources */,
 				6FF9B7CB2C52378C00FC0CB2 /* Embed Watch Content */,
 				1E2168362C5686D8007463D0 /* Embed Foundation Extensions */,
+				6F96CEE52C64CAA200BF5A9C /* Embed App Clips */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				6FF9B7C62C52378C00FC0CB2 /* PBXTargetDependency */,
 				1E2168302C5686D8007463D0 /* PBXTargetDependency */,
+				6F96CEDE2C64CAA200BF5A9C /* PBXTargetDependency */,
 			);
 			name = Shoak;
 			packageProductDependencies = (
@@ -926,11 +1071,14 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1540;
+				LastSwiftUpdateCheck = 1600;
 				LastUpgradeCheck = 1540;
 				TargetAttributes = {
 					1E2168222C5686D8007463D0 = {
 						CreatedOnToolsVersion = 15.4;
+					};
+					6F96CECF2C64CAA000BF5A9C = {
+						CreatedOnToolsVersion = 16.0;
 					};
 					6FC0A15F2C552E3F004560E3 = {
 						CreatedOnToolsVersion = 15.4;
@@ -971,6 +1119,7 @@
 				6FC0A15F2C552E3F004560E3 /* ShoakTests */,
 				1E2168222C5686D8007463D0 /* InviteFriends */,
 				6FECC4E12C5874D200C8E5D4 /* ShoakUITests */,
+				6F96CECF2C64CAA000BF5A9C /* ShoakClip */,
 			);
 		};
 /* End PBXProject section */
@@ -982,6 +1131,16 @@
 			files = (
 				1E21682D2C5686D8007463D0 /* Assets.xcassets in Resources */,
 				1E21682B2C5686D8007463D0 /* Base in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6F96CECE2C64CAA000BF5A9C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6F96CF3A2C64CC4B00BF5A9C /* Check.json in Resources */,
+				6F96CF452C64D36D00BF5A9C /* Secret.plist in Resources */,
+				6F96CF3B2C64CC4B00BF5A9C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1037,6 +1196,82 @@
 				6F47799C2C60A6FE0028C1D7 /* TMMemberID.swift in Sources */,
 				6F4779B12C611D270028C1D7 /* String+Int64.swift in Sources */,
 				6F4779AD2C611CD00028C1D7 /* Int64+.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6F96CECC2C64CAA000BF5A9C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6F96CF112C64CBDC00BF5A9C /* InvitationUseCase.swift in Sources */,
+				6F96CEFA2C64CB6000BF5A9C /* NetworkHandler.swift in Sources */,
+				6F96CEFB2C64CB6000BF5A9C /* NetworkError.swift in Sources */,
+				6F96CF1B2C64CBF800BF5A9C /* AppleSignInButton.swift in Sources */,
+				6F96CF092C64CBB500BF5A9C /* DeleteFriendView.swift in Sources */,
+				6F96CF122C64CBE400BF5A9C /* EditProfileView.swift in Sources */,
+				6F96CF132C64CBE400BF5A9C /* LoginView.swift in Sources */,
+				6F96CF142C64CBE400BF5A9C /* BackButton.swift in Sources */,
+				6F96CF152C64CBE400BF5A9C /* SettingView.swift in Sources */,
+				6F96CF0A2C64CBB500BF5A9C /* FriendListView.swift in Sources */,
+				6F96CF1C2C64CBFD00BF5A9C /* AppleUseCase.swift in Sources */,
+				6F96CEFC2C64CB6000BF5A9C /* URLProvider.swift in Sources */,
+				6F96CEFD2C64CB6000BF5A9C /* APIClient.swift in Sources */,
+				6F96CEFE2C64CB6000BF5A9C /* RequestInterceptor.swift in Sources */,
+				6F96CF0F2C64CBC800BF5A9C /* InviteFriendsView.swift in Sources */,
+				6F96CF102C64CBC800BF5A9C /* AcceptInvitationView.swift in Sources */,
+				6F96CF1D2C64CC0300BF5A9C /* Int64+.swift in Sources */,
+				6F96CF1E2C64CC0300BF5A9C /* ButtonStyles.swift in Sources */,
+				6F96CF372C64CC2300BF5A9C /* ShoakAppDelegate.swift in Sources */,
+				6F96CF1F2C64CC0300BF5A9C /* Array+subscript.swift in Sources */,
+				6F96CF202C64CC0300BF5A9C /* HapticManager.swift in Sources */,
+				6F96CF392C64CC4400BF5A9C /* FontManager.swift in Sources */,
+				6F96CF212C64CC0300BF5A9C /* String+Int64.swift in Sources */,
+				6F96CF3C2C64CC4B00BF5A9C /* ColorManager.swift in Sources */,
+				6F96CF222C64CC0300BF5A9C /* TargetType+.swift in Sources */,
+				6F96CF232C64CC0300BF5A9C /* CaseIterable+.swift in Sources */,
+				6F96CF242C64CC0300BF5A9C /* ClipShapeBorder.swift in Sources */,
+				6F96CF262C64CC0300BF5A9C /* MoyaProvider+.swift in Sources */,
+				6F96CF3D2C64CF3C00BF5A9C /* NavigationManager.swift in Sources */,
+				6F96CF042C64CB6E00BF5A9C /* InvitationAPI.swift in Sources */,
+				6F96CF052C64CB6E00BF5A9C /* AuthAPI.swift in Sources */,
+				6F96CF062C64CB6E00BF5A9C /* UserAPI.swift in Sources */,
+				6F96CF382C64CC3900BF5A9C /* RootView.swift in Sources */,
+				6F96CF072C64CB6E00BF5A9C /* TokenRefreshAPI.swift in Sources */,
+				6F96CF272C64CC0D00BF5A9C /* TMMemberID.swift in Sources */,
+				6F96CF282C64CC0D00BF5A9C /* TMProfileDTO.swift in Sources */,
+				6F96CF292C64CC0D00BF5A9C /* TMFriendVO.swift in Sources */,
+				6F96CF2A2C64CC0D00BF5A9C /* TMFriendDTO.swift in Sources */,
+				6F96CF2B2C64CC0D00BF5A9C /* TMTokenRefreshRequestDTO.swift in Sources */,
+				6F96CF2C2C64CC0D00BF5A9C /* TMDeviceTokenDTO.swift in Sources */,
+				6F96CF2D2C64CC0D00BF5A9C /* TMUserCredentialVO.swift in Sources */,
+				6F96CF2E2C64CC0D00BF5A9C /* TMShoakDestinationDTO.swift in Sources */,
+				6F96CF2F2C64CC0D00BF5A9C /* Errors.swift in Sources */,
+				6F96CF302C64CC0D00BF5A9C /* TMLoginOrSignUpDTO.swift in Sources */,
+				6F96CF312C64CC0D00BF5A9C /* TMProfileVO.swift in Sources */,
+				6F96CF162C64CBEB00BF5A9C /* TokenUseCase.swift in Sources */,
+				6F96CF172C64CBEB00BF5A9C /* AuthUseCase.swift in Sources */,
+				6F96CF182C64CBEB00BF5A9C /* AccountUseCase.swift in Sources */,
+				6F96CF082C64CB6E00BF5A9C /* ShoakAPI.swift in Sources */,
+				6F96CEFF2C64CB6900BF5A9C /* ShoakRepository.swift in Sources */,
+				6F96CF002C64CB6900BF5A9C /* TokenRefreshRepository.swift in Sources */,
+				6F96CF012C64CB6900BF5A9C /* AuthRepository.swift in Sources */,
+				6F96CF022C64CB6900BF5A9C /* UserRepository.swift in Sources */,
+				6F96CF032C64CB6900BF5A9C /* InvitationRepository.swift in Sources */,
+				6F96CF0B2C64CBBC00BF5A9C /* SendShoakUseCase.swift in Sources */,
+				6F96CF0C2C64CBBC00BF5A9C /* UserUseCase.swift in Sources */,
+				6F96CF192C64CBF300BF5A9C /* MessageComposeView.swift in Sources */,
+				6F96CF1A2C64CBF300BF5A9C /* AppleLoginView.swift in Sources */,
+				6F96CEF02C64CB5A00BF5A9C /* AddTokenPlugin.swift in Sources */,
+				6F96CEF12C64CB5A00BF5A9C /* StoreTokenPlugin.swift in Sources */,
+				6F96CEF22C64CB5A00BF5A9C /* Token.swift in Sources */,
+				6F96CF322C64CC1900BF5A9C /* InvitationManager.swift in Sources */,
+				6F96CF332C64CC1900BF5A9C /* AccountManager.swift in Sources */,
+				6F96CF342C64CC1900BF5A9C /* WatchConnectivityManager.swift in Sources */,
+				6F96CF362C64CC1900BF5A9C /* ShoakDataManager.swift in Sources */,
+				6F96CEF32C64CB5A00BF5A9C /* TokenRepository.swift in Sources */,
+				6F96CEF42C64CB5A00BF5A9C /* LoggerPlugin.swift in Sources */,
+				6F96CEF52C64CB5A00BF5A9C /* TokenStorage.swift in Sources */,
+				6F96CEEB2C64CB4400BF5A9C /* Keychain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1221,6 +1456,11 @@
 			target = 1E2168222C5686D8007463D0 /* InviteFriends */;
 			targetProxy = 1E21682F2C5686D8007463D0 /* PBXContainerItemProxy */;
 		};
+		6F96CEDE2C64CAA200BF5A9C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6F96CECF2C64CAA000BF5A9C /* ShoakClip */;
+			targetProxy = 6F96CEDD2C64CAA200BF5A9C /* PBXContainerItemProxy */;
+		};
 		6FC0A1652C552E3F004560E3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 6FF9B76F2C4F896800FC0CB2 /* Shoak */;
@@ -1283,7 +1523,7 @@
 			};
 			name = Debug;
 		};
-		1E2168342C5686D8007463D0 /* TEST */ = {
+		1E2168352C5686D8007463D0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
@@ -1314,35 +1554,78 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
-			name = TEST;
+			name = Release;
 		};
-		1E2168352C5686D8007463D0 /* Release */ = {
+		6F96CEE22C64CAA200BF5A9C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
-				CODE_SIGN_IDENTITY = "Apple Development";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ShoakClip/ShoakClipDebug.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ShoakClip/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = R62RZ89ZRU;
+				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = InviteFriends/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = InviteFriends;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				INFOPLIST_FILE = ShoakClip/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Shoak;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ADA.mosuchalamet.Shoak.InviteFriends;
+				PRODUCT_BUNDLE_IDENTIFIER = ADA.mosuchalamet.Shoak.AppClip;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Shoak Message iOS Development";
-				SKIP_INSTALL = YES;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Shoak AppClip iOS Development";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited) APPCLIP";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6F96CEE42C64CAA200BF5A9C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ShoakClip/ShoakClip.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ShoakClip/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = R62RZ89ZRU;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ShoakClip/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Shoak;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ADA.mosuchalamet.Shoak.AppClip;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Shoak AppClip iOS Distribution";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = APPCLIP;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1386,161 +1669,6 @@
 			};
 			name = Release;
 		};
-		6FC0A16C2C5544BE004560E3 /* TEST */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu17;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "TEST $(inherited)";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-			};
-			name = TEST;
-		};
-		6FC0A16D2C5544BE004560E3 /* TEST */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Shoak/Shoak.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Shoak/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = R62RZ89ZRU;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Shoak/Info.plist;
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "이 앱은 사용자가 자신의 사진을 선택하여 프로필 사진으로 설정할 수 있도록 접근 권한이 필요합니다.";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ADA.mosuchalamet.Shoak;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Shoak iOS Development";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = TEST;
-		};
-		6FC0A16E2C5544BE004560E3 /* TEST */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"ShoakWatch Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=watchos*]" = R62RZ89ZRU;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "ShoakWatch-Watch-App-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = ShoakWatch;
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "이 앱은 사용자가 자신의 사진을 선택하여 프로필 사진으로 설정할 수 있도록 접근 권한이 필요합니다.";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = ADA.mosuchalamet.Shoak;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ADA.mosuchalamet.Shoak.watchkitapp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=watchos*]" = "Shoak Watch iOS Development";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 10.5;
-			};
-			name = TEST;
-		};
-		6FC0A16F2C5544BE004560E3 /* TEST */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = team.mosuchalamet.ShoakTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Shoak.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Shoak";
-			};
-			name = TEST;
-		};
 		6FECC4EA2C5874D200C8E5D4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1556,22 +1684,6 @@
 				TEST_TARGET_NAME = Shoak;
 			};
 			name = Debug;
-		};
-		6FECC4EB2C5874D200C8E5D4 /* TEST */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = team.mosuchalamet.ShoakUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Shoak;
-			};
-			name = TEST;
 		};
 		6FECC4EC2C5874D200C8E5D4 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -1865,8 +1977,16 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1E2168332C5686D8007463D0 /* Debug */,
-				1E2168342C5686D8007463D0 /* TEST */,
 				1E2168352C5686D8007463D0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6F96CEE12C64CAA200BF5A9C /* Build configuration list for PBXNativeTarget "ShoakClip" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6F96CEE22C64CAA200BF5A9C /* Debug */,
+				6F96CEE42C64CAA200BF5A9C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1875,7 +1995,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6FC0A1672C552E3F004560E3 /* Debug */,
-				6FC0A16F2C5544BE004560E3 /* TEST */,
 				6FC0A1682C552E3F004560E3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1885,7 +2004,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6FECC4EA2C5874D200C8E5D4 /* Debug */,
-				6FECC4EB2C5874D200C8E5D4 /* TEST */,
 				6FECC4EC2C5874D200C8E5D4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1895,7 +2013,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6FF9B77C2C4F896A00FC0CB2 /* Debug */,
-				6FC0A16C2C5544BE004560E3 /* TEST */,
 				6FF9B77D2C4F896A00FC0CB2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1905,7 +2022,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6FF9B77F2C4F896A00FC0CB2 /* Debug */,
-				6FC0A16D2C5544BE004560E3 /* TEST */,
 				6FF9B7802C4F896A00FC0CB2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1915,7 +2031,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6FF9B7C92C52378C00FC0CB2 /* Debug */,
-				6FC0A16E2C5544BE004560E3 /* TEST */,
 				6FF9B7CA2C52378C00FC0CB2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1944,6 +2059,16 @@
 
 /* Begin XCSwiftPackageProductDependency section */
 		6F96CEC52C64AEE300BF5A9C /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6F96CEC42C64AEE300BF5A9C /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+		6F96CF3E2C64D1A300BF5A9C /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6FC0A12F2C551997004560E3 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+		6F96CF402C64D1AA00BF5A9C /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 6F96CEC42C64AEE300BF5A9C /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;

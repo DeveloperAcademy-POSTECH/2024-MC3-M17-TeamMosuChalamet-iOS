@@ -27,7 +27,11 @@ struct LoginView: View {
                     Task {
                         let result = await accountManager.loginOrSignUp(credential: credential)
                         if result {
+#if APPCLIP
+                            navigationManager.setView(to: .friendList)
+#else
                             navigationManager.setView(to: .onboarding)
+#endif
                         }
                     }
                 },
