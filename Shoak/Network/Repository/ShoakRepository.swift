@@ -17,7 +17,7 @@ final class ShoakRepository {
         self.provider = apiClient.resolve(for: ShoakAPI.self)
     }
 
-    func sendShoak(destination: TMShoakDestinationDTO) async -> Result<Void, NetworkError> {
+    func sendShoak(destination: TMMemberIDDTO) async -> Result<Void, NetworkError> {
         let response = await provider.request(.shoak(destination))
         switch response {
         case .success(let success):

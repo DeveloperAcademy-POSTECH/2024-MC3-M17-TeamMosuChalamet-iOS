@@ -9,7 +9,7 @@ import Foundation
 import Moya
 
 enum InvitationAPI {
-    case acceptInvitation(TMMemberID)
+    case acceptInvitation(TMMemberIDDTO)
 }
 
 extension InvitationAPI: NeedAccessTokenTargetType {
@@ -40,8 +40,8 @@ extension InvitationAPI: NeedAccessTokenTargetType {
 
     var task: Task {
         switch self {
-        case .acceptInvitation(let tmMemberID):
-            return .requestJSONEncodable(TMMemberIDDTO(id: tmMemberID))
+        case .acceptInvitation(let tmMemberIDDTO):
+            return .requestJSONEncodable(tmMemberIDDTO)
         }
     }
 }

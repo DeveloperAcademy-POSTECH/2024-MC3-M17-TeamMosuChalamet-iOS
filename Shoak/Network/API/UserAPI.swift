@@ -106,8 +106,8 @@ extension UserAPI: NeedAccessTokenTargetType {
             let multipartData: [MultipartFormData] = [jpegData]
 
             return .uploadMultipart(multipartData)
-        case .deleteFriend(let memberID):
-            return .requestJSONEncodable(TMMemberIDDTO(id: memberID))
+        case .deleteFriend(let tmMemberIDDTO):
+            return .requestJSONEncodable(tmMemberIDDTO)
         }
     }
 }

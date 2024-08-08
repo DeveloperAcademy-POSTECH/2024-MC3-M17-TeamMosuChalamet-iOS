@@ -9,7 +9,7 @@ import Foundation
 import Moya
 
 enum ShoakAPI {
-    case shoak(TMShoakDestinationDTO)
+    case shoak(TMMemberIDDTO)
 }
 
 extension ShoakAPI: NeedAccessTokenTargetType {
@@ -37,8 +37,8 @@ extension ShoakAPI: NeedAccessTokenTargetType {
 
     var task: Task {
         switch self {
-        case .shoak(let tmShoakDestinationDTO):
-            return .requestJSONEncodable(tmShoakDestinationDTO)
+        case .shoak(let tmMemberIDDTO):
+            return .requestJSONEncodable(tmMemberIDDTO)
         }
     }
 }
