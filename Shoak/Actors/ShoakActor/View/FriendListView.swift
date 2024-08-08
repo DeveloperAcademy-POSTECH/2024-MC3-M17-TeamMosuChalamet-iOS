@@ -1,4 +1,5 @@
 import SwiftUI
+import Lottie
 
 struct FriendListView: View {
     @Environment(ShoakDataManager.self) private var shoakDataManager
@@ -84,7 +85,6 @@ struct FriendListView: View {
         var friend: TMFriendVO
         
         @State private var property: Properties = .default
-        
 
         @State private var isPresentingDeleteFriendAlert = false
 
@@ -177,12 +177,17 @@ struct FriendListView: View {
                 let result = await shoakDataManager.sendShoak(to: friend.memberID)
                 switch result {
                 case .success:
+                    HapticManager.shared.playSuccessHaptic()
                     property = .complete
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                         property = .default
                     }
                 case .failure:
-                    property = .default
+                    HapticManager.shared.playFailureHaptic()
+                    property = .failed
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                        property = .default
+                    }
                 }
             }
         }
@@ -191,6 +196,7 @@ struct FriendListView: View {
             case `default`
             case confirm
             case complete
+            case failed
             case delete
             
             var backgroundColor: Color {
@@ -216,10 +222,14 @@ struct FriendListView: View {
                     }
                     .buttonStyle(ShrinkingButtonStyle())
                 case .complete:
-                    Image(systemName: "checkmark.circle")
+                    LottieView(animation: .named("Check"))
+                        .playing()
                         .resizable()
                         .frame(width: 70, height: 70)
                         .foregroundStyle(Color.shoakGreen)
+                case .failed:
+                    Image(systemName: "xmark")
+                        .frame(width: 70, height: 70)
                 case .delete:
                     Image(systemName: "trash.fill")
                         .foregroundStyle(Color.shoakWhite)
