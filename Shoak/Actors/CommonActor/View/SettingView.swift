@@ -195,7 +195,7 @@ struct MyProfileView: View {
                 .padding(.horizontal, 41)
                 .padding(.vertical, 14)
                 .frame(width: 345, alignment: .center)
-                .background(Color.shoakWhite)
+                .background(Color.shoakYellow)
                 .cornerRadius(9)
                 .overlay(
                     RoundedRectangle(cornerRadius: 9)
