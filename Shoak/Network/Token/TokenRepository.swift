@@ -14,10 +14,10 @@ public enum TokenError: Error {
 
 /// TokenRepository : 토큰을 저장하거나 접근하는 저장소
 public protocol TokenRepository {
-    func save(_ accessToken: AccessToken)
-    func save(_ refreshToken: RefreshToken)
-    func save(_ identityToken: IdentityToken)
-    func save(_ deviceToken: DeviceToken)
+    func save(accessToken: AccessToken?)
+    func save(refreshToken: RefreshToken?)
+    func save(identityToken: IdentityToken?)
+    func save(deviceToken: DeviceToken?)
 
     func getAccessToken() -> AccessToken?
     func getRefreshToken() -> RefreshToken?
@@ -41,30 +41,30 @@ final public class KeychainTokenRepository: TokenRepository, @unchecked Sendable
 }
 
 public extension KeychainTokenRepository {
-    func save(_ accessToken: AccessToken) {
+    func save(accessToken: AccessToken?) {
         self.accessToken = accessToken
-        print("save access Token : \(accessToken.token)")
+        print("save access Token : \(String(describing: accessToken?.token))")
 
-#if os(iOS)
+#if os(iOS) && !APPCLIP
         let watchConnectivity = WatchConnectivityManager.shared
-        watchConnectivity.sendMessage(data: ["Access": accessToken.token as Any, "Refresh": refreshToken?.token as Any])
+        watchConnectivity.sendMessage(data: ["Access": accessToken?.token as Any, "Refresh": refreshToken?.token as Any])
 #endif
     }
 
-    func save(_ refreshToken: RefreshToken) {
+    func save(refreshToken: RefreshToken?) {
         self.refreshToken = refreshToken
-        print("save refresh Token : \(refreshToken.token)")
-#if os(iOS)
+        print("save refresh Token : \(String(describing: refreshToken?.token))")
+#if os(iOS) && !APPCLIP
         let watchConnectivity = WatchConnectivityManager.shared
-        watchConnectivity.sendMessage(data: ["Access": accessToken?.token as Any, "Refresh": refreshToken.token as Any])
+        watchConnectivity.sendMessage(data: ["Access": accessToken?.token as Any, "Refresh": refreshToken?.token as Any])
 #endif
     }
 
-    func save(_ identityToken: IdentityToken) {
+    func save(identityToken: IdentityToken?) {
         self.identityToken = identityToken
     }
 
-    func save(_ deviceToken: DeviceToken) {
+    func save(deviceToken: DeviceToken?) {
         self.deviceToken = deviceToken
     }
 
@@ -85,15 +85,15 @@ public extension KeychainTokenRepository {
     }
 
     func deleteAllTokensWithoutDeviceToken() {
-        self.accessToken = nil
-        self.refreshToken = nil
-        self.identityToken = nil
+        self.save(accessToken: nil)
+        self.save(refreshToken: nil)
+        self.save(identityToken: nil)
     }
 
     func deleteAllTokens() {
-        self.accessToken = nil
-        self.refreshToken = nil
-        self.identityToken = nil
-        self.deviceToken = nil
+        self.save(accessToken: nil)
+        self.save(refreshToken: nil)
+        self.save(identityToken: nil)
+        self.save(deviceToken: nil)
     }
 }

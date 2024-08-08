@@ -10,13 +10,14 @@ import SwiftUI
 @MainActor
 @Observable
 class NavigationManager {
-    static let shared = NavigationManager()
+    var namespace: Namespace.ID
     var view: SwitchableView
 
     var invitation: TMMemberID?
 
-    private init() {
+    public init(namespace: Namespace.ID) {
         self.view = .login
+        self.namespace = namespace
     }
 
     public func nextPhase() {

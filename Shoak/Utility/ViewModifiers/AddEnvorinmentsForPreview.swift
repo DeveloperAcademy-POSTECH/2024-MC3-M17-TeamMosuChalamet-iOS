@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct AddEnvorinmentsForPreview: ViewModifier {
+    @Namespace var namespace
     func body(content: Content) -> some View {
         let apiClient = TestAPIClient()
 
@@ -25,7 +26,7 @@ struct AddEnvorinmentsForPreview: ViewModifier {
         let invitationUseCase = InvitationUseCase(invitationRepository: invitationRepository)
         let tokenUseCase = TokenUseCase(tokenRepository: tokenRepository, tokenRefreshRepository: tokenRefreshRepository)
 
-        let navigationManager = NavigationManager.shared
+        let navigationManager = NavigationManager(namespace: namespace)
         let accountManager = AccountManager(appleUseCase: appleUseCase, authUseCase: authUseCase, userUseCase: userUseCase, tokenUseCase: tokenUseCase)
         let shoakDataManager = ShoakDataManager(userUseCase: userUseCase, shoakUseCase: shoakUseCase)
         let invitationManager = InvitationManager(invitationUseCase: invitationUseCase)

@@ -125,6 +125,8 @@
 		6F96CF3F2C64D1A300BF5A9C /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 6F96CF3E2C64D1A300BF5A9C /* Moya */; };
 		6F96CF412C64D1AA00BF5A9C /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 6F96CF402C64D1AA00BF5A9C /* Lottie */; };
 		6F96CF452C64D36D00BF5A9C /* Secret.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6FC0A1462C551C7D004560E3 /* Secret.plist */; };
+		6F96CF472C64DDEA00BF5A9C /* LogoAnimate.json in Resources */ = {isa = PBXBuildFile; fileRef = 6F96CF462C64DDEA00BF5A9C /* LogoAnimate.json */; };
+		6F96CF482C64DDEA00BF5A9C /* LogoAnimate.json in Resources */ = {isa = PBXBuildFile; fileRef = 6F96CF462C64DDEA00BF5A9C /* LogoAnimate.json */; };
 		6FA4428A2C58B30D00E3E69E /* ClipShapeBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA442892C58B30D00E3E69E /* ClipShapeBorder.swift */; };
 		6FA4428B2C58B30D00E3E69E /* ClipShapeBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA442892C58B30D00E3E69E /* ClipShapeBorder.swift */; };
 		6FA442AD2C58D4A800E3E69E /* AddEnvorinmentsForPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA442AC2C58D4A800E3E69E /* AddEnvorinmentsForPreview.swift */; };
@@ -358,6 +360,7 @@
 		6F96CEC72C64AEFB00BF5A9C /* Check.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Check.json; sourceTree = "<group>"; };
 		6F96CEC92C64B09C00BF5A9C /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		6F96CED02C64CAA000BF5A9C /* ShoakClip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShoakClip.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F96CF462C64DDEA00BF5A9C /* LogoAnimate.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = LogoAnimate.json; sourceTree = "<group>"; };
 		6FA442892C58B30D00E3E69E /* ClipShapeBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipShapeBorder.swift; sourceTree = "<group>"; };
 		6FA442AC2C58D4A800E3E69E /* AddEnvorinmentsForPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEnvorinmentsForPreview.swift; sourceTree = "<group>"; };
 		6FA442AE2C591A1A00E3E69E /* TMUserCredentialVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMUserCredentialVO.swift; sourceTree = "<group>"; };
@@ -525,6 +528,7 @@
 				1E2168512C5874F7007463D0 /* Color */,
 				6FF9B7772C4F896A00FC0CB2 /* Assets.xcassets */,
 				6F96CEC72C64AEFB00BF5A9C /* Check.json */,
+				6F96CF462C64DDEA00BF5A9C /* LogoAnimate.json */,
 			);
 			path = DesignSystem;
 			sourceTree = "<group>";
@@ -1136,6 +1140,7 @@
 				6F96CF3A2C64CC4B00BF5A9C /* Check.json in Resources */,
 				6F96CF452C64D36D00BF5A9C /* Secret.plist in Resources */,
 				6F96CF3B2C64CC4B00BF5A9C /* Assets.xcassets in Resources */,
+				6F96CF482C64DDEA00BF5A9C /* LogoAnimate.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1162,6 +1167,7 @@
 				6FBEED4B2C5D489800431B7F /* 쇽 시작하기.shortcut in Resources */,
 				6FF9B77B2C4F896A00FC0CB2 /* Preview Assets.xcassets in Resources */,
 				6F96CEC82C64AEFB00BF5A9C /* Check.json in Resources */,
+				6F96CF472C64DDEA00BF5A9C /* LogoAnimate.json in Resources */,
 				6FF9B7782C4F896A00FC0CB2 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,9 +11,12 @@ import AppIntents
 @main
 struct ShoakApp: App {
     @UIApplicationDelegateAdaptor var delegate: ShoakAppDelegate
+    @Namespace var namespace
     private var shoakDataManager: ShoakDataManager
     private var accountManager: AccountManager
-    private let navigationManager: NavigationManager
+    private var navigationManager: NavigationManager {
+        NavigationManager(namespace: namespace)
+    }
     private var invitationManager: InvitationManager
     private var watchConnectivityManager: WatchConnectivityManager
 
@@ -35,7 +38,6 @@ struct ShoakApp: App {
         let shoakUseCase = SendShoakUseCase(shoakRepository: shoakRepository)
         let invitationUseCase = InvitationUseCase(invitationRepository: invitationRepository)
 
-        let navigationManager = NavigationManager.shared
         let accountManager = AccountManager(appleUseCase: appleUseCase, authUseCase: authUseCase, userUseCase: userUseCase, tokenUseCase: tokenUseCase)
         let shoakDataManager = ShoakDataManager(userUseCase: userUseCase, shoakUseCase: shoakUseCase)
         let invitationManager = InvitationManager(invitationUseCase: invitationUseCase)
@@ -45,7 +47,6 @@ struct ShoakApp: App {
 
         self.shoakDataManager = shoakDataManager
         self.accountManager = accountManager
-        self.navigationManager = navigationManager
         self.invitationManager = invitationManager
         self.watchConnectivityManager = watchConnectivityManager
 

@@ -18,6 +18,7 @@ struct AppleLoginView: View {
         VStack {
             AppleSignInButton(
                 onSignInSuccess: { authorization in
+                    // extractCredential 시 token 저장도 같이 함
                     guard let credential = accountManager.appleUseCase.extractCredential(authorization) else {
                         onSignInFailure?(nil)
                         return
