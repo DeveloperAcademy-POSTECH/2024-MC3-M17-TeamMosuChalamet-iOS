@@ -89,7 +89,7 @@ struct SettingView: View {
                             .font(.icon)
                             .padding(.leading, 18)
                         
-                        Text("회원탈퇴")
+                        Text("탈퇴하기")
                             .font(.textButton)
                             .foregroundStyle(Color.shoakRed)
                             .padding(.leading, 9)
