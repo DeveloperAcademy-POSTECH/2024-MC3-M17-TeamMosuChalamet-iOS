@@ -14,27 +14,24 @@ struct InviteFriendsView: View {
     
     @Environment(InvitationManager.self) private var invitationManager
     @Environment(AccountManager.self) private var accountManager
-    
+
+    @State private var isShowingQR: Bool = false
+
     var body: some View {
-        VStack(spacing: 0) {
+        VStack(spacing: 16) {
             TopButtons()
 
-            Spacer()
-            
-            VStack(spacing: 0) {
-                MyProfileView()
+            MyProfileView(isShowEditProfileButton: false)
 
-                SendButton()
+            SendButton()
 
-                Spacer()
+            QRButton(isShowingQR: $isShowingQR)
 
+            if isShowingQR {
                 QRView()
-
-                Spacer()
             }
-            .padding(8)
-            .background(Color.shoakWhite)
-            .cornerRadius(17)
+
+            Spacer()
         }
         .padding(.horizontal, 16)
         .onAppear {
@@ -77,27 +74,16 @@ struct InviteFriendsView: View {
             } label: {
                 HStack(alignment: .center, spacing: 10) {
                     Image(systemName: "paperplane.fill")
-                        .foregroundStyle(Color.textBlack)
                         .font(.icon)
 
                     Text("메세지로 초대하기")
                         .font(.textButton)
-                        .foregroundStyle(Color.textBlack)
                 }
-                .padding(.horizontal, 41)
-                .padding(.vertical, 14)
-                .frame(width: 345, alignment: .center)
-                .background(Color.shoakYellow)
-                .cornerRadius(9)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 9)
-                        .strokeBorder(Color.strokeBlack, lineWidth: 1)
-                )
             }
+            .buttonStyle(FilledButtonStyle())
             .alert(isPresented: $showAlert) {
                 Alert(title: Text("에러"), message: Text(alertMessage), dismissButton: .default(Text("확인")))
             }
-            .padding(.top, 6)
             .sheet(isPresented: $showMessageCompose) {
                 if let profile = accountManager.profile {
                     MessageComposeView(isPresented: $showMessageCompose, profile: profile)
@@ -108,13 +94,33 @@ struct InviteFriendsView: View {
         }
     }
 
+    struct QRButton: View {
+        @Binding var isShowingQR: Bool
+        var body: some View {
+            Button {
+                withAnimation {
+                    isShowingQR.toggle()
+                }
+            } label: {
+                HStack(alignment: .center, spacing: 10) {
+                    Image(systemName: "qrcode")
+                        .font(.icon)
+
+                    Text("QR로 초대하기")
+                        .font(.textButton)
+                }
+            }
+            .buttonStyle(FilledButtonStyle())
+        }
+    }
+
     struct QRView: View {
         @Environment(AccountManager.self) private var accountManager
         @State private var qrImage: UIImage?
         var body: some View {
             Group {
                 if let qrImage {
-                    VStack(spacing: 16) {
+                    HStack(spacing: 16) {
                         Image(uiImage: qrImage)
                             .onDrag {
                                 let provider = NSItemProvider(object: qrImage)
@@ -122,11 +128,14 @@ struct InviteFriendsView: View {
                             }
 
                         ShareLink(item: Image(uiImage: qrImage), preview: SharePreview("친구 추가 QR", image: Image(uiImage: qrImage)))
+                            .buttonStyle(FilledButtonStyle())
                     }
                 } else {
                     ProgressView()
                 }
             }
+            .padding()
+            .shadow(radius: 5)
             .onAppear {
                 self.qrImage = makeQR()
             }
