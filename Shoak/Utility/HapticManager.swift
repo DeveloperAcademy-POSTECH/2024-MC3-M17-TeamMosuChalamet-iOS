@@ -24,22 +24,6 @@ class HapticManager {
         }
     }
 
-    func startEngine() {
-        do {
-            try engine?.start()
-        } catch {
-            print("Failed to start haptic engine: \(error.localizedDescription)")
-        }
-    }
-
-    func stopEngine() {
-        engine?.stop(completionHandler: { (error) in
-            if let error = error {
-                print("Failed to stop haptic engine: \(error.localizedDescription)")
-            }
-        })
-    }
-
     func playHapticPattern(events: [CHHapticEvent]) {
         guard CHHapticEngine.capabilitiesForHardware().supportsHaptics else { return }
 
@@ -53,8 +37,6 @@ class HapticManager {
     }
 
     func playSuccessHaptic() {
-        guard CHHapticEngine.capabilitiesForHardware().supportsHaptics else { return }
-
         // 중간 강도의 톡톡 치는 트랜지언트 햅틱 이벤트
         let firstHalfEvents = [
             CHHapticEvent(eventType: .hapticTransient, parameters: [
@@ -97,13 +79,7 @@ class HapticManager {
 
         let events = firstHalfEvents + secondHalfEvents
 
-        do {
-            let pattern = try CHHapticPattern(events: events, parameters: [])
-            let player = try engine?.makePlayer(with: pattern)
-            try player?.start(atTime: CHHapticTimeImmediate)
-        } catch {
-            print("Failed to play haptic pattern: \(error.localizedDescription)")
-        }
+        playHapticPattern(events: events)
     }
 
     func playFailureHaptic() {

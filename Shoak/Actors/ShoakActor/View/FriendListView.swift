@@ -229,6 +229,8 @@ struct FriendListView: View {
                         .foregroundStyle(Color.shoakGreen)
                 case .failed:
                     Image(systemName: "xmark")
+                        .resizable()
+                        .padding()
                         .frame(width: 70, height: 70)
                 case .delete:
                     Image(systemName: "trash.fill")
