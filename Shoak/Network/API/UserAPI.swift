@@ -22,8 +22,10 @@ extension UserAPI: NeedAccessTokenTargetType {
 
     var path: String {
         switch self {
-        case .getProfile, .uploadProfileImage:
+        case .getProfile:
             "/api/profile"
+        case .uploadProfileImage:
+            "/api/profile/image"
         case .getFriends, .deleteFriend:
             "/api/friend"
         }

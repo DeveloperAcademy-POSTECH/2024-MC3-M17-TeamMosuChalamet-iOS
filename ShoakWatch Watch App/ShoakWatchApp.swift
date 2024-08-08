@@ -47,7 +47,7 @@ struct ShoakWatch_Watch_AppApp: App {
         let shoakRepository = ShoakRepository(apiClient: apiClient)
         let userRepository = UserRepository(apiClient: apiClient)
 
-        let appleUseCase = AppleUseCase(tokenRepository: tokenRepository)
+        let appleUseCase = AppleUseCase()
         let authUseCase = AuthUseCase(authRepository: authRepository, tokenRepository: tokenRepository)
         let userUseCase = UserUseCase(userRepository: userRepository)
         let shoakUseCase = SendShoakUseCase(shoakRepository: shoakRepository)

@@ -32,7 +32,7 @@ struct ShoakApp: App {
         let userRepository = UserRepository(apiClient: apiClient)
         let invitationRepository = InvitationRepository(apiClient: apiClient)
 
-        let appleUseCase = AppleUseCase(tokenRepository: tokenRepository)
+        let appleUseCase = AppleUseCase()
         let authUseCase = AuthUseCase(authRepository: authRepository, tokenRepository: tokenRepository)
         let userUseCase = UserUseCase(userRepository: userRepository)
         let shoakUseCase = SendShoakUseCase(shoakRepository: shoakRepository)
