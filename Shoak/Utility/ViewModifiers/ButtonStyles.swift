@@ -10,8 +10,8 @@ import SwiftUI
 public struct ShrinkingButtonStyle: ButtonStyle {
     public func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .scaleEffect(configuration.isPressed ? 0.8 : 1)
-            .animation(.linear(duration: 0.2), value: configuration.isPressed)
+            .scaleEffect(configuration.isPressed ? 0.95 : 1)
+            .animation(.interactiveSpring(duration: 0.2), value: configuration.isPressed)
     }
 }
 
@@ -26,6 +26,6 @@ public struct FilledButtonStyle: ButtonStyle {
             .background(Color.shoakYellow)
             .clipShapeBorder(RoundedRectangle(cornerRadius: 9), Color.strokeBlack, 1)
             .scaleEffect(configuration.isPressed ? 0.95 : 1)
-            .animation(.linear(duration: 0.2), value: configuration.isPressed)
+            .animation(.interactiveSpring(duration: 0.2), value: configuration.isPressed)
     }
 }
