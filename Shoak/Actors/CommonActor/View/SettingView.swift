@@ -103,7 +103,7 @@ struct SettingView: View {
                         title: Text("탈퇴하시겠습니까?"),
                         message: Text("탈퇴하면 모든 데이터가 삭제됩니다."),
                         primaryButton: .destructive(Text("탈퇴")) {
-                            TokenManager.shared.deleteAllTokensWithoutDeviceToken()
+                            accountManager.logout()
                             navigationManager.setView(to: .login)
                         },
                         secondaryButton: .cancel(Text("취소"))
@@ -127,10 +127,13 @@ struct SettingView: View {
     }
 }
 
+
 struct MyProfileView: View {
     @Environment(NavigationManager.self) private var navigationManager
     @Environment(AccountManager.self) private var accountManager
-    
+
+    var isShowEditProfileButton: Bool = true
+
     var body: some View {
         VStack(spacing: 0) {
             HStack(spacing: 0){
@@ -181,28 +184,23 @@ struct MyProfileView: View {
                 Spacer()
             }
             .padding(7)
-            
-            Button {
-                navigationManager.setView(to: .editProfile)
-            } label: {
-                HStack(alignment: .center, spacing: 10) {
-                    styledIcon(named: "pencil.line")
-                    
-                    Text("수정하기")
-                        .font(.textButton)
-                        .foregroundStyle(Color.textBlack)
+
+            if isShowEditProfileButton {
+                
+                Button {
+                    print("asdf")
+                    navigationManager.setView(to: .editProfile)
+                } label: {
+                    HStack(alignment: .center, spacing: 10) {
+                        styledIcon(named: "pencil.line")
+                        
+                        Text("수정하기")
+                            .font(.textButton)
+                    }
                 }
-                .padding(.horizontal, 41)
-                .padding(.vertical, 14)
-                .frame(width: 345, alignment: .center)
-                .background(Color.shoakYellow)
-                .cornerRadius(9)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 9)
-                        .strokeBorder(Color.strokeBlack, lineWidth: 1)
-                )
+                .buttonStyle(FilledButtonStyle())
+                .padding(.top, 6)
             }
-            .padding(.top, 6)
         }
         .padding(8)
         .background(Color.shoakWhite)
@@ -224,4 +222,5 @@ extension View {
 
 #Preview {
     SettingView()
+        .addEnvironmentsForPreview()
 }
