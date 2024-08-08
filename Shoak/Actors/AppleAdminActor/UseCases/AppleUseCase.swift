@@ -10,10 +10,7 @@ import SwiftUI
 import AuthenticationServices
 
 class AppleUseCase {
-    let tokenRepository: TokenRepository
-    init(tokenRepository: TokenRepository) {
-        self.tokenRepository = tokenRepository
-    }
+    init() {}
     /// Sign in with Apple -> userID, name, token 추출, token은 기기에 저장
     func extractCredential(_ authorization: ASAuthorization) -> TMUserCredentialVO? {
         switch authorization.credential {
@@ -33,8 +30,6 @@ class AppleUseCase {
             print("name :  \(name)")
             print("token : \(tokenString)") // 토큰은 로그인 할때마다 달라짐.
             print("auth code : \(authCodeString)") // 토큰은 로그인 할때마다 달라짐.
-            tokenRepository.save(identityToken: IdentityToken(tokenString))
-            tokenRepository.save(authCode: AuthCode(authCodeString))
             return TMUserCredentialVO(userID: userIdentifier, name: name, token: tokenString, authCode: authCodeString)
         default:
             return nil

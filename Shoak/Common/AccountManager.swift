@@ -27,6 +27,7 @@ class AccountManager: @unchecked Sendable {
 
     public func loginOrSignUp(credential: TMUserCredentialVO) async -> Bool {
         tokenUseCase.save(identityToken: credential.token)
+        tokenUseCase.save(authCode: credential.authCode)
         let result = await authUseCase.loginOrSignUp()
 
         if case .success = result {

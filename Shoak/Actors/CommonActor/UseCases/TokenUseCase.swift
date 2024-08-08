@@ -45,6 +45,10 @@ public final class TokenUseCase {
         let dto = DeviceToken(deviceToken)
         tokenRepository.save(deviceToken: dto)
     }
+    func save(authCode: String) {
+        let dto = AuthCode(authCode)
+        tokenRepository.save(authCode: dto)
+    }
 
     func getAccessToken() -> AccessToken? {
         let dto = tokenRepository.getAccessToken()
@@ -60,6 +64,10 @@ public final class TokenUseCase {
     }
     func getDeviceToken() -> DeviceToken? {
         let dto = tokenRepository.getDeviceToken()
+        return dto
+    }
+    func getAuthCode() -> AuthCode? {
+        let dto = tokenRepository.getAuthCode()
         return dto
     }
 
