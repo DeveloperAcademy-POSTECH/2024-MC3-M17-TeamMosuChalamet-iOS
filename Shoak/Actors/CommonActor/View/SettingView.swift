@@ -35,7 +35,7 @@ struct SettingView: View {
                         Text("친구 삭제")
                             .font(.textButton)
                             .foregroundStyle(Color.textBlack)
-                            .padding(.leading, 15)
+                            .padding(.leading, 14)
                         
                         Spacer()
                     }
@@ -84,7 +84,7 @@ struct SettingView: View {
                     Button {
                         showDeleteAccountAlert = true
                     } label: {
-                        Image(systemName: "rectangle.portrait.and.arrow.right")
+                        Image(systemName: "exclamationmark.triangle.fill")
                             .foregroundStyle(Color.shoakRed)
                             .font(.icon)
                             .padding(.leading, 18)
@@ -92,7 +92,7 @@ struct SettingView: View {
                         Text("탈퇴하기")
                             .font(.textButton)
                             .foregroundStyle(Color.shoakRed)
-                            .padding(.leading, 9)
+                            .padding(.leading, 13)
                         
                         Spacer()
                     }
