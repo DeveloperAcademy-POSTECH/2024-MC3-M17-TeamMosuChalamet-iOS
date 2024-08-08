@@ -137,7 +137,9 @@ struct InviteFriendsView: View {
             .padding()
             .shadow(radius: 5)
             .onAppear {
-                self.qrImage = makeQR()
+                withAnimation {
+                    self.qrImage = makeQR()
+                }
             }
         }
 
