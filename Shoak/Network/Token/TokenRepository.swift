@@ -18,11 +18,13 @@ public protocol TokenRepository {
     func save(refreshToken: RefreshToken?)
     func save(identityToken: IdentityToken?)
     func save(deviceToken: DeviceToken?)
+    func save(authCode: AuthCode?)
 
     func getAccessToken() -> AccessToken?
     func getRefreshToken() -> RefreshToken?
     func getIdentityToken() -> IdentityToken?
     func getDeviceToken() -> DeviceToken?
+    func getAuthCode() -> AuthCode?
     func deleteAllTokensWithoutDeviceToken()
     func deleteAllTokens()
 }
@@ -32,12 +34,9 @@ final public class KeychainTokenRepository: TokenRepository, @unchecked Sendable
     @TokenStorage<RefreshToken>() private var refreshToken
     @TokenStorage<IdentityToken>() private var identityToken
     @TokenStorage<DeviceToken>() private var deviceToken
+    @TokenStorage<AuthCode>() private var authCode
 
-    public init() {
-        // get할 때 keychain에서 가져오는 로직을 수행 함.
-        self.accessToken = accessToken
-        self.refreshToken = refreshToken
-    }
+    public init() {}
 }
 
 public extension KeychainTokenRepository {
@@ -68,6 +67,10 @@ public extension KeychainTokenRepository {
         self.deviceToken = deviceToken
     }
 
+    func save(authCode: AuthCode?) {
+        self.authCode = authCode
+    }
+
     func getAccessToken() -> AccessToken? {
         self.accessToken
     }
@@ -84,10 +87,15 @@ public extension KeychainTokenRepository {
         self.deviceToken
     }
 
+    func getAuthCode() -> AuthCode? {
+        self.authCode
+    }
+
     func deleteAllTokensWithoutDeviceToken() {
         self.save(accessToken: nil)
         self.save(refreshToken: nil)
         self.save(identityToken: nil)
+        self.save(authCode: nil)
     }
 
     func deleteAllTokens() {
@@ -95,5 +103,6 @@ public extension KeychainTokenRepository {
         self.save(refreshToken: nil)
         self.save(identityToken: nil)
         self.save(deviceToken: nil)
+        self.save(authCode: nil)
     }
 }

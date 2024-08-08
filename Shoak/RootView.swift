@@ -19,10 +19,10 @@ struct RootView: View {
             if isShowingSplash {
                 SplashView()
                     .zIndex(1)
-                    .transition(.slide)
+                    .transition(.opacity)
             }
         }
-        .onAppear {
+        .task {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                 withAnimation {
                     isShowingSplash.toggle()
