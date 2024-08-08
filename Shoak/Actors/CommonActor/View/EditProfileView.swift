@@ -98,10 +98,8 @@ struct EditProfileView: View {
                     }
                 )
             }
-            .onAppear {
-                Task {
-                    await checkPhotoLibraryPermission()
-                }
+            .task {
+                await checkPhotoLibraryPermission()
             }
         }
     }
