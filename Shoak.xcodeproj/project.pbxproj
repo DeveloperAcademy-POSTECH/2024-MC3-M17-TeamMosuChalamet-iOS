@@ -127,6 +127,9 @@
 		6F96CF452C64D36D00BF5A9C /* Secret.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6FC0A1462C551C7D004560E3 /* Secret.plist */; };
 		6F96CF472C64DDEA00BF5A9C /* LogoAnimate.json in Resources */ = {isa = PBXBuildFile; fileRef = 6F96CF462C64DDEA00BF5A9C /* LogoAnimate.json */; };
 		6F96CF482C64DDEA00BF5A9C /* LogoAnimate.json in Resources */ = {isa = PBXBuildFile; fileRef = 6F96CF462C64DDEA00BF5A9C /* LogoAnimate.json */; };
+		6F96CF4A2C6507A200BF5A9C /* AcceptInvitationDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F96CF492C6507A200BF5A9C /* AcceptInvitationDTO.swift */; };
+		6F96CF4B2C6507A200BF5A9C /* AcceptInvitationDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F96CF492C6507A200BF5A9C /* AcceptInvitationDTO.swift */; };
+		6F96CF4C2C6507A200BF5A9C /* AcceptInvitationDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F96CF492C6507A200BF5A9C /* AcceptInvitationDTO.swift */; };
 		6FA4428A2C58B30D00E3E69E /* ClipShapeBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA442892C58B30D00E3E69E /* ClipShapeBorder.swift */; };
 		6FA4428B2C58B30D00E3E69E /* ClipShapeBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA442892C58B30D00E3E69E /* ClipShapeBorder.swift */; };
 		6FA442AD2C58D4A800E3E69E /* AddEnvorinmentsForPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA442AC2C58D4A800E3E69E /* AddEnvorinmentsForPreview.swift */; };
@@ -361,6 +364,7 @@
 		6F96CEC92C64B09C00BF5A9C /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		6F96CED02C64CAA000BF5A9C /* ShoakClip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShoakClip.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F96CF462C64DDEA00BF5A9C /* LogoAnimate.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = LogoAnimate.json; sourceTree = "<group>"; };
+		6F96CF492C6507A200BF5A9C /* AcceptInvitationDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptInvitationDTO.swift; sourceTree = "<group>"; };
 		6FA442892C58B30D00E3E69E /* ClipShapeBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipShapeBorder.swift; sourceTree = "<group>"; };
 		6FA442AC2C58D4A800E3E69E /* AddEnvorinmentsForPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEnvorinmentsForPreview.swift; sourceTree = "<group>"; };
 		6FA442AE2C591A1A00E3E69E /* TMUserCredentialVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMUserCredentialVO.swift; sourceTree = "<group>"; };
@@ -769,6 +773,7 @@
 				6FC0D50A2C59E62D005BD525 /* TMTokenRefreshRequestDTO.swift */,
 				6FC0D5192C5A1C39005BD525 /* TMShoakDestinationDTO.swift */,
 				6F8602EE2C61C6FD004F417C /* TMDeviceTokenDTO.swift */,
+				6F96CF492C6507A200BF5A9C /* AcceptInvitationDTO.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -1259,6 +1264,7 @@
 				6F96CF032C64CB6900BF5A9C /* InvitationRepository.swift in Sources */,
 				6F96CF0B2C64CBBC00BF5A9C /* SendShoakUseCase.swift in Sources */,
 				6F96CF0C2C64CBBC00BF5A9C /* UserUseCase.swift in Sources */,
+				6F96CF4B2C6507A200BF5A9C /* AcceptInvitationDTO.swift in Sources */,
 				6F96CF192C64CBF300BF5A9C /* MessageComposeView.swift in Sources */,
 				6F96CF1A2C64CBF300BF5A9C /* AppleLoginView.swift in Sources */,
 				6F96CEF02C64CB5A00BF5A9C /* AddTokenPlugin.swift in Sources */,
@@ -1301,6 +1307,7 @@
 			files = (
 				6F8602F62C624A06004F417C /* RequestInterceptor.swift in Sources */,
 				6F96CECA2C64B0A100BF5A9C /* HapticManager.swift in Sources */,
+				6F96CF4A2C6507A200BF5A9C /* AcceptInvitationDTO.swift in Sources */,
 				1E236BAB2C5FDF5D009E5730 /* EditProfileView.swift in Sources */,
 				6FC0A14B2C5520BA004560E3 /* UserRepository.swift in Sources */,
 				6FC0A1822C563A4B004560E3 /* Token.swift in Sources */,
@@ -1396,6 +1403,7 @@
 				6FF9B7CF2C52399500FC0CB2 /* TMMemberID.swift in Sources */,
 				6FF9B7D52C5243C700FC0CB2 /* CaseIterable+.swift in Sources */,
 				B80468B02C58D412008E2D24 /* ColorManager.swift in Sources */,
+				6F96CF4C2C6507A200BF5A9C /* AcceptInvitationDTO.swift in Sources */,
 				6FC0D51B2C5A1C39005BD525 /* TMShoakDestinationDTO.swift in Sources */,
 				6F8602F32C61CB5F004F417C /* TokenRefreshRepository.swift in Sources */,
 				6FC0A1952C56984F004560E3 /* TokenRefreshAPI.swift in Sources */,

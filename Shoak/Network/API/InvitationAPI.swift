@@ -40,10 +40,7 @@ extension InvitationAPI: TargetType {
     var task: Task {
         switch self {
         case .acceptInvitation(let tmMemberID):
-            let queries: [String: Any] = [
-                "requesterId": tmMemberID
-            ]
-            return .requestParameters(parameters: queries, encoding: URLEncoding.queryString)
+            return .requestJSONEncodable(AcceptInvitationDTO(id: tmMemberID))
         }
     }
 }
