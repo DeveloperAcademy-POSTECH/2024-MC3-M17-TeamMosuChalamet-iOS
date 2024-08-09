@@ -12,14 +12,10 @@ struct OnboardingView: View {
     @State private var currentPage: ContinuousView = .addShortcut
 
     var body: some View {
-        VStack(spacing: 32) {
+        VStack(spacing: 0) {
             TopButtons(currentPage: $currentPage)
 
-            Spacer()
-
             currentPage
-
-            Spacer()
 
             BottomButtons(currentPage: $currentPage)
         }
@@ -104,7 +100,11 @@ extension OnboardingView {
         case addShortcut
         case turnOnWatchApp
         case configureAccessibility
-        case activateAssistiveTouch
+        case activateAssistiveTouch1
+        case activateAssistiveTouch2
+        case activateHandGestureView1
+        case activateHandGestureView2
+        case handGestureCustomView
         case finish
 
         var body: some View {
@@ -115,8 +115,16 @@ extension OnboardingView {
                 TurnOnWatchAppView()
             case .configureAccessibility:
                 ConfigureAccessibilityView()
-            case .activateAssistiveTouch:
-                ActivateAssistiveTouchView()
+            case .activateAssistiveTouch1:
+                ActivateAssistiveTouchView1()
+            case .activateAssistiveTouch2:
+                ActivateAssistiveTouchView2()
+            case .activateHandGestureView1:
+                ActivateHandGestureView1()
+            case .activateHandGestureView2:
+                ActivateHandGestureView2()
+            case .handGestureCustomView:
+                HandGestureCustomView()
             case .finish:
                 FinishView()
             }
@@ -138,15 +146,28 @@ private struct AddShortcutView: View {
     @State private var showActivityView = false
     @State private var shortcutURL: URL?
     var body: some View {
-        VStack {
-            Text("Add Shortcut")
+        VStack(spacing: 0) {
+            Spacer()
+            
+            Text("아래 단축어를 클릭해서\n단축어 추가를 해주세요.")
+                .font(.textListTitle)
+                .foregroundStyle(Color.textBlack)
+                .multilineTextAlignment(.center)
+                .padding(.bottom, 35)
+            
             if let url = shortcutURL {
                 ShareLink(item: url, preview: .init("쇽 시작하기 단축어 추가하기", image: Image("ShoakLogoFilled"))) {
-                    Label("Shoak 단축어 추가하기!!!", systemImage: "tray.and.arrow.down.fill")
+                    Image("shortcut")
                 }
             }
-
-            ShortcutsLink()
+            
+            Text("앱 실행을 위해 생성하는 단축어입니다.")
+                .font(.textListTitle)
+                .foregroundStyle(Color.textBlack)
+                .multilineTextAlignment(.center)
+                .padding(.top, 48)
+            
+            Spacer()
         }
         .sheet(isPresented: $showActivityView, onDismiss: {
             self.shortcutURL = nil
@@ -172,25 +193,88 @@ private struct AddShortcutView: View {
 
 private struct TurnOnWatchAppView: View {
     var body: some View {
-        Text("TurnOnWatchAppView")
+        VStack(spacing: 0) {
+            Spacer()
+            
+            Image(.watch)
+            
+            Text("‘워치'앱을 켜주세요")
+                .font(.textListTitle)
+                .foregroundStyle(Color.textBlack)
+                .padding(.top, 80)
+            
+            Spacer()
+        }
     }
 }
 
 private struct ConfigureAccessibilityView: View {
     var body: some View {
-        Text("Configure Accessibility")
+        Image(.ob1)
+            .resizable()
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .padding(.horizontal, 30)
+            .padding(.vertical, 10)
     }
 }
 
-private struct ActivateAssistiveTouchView: View {
+private struct ActivateAssistiveTouchView1: View {
     var body: some View {
-        Text("ActivateAssistiveTouchView")
+        Image(.ob2)
+            .resizable()
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .padding(.horizontal, 30)
+            .padding(.vertical, 10)
+    }
+}
+
+private struct ActivateAssistiveTouchView2: View {
+    var body: some View {
+        Image(.ob3)
+            .resizable()
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .padding(.horizontal, 30)
+            .padding(.vertical, 10)
+    }
+}
+
+private struct ActivateHandGestureView1: View {
+    var body: some View {
+        Image(.ob4)
+            .resizable()
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .padding(.horizontal, 30)
+            .padding(.vertical, 10)
+    }
+}
+
+private struct ActivateHandGestureView2: View {
+    var body: some View {
+        Image(.ob5)
+            .resizable()
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .padding(.horizontal, 30)
+            .padding(.vertical, 10)
+    }
+}
+
+private struct HandGestureCustomView: View {
+    var body: some View {
+        Image(.ob6)
+            .resizable()
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .padding(.horizontal, 30)
+            .padding(.vertical, 10)
     }
 }
 
 private struct FinishView: View {
     var body: some View {
-        Text("Onboarding Finish!")
+        Image(.ob7)
+            .resizable()
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .padding(.horizontal, 30)
+            .padding(.vertical, 10)
     }
 }
 

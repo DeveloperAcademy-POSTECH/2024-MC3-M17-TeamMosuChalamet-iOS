@@ -9,10 +9,10 @@ import Foundation
 import Moya
 
 enum InvitationAPI {
-    case acceptInvitation(TMMemberID)
+    case acceptInvitation(TMMemberIDDTO)
 }
 
-extension InvitationAPI: TargetType {
+extension InvitationAPI: NeedAccessTokenTargetType {
     var baseURL: URL {
         ShoakURLProvider().provide(version: .none)
     }
@@ -31,19 +31,17 @@ extension InvitationAPI: TargetType {
         }
     }
 
-    var headers: [String : String]? {
-        [
-            "Access": ""
-        ]
+    var contentType: ContentType {
+        switch self {
+        case .acceptInvitation(let tMMemberID):
+            return .json
+        }
     }
 
     var task: Task {
         switch self {
-        case .acceptInvitation(let tmMemberID):
-            let queries: [String: Any] = [
-                "requesterId": tmMemberID
-            ]
-            return .requestParameters(parameters: queries, encoding: URLEncoding.queryString)
+        case .acceptInvitation(let tmMemberIDDTO):
+            return .requestJSONEncodable(tmMemberIDDTO)
         }
     }
 }

@@ -11,4 +11,5 @@ struct TMUserCredentialVO {
     let userID: String
     let name: String
     let token: String
+    let authCode: String
 }

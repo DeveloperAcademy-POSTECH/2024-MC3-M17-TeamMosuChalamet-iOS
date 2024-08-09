@@ -17,22 +17,13 @@ final class AuthRepository {
         self.provider = apiClient.resolve(for: AuthAPI.self)
     }
 
-    func loginOrSignUp(loginOrSignUpDTO: TMLoginOrSignUpDTO) async -> Result<Void, NetworkError> {
-        let response = await provider.request(.loginOrSignUp(tmLoginOrSignUpDTO: loginOrSignUpDTO))
+    func loginOrSignUp(credential: TMUserCredentialDTO) async -> Result<Void, NetworkError> {
+        let response = await provider.request(.loginOrSignUp(credential: credential))
         switch response {
         case .success(let response):
             return NetworkHandler.requestPlain(by: response)
         case .failure(let failure):
             return .failure(.other(failure.localizedDescription))
         }
-    }
-
-    private func saveTokens(accessToken: AccessToken, refreshToken: RefreshToken) {
-        guard let tokenManagableClient = apiClient as? TokenManagable else {
-            return
-        }
-
-        tokenManagableClient.tokenManager.save(accessToken)
-        tokenManagableClient.tokenManager.save(refreshToken)
     }
 }

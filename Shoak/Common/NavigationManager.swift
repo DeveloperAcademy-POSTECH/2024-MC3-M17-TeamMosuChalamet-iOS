@@ -10,13 +10,14 @@ import SwiftUI
 @MainActor
 @Observable
 class NavigationManager {
-    static let shared = NavigationManager()
+    var namespace: Namespace.ID
     var view: SwitchableView
 
     var invitation: TMMemberID?
 
-    private init() {
+    public init(namespace: Namespace.ID) {
         self.view = .login
+        self.namespace = namespace
     }
 
     public func nextPhase() {
@@ -30,6 +31,7 @@ class NavigationManager {
     }
 }
 
+#if os(iOS) && !APPCLIP
 extension NavigationManager {
     enum SwitchableView: View, CaseIterable {
         case login
@@ -41,7 +43,6 @@ extension NavigationManager {
         case deleteFriends
 
         var body: some View {
-#if os(iOS)
             switch self {
             case .login:
                 LoginView()
@@ -58,18 +59,51 @@ extension NavigationManager {
             case .deleteFriends:
                 DeleteFriendView()
             }
-#elseif os(watchOS)
-            switch self {
-            case .friendList:
-                  EmptyView()
-//                WatchFriendListView()
-            case .settings:
-                WatchSettingView()
-            default:
-                WatchFriendListView()
-//                EmptyView()
-            }
-#endif
         }
     }
 }
+#elseif os(iOS) && APPCLIP
+extension NavigationManager {
+    enum SwitchableView: View, CaseIterable {
+        case login
+        case friendList
+        case settings
+        case inviteFriends
+        case editProfile
+        case deleteFriends
+
+        var body: some View {
+            switch self {
+            case .login:
+                LoginView()
+            case .friendList:
+                FriendListView()
+            case .settings:
+                SettingView()
+            case .inviteFriends:
+                InviteFriendsView()
+            case .editProfile:
+                EditProfileView()
+            case .deleteFriends:
+                DeleteFriendView()
+            }
+        }
+    }
+}
+#elseif os(watchOS)
+extension NavigationManager {
+    enum SwitchableView: View, CaseIterable {
+        case login
+        case friendList
+
+        var body: some View {
+            switch self {
+            case .login, .friendList:
+                WatchFriendListView()
+            default:
+                EmptyView()
+            }
+        }
+    }
+}
+#endif

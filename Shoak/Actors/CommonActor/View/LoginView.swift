@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Lottie
 
 struct LoginView: View {
     @Environment(AccountManager.self) private var accountManager
@@ -15,9 +16,13 @@ struct LoginView: View {
         VStack {
             Spacer()
 
-            Image(.shoakIcon)
+            LottieView(animation: .named("LogoAnimate"))
+                .looping()
                 .resizable()
                 .frame(width: 280, height: 280)
+                .background(Color.shoakYellow)
+                .clipShape(Circle())
+                .matchedGeometryEffect(id: "logo", in: navigationManager.namespace)
 
             Spacer()
 
@@ -27,7 +32,11 @@ struct LoginView: View {
                     Task {
                         let result = await accountManager.loginOrSignUp(credential: credential)
                         if result {
+#if APPCLIP
+                            navigationManager.setView(to: .friendList)
+#else
                             navigationManager.setView(to: .onboarding)
+#endif
                         }
                     }
                 },

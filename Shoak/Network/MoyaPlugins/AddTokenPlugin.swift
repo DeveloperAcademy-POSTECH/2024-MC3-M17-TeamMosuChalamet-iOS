@@ -9,32 +9,62 @@ import Moya
 import Foundation
 
 struct AddTokenPlugin: PluginType {
-    private let tokenManager: TokenManager
-    init(tokenManager: TokenManager) {
-        self.tokenManager = tokenManager
+    private let tokenRepository: TokenRepository
+    init(tokenRepository: TokenRepository) {
+        self.tokenRepository = tokenRepository
     }
     func prepare(_ request: URLRequest, target: any TargetType) -> URLRequest {
-        print("\n🐈🐈🐈🐈 Moya ValidateAndAddTokenPlugin 🐈🐈🐈🐈")
-        // 1. 요청에 추가된 Access, Refresh 헤더가 없다면 그냥 넘어간다.
-        guard needToken(request) else {
-            print("\n🐈🐈🐈🐈 토큰 추가할 필요 없음. Did nothing.")
-            return request
-        }
+        print("\n🐈🐈🐈🐈 Moya AddTokenPlugin 🐈🐈🐈🐈")
 
-        // 2. 헤더에 Access, Refresh이 있다면 그 값을 채워준다.
-        let validResult = tokenManager.addHeader(request: request)
-        switch validResult {
-        case .success(let success):
-            print("\n🐈🐈🐈🐈 헤더에 Token 추가 완료!")
-            return success
-        case .failure(let failure):
-            print("\n❌❌❌❌ 헤더에 Token 추가 실패 : \(failure.localizedDescription)")
-            return request
-        }
+        // 헤더에 Access, Refresh이 있다면 그 값을 채워준다.
+        let modifiedRequest = addHeader(request: request)
+
+        return modifiedRequest
     }
 
-    private func needToken(_ request: URLRequest) -> Bool {
-        (request.allHTTPHeaderFields?.keys.contains("Access") ?? false)
-        || (request.allHTTPHeaderFields?.keys.contains("Refresh") ?? false)
+    private func addHeader(request: URLRequest) -> URLRequest {
+        var request = request
+
+        if needAccessToken(request),
+           let accessToken = tokenRepository.getAccessToken() {
+            print("\n🐈🐈🐈🐈 헤더에 Access Token 추가 완료!")
+            request.setValue("Bearer \(accessToken.token)", forHTTPHeaderField: "Access")
+        }
+
+        if needRefreshToken(request),
+           let refreshToken = tokenRepository.getRefreshToken() {
+            print("\n🐈🐈🐈🐈 헤더에 Refresh Token 추가 완료!")
+            request.setValue("Bearer \(refreshToken.token)", forHTTPHeaderField: "Refresh")
+        }
+
+        if needIdentityToken(request),
+           let identityToken = tokenRepository.getIdentityToken() {
+            print("\n🐈🐈🐈🐈 헤더에 Identity Token 추가 완료!")
+            request.setValue("Bearer \(identityToken.token)", forHTTPHeaderField: "Identity-Token")
+        }
+
+        if needDeviceToken(request),
+           let deviceToken = tokenRepository.getDeviceToken() {
+            print("\n🐈🐈🐈🐈 헤더에 Device Token 추가 완료!")
+            request.setValue("\(deviceToken.token)", forHTTPHeaderField: "Device-Token")
+        }
+
+        return request
+    }
+
+    private func needAccessToken(_ request: URLRequest) -> Bool {
+        request.allHTTPHeaderFields?.keys.contains("Access") ?? false
+    }
+
+    private func needRefreshToken(_ request: URLRequest) -> Bool {
+        request.allHTTPHeaderFields?.keys.contains("Refresh") ?? false
+    }
+
+    private func needIdentityToken(_ request: URLRequest) -> Bool {
+        request.allHTTPHeaderFields?.keys.contains("Identity-Token") ?? false
+    }
+
+    private func needDeviceToken(_ request: URLRequest) -> Bool {
+        request.allHTTPHeaderFields?.keys.contains("Device-Token") ?? false
     }
 }

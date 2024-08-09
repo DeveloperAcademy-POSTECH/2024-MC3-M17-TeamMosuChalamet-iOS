@@ -9,14 +9,15 @@ import Foundation
 
 final class AuthUseCase {
     let authRepository: AuthRepository
+    let tokenRepository: TokenRepository
 
-    init(authRepository: AuthRepository) {
+    init(authRepository: AuthRepository, tokenRepository: TokenRepository) {
         self.authRepository = authRepository
+        self.tokenRepository = tokenRepository
     }
 
     func loginOrSignUp(credential: TMUserCredentialVO) async -> Result<Void, NetworkError> {
-        let dto = toDTO(credential)
-        let result = await authRepository.loginOrSignUp(loginOrSignUpDTO: dto)
+        let result = await authRepository.loginOrSignUp(credential: toDTO(credential))
         switch result {
         case .success:
             return .success(())
@@ -31,12 +32,7 @@ extension AuthUseCase {
         TMProfileVO(id: dto.id, name: dto.name, imageURL: dto.imageURL)
     }
 
-    private func toDTO(_ vo: TMUserCredentialVO) -> TMLoginOrSignUpDTO {
-        let deviceToken = TokenManager.shared.getDeviceToken()?.token ?? ""
-        return TMLoginOrSignUpDTO(
-            identityToken: vo.token,
-            name: vo.name,
-            deviceToken: deviceToken
-        )
+    private func toDTO(_ vo: TMUserCredentialVO) -> TMUserCredentialDTO {
+        TMUserCredentialDTO(userID: vo.userID, name: vo.name, token: vo.token, authCode: vo.authCode)
     }
 }

@@ -18,7 +18,7 @@ final class InvitationRepository {
     }
 
     func acceptInvitation(memberID: TMMemberID) async -> Result<Void, NetworkError> {
-        let response = await provider.request(.acceptInvitation(memberID))
+        let response = await provider.request(.acceptInvitation(TMMemberIDDTO(id: memberID)))
         switch response {
         case .success(let success):
             return .success(())

@@ -14,9 +14,10 @@ final class SendShoakUseCase {
         self.shoakRepository = shoakRepository
     }
 
+    @MainActor
     func sendShoak(to receiverID: TMMemberID) async -> Result<Void, Errors> {
         let destination = receiverID
-        let dto = TMShoakDestinationDTO(destinationMemberId: destination)
+        let dto = TMMemberIDDTO(id: destination)
         let result = await shoakRepository.sendShoak(destination: dto)
         switch result {
         case .success:
