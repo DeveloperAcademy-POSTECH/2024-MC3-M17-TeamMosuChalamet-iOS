@@ -214,6 +214,7 @@ struct FriendListView: View {
                 case .confirm:
                     Button(action: onButtonTapped) {
                         Image(.shoakHandGestureIcon)
+                            .opacity(/*@START_MENU_TOKEN@*/0.8/*@END_MENU_TOKEN@*/)
                             .frame(width: 100, height: 51)
                             .background(Color.shoakNavy)
                             .cornerRadius(30)
