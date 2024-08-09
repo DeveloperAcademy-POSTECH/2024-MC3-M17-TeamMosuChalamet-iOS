@@ -104,6 +104,7 @@ extension OnboardingView {
         case activateAssistiveTouch2
         case activateHandGestureView1
         case activateHandGestureView2
+        case handGestureCustomView
         case finish
 
         var body: some View {
@@ -122,6 +123,8 @@ extension OnboardingView {
                 ActivateHandGestureView1()
             case .activateHandGestureView2:
                 ActivateHandGestureView2()
+            case .handGestureCustomView:
+                HandGestureCustomView()
             case .finish:
                 FinishView()
             }
@@ -255,9 +258,19 @@ private struct ActivateHandGestureView2: View {
     }
 }
 
-private struct FinishView: View {
+private struct HandGestureCustomView: View {
     var body: some View {
         Image(.ob6)
+            .resizable()
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .padding(.horizontal, 30)
+            .padding(.vertical, 10)
+    }
+}
+
+private struct FinishView: View {
+    var body: some View {
+        Image(.ob7)
             .resizable()
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .padding(.horizontal, 30)
