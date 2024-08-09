@@ -1,12 +1,14 @@
 ## :iphone: 쇽, Shoak
-**시선이 마주쳐야 대화를 시작할 수 있는 사람에게 눈을 마주치는 가장 빠른 방법을 제공합니다.**
+**시선이 마주쳐야 대화를 시작할 수 있는 사람들에게 눈을 마주치는 가장 빠른 방법을 제공합니다.**
 
 <img width="100" alt="shoak" src="https://github.com/user-attachments/assets/dd67c76a-4417-4452-9a0f-85337ace63ce">
 
 </br>
 
 ## :fireworks: Screenshots
-
+| Onboarding | Main | Setting |
+ ------------ | ------------ | ------------ |
+| <img width="430" src="https://github.com/user-attachments/assets/2ddb08d6-ff42-45dc-a45c-f6a6be04fc12"> | <img width="430" src="https://github.com/user-attachments/assets/31845cf3-6ac0-4151-b071-24dbc4d71403"> | <img width="430" src="https://github.com/user-attachments/assets/cb50f2e7-6bb8-40d5-8b90-5ecf598a17f1"> |
 
 
 ## :framed_picture: Demo
