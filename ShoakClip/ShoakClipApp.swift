@@ -1,17 +1,16 @@
 //
-//  ShoakApp.swift
-//  Shoak
+//  ShoakClipApp.swift
+//  ShoakClip
 //
-//  Created by 정종인 on 7/23/24.
+//  Created by 정종인 on 8/8/24.
 //
 
 import SwiftUI
-import AppIntents
 
 @main
-struct ShoakApp: App {
-    @UIApplicationDelegateAdaptor var delegate: ShoakAppDelegate
+struct ShoakClipApp: App {
     @Namespace var namespace
+    @UIApplicationDelegateAdaptor var delegate: ShoakAppDelegate
     private var shoakDataManager: ShoakDataManager
     private var accountManager: AccountManager
     private var navigationManager: NavigationManager {
@@ -50,9 +49,9 @@ struct ShoakApp: App {
         self.invitationManager = invitationManager
         self.watchConnectivityManager = watchConnectivityManager
 
-//        AppDependencyManager.shared.add(dependency: shoakDataManager)
-//        AppDependencyManager.shared.add(dependency: accountManager)
-//        AppDependencyManager.shared.add(dependency: navigationManager)
+        //        AppDependencyManager.shared.add(dependency: shoakDataManager)
+        //        AppDependencyManager.shared.add(dependency: accountManager)
+        //        AppDependencyManager.shared.add(dependency: navigationManager)
     }
 
     var body: some Scene {
@@ -74,8 +73,8 @@ struct ShoakApp: App {
         print("Deep link URL: \(url.absoluteString)")
 
         guard let components = URLComponents(url: url, resolvingAgainstBaseURL: true),
-        let memberID = components.queryItems?.first(where: { $0.name == "memberID" })?.value,
-        let memberIDToInt64 = Int64(memberID, radix: 10) else {
+              let memberID = components.queryItems?.first(where: { $0.name == "memberID" })?.value,
+              let memberIDToInt64 = Int64(memberID, radix: 10) else {
             return
         }
 

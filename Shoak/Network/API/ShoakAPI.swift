@@ -9,10 +9,10 @@ import Foundation
 import Moya
 
 enum ShoakAPI {
-    case shoak(TMShoakDestinationDTO)
+    case shoak(TMMemberIDDTO)
 }
 
-extension ShoakAPI: TargetType {
+extension ShoakAPI: NeedAccessTokenTargetType {
     var baseURL: URL {
         ShoakURLProvider().provide(version: .none)
     }
@@ -31,17 +31,14 @@ extension ShoakAPI: TargetType {
         }
     }
 
-    var headers: [String : String]? {
-        [
-            "Content-Type": "application/json",
-            "Access": ""
-        ]
+    var contentType: ContentType {
+        .json
     }
 
     var task: Task {
         switch self {
-        case .shoak(let tmShoakDestinationDTO):
-            return .requestJSONEncodable(tmShoakDestinationDTO)
+        case .shoak(let tmMemberIDDTO):
+            return .requestJSONEncodable(tmMemberIDDTO)
         }
     }
 }

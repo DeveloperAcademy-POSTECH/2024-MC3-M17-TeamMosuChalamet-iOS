@@ -42,3 +42,11 @@ public struct DeviceToken: Token {
         self.token = token
     }
 }
+
+public struct AuthCode: Token {
+    let token: String
+
+    public init(_ token: String) {
+        self.token = token
+    }
+}

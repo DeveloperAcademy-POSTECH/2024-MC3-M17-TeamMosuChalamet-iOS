@@ -19,9 +19,11 @@ class NotificationDelegate: NSObject, UNUserNotificationCenterDelegate {
 
 @main
 struct ShoakWatch_Watch_AppApp: App {
-    
+    @Namespace var namespace
     private var shoakDataManager: ShoakDataManager
-    private let navigationManager: NavigationManager
+    private var navigationManager: NavigationManager {
+        NavigationManager(namespace: namespace)
+    }
     private let phoneConnectivityManager: PhoneConnectivityManager
     private let notificationDelegate = NotificationDelegate()
     
@@ -45,20 +47,18 @@ struct ShoakWatch_Watch_AppApp: App {
         let shoakRepository = ShoakRepository(apiClient: apiClient)
         let userRepository = UserRepository(apiClient: apiClient)
 
-        let appleUseCase = AppleUseCase(tokenRepository: tokenRepository)
+        let appleUseCase = AppleUseCase()
         let authUseCase = AuthUseCase(authRepository: authRepository, tokenRepository: tokenRepository)
         let userUseCase = UserUseCase(userRepository: userRepository)
         let shoakUseCase = SendShoakUseCase(shoakRepository: shoakRepository)
         let tokenUseCase = TokenUseCase(tokenRepository: tokenRepository, tokenRefreshRepository: tokenRefreshRepository)
 
-        let navigationManager = NavigationManager.shared
         let accountManager = AccountManager(appleUseCase: appleUseCase, authUseCase: authUseCase, userUseCase: userUseCase, tokenUseCase: tokenUseCase)
         let shoakDataManager = ShoakDataManager(userUseCase: userUseCase, shoakUseCase: shoakUseCase)
 
         let phoneConnectivityManager = PhoneConnectivityManager(tokenRepository: tokenRepository)
 
         self.shoakDataManager = shoakDataManager
-        self.navigationManager = navigationManager
         self.phoneConnectivityManager = phoneConnectivityManager
         
 //        AppDependencyManager.shared.add(dependency: shoakDataManager)

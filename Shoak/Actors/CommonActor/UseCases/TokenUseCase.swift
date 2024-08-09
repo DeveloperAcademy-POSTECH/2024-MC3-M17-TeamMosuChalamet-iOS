@@ -16,9 +16,8 @@ public final class TokenUseCase {
         self.tokenRefreshRepository = tokenRefreshRepository
     }
 
-    func registerDeviceToken(deviceToken: String) async -> Result<Void, NetworkError> {
-        let dto = TMDeviceTokenDTO(deviceToken: deviceToken)
-        return await tokenRefreshRepository.registerDeviceToken(dto)
+    func refreshDeviceToken(deviceToken: String) async -> Result<Void, NetworkError> {
+        return await tokenRefreshRepository.registerDeviceToken(TMDeviceTokenDTO(deviceToken: deviceToken))
     }
 
     func refreshAccessAndRefreshToken() async -> Result<Void, NetworkError> {
@@ -31,19 +30,19 @@ public final class TokenUseCase {
 
     func save(accessToken: String) {
         let dto = AccessToken(accessToken)
-        tokenRepository.save(dto)
+        tokenRepository.save(accessToken: dto)
     }
     func save(refreshToken: String) {
         let dto = RefreshToken(refreshToken)
-        tokenRepository.save(dto)
+        tokenRepository.save(refreshToken: dto)
     }
     func save(identityToken: String) {
         let dto = IdentityToken(identityToken)
-        tokenRepository.save(dto)
+        tokenRepository.save(identityToken: dto)
     }
     func save(deviceToken: String) {
         let dto = DeviceToken(deviceToken)
-        tokenRepository.save(dto)
+        tokenRepository.save(deviceToken: dto)
     }
 
     func getAccessToken() -> AccessToken? {
@@ -69,5 +68,13 @@ public final class TokenUseCase {
 
     func deleteAllTokens() {
         tokenRepository.deleteAllTokens()
+    }
+
+    func isLoggedIn() -> Bool {
+        if self.getIdentityToken() != nil && self.getAccessToken() != nil {
+            return true
+        } else {
+            return false
+        }
     }
 }

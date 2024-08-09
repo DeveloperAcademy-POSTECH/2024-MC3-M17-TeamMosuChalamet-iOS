@@ -24,7 +24,7 @@ struct StoreTokenPlugin: PluginType {
             let extracted = extractToken(from: accessTokenString) {
             let accessToken = AccessToken(extracted)
             print("🐈🐈🐈🐈 try to store accessToken : \(accessToken.token)")
-            tokenRepository.save(accessToken)
+            tokenRepository.save(accessToken: accessToken)
         } else {
             print("❌❌❌❌ No Access Token")
         }
@@ -33,7 +33,7 @@ struct StoreTokenPlugin: PluginType {
            let extracted = extractToken(from: refreshTokenString) {
             let refreshToken = RefreshToken(extracted)
             print("🐈🐈🐈🐈 try to store refreshToken : \(extracted)")
-            tokenRepository.save(refreshToken)
+            tokenRepository.save(refreshToken: refreshToken)
         } else {
             print("❌❌❌❌ No Refresh Token")
         }

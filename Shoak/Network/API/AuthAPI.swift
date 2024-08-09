@@ -9,7 +9,7 @@ import Foundation
 import Moya
 
 enum AuthAPI {
-    case loginOrSignUp(tmLoginOrSignUpDTO: TMLoginOrSignUpDTO)
+    case loginOrSignUp(credential: TMUserCredentialDTO)
 }
 
 extension AuthAPI: TargetType {
@@ -35,29 +35,27 @@ extension AuthAPI: TargetType {
         switch self {
         case .loginOrSignUp:
             return Data(
-                """
-                {
-                    "name": "이빈치",
-                    "imageURL": "https://ada-mc3.s3.ap-northeast-2.amazonaws.com/profile/a7b899ae-528e-4e37-a6f1-e9ac08ab50c9vinci.jpeg"
-                }
-                """.utf8
+                "".utf8
             )
         }
     }
 
     var headers: [String : String]? {
-        ["Content-Type": "application/json"]
+        switch self {
+        case .loginOrSignUp(let credential):
+            return [
+                "Content-Type": "application/json",
+                "Identity-Token": "",
+                "Device-Token": "",
+                "Authorization-Code": "\(credential.authCode)"
+            ]
+        }
     }
 
     var task: Task {
         switch self {
-        case .loginOrSignUp(let tmLoginOrSignUpDTO):
-            let queries: [String: Any] = [
-                "identityToken": tmLoginOrSignUpDTO.identityToken,
-                "name": tmLoginOrSignUpDTO.name,
-                "deviceToken": tmLoginOrSignUpDTO.deviceToken
-            ]
-            return .requestParameters(parameters: queries, encoding: URLEncoding.queryString)
+        case .loginOrSignUp:
+            return .requestPlain
         }
     }
 }
