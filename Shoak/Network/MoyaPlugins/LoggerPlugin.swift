@@ -44,6 +44,7 @@ struct LoggerPlugin: PluginType {
             let statusCode = response.statusCode
             print("🐈🐈🐈🐈 Received success. code=\(statusCode)")
         case .failure(let failure):
+            print("❌❌❌❌ Receive failed. \(failure.localizedDescription)")
             let response = failure.response
             print("❌❌❌❌ Receiving Response : ")
             var log = "❌❌❌❌ Received Headers\n"
@@ -56,7 +57,6 @@ struct LoggerPlugin: PluginType {
             }
             log.append("❌❌❌❌ END ❌❌❌❌")
             print(log)
-            print("❌❌❌❌ Receive failed. \(failure.localizedDescription)")
         }
     }
 }
