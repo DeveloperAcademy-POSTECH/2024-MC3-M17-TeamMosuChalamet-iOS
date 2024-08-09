@@ -9,7 +9,7 @@ import Foundation
 import Moya
 
 enum AuthAPI {
-    case loginOrSignUp
+    case loginOrSignUp(credential: TMUserCredentialDTO)
 }
 
 extension AuthAPI: TargetType {
@@ -41,11 +41,15 @@ extension AuthAPI: TargetType {
     }
 
     var headers: [String : String]? {
-        [
-            "Content-Type": "application/json",
-            "Identity-Token": "",
-            "Device-Token": ""
-        ]
+        switch self {
+        case .loginOrSignUp(let credential):
+            return [
+                "Content-Type": "application/json",
+                "Identity-Token": "",
+                "Device-Token": "",
+                "Authorization-Code": "\(credential.authCode)"
+            ]
+        }
     }
 
     var task: Task {
