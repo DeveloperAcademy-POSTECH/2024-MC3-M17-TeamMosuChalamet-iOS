@@ -16,9 +16,8 @@ public final class TokenUseCase {
         self.tokenRefreshRepository = tokenRefreshRepository
     }
 
-    func registerDeviceToken(deviceToken: String) async -> Result<Void, NetworkError> {
-        let dto = TMDeviceTokenDTO(deviceToken: deviceToken)
-        return await tokenRefreshRepository.registerDeviceToken(dto)
+    func refreshDeviceToken(deviceToken: String) async -> Result<Void, NetworkError> {
+        return await tokenRefreshRepository.registerDeviceToken(TMDeviceTokenDTO(deviceToken: deviceToken))
     }
 
     func refreshAccessAndRefreshToken() async -> Result<Void, NetworkError> {
@@ -69,5 +68,13 @@ public final class TokenUseCase {
 
     func deleteAllTokens() {
         tokenRepository.deleteAllTokens()
+    }
+
+    func isLoggedIn() -> Bool {
+        if self.getIdentityToken() != nil && self.getAccessToken() != nil {
+            return true
+        } else {
+            return false
+        }
     }
 }

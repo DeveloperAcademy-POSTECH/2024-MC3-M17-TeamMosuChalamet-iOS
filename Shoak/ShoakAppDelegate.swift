@@ -40,9 +40,12 @@ class ShoakAppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCente
         for i in 0..<deviceToken.count {
             token += String(format: "%02.2hhx", deviceToken[i] as CVarArg)
         }
-        print("APNs token: \(token)")
-        Task {
-            await tokenUseCase.registerDeviceToken(deviceToken: token)
+        print("Save APNs token: \(token)")
+        tokenUseCase.save(deviceToken: token)
+        if tokenUseCase.isLoggedIn() {
+            Task {
+                let _ = await tokenUseCase.refreshDeviceToken(deviceToken: token)
+            }
         }
     }
 
