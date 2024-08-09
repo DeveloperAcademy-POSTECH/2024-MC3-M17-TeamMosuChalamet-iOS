@@ -17,7 +17,7 @@ extension Color {
     static let bgGray: Color = Color(uiColor: UIColor(red: 0.94, green: 0.94, blue: 0.96, alpha: 1))
     static let textBlack: Color = Color(uiColor: UIColor(red: 0, green: 0, blue: 0, alpha: 1))
     static let textWhite: Color = Color(uiColor: UIColor(red: 1, green: 1, blue: 1, alpha: 1))
-    static let strokeWhite: Color = Color(uiColor: UIColor(red: 1, green: 1, blue: 1, alpha: 0.1))
+    static let strokeWhite: Color = Color(uiColor: UIColor(red: 1, green: 1, blue: 1, alpha: 0.5))
     static let strokeBlack: Color = Color(uiColor: UIColor(red: 0, green: 0, blue: 0, alpha: 0.1))
     static let strokeGray: Color = Color(uiColor: UIColor(red: 0.85, green: 0.85, blue: 0.85, alpha: 1))
     static let WatchStrokeYellow: Color = Color(uiColor: UIColor(red: 0.898, green: 0.714, blue: 0, alpha: 1))
