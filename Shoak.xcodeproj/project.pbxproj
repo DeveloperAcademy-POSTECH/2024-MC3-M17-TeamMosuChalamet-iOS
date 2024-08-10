@@ -161,8 +161,6 @@
 		6FC0A1382C551A70004560E3 /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0A1362C551A70004560E3 /* UserAPI.swift */; };
 		6FC0A1412C551B20004560E3 /* URLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0A1402C551B20004560E3 /* URLProvider.swift */; };
 		6FC0A1422C551B20004560E3 /* URLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0A1402C551B20004560E3 /* URLProvider.swift */; };
-		6FC0A1472C551C7D004560E3 /* Secret.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6FC0A1462C551C7D004560E3 /* Secret.plist */; };
-		6FC0A1482C551C7D004560E3 /* Secret.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6FC0A1462C551C7D004560E3 /* Secret.plist */; };
 		6FC0A14B2C5520BA004560E3 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0A14A2C5520BA004560E3 /* UserRepository.swift */; };
 		6FC0A14C2C5520BA004560E3 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0A14A2C5520BA004560E3 /* UserRepository.swift */; };
 		6FC0A14E2C5523FF004560E3 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0A14D2C5523FF004560E3 /* APIClient.swift */; };
@@ -217,6 +215,9 @@
 		6FC0D51E2C5A1D52005BD525 /* ShoakRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0D51C2C5A1D52005BD525 /* ShoakRepository.swift */; };
 		6FC0D51F2C5A21FB005BD525 /* SendShoakUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7AD2C51340000FC0CB2 /* SendShoakUseCase.swift */; };
 		6FD978DE2C67EAA000787EA7 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7B42C52211A00FC0CB2 /* RootView.swift */; };
+		6FD978E02C67EB9000787EA7 /* Secret.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6FD978DF2C67EB9000787EA7 /* Secret.plist */; };
+		6FD978E12C67EB9000787EA7 /* Secret.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6FD978DF2C67EB9000787EA7 /* Secret.plist */; };
+		6FD978E22C67EB9000787EA7 /* Secret.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6FD978DF2C67EB9000787EA7 /* Secret.plist */; };
 		6FDFDAD52C57E39400A98D7E /* AddTokenPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDFDAD42C57E39400A98D7E /* AddTokenPlugin.swift */; };
 		6FDFDAD62C57E39800A98D7E /* AddTokenPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDFDAD42C57E39400A98D7E /* AddTokenPlugin.swift */; };
 		6FECC4E52C5874D200C8E5D4 /* ShoakUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FECC4E42C5874D200C8E5D4 /* ShoakUITests.swift */; };
@@ -394,7 +395,6 @@
 		6FC0A12D2C54CB11004560E3 /* AccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
 		6FC0A1362C551A70004560E3 /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
 		6FC0A1402C551B20004560E3 /* URLProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProvider.swift; sourceTree = "<group>"; };
-		6FC0A1462C551C7D004560E3 /* Secret.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Secret.plist; sourceTree = "<group>"; };
 		6FC0A14A2C5520BA004560E3 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		6FC0A14D2C5523FF004560E3 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		6FC0A1502C5524DE004560E3 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
@@ -425,6 +425,7 @@
 		6FC0D50A2C59E62D005BD525 /* TMTokenRefreshRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMTokenRefreshRequestDTO.swift; sourceTree = "<group>"; };
 		6FC0D5162C5A1BF8005BD525 /* ShoakAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoakAPI.swift; sourceTree = "<group>"; };
 		6FC0D51C2C5A1D52005BD525 /* ShoakRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoakRepository.swift; sourceTree = "<group>"; };
+		6FD978DF2C67EB9000787EA7 /* Secret.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Secret.plist; sourceTree = "<group>"; };
 		6FDFDAD42C57E39400A98D7E /* AddTokenPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTokenPlugin.swift; sourceTree = "<group>"; };
 		6FECC4E22C5874D200C8E5D4 /* ShoakUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShoakUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FECC4E42C5874D200C8E5D4 /* ShoakUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoakUITests.swift; sourceTree = "<group>"; };
@@ -702,7 +703,7 @@
 		6FF9B7672C4F896800FC0CB2 = {
 			isa = PBXGroup;
 			children = (
-				6FC0A1462C551C7D004560E3 /* Secret.plist */,
+				6FD978DF2C67EB9000787EA7 /* Secret.plist */,
 				6FF9B7722C4F896800FC0CB2 /* Shoak */,
 				6FF9B7BB2C52378B00FC0CB2 /* ShoakWatch Watch App */,
 				6FC0A1612C552E3F004560E3 /* ShoakTests */,
@@ -1163,6 +1164,7 @@
 			files = (
 				6F15223B2C67E69E005A9C13 /* Preview Assets.xcassets in Resources */,
 				6F15229B2C67E917005A9C13 /* LogoAnimate.json in Resources */,
+				6FD978E22C67EB9000787EA7 /* Secret.plist in Resources */,
 				6F15229C2C67E926005A9C13 /* Assets.xcassets in Resources */,
 				6F1522382C67E69E005A9C13 /* Assets.xcassets in Resources */,
 			);
@@ -1187,10 +1189,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6FC0A1472C551C7D004560E3 /* Secret.plist in Resources */,
 				6FBEED4B2C5D489800431B7F /* 쇽 시작하기.shortcut in Resources */,
 				6FF9B77B2C4F896A00FC0CB2 /* Preview Assets.xcassets in Resources */,
 				6F96CEC82C64AEFB00BF5A9C /* Check.json in Resources */,
+				6FD978E02C67EB9000787EA7 /* Secret.plist in Resources */,
 				6F1522982C67E917005A9C13 /* LogoAnimate.json in Resources */,
 				6FF9B7782C4F896A00FC0CB2 /* Assets.xcassets in Resources */,
 			);
@@ -1200,10 +1202,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6FC0A1482C551C7D004560E3 /* Secret.plist in Resources */,
 				B8FF5C3D2C5A893900F043EB /* PushNotificationPayload.apns in Resources */,
 				6FBEED4C2C5D489800431B7F /* 쇽 시작하기.shortcut in Resources */,
 				6FF9B7C42C52378C00FC0CB2 /* Preview Assets.xcassets in Resources */,
+				6FD978E12C67EB9000787EA7 /* Secret.plist in Resources */,
 				6F1522992C67E917005A9C13 /* LogoAnimate.json in Resources */,
 				6FF9B7C12C52378C00FC0CB2 /* Assets.xcassets in Resources */,
 			);
@@ -1604,11 +1606,13 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ShoakClip/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Shoak;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "이 앱은 사용자가 자신의 사진을 선택하여 프로필 사진으로 설정할 수 있도록 접근 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1641,11 +1645,13 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ShoakClip/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Shoak;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "이 앱은 사용자가 자신의 사진을 선택하여 프로필 사진으로 설정할 수 있도록 접근 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
