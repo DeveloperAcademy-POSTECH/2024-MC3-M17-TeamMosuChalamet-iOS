@@ -12,7 +12,7 @@ enum UserAPI {
     case getProfile
     case getFriends
     case uploadProfileImage(data: Data)
-    case deleteFriend(memberID: TMMemberID)
+    case deleteFriend(memberID: TMMemberIDDTO)
 }
 
 extension UserAPI: NeedAccessTokenTargetType {
