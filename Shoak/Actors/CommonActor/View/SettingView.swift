@@ -108,6 +108,8 @@ struct SettingView: View {
                                     navigationManager.setView(to: .login)
                                 } else {
                                     print("탈퇴 실패..")
+                                    navigationManager.setView(to: .login)
+                                    // TODO: 실패해도 login으로 가는거 빼기
                                 }
                             }
                         },
