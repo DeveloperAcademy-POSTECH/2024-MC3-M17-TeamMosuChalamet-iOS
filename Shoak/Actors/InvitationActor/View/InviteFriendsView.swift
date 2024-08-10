@@ -152,7 +152,7 @@ struct InviteFriendsView: View {
             guard let id = accountManager.profile?.id else {
                 return nil
             }
-            let qrData = "https://shoak.mosu.blog/?memberID=\(id)"
+            let qrData = "https://shoak.mosu.blog/invite?memberID=\(id)"
             // 필터에 원하는 Text를 넣어줍니다.
             filter.setValue(qrData.data(using: .utf8), forKey: "inputMessage")
 
