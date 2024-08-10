@@ -103,8 +103,13 @@ struct SettingView: View {
                         title: Text("탈퇴하시겠습니까?"),
                         message: Text("탈퇴하면 모든 데이터가 삭제됩니다."),
                         primaryButton: .destructive(Text("탈퇴")) {
-                            accountManager.signOut()
-                            navigationManager.setView(to: .login)
+                            Task {
+                                if case .success = await accountManager.signOut() {
+                                    navigationManager.setView(to: .login)
+                                } else {
+                                    print("탈퇴 실패..")
+                                }
+                            }
                         },
                         secondaryButton: .cancel(Text("취소"))
                     )

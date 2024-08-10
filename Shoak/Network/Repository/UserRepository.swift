@@ -54,4 +54,14 @@ final class UserRepository {
             return .failure(.other(failure.localizedDescription))
         }
     }
+
+    func signOut() async -> Result<Void, NetworkError> {
+        let response = await provider.request(.signOut)
+        switch response {
+        case .success(let success):
+            return NetworkHandler.requestPlain(by: success)
+        case .failure(let failure):
+            return .failure(.other(failure.localizedDescription))
+        }
+    }
 }
