@@ -354,6 +354,7 @@
 		6F4779AA2C611CB20028C1D7 /* Int64+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int64+.swift"; sourceTree = "<group>"; };
 		6F4779AE2C611D040028C1D7 /* String+Int64.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Int64.swift"; sourceTree = "<group>"; };
 		6F4779B22C61A3970028C1D7 /* DeleteFriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteFriendView.swift; sourceTree = "<group>"; };
+		6F7BDEA52C67BA840073DBCA /* ShoakWatch Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "ShoakWatch Watch App.entitlements"; sourceTree = "<group>"; };
 		6F8602EE2C61C6FD004F417C /* TMDeviceTokenDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDeviceTokenDTO.swift; sourceTree = "<group>"; };
 		6F8602F12C61CB5F004F417C /* TokenRefreshRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenRefreshRepository.swift; sourceTree = "<group>"; };
 		6F8602F42C624A06004F417C /* RequestInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestInterceptor.swift; sourceTree = "<group>"; };
@@ -905,6 +906,7 @@
 		6FF9B7BB2C52378B00FC0CB2 /* ShoakWatch Watch App */ = {
 			isa = PBXGroup;
 			children = (
+				6F7BDEA52C67BA840073DBCA /* ShoakWatch Watch App.entitlements */,
 				6FC0A15B2C552DF6004560E3 /* ShoakWatch-Watch-App-Info.plist */,
 				6FF9B7D82C52440200FC0CB2 /* View */,
 				6FF9B7BC2C52378B00FC0CB2 /* ShoakWatchApp.swift */,
@@ -1913,6 +1915,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "ShoakWatch Watch App/ShoakWatch Watch App.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1949,6 +1952,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "ShoakWatch Watch App/ShoakWatch Watch App.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
