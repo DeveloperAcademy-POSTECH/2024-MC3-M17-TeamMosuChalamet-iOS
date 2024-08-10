@@ -44,7 +44,7 @@ struct SettingView: View {
                 
                 HStack(spacing: 0) {
                     Button {
-                        
+                        navigationManager.setView(to: .onboarding)
                     } label: {
                         styledIcon(named: "questionmark.circle.fill")
                             .padding(.leading, 18)
