@@ -41,7 +41,7 @@ struct SettingView: View {
                     }
                 }
                 .frame(height: 60)
-                
+#if !APPCLIP
                 HStack(spacing: 0) {
                     Button {
                         navigationManager.setView(to: .onboarding)
@@ -59,7 +59,7 @@ struct SettingView: View {
                     
                 }
                 .frame(height: 60)
-                
+#endif
                 HStack(spacing: 0) {
                     Button {
                         accountManager.logout()
