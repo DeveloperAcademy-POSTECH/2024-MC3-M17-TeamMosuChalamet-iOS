@@ -149,7 +149,10 @@ struct InviteFriendsView: View {
             // QR 코드 생성기 필터
             let filter = CIFilter.qrCodeGenerator()
             // QR 데이터 생성해주기.
-            let qrData = "shoak://invite/?memberID=\(accountManager.profile?.id ?? 0)"
+            guard let id = accountManager.profile?.id else {
+                return nil
+            }
+            let qrData = "https://shoak.mosu.blog/?memberID=\(id)"
             // 필터에 원하는 Text를 넣어줍니다.
             filter.setValue(qrData.data(using: .utf8), forKey: "inputMessage")
 

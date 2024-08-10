@@ -14,9 +14,6 @@ struct ShoakApp: App {
     @Namespace var namespace
     private var shoakDataManager: ShoakDataManager
     private var accountManager: AccountManager
-    private var navigationManager: NavigationManager {
-        NavigationManager(namespace: namespace)
-    }
     private var invitationManager: InvitationManager
     private var watchConnectivityManager: WatchConnectivityManager
 
@@ -56,6 +53,7 @@ struct ShoakApp: App {
     }
 
     var body: some Scene {
+        let navigationManager = NavigationManager(namespace: namespace)
         WindowGroup {
             RootView()
                 .environment(shoakDataManager)
@@ -64,18 +62,25 @@ struct ShoakApp: App {
                 .environment(invitationManager)
                 .environment(watchConnectivityManager)
                 .onOpenURL { url in
-                    handleDeepLink(url: url)
-                    navigationManager.setView(to: .friendList)
+                    handleDeepLink(navigationManager, url: url)
+                }
+                .onContinueUserActivity(NSUserActivityTypeBrowsingWeb) { userActivity in
+                    guard let incomingURL = userActivity.webpageURL
+                    else {
+                        return
+                    }
+
+                    handleDeepLink(navigationManager, url: incomingURL)
                 }
         }
     }
 
-    private func handleDeepLink(url: URL) {
+    private func handleDeepLink(_ navigationManager: NavigationManager, url: URL) {
         print("Deep link URL: \(url.absoluteString)")
 
         guard let components = URLComponents(url: url, resolvingAgainstBaseURL: true),
-        let memberID = components.queryItems?.first(where: { $0.name == "memberID" })?.value,
-        let memberIDToInt64 = Int64(memberID, radix: 10) else {
+              let memberID = components.queryItems?.first(where: { $0.name == "memberID" })?.value,
+              let memberIDToInt64 = Int64(memberID, radix: 10) else {
             return
         }
 
