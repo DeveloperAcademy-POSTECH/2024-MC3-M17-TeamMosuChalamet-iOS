@@ -15,7 +15,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6F96CECF2C64CAA000BF5A9C"
+               BlueprintIdentifier = "6F1522302C67E69C005A9C13"
                BuildableName = "ShoakClip.app"
                BlueprintName = "ShoakClip"
                ReferencedContainer = "container:Shoak.xcodeproj">
@@ -44,7 +44,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6F96CECF2C64CAA000BF5A9C"
+            BlueprintIdentifier = "6F1522302C67E69C005A9C13"
             BuildableName = "ShoakClip.app"
             BlueprintName = "ShoakClip"
             ReferencedContainer = "container:Shoak.xcodeproj">
@@ -61,7 +61,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6F96CECF2C64CAA000BF5A9C"
+            BlueprintIdentifier = "6F1522302C67E69C005A9C13"
             BuildableName = "ShoakClip.app"
             BlueprintName = "ShoakClip"
             ReferencedContainer = "container:Shoak.xcodeproj">
