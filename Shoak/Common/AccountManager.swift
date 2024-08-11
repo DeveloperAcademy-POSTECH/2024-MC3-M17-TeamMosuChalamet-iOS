@@ -62,9 +62,10 @@ class AccountManager: @unchecked Sendable {
         // TODO: Reset Device Token
     }
 
-    public func signOut() {
+    public func signOut() async -> Result<Void, NetworkError> {
+        let response = await userUseCase.signOut()
         tokenUseCase.deleteAllTokensWithoutDeviceToken()
-        // TODO: 탈퇴 로직
+        return response
     }
 }
 

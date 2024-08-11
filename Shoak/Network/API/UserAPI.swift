@@ -12,7 +12,8 @@ enum UserAPI {
     case getProfile
     case getFriends
     case uploadProfileImage(data: Data)
-    case deleteFriend(memberID: TMMemberID)
+    case deleteFriend(memberID: TMMemberIDDTO)
+    case signOut
 }
 
 extension UserAPI: NeedAccessTokenTargetType {
@@ -28,6 +29,8 @@ extension UserAPI: NeedAccessTokenTargetType {
             "/api/profile/image"
         case .getFriends, .deleteFriend:
             "/api/friend"
+        case .signOut:
+            "/api/member"
         }
     }
 
@@ -39,6 +42,8 @@ extension UserAPI: NeedAccessTokenTargetType {
             .formData
         case .deleteFriend:
             .json
+        case .signOut:
+            .none
         }
     }
 
@@ -49,6 +54,8 @@ extension UserAPI: NeedAccessTokenTargetType {
         case .uploadProfileImage:
             return .patch
         case .deleteFriend:
+            return .delete
+        case .signOut:
             return .delete
         }
     }
@@ -91,14 +98,14 @@ extension UserAPI: NeedAccessTokenTargetType {
                 }
                 """.utf8
             )
-        case .deleteFriend:
+        case .deleteFriend, .signOut:
             return Data("".utf8)
         }
     }
 
     var task: Task {
         switch self {
-        case .getProfile, .getFriends:
+        case .getProfile, .getFriends, .signOut:
             return .requestPlain
         case let .uploadProfileImage(data):
             let jpegData = MultipartFormData(provider: .data(data), name: "profileImage", fileName: "example.jpeg", mimeType: "image/jpeg")

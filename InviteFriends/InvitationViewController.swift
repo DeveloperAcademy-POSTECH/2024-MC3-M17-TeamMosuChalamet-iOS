@@ -118,7 +118,7 @@ class InvitationViewController: UIViewController {
         let safeArea = view.safeAreaLayoutGuide
 
         NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: 64),
+            imageView.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: 16),
             imageView.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor),
             imageView.widthAnchor.constraint(equalToConstant: 80),
             imageView.heightAnchor.constraint(equalToConstant: 80),

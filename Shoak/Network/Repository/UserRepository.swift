@@ -46,7 +46,17 @@ final class UserRepository {
     }
 
     func deleteFriend(memberID: TMMemberID) async -> Result<Void, NetworkError> {
-        let response = await provider.request(.deleteFriend(memberID: memberID))
+        let response = await provider.request(.deleteFriend(memberID: TMMemberIDDTO(id: memberID)))
+        switch response {
+        case .success(let success):
+            return NetworkHandler.requestPlain(by: success)
+        case .failure(let failure):
+            return .failure(.other(failure.localizedDescription))
+        }
+    }
+
+    func signOut() async -> Result<Void, NetworkError> {
+        let response = await provider.request(.signOut)
         switch response {
         case .success(let success):
             return NetworkHandler.requestPlain(by: success)

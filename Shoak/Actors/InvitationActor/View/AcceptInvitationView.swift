@@ -5,12 +5,12 @@
 //  Created by 정종인 on 8/5/24.
 //
 
-
 import SwiftUI
 
 struct AcceptInvitationView: View {
     @Environment(NavigationManager.self) private var navigationManager
     @Environment(InvitationManager.self) private var invitationManager
+    @Environment(ShoakDataManager.self) private var shoakDataManager
 
     @State private var isLoading = false
 
@@ -25,6 +25,7 @@ struct AcceptInvitationView: View {
                         switch response {
                         case .success:
                             print("초대 수락 성공!")
+                            shoakDataManager.refreshFriends()
                             navigationManager.invitation = nil
                         case .failure(let error):
                             print("에러.. : \(error)")

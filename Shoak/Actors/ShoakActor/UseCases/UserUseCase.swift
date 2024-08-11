@@ -70,6 +70,10 @@ final class UserUseCase {
         let result = await userRepository.deleteFriend(memberID: memberID)
         return result
     }
+
+    func signOut() async -> Result<Void, NetworkError> {
+        return await userRepository.signOut()
+    }
 }
 
 // MARK: - Translater

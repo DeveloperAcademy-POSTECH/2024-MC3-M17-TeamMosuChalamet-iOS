@@ -21,9 +21,6 @@ class NotificationDelegate: NSObject, UNUserNotificationCenterDelegate {
 struct ShoakWatch_Watch_AppApp: App {
     @Namespace var namespace
     private var shoakDataManager: ShoakDataManager
-    private var navigationManager: NavigationManager {
-        NavigationManager(namespace: namespace)
-    }
     private let phoneConnectivityManager: PhoneConnectivityManager
     private let notificationDelegate = NotificationDelegate()
     
@@ -53,7 +50,6 @@ struct ShoakWatch_Watch_AppApp: App {
         let shoakUseCase = SendShoakUseCase(shoakRepository: shoakRepository)
         let tokenUseCase = TokenUseCase(tokenRepository: tokenRepository, tokenRefreshRepository: tokenRefreshRepository)
 
-        let accountManager = AccountManager(appleUseCase: appleUseCase, authUseCase: authUseCase, userUseCase: userUseCase, tokenUseCase: tokenUseCase)
         let shoakDataManager = ShoakDataManager(userUseCase: userUseCase, shoakUseCase: shoakUseCase)
 
         let phoneConnectivityManager = PhoneConnectivityManager(tokenRepository: tokenRepository)
@@ -67,6 +63,7 @@ struct ShoakWatch_Watch_AppApp: App {
     }
     
     var body: some Scene {
+        let navigationManager = NavigationManager(namespace: namespace)
         WindowGroup {
             ContentView()
                 .environment(shoakDataManager)

@@ -13,9 +13,6 @@ struct ShoakClipApp: App {
     @UIApplicationDelegateAdaptor var delegate: ShoakAppDelegate
     private var shoakDataManager: ShoakDataManager
     private var accountManager: AccountManager
-    private var navigationManager: NavigationManager {
-        NavigationManager(namespace: namespace)
-    }
     private var invitationManager: InvitationManager
     private var watchConnectivityManager: WatchConnectivityManager
 
@@ -48,13 +45,13 @@ struct ShoakClipApp: App {
         self.accountManager = accountManager
         self.invitationManager = invitationManager
         self.watchConnectivityManager = watchConnectivityManager
-
         //        AppDependencyManager.shared.add(dependency: shoakDataManager)
         //        AppDependencyManager.shared.add(dependency: accountManager)
         //        AppDependencyManager.shared.add(dependency: navigationManager)
     }
 
     var body: some Scene {
+        let navigationManager = NavigationManager(namespace: namespace)
         WindowGroup {
             RootView()
                 .environment(shoakDataManager)
@@ -63,13 +60,20 @@ struct ShoakClipApp: App {
                 .environment(invitationManager)
                 .environment(watchConnectivityManager)
                 .onOpenURL { url in
-                    handleDeepLink(url: url)
-                    navigationManager.setView(to: .friendList)
+                    handleDeepLink(navigationManager, url: url)
+                }
+                .onContinueUserActivity(NSUserActivityTypeBrowsingWeb) { userActivity in
+                    guard let incomingURL = userActivity.webpageURL
+                    else {
+                        return
+                    }
+
+                    handleDeepLink(navigationManager, url: incomingURL)
                 }
         }
     }
 
-    private func handleDeepLink(url: URL) {
+    private func handleDeepLink(_ navigationManager: NavigationManager, url: URL) {
         print("Deep link URL: \(url.absoluteString)")
 
         guard let components = URLComponents(url: url, resolvingAgainstBaseURL: true),

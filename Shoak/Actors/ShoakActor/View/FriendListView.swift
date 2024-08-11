@@ -217,7 +217,7 @@ struct FriendListView: View {
                     Button(action: onButtonTapped) {
                         Image(.shoakHandGestureIcon)
                             .opacity(0.8)
-                            .frame(width: 100, height: 51)
+                            .frame(width: 70, height: 70)
                             .background(Color.shoakNavy)
                             .clipShapeBorder(Circle(), Color.strokeWhite, 1)
                     }
