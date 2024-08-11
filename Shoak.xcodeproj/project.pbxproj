@@ -218,6 +218,7 @@
 		6FD978E02C67EB9000787EA7 /* Secret.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6FD978DF2C67EB9000787EA7 /* Secret.plist */; };
 		6FD978E12C67EB9000787EA7 /* Secret.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6FD978DF2C67EB9000787EA7 /* Secret.plist */; };
 		6FD978E22C67EB9000787EA7 /* Secret.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6FD978DF2C67EB9000787EA7 /* Secret.plist */; };
+		6FD978E32C68E81000787EA7 /* Check.json in Resources */ = {isa = PBXBuildFile; fileRef = 6F96CEC72C64AEFB00BF5A9C /* Check.json */; };
 		6FDFDAD52C57E39400A98D7E /* AddTokenPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDFDAD42C57E39400A98D7E /* AddTokenPlugin.swift */; };
 		6FDFDAD62C57E39800A98D7E /* AddTokenPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDFDAD42C57E39400A98D7E /* AddTokenPlugin.swift */; };
 		6FECC4E52C5874D200C8E5D4 /* ShoakUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FECC4E42C5874D200C8E5D4 /* ShoakUITests.swift */; };
@@ -1162,6 +1163,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FD978E32C68E81000787EA7 /* Check.json in Resources */,
 				6F15223B2C67E69E005A9C13 /* Preview Assets.xcassets in Resources */,
 				6F15229B2C67E917005A9C13 /* LogoAnimate.json in Resources */,
 				6FD978E22C67EB9000787EA7 /* Secret.plist in Resources */,
