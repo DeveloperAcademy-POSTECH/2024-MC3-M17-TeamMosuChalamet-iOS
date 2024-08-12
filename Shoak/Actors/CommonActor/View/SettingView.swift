@@ -9,11 +9,9 @@ struct SettingView: View {
         VStack(spacing: 0) {
             ZStack(alignment: .center) {
                 HStack {
-                    BackButton {
-                        navigationManager.setView(to: .friendList)
-                    }
-                    .frame(maxHeight: 44)
-                    
+                    BackButton()
+                        .frame(maxHeight: 44)
+
                     Spacer()
                 }
                 
@@ -63,7 +61,7 @@ struct SettingView: View {
                 HStack(spacing: 0) {
                     Button {
                         accountManager.logout()
-                        navigationManager.setView(to: .login)
+                        navigationManager.setView(to: .login, saveHistory: false)
                     } label: {
                         Image(systemName: "rectangle.portrait.and.arrow.right")
                             .foregroundStyle(Color.shoakRed)
@@ -105,10 +103,9 @@ struct SettingView: View {
                         primaryButton: .destructive(Text("탈퇴")) {
                             Task {
                                 if case .success = await accountManager.signOut() {
-                                    navigationManager.setView(to: .login)
+                                    navigationManager.setView(to: .login, saveHistory: false)
                                 } else {
                                     print("탈퇴 실패..")
-                                    navigationManager.setView(to: .login)
                                     // TODO: 실패해도 login으로 가는거 빼기
                                 }
                             }
@@ -161,45 +158,47 @@ struct MyProfileView: View {
                 .padding(.vertical, 6)
             
             HStack {
-                if let imageURLString = accountManager.profile?.imageURL,
-                   let imageURL = URL(string: imageURLString) {
-                    AsyncImage(url: imageURL) { image in
-                        image
+                Group {
+                    if let imageURLString = accountManager.profile?.imageURL,
+                       let imageURL = URL(string: imageURLString) {
+                        AsyncImage(url: imageURL) { image in
+                            image
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(width: 80, height: 80)
+                                .clipShapeBorder(RoundedRectangle(cornerRadius: 30), Color.strokeGray, 1.0)
+                                .padding(.leading, 7)
+                        } placeholder: {
+                            ProgressView()
+                                .frame(width: 80, height: 80)
+                                .background(Color(red: 0.85, green: 0.85, blue: 0.85))
+                                .cornerRadius(30)
+                                .padding(.leading, 7)
+                        }
+                    } else {
+                        Image(.defaultProfile)
                             .resizable()
-                            .aspectRatio(contentMode: .fill)
                             .frame(width: 80, height: 80)
                             .clipShapeBorder(RoundedRectangle(cornerRadius: 30), Color.strokeGray, 1.0)
                             .padding(.leading, 7)
-                    } placeholder: {
-                        ProgressView()
-                            .frame(width: 80, height: 80)
-                            .background(Color(red: 0.85, green: 0.85, blue: 0.85))
-                            .cornerRadius(30)
-                            .padding(.leading, 7)
                     }
-                    .overlay(alignment: .bottomTrailing) {
-                        Button {
-                            navigationManager.setView(to: .editProfile)
-                        } label: {
-                            Image(systemName: "photo.fill")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 20, height: 20)
-                        }
-                        .padding(4)
-                        .background(Color.bgGray)
-                        .clipShapeBorder(Circle(), Color.strokeBlack, 1)
-                        .shadow(radius: 4)
-                        .buttonStyle(.plain)
-                    }
-                } else {
-                    Image(.defaultProfile)
-                        .resizable()
-                        .frame(width: 80, height: 80)
-                        .clipShapeBorder(RoundedRectangle(cornerRadius: 30), Color.strokeGray, 1.0)
-                        .padding(.leading, 7)
                 }
-                
+                .overlay(alignment: .bottomTrailing) {
+                    Button {
+                        navigationManager.setView(to: .editProfile)
+                    } label: {
+                        Image(systemName: "photo.fill")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 20, height: 20)
+                    }
+                    .padding(4)
+                    .background(Color.bgGray)
+                    .clipShapeBorder(Circle(), Color.strokeBlack, 1)
+                    .shadow(radius: 4)
+                    .buttonStyle(.plain)
+                }
+
                 Text(accountManager.profile?.name ?? "쇽")
                     .font(.textTitle)
                     .foregroundStyle(Color.textBlack)

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct OnboardingView: View {
     @Environment(NavigationManager.self) private var navigationManager
-    @State private var currentPage: ContinuousView = .addShortcut
+    @State private var currentPage: ContinuousView = .profile
 
     var body: some View {
         VStack(spacing: 0) {
@@ -26,7 +26,7 @@ struct OnboardingView: View {
         @Binding var currentPage: ContinuousView
         var body: some View {
             HStack {
-                if currentPage != .addShortcut {
+                if currentPage != .profile {
                     BackButton {
                         withAnimation {
                             self.currentPage = self.currentPage.prev()
@@ -87,7 +87,7 @@ extension OnboardingView {
     var currentAction: () async -> Void {
         switch currentPage {
         case .finish:
-            { await navigationManager.setView(to: .friendList) }
+            { await navigationManager.setView(to: .friendList, saveHistory: false) }
         default:
             { currentPage = currentPage.next() }
         }
@@ -97,6 +97,7 @@ extension OnboardingView {
 // MARK: - Define Continuous View
 extension OnboardingView {
     enum ContinuousView: View, CaseIterable {
+        case profile
         case addShortcut
         case turnOnWatchApp
         case configureAccessibility
@@ -109,6 +110,8 @@ extension OnboardingView {
 
         var body: some View {
             switch self {
+            case .profile:
+                OnboardingProfileView()
             case .addShortcut:
                 AddShortcutView()
             case .turnOnWatchApp:
@@ -140,6 +143,20 @@ extension OnboardingView {
 }
 
 // MARK: - Views for Onboarding
+private struct OnboardingProfileView: View {
+    var body: some View {
+        VStack {
+            Spacer()
+            Text("다음 프로필로 시작합니다")
+                .font(.textListTitle)
+                .foregroundStyle(Color.textBlack)
+                .multilineTextAlignment(.center)
+                .padding(.bottom, 35)
+            MyProfileView()
+            Spacer()
+        }
+    }
+}
 
 import AppIntents
 private struct AddShortcutView: View {

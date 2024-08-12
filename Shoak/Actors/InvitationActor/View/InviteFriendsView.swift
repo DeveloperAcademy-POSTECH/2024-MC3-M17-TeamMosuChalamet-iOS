@@ -44,10 +44,8 @@ struct InviteFriendsView: View {
         var body: some View {
             ZStack(alignment: .center) {
                 HStack {
-                    BackButton {
-                        navigationManager.setView(to: .friendList)
-                    }
-                    .frame(maxHeight: 44)
+                    BackButton()
+                        .frame(maxHeight: 44)
 
                     Spacer()
                 }

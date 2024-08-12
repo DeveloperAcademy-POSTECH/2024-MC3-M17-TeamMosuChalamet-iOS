@@ -8,10 +8,18 @@
 import SwiftUI
 
 struct BackButton: View {
-    let buttonAction: () -> Void
+    @Environment(NavigationManager.self) private var navigationManager
+    let buttonAction: (() -> Void)?
+    init(buttonAction: (() -> Void)? = nil) {
+        self.buttonAction = buttonAction
+    }
     var body: some View {
         Button {
-            buttonAction()
+            if let buttonAction {
+                buttonAction()
+            } else {
+                self.navigationManager.setPrevView()
+            }
         } label: {
             Image(systemName: "chevron.left")
                 .resizable()
