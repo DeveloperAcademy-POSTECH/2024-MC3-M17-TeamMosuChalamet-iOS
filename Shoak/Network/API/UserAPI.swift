@@ -14,6 +14,7 @@ enum UserAPI {
     case uploadProfileImage(data: Data)
     case deleteFriend(memberID: TMMemberIDDTO)
     case signOut
+    case changeName(name: TMNameDTO)
 }
 
 extension UserAPI: NeedAccessTokenTargetType {
@@ -27,6 +28,8 @@ extension UserAPI: NeedAccessTokenTargetType {
             "/api/profile"
         case .uploadProfileImage:
             "/api/profile/image"
+        case .changeName:
+            "/api/profile/name"
         case .getFriends, .deleteFriend:
             "/api/friend"
         case .signOut:
@@ -36,12 +39,10 @@ extension UserAPI: NeedAccessTokenTargetType {
 
     var contentType: ContentType {
         switch self {
-        case .getProfile, .getFriends:
+        case .getProfile, .getFriends, .deleteFriend, .changeName:
             .json
         case .uploadProfileImage:
             .formData
-        case .deleteFriend:
-            .json
         case .signOut:
             .none
         }
@@ -51,7 +52,7 @@ extension UserAPI: NeedAccessTokenTargetType {
         switch self {
         case .getProfile, .getFriends:
             return .get
-        case .uploadProfileImage:
+        case .uploadProfileImage, .changeName:
             return .patch
         case .deleteFriend:
             return .delete
@@ -98,7 +99,7 @@ extension UserAPI: NeedAccessTokenTargetType {
                 }
                 """.utf8
             )
-        case .deleteFriend, .signOut:
+        case .deleteFriend, .signOut, .changeName:
             return Data("".utf8)
         }
     }
@@ -115,6 +116,8 @@ extension UserAPI: NeedAccessTokenTargetType {
             return .uploadMultipart(multipartData)
         case .deleteFriend(let tmMemberIDDTO):
             return .requestJSONEncodable(tmMemberIDDTO)
+        case .changeName(let tmNameDTO):
+            return .requestJSONEncodable(tmNameDTO)
         }
     }
 }

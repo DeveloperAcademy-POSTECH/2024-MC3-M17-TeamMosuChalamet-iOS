@@ -219,6 +219,9 @@
 		6FD978E12C67EB9000787EA7 /* Secret.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6FD978DF2C67EB9000787EA7 /* Secret.plist */; };
 		6FD978E22C67EB9000787EA7 /* Secret.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6FD978DF2C67EB9000787EA7 /* Secret.plist */; };
 		6FD978E32C68E81000787EA7 /* Check.json in Resources */ = {isa = PBXBuildFile; fileRef = 6F96CEC72C64AEFB00BF5A9C /* Check.json */; };
+		6FD978E52C69961000787EA7 /* TMNameDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD978E42C69961000787EA7 /* TMNameDTO.swift */; };
+		6FD978E62C69961000787EA7 /* TMNameDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD978E42C69961000787EA7 /* TMNameDTO.swift */; };
+		6FD978E72C69971E00787EA7 /* TMNameDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD978E42C69961000787EA7 /* TMNameDTO.swift */; };
 		6FDFDAD52C57E39400A98D7E /* AddTokenPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDFDAD42C57E39400A98D7E /* AddTokenPlugin.swift */; };
 		6FDFDAD62C57E39800A98D7E /* AddTokenPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDFDAD42C57E39400A98D7E /* AddTokenPlugin.swift */; };
 		6FECC4E52C5874D200C8E5D4 /* ShoakUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FECC4E42C5874D200C8E5D4 /* ShoakUITests.swift */; };
@@ -427,6 +430,7 @@
 		6FC0D5162C5A1BF8005BD525 /* ShoakAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoakAPI.swift; sourceTree = "<group>"; };
 		6FC0D51C2C5A1D52005BD525 /* ShoakRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoakRepository.swift; sourceTree = "<group>"; };
 		6FD978DF2C67EB9000787EA7 /* Secret.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Secret.plist; sourceTree = "<group>"; };
+		6FD978E42C69961000787EA7 /* TMNameDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMNameDTO.swift; sourceTree = "<group>"; };
 		6FDFDAD42C57E39400A98D7E /* AddTokenPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTokenPlugin.swift; sourceTree = "<group>"; };
 		6FECC4E22C5874D200C8E5D4 /* ShoakUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShoakUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FECC4E42C5874D200C8E5D4 /* ShoakUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoakUITests.swift; sourceTree = "<group>"; };
@@ -797,6 +801,7 @@
 				6FA442AE2C591A1A00E3E69E /* TMUserCredentialVO.swift */,
 				6FC0D50A2C59E62D005BD525 /* TMTokenRefreshRequestDTO.swift */,
 				6F8602EE2C61C6FD004F417C /* TMDeviceTokenDTO.swift */,
+				6FD978E42C69961000787EA7 /* TMNameDTO.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -1290,6 +1295,7 @@
 				6F1522712C67E806005A9C13 /* UserAPI.swift in Sources */,
 				6F1522722C67E806005A9C13 /* TokenRefreshAPI.swift in Sources */,
 				6F1522912C67E8CA005A9C13 /* FontManager.swift in Sources */,
+				6FD978E62C69961000787EA7 /* TMNameDTO.swift in Sources */,
 				6F1522922C67E8CA005A9C13 /* ColorManager.swift in Sources */,
 				6F1522732C67E806005A9C13 /* InvitationAPI.swift in Sources */,
 				6F1522742C67E806005A9C13 /* AuthAPI.swift in Sources */,
@@ -1374,6 +1380,7 @@
 				6F4779AC2C611CB20028C1D7 /* Int64+.swift in Sources */,
 				6FBEED432C5B5F1C00431B7F /* WatchConnectivityManager.swift in Sources */,
 				6FC0A17E2C563A02004560E3 /* TokenStorage.swift in Sources */,
+				6FD978E52C69961000787EA7 /* TMNameDTO.swift in Sources */,
 				1E2168382C5689BF007463D0 /* MessageComposeView.swift in Sources */,
 				6FF9B7B52C52211A00FC0CB2 /* RootView.swift in Sources */,
 				6F4779A92C6114E50028C1D7 /* AcceptInvitationView.swift in Sources */,
@@ -1438,6 +1445,7 @@
 				6FC0A1552C5526EE004560E3 /* MoyaProvider+.swift in Sources */,
 				6FC0A1592C552D86004560E3 /* UserUseCase.swift in Sources */,
 				6FC0A1B32C57DE6B004560E3 /* LoggerPlugin.swift in Sources */,
+				6FD978E72C69971E00787EA7 /* TMNameDTO.swift in Sources */,
 				6F8602FB2C6258DD004F417C /* TokenUseCase.swift in Sources */,
 				6FC0A1A92C57CE87004560E3 /* Array+subscript.swift in Sources */,
 				6FF9B7CC2C52380200FC0CB2 /* ShoakDataManager.swift in Sources */,

@@ -67,6 +67,11 @@ class AccountManager: @unchecked Sendable {
         tokenUseCase.deleteAllTokensWithoutDeviceToken()
         return response
     }
+
+    public func changeName(_ name: String) async -> Result<Void, NetworkError> {
+        let response = await userUseCase.changeName(name)
+        return response
+    }
 }
 
 extension AccountManager {
