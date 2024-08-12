@@ -28,9 +28,7 @@ class AccountManager: @unchecked Sendable {
     public func loginOrSignUp(credential: TMUserCredentialVO) async -> Bool {
         tokenUseCase.save(identityToken: credential.token)
 #if os(iOS)
-        if tokenUseCase.getDeviceToken() == nil {
-            await UIApplication.shared.registerForRemoteNotifications()
-        }
+        await UIApplication.shared.registerForRemoteNotifications()
 #endif
         let result = await authUseCase.loginOrSignUp(credential: credential)
 
@@ -38,7 +36,6 @@ class AccountManager: @unchecked Sendable {
             return true
         }
 
-        tokenUseCase.deleteAllTokensWithoutDeviceToken()
         return false
     }
     
@@ -71,7 +68,10 @@ class AccountManager: @unchecked Sendable {
 
     public func signOut() async -> Result<Void, NetworkError> {
         let response = await userUseCase.signOut()
-        tokenUseCase.deleteAllTokensWithoutDeviceToken()
+        tokenUseCase.deleteAllTokens()
+#if os(iOS)
+        await UIApplication.shared.unregisterForRemoteNotifications()
+#endif
         return response
     }
 
