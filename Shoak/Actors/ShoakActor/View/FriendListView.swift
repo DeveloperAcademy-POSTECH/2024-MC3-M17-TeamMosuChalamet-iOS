@@ -101,7 +101,8 @@ struct FriendListView: View {
                         self.property = .default
                     }
                 }
-                if property == .default {
+                switch self.property {
+                case .default:
                     property = .confirm
                     if let cancellableItem {
                         DispatchQueue.main
@@ -110,9 +111,13 @@ struct FriendListView: View {
                                 execute: cancellableItem
                             )
                     }
-                } else {
+                case .confirm:
                     property = .default
                     cancellableItem?.cancel()
+                case .delete:
+                    self.isPresentingDeleteFriendAlert = true
+                default:
+                    break
                 }
             } label: {
                 HStack(spacing: 0) {

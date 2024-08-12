@@ -13,10 +13,14 @@ struct AcceptInvitationView: View {
     @Environment(ShoakDataManager.self) private var shoakDataManager
 
     @State private var isLoading = false
+    @State private var invitationFailed: String? = nil
 
     var body: some View {
         VStack(spacing: 32) {
             Text("초대를 수락하시겠습니까?")
+            if let invitationFailed {
+                Text("초대 수락에 실패했습니다. : \(invitationFailed)")
+            }
             Button {
                 isLoading = true
                 Task {
@@ -29,6 +33,9 @@ struct AcceptInvitationView: View {
                             navigationManager.invitation = nil
                         case .failure(let error):
                             print("에러.. : \(error)")
+                            withAnimation {
+                                self.invitationFailed = error.localizedDescription
+                            }
                         }
                     }
                     isLoading = false
