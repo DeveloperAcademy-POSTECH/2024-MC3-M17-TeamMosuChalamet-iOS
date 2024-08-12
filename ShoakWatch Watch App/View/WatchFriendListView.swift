@@ -71,8 +71,7 @@ struct WatchFriendListView: View {
                     }
                 }
             }) {
-
-                HStack(spacing: 0) {
+                HStack(spacing: 8) {
                     switch isTapped {
                     case .none:
                         if friend.imageURLString != nil {
@@ -106,16 +105,12 @@ struct WatchFriendListView: View {
                             .frame(width: 50, height: 50)
                     }
 
-                    Spacer()
-                        .frame(width: 24)
-
                     Text("\(friend.name)")
                         .font(.textListTitle)
                         .foregroundColor(isTapped == .completed ? Color.textWhite : Color.textBlack)
                     Spacer()
                 }
-                .frame(width: 174, height: 82)
-                .padding()
+                .frame(height: 82)
             }
             .listRowBackground(
                 RoundedRectangle(cornerRadius: 20)

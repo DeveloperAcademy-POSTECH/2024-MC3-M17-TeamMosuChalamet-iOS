@@ -85,8 +85,8 @@ struct FriendListView: View {
         var friend: TMFriendVO
         
         @State private var property: Properties = .default
-
         @State private var isPresentingDeleteFriendAlert = false
+        @State private var cancellableItem: DispatchWorkItem?
 
         init(friend: TMFriendVO, property: Properties = .default) {
             self.friend = friend
@@ -95,13 +95,27 @@ struct FriendListView: View {
         
         var body: some View {
             Button {
-                switch property {
+                cancellableItem?.cancel()
+                self.cancellableItem = DispatchWorkItem {
+                    if self.property == .confirm {
+                        self.property = .default
+                    }
+                }
+                switch self.property {
                 case .default:
-                    self.property = .confirm
+                    property = .confirm
+                    if let cancellableItem {
+                        DispatchQueue.main
+                            .asyncAfter(
+                                deadline: .now() + 4.5,
+                                execute: cancellableItem
+                            )
+                    }
                 case .confirm:
-                    self.property = .default
+                    property = .default
+                    cancellableItem?.cancel()
                 case .delete:
-                    isPresentingDeleteFriendAlert = true
+                    self.isPresentingDeleteFriendAlert = true
                 default:
                     break
                 }
@@ -154,6 +168,7 @@ struct FriendListView: View {
                 .clipShapeBorder(RoundedRectangle(cornerRadius: 12), Color.strokeBlack, 1.0)
             }
             .buttonStyle(ShrinkingButtonStyle())
+            .transition(.identity)
             .animation(.default, value: self.property)
             .alert(
                 "친구를 삭제하시겠습니까?",
@@ -174,18 +189,19 @@ struct FriendListView: View {
         
         private func sendShoak() {
             Task {
+                property = .loading
                 let result = await shoakDataManager.sendShoak(to: friend.memberID)
                 switch result {
                 case .success:
                     HapticManager.shared.playSuccessHaptic()
                     property = .complete
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                         property = .default
                     }
                 case .failure:
                     HapticManager.shared.playFailureHaptic()
                     property = .failed
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                         property = .default
                     }
                 }
@@ -195,6 +211,7 @@ struct FriendListView: View {
         enum Properties {
             case `default`
             case confirm
+            case loading
             case complete
             case failed
             case delete
@@ -222,6 +239,8 @@ struct FriendListView: View {
                             .clipShapeBorder(Circle(), Color.strokeWhite, 1)
                     }
                     .buttonStyle(ShrinkingButtonStyle())
+                case .loading:
+                    ProgressView()
                 case .complete:
                     LottieView(animation: .named("Check"))
                         .playing()

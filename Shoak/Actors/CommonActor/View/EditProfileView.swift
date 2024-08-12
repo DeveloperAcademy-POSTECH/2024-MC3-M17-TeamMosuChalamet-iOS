@@ -8,9 +8,15 @@
 import SwiftUI
 import Photos
 
-struct IdentifiableImage: Identifiable {
+struct IdentifiableImage: Identifiable, Equatable {
     let id = UUID()
-    let image: UIImage
+    var image: UIImage
+    var asset: PHAsset // PHAsset을 포함시켜서 나중에 고품질 이미지를 요청할 때 사용
+
+    // Equatable 프로토콜 구현 (이미지 비교를 위해)
+    static func == (lhs: IdentifiableImage, rhs: IdentifiableImage) -> Bool {
+        return lhs.id == rhs.id
+    }
 }
 
 struct EditProfileView: View {
@@ -66,6 +72,15 @@ struct EditProfileView: View {
                                         .frame(width: imageSize, height: imageSize)
                                         .clipped()
                                 }
+                                .task {
+                                    if let image = await photoManager.fetchHighQualityImage(for: identifiableImage),
+                                       let index = self.photoManager.images.firstIndex(where: { $0.id == identifiableImage.id }) {
+                                        print("index : \(index)")
+                                        DispatchQueue.main.async {
+                                            self.photoManager.images[index].image = image
+                                        }
+                                    }
+                                }
                             }
                         }
                         .padding(.horizontal, sidePadding)
@@ -91,7 +106,7 @@ struct EditProfileView: View {
                                 alertMessage = "프로필 이미지 업데이트 실패: \(error.localizedDescription)"
                             }
                             selectedImage = nil
-                            navigationManager.setView(to: .settings, saveHistory: false)
+                            navigationManager.setPrevView()
                         }
                     }
                 )
@@ -110,7 +125,7 @@ struct EditProfileView: View {
                 PHPhotoLibrary.requestAuthorization { newStatus in
                     if newStatus == .authorized {
                         Task {
-                            await photoManager.fetchPhotos()
+                            await photoManager.fetchPhotosFastFormat()
                         }
                     }
                     continuation.resume()
@@ -120,7 +135,7 @@ struct EditProfileView: View {
             print("권한이 없습니다.")
         case .authorized, .limited:
             Task {
-                await photoManager.fetchPhotos()
+                await photoManager.fetchPhotosFastFormat()
             }
         @unknown default:
             fatalError("알 수 없는 권한 상태입니다.")
@@ -199,34 +214,59 @@ struct PhotoDetailView: View {
 class PhotoManager: ObservableObject {
     @Published var images: [IdentifiableImage] = []
     
-    func fetchPhotos() async {
+    func fetchPhotosFastFormat() async {
         let fetchOptions = PHFetchOptions()
         fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
-        
+
         let fetchResult: PHFetchResult = PHAsset.fetchAssets(with: .image, options: fetchOptions)
         let imageManager = PHImageManager.default()
         let requestOptions = PHImageRequestOptions()
         requestOptions.isSynchronous = false
-        requestOptions.deliveryMode = .highQualityFormat
+        requestOptions.deliveryMode = .fastFormat // 빠른 포맷으로 이미지 요청
         requestOptions.resizeMode = .exact
-        
+
         await withCheckedContinuation { continuation in
             let group = DispatchGroup()
             for index in 0..<fetchResult.count {
                 group.enter()
                 let asset = fetchResult.object(at: index)
                 let targetSize = CGSize(width: 500, height: 500)
+
                 imageManager.requestImage(for: asset, targetSize: targetSize, contentMode: .aspectFill, options: requestOptions) { image, _ in
                     if let image = image {
                         DispatchQueue.main.async {
-                            self.images.append(IdentifiableImage(image: image))
+                            self.images.append(IdentifiableImage(image: image, asset: asset))
                             group.leave()
                         }
+                    } else {
+                        group.leave()
                     }
                 }
             }
             group.notify(queue: .main) {
                 continuation.resume()
+            }
+        }
+    }
+
+    func fetchHighQualityImage(for identifiableImage: IdentifiableImage) async -> UIImage? {
+        let asset = identifiableImage.asset
+        let imageManager = PHImageManager.default()
+        let targetSize = CGSize(width: 500, height: 500)
+        let requestOptions = PHImageRequestOptions()
+        requestOptions.isSynchronous = false
+        requestOptions.deliveryMode = .highQualityFormat // 고품질 포맷으로 이미지 요청
+        requestOptions.resizeMode = .exact
+
+        return await withCheckedContinuation { continuation in
+            imageManager.requestImage(for: asset, targetSize: targetSize, contentMode: .aspectFill, options: requestOptions) { image, _ in
+                if let image {
+                    continuation.resume(returning: image)
+                    return
+                } else {
+                    continuation.resume(returning: nil)
+                    return
+                }
             }
         }
     }
