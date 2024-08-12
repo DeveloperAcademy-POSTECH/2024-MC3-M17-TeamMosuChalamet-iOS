@@ -12,6 +12,7 @@ import SwiftUI
 class NavigationManager {
     var namespace: Namespace.ID
     var view: SwitchableView
+    var visitHistory: [SwitchableView] = []
 
     var invitation: TMMemberID?
 
@@ -20,13 +21,25 @@ class NavigationManager {
         self.namespace = namespace
     }
 
-    public func nextPhase() {
-        self.view = self.view.next()
-    }
-
-    public func setView(to view: SwitchableView, with animation: Animation = .default) {
+    public func setView(to view: SwitchableView, with animation: Animation = .default, saveHistory: Bool = true) {
+        if saveHistory {
+            visitHistory.append(self.view)
+        }
         withAnimation(animation) {
             self.view = view
+        }
+    }
+
+    public func clearHistory() {
+        self.visitHistory = []
+    }
+
+    public func setPrevView(with animation: Animation = .default) {
+        withAnimation(animation) {
+            if let lastVisitedView = 
+                self.visitHistory.popLast() {
+                self.view = lastVisitedView
+            }
         }
     }
 }

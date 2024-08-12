@@ -39,6 +39,9 @@ class ShoakDataManager: @unchecked Sendable {
             }
         case .failure(let failure):
             print("fail! : \(failure)")
+            DispatchQueue.main.async {
+                self.friends = []
+            }
         }
     }
 

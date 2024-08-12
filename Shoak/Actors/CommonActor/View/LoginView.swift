@@ -33,9 +33,9 @@ struct LoginView: View {
                         let result = await accountManager.loginOrSignUp(credential: credential)
                         if result {
 #if APPCLIP
-                            navigationManager.setView(to: .friendList)
+                            navigationManager.setView(to: .friendList, saveHistory: false)
 #else
-                            navigationManager.setView(to: .onboarding)
+                            navigationManager.setView(to: .onboarding, saveHistory: false)
 #endif
                         }
                     }
@@ -49,7 +49,7 @@ struct LoginView: View {
         .padding()
         .onAppear {
             if accountManager.isLoggedIn() {
-                navigationManager.setView(to: .friendList)
+                navigationManager.setView(to: .friendList, saveHistory: false)
             }
         }
     }

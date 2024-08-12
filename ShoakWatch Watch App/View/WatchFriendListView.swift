@@ -9,13 +9,23 @@ struct WatchFriendListView: View {
     @Environment(NavigationManager.self) private var navigationManager
 
     var body: some View {
-        Group {
-            if shoakDataManager.isLoading {
+        List {
+            Button {
+                shoakDataManager.refreshFriends()
+            } label: {
+                Label("새로 고침", systemImage: "arrow.counterclockwise")
+            }
+            .buttonStyle(.borderedProminent)
+
+
+            if !shoakDataManager.isLoading && shoakDataManager.friends.isEmpty {
+                Text("휴대폰에서 다시 로그인 해주세요")
+            } else if shoakDataManager.isLoading {
                 ProgressView()
             } else if shoakDataManager.friends.isEmpty {
-                Text("휴대폰으로 다시 로그인 해주세요.")
+                Text("휴대폰에서 친구를 추가해주세요")
             } else {
-                List(shoakDataManager.friends, id: \.memberID) { friend in
+                ForEach(shoakDataManager.friends, id: \.memberID) { friend in
                     FriendButton(friend: friend)
                 }
             }

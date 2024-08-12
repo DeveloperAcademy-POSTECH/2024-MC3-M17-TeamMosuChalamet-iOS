@@ -29,11 +29,9 @@ struct EditProfileView: View {
             VStack(spacing: 0) {
                 ZStack(alignment: .center) {
                     HStack {
-                        BackButton {
-                            navigationManager.setView(to: .settings)
-                        }
-                        .frame(maxHeight: 44)
-                        
+                        BackButton()
+                            .frame(maxHeight: 44)
+
                         Spacer()
                     }
                     
@@ -93,7 +91,7 @@ struct EditProfileView: View {
                                 alertMessage = "프로필 이미지 업데이트 실패: \(error.localizedDescription)"
                             }
                             selectedImage = nil
-                            navigationManager.setView(to: .settings)
+                            navigationManager.setView(to: .settings, saveHistory: false)
                         }
                     }
                 )

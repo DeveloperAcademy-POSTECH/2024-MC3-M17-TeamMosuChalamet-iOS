@@ -24,10 +24,8 @@ struct DeleteFriendView: View {
         var body: some View {
             ZStack(alignment: .center) {
                 HStack {
-                    BackButton {
-                        navigationManager.setView(to: .settings)
-                    }
-                    .frame(maxHeight: 44)
+                    BackButton()
+                        .frame(maxHeight: 44)
                     
                     Spacer()
                 }
