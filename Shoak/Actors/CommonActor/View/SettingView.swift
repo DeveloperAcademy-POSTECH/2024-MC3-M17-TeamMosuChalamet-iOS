@@ -127,10 +127,10 @@ struct SettingView: View {
             
             Spacer()
         }
+        .padding(.horizontal, 16)
         .onAppear() {
             accountManager.refreshProfile()
         }
-        .padding(.horizontal, 16)
     }
 }
 
@@ -140,6 +140,8 @@ struct MyProfileView: View {
     @Environment(AccountManager.self) private var accountManager
 
     var isShowEditProfileButton: Bool = true
+    @State private var isShowChangeNameAlert = false
+    @State private var name = ""
 
     var body: some View {
         VStack(spacing: 0) {
@@ -175,6 +177,21 @@ struct MyProfileView: View {
                             .cornerRadius(30)
                             .padding(.leading, 7)
                     }
+                    .overlay(alignment: .bottomTrailing) {
+                        Button {
+                            navigationManager.setView(to: .editProfile)
+                        } label: {
+                            Image(systemName: "photo.fill")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 20, height: 20)
+                        }
+                        .padding(4)
+                        .background(Color.bgGray)
+                        .clipShapeBorder(Circle(), Color.strokeBlack, 1)
+                        .shadow(radius: 4)
+                        .buttonStyle(.plain)
+                    }
                 } else {
                     Image(.defaultProfile)
                         .resizable()
@@ -187,21 +204,24 @@ struct MyProfileView: View {
                     .font(.textTitle)
                     .foregroundStyle(Color.textBlack)
                     .padding(.leading, 21)
-                
+                    .onTapGesture {
+                        self.name = accountManager.profile?.name ?? ""
+                        self.isShowChangeNameAlert.toggle()
+                    }
+
                 Spacer()
             }
             .padding(7)
 
             if isShowEditProfileButton {
-                
                 Button {
-                    print("asdf")
-                    navigationManager.setView(to: .editProfile)
+                    self.name = accountManager.profile?.name ?? ""
+                    self.isShowChangeNameAlert.toggle()
                 } label: {
                     HStack(alignment: .center, spacing: 10) {
                         styledIcon(named: "pencil.line")
-                        
-                        Text("수정하기")
+
+                        Text("이름 수정하기")
                             .font(.textButton)
                     }
                 }
@@ -216,6 +236,20 @@ struct MyProfileView: View {
             RoundedRectangle(cornerRadius: 17)
                 .strokeBorder(Color.strokeBlack, lineWidth: 1)
         )
+        .alert("이름 수정", isPresented: $isShowChangeNameAlert) {
+            TextField((accountManager.profile?.name ?? "") + "(최대 8글자)", text: $name)
+            Button("취소", role: .cancel) {}
+            Button("이름 바꾸기") {
+                Task {
+                    guard name.count > 8 else { return }
+                    if case .success = await accountManager.changeName(name) {
+                        await accountManager.getProfile()
+                    }
+                }
+            }
+        } message: {
+            Text("수정할 이름을 입력해주세요 (최대 8글자)")
+        }
     }
 }
 

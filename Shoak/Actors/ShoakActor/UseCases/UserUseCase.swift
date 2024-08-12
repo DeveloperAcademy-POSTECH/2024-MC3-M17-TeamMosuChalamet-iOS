@@ -74,6 +74,10 @@ final class UserUseCase {
     func signOut() async -> Result<Void, NetworkError> {
         return await userRepository.signOut()
     }
+
+    func changeName(_ name: String) async -> Result<Void, NetworkError> {
+        return await userRepository.changeName(toDTO(name))
+    }
 }
 
 // MARK: - Translater
@@ -88,5 +92,9 @@ extension UserUseCase {
 
     private func toVO(_ dto: TMProfileDTO) -> TMProfileVO {
         TMProfileVO(id: dto.id, name: dto.name, imageURL: dto.imageURL)
+    }
+
+    private func toDTO(_ vo: String) -> TMNameDTO {
+        TMNameDTO(name: vo)
     }
 }

@@ -64,4 +64,14 @@ final class UserRepository {
             return .failure(.other(failure.localizedDescription))
         }
     }
+
+    func changeName(_ name: TMNameDTO) async -> Result<Void, NetworkError> {
+        let response = await provider.request(.changeName(name: name))
+        switch response {
+        case .success(let success):
+            return NetworkHandler.requestPlain(by: success)
+        case .failure(let failure):
+            return .failure(.other(failure.localizedDescription))
+        }
+    }
 }
