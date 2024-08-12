@@ -240,7 +240,7 @@ struct MyProfileView: View {
             Button("취소", role: .cancel) {}
             Button("이름 바꾸기") {
                 Task {
-                    guard name.count > 8 else { return }
+                    guard name.count <= 8 else { return }
                     if case .success = await accountManager.changeName(name) {
                         await accountManager.getProfile()
                     }
