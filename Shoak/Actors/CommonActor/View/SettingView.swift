@@ -199,7 +199,7 @@ struct MyProfileView: View {
                     .buttonStyle(.plain)
                 }
 
-                Text(accountManager.profile?.name ?? "쇽")
+                Text(accountManager.profile?.name ?? "(이름 없음)")
                     .font(.textTitle)
                     .foregroundStyle(Color.textBlack)
                     .padding(.leading, 21)
@@ -240,7 +240,7 @@ struct MyProfileView: View {
             Button("취소", role: .cancel) {}
             Button("이름 바꾸기") {
                 Task {
-                    guard name.count <= 8 else { return }
+                    guard name.count <= 8 && !name.isEmpty else { return }
                     if case .success = await accountManager.changeName(name) {
                         await accountManager.getProfile()
                     }
@@ -248,6 +248,9 @@ struct MyProfileView: View {
             }
         } message: {
             Text("수정할 이름을 입력해주세요 (최대 8글자)")
+        }
+        .task {
+            await accountManager.getProfile()
         }
     }
 }
