@@ -41,27 +41,40 @@ public extension KeychainTokenRepository {
         self.accessToken = accessToken
         print("save access Token : \(String(describing: accessToken?.token))")
 
-#if os(iOS) && !APPCLIP
-        let watchConnectivity = WatchConnectivityManager.shared
-        watchConnectivity.sendMessage(data: ["Access": accessToken?.token as Any, "Refresh": refreshToken?.token as Any])
-#endif
+        sendDataToWatch()
     }
 
     func save(refreshToken: RefreshToken?) {
         self.refreshToken = refreshToken
         print("save refresh Token : \(String(describing: refreshToken?.token))")
-#if os(iOS) && !APPCLIP
-        let watchConnectivity = WatchConnectivityManager.shared
-        watchConnectivity.sendMessage(data: ["Access": accessToken?.token as Any, "Refresh": refreshToken?.token as Any])
-#endif
+
+        sendDataToWatch()
     }
 
     func save(identityToken: IdentityToken?) {
         self.identityToken = identityToken
+        print("save identity Token : \(String(describing: identityToken?.token))")
+
+        sendDataToWatch()
     }
 
     func save(deviceToken: DeviceToken?) {
         self.deviceToken = deviceToken
+        print("save device Token : \(String(describing: deviceToken?.token))")
+
+        sendDataToWatch()
+    }
+
+    private func sendDataToWatch() {
+#if os(iOS) && !APPCLIP
+        let watchConnectivity = WatchConnectivityManager.shared
+        watchConnectivity.sendMessage(data: [
+            "Access": (accessToken?.token ?? "") as Any,
+            "Refresh": (refreshToken?.token ?? "") as Any,
+            "Identity": (identityToken?.token ?? "") as Any,
+            "Device": (deviceToken?.token ?? "") as Any
+        ])
+#endif
     }
 
     func getAccessToken() -> AccessToken? {

@@ -69,6 +69,12 @@ struct ShoakWatch_Watch_AppApp: App {
                 .environment(shoakDataManager)
                 .environment(navigationManager)
                 .environment(phoneConnectivityManager)
+                .onChange(of: phoneConnectivityManager.needToRefresh) { oldValue, newValue in
+                    if oldValue == false, newValue == true {
+                        self.shoakDataManager.refreshFriends()
+                        self.phoneConnectivityManager.needToRefresh = false
+                    }
+                }
         }
         WKNotificationScene(controller: NotificationController.self, category: "shoakreceive")
     }
