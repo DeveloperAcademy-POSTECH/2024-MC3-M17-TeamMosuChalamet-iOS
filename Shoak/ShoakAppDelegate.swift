@@ -44,7 +44,11 @@ class ShoakAppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCente
         tokenUseCase.save(deviceToken: token)
         if tokenUseCase.isLoggedIn() {
             Task {
-                let _ = await tokenUseCase.refreshDeviceToken(deviceToken: token)
+                if case .failure(let failure) = await tokenUseCase.refreshDeviceToken(deviceToken: token) {
+                    print(failure)
+                    print("refresh device token failed. Delete All Tokens.")
+                    tokenUseCase.deleteAllTokens()
+                }
             }
         }
     }
@@ -53,6 +57,7 @@ class ShoakAppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCente
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         print("register remote notification error:\(error)")
         // Try again later.
+        tokenUseCase.deleteAllTokens()
     }
 
     /// In-App에서도 알람이 오게끔!
