@@ -68,10 +68,12 @@ class AccountManager: @unchecked Sendable {
 
     public func signOut() async -> Result<Void, NetworkError> {
         let response = await userUseCase.signOut()
-        tokenUseCase.deleteAllTokens()
+        if case .success = response {
+            tokenUseCase.deleteAllTokens()
 #if os(iOS)
-        await UIApplication.shared.unregisterForRemoteNotifications()
+            await UIApplication.shared.unregisterForRemoteNotifications()
 #endif
+        }
         return response
     }
 

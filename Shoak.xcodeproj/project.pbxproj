@@ -226,6 +226,12 @@
 		6FDFDAD62C57E39800A98D7E /* AddTokenPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDFDAD42C57E39400A98D7E /* AddTokenPlugin.swift */; };
 		6FECC4E52C5874D200C8E5D4 /* ShoakUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FECC4E42C5874D200C8E5D4 /* ShoakUITests.swift */; };
 		6FECC4E72C5874D200C8E5D4 /* ShoakUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FECC4E62C5874D200C8E5D4 /* ShoakUITestsLaunchTests.swift */; };
+		6FF571792C6F393C007F0548 /* LogoutPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF571782C6F393C007F0548 /* LogoutPlugin.swift */; };
+		6FF5717A2C6F393C007F0548 /* LogoutPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF571782C6F393C007F0548 /* LogoutPlugin.swift */; };
+		6FF5717B2C6F393C007F0548 /* LogoutPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF571782C6F393C007F0548 /* LogoutPlugin.swift */; };
+		6FF5717D2C6F3C83007F0548 /* Notification.Name+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF5717C2C6F3C83007F0548 /* Notification.Name+.swift */; };
+		6FF5717E2C6F3C83007F0548 /* Notification.Name+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF5717C2C6F3C83007F0548 /* Notification.Name+.swift */; };
+		6FF5717F2C6F3C83007F0548 /* Notification.Name+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF5717C2C6F3C83007F0548 /* Notification.Name+.swift */; };
 		6FF9B7742C4F896800FC0CB2 /* ShoakApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B7732C4F896800FC0CB2 /* ShoakApp.swift */; };
 		6FF9B7782C4F896A00FC0CB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6FF9B7772C4F896A00FC0CB2 /* Assets.xcassets */; };
 		6FF9B77B2C4F896A00FC0CB2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6FF9B77A2C4F896A00FC0CB2 /* Preview Assets.xcassets */; };
@@ -435,6 +441,8 @@
 		6FECC4E22C5874D200C8E5D4 /* ShoakUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShoakUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FECC4E42C5874D200C8E5D4 /* ShoakUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoakUITests.swift; sourceTree = "<group>"; };
 		6FECC4E62C5874D200C8E5D4 /* ShoakUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoakUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		6FF571782C6F393C007F0548 /* LogoutPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutPlugin.swift; sourceTree = "<group>"; };
+		6FF5717C2C6F3C83007F0548 /* Notification.Name+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification.Name+.swift"; sourceTree = "<group>"; };
 		6FF9B7702C4F896800FC0CB2 /* Shoak.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shoak.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FF9B7732C4F896800FC0CB2 /* ShoakApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoakApp.swift; sourceTree = "<group>"; };
 		6FF9B7772C4F896A00FC0CB2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -692,6 +700,7 @@
 				6FC0A1AB2C57DBBB004560E3 /* StoreTokenPlugin.swift */,
 				6FC0A1B12C57DE6B004560E3 /* LoggerPlugin.swift */,
 				6FDFDAD42C57E39400A98D7E /* AddTokenPlugin.swift */,
+				6FF571782C6F393C007F0548 /* LogoutPlugin.swift */,
 			);
 			path = MoyaPlugins;
 			sourceTree = "<group>";
@@ -783,6 +792,7 @@
 				6F4779AE2C611D040028C1D7 /* String+Int64.swift */,
 				6F4779AA2C611CB20028C1D7 /* Int64+.swift */,
 				6F96CEC92C64B09C00BF5A9C /* HapticManager.swift */,
+				6FF5717C2C6F3C83007F0548 /* Notification.Name+.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -1256,6 +1266,7 @@
 				6F1522752C67E809005A9C13 /* ShoakRepository.swift in Sources */,
 				6F1522762C67E809005A9C13 /* TokenRefreshRepository.swift in Sources */,
 				6F1522852C67E822005A9C13 /* TMFriendDTO.swift in Sources */,
+				6FF5717F2C6F3C83007F0548 /* Notification.Name+.swift in Sources */,
 				6F1522862C67E822005A9C13 /* Errors.swift in Sources */,
 				6F1522872C67E822005A9C13 /* TMDeviceTokenDTO.swift in Sources */,
 				6F1522882C67E822005A9C13 /* TMProfileDTO.swift in Sources */,
@@ -1284,6 +1295,7 @@
 				6F15225F2C67E7FA005A9C13 /* AuthUseCase.swift in Sources */,
 				6F1522602C67E7FA005A9C13 /* MessageComposeView.swift in Sources */,
 				6F15228F2C67E8BC005A9C13 /* AccountManager.swift in Sources */,
+				6FF5717B2C6F393C007F0548 /* LogoutPlugin.swift in Sources */,
 				6F1522902C67E8BC005A9C13 /* InvitationManager.swift in Sources */,
 				6F1522612C67E7FA005A9C13 /* AppleLoginView.swift in Sources */,
 				6F1522622C67E7FA005A9C13 /* AppleSignInButton.swift in Sources */,
@@ -1345,6 +1357,7 @@
 				6F15224C2C67E75B005A9C13 /* TMMemberIDDTO.swift in Sources */,
 				6F96CECA2C64B0A100BF5A9C /* HapticManager.swift in Sources */,
 				1E236BAB2C5FDF5D009E5730 /* EditProfileView.swift in Sources */,
+				6FF571792C6F393C007F0548 /* LogoutPlugin.swift in Sources */,
 				6FC0A14B2C5520BA004560E3 /* UserRepository.swift in Sources */,
 				6FC0A1822C563A4B004560E3 /* Token.swift in Sources */,
 				6FC0A1512C5524DE004560E3 /* NetworkError.swift in Sources */,
@@ -1380,6 +1393,7 @@
 				6F4779AC2C611CB20028C1D7 /* Int64+.swift in Sources */,
 				6FBEED432C5B5F1C00431B7F /* WatchConnectivityManager.swift in Sources */,
 				6FC0A17E2C563A02004560E3 /* TokenStorage.swift in Sources */,
+				6FF5717D2C6F3C83007F0548 /* Notification.Name+.swift in Sources */,
 				6FD978E52C69961000787EA7 /* TMNameDTO.swift in Sources */,
 				1E2168382C5689BF007463D0 /* MessageComposeView.swift in Sources */,
 				6FF9B7B52C52211A00FC0CB2 /* RootView.swift in Sources */,
@@ -1444,12 +1458,14 @@
 				6FC0A1952C56984F004560E3 /* TokenRefreshAPI.swift in Sources */,
 				6FC0A1552C5526EE004560E3 /* MoyaProvider+.swift in Sources */,
 				6FC0A1592C552D86004560E3 /* UserUseCase.swift in Sources */,
+				6FF5717E2C6F3C83007F0548 /* Notification.Name+.swift in Sources */,
 				6FC0A1B32C57DE6B004560E3 /* LoggerPlugin.swift in Sources */,
 				6FD978E72C69971E00787EA7 /* TMNameDTO.swift in Sources */,
 				6F8602FB2C6258DD004F417C /* TokenUseCase.swift in Sources */,
 				6FC0A1A92C57CE87004560E3 /* Array+subscript.swift in Sources */,
 				6FF9B7CC2C52380200FC0CB2 /* ShoakDataManager.swift in Sources */,
 				6FC0A1A42C57C4F4004560E3 /* AuthRepository.swift in Sources */,
+				6FF5717A2C6F393C007F0548 /* LogoutPlugin.swift in Sources */,
 				6FC0A1832C563A4B004560E3 /* Token.swift in Sources */,
 				B86EA6A02C5FA3EA002720BA /* FontManager.swift in Sources */,
 				6F15224D2C67E75B005A9C13 /* TMMemberIDDTO.swift in Sources */,

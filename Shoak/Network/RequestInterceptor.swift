@@ -30,7 +30,7 @@ extension DefaultRequestInterceptor {
     public func retry(_ request: Request, for session: Session, dueTo error: any Error, completion: @escaping (RetryResult) -> Void) {
         print("🥸🥸🥸🥸 Request Interceptor Retry")
         guard let response = request.task?.response as? HTTPURLResponse,
-              (response.statusCode == 401 || response.statusCode == 403)
+              response.statusCode == 401
         else {
             print("🥸🥸🥸🥸 Do Not Retry With Error: \(error.localizedDescription)")
             completion(.doNotRetryWithError(error))

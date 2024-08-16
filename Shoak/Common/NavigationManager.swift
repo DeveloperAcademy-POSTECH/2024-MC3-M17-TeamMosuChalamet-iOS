@@ -19,6 +19,13 @@ class NavigationManager {
     public init(namespace: Namespace.ID) {
         self.view = .login
         self.namespace = namespace
+
+        NotificationCenter.default.addObserver(forName: .toLoginView, object: nil, queue: nil) { _ in
+            print("Navigation to login view!!")
+            DispatchQueue.main.async {
+                self.view = .login
+            }
+        }
     }
 
     public func setView(to view: SwitchableView, with animation: Animation = .default, saveHistory: Bool = true) {
