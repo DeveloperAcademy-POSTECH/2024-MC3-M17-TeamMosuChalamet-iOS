@@ -19,6 +19,7 @@ final class DefaultTokenRefreshRepository: TokenRefreshRepository {
     init(tokenRepository: TokenRepository) {
         provider = MoyaProvider<TokenRefreshAPI>(plugins: [
             AddTokenPlugin(tokenRepository: tokenRepository),
+            StoreTokenPlugin(tokenRepository: tokenRepository),
             LoggerPlugin(),
             NetworkLoggerPlugin()
         ])
