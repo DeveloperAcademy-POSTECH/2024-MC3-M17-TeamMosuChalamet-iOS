@@ -30,7 +30,7 @@ class ShoakAppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCente
 
             // Enable or disable features based on the authorization.
         }
-        UIApplication.shared.registerForRemoteNotifications()
+        application.registerForRemoteNotifications()
 
         return true
     }

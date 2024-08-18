@@ -1,9 +1,11 @@
 import SwiftUI
 import Lottie
+import StoreKit
 
 struct FriendListView: View {
     @Environment(ShoakDataManager.self) private var shoakDataManager
     @Environment(NavigationManager.self) private var navigationManager
+    @State private var showAppStoreOverlay = false
     var body: some View {
         @Bindable var navigationManager = navigationManager
         VStack {
@@ -12,9 +14,13 @@ struct FriendListView: View {
         }
         .onAppear {
             shoakDataManager.refreshFriends()
+            showAppStoreOverlay = true
         }
         .sheet(item: $navigationManager.invitation) { invitation in
             AcceptInvitationView()
+        }
+        .appStoreOverlay(isPresented: $showAppStoreOverlay) {
+            SKOverlay.AppClipConfiguration(position: .bottom)
         }
     }
     
