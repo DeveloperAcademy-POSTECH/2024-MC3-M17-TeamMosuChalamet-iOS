@@ -49,7 +49,8 @@ public final class DefaultAPIClient: APIClient, @unchecked Sendable {
 //            TokenRefreshPlugin(tokenManager: tokenManager),
             StoreTokenPlugin(tokenRepository: tokenRepository),
             NetworkLoggerPlugin(),
-            LoggerPlugin()
+            LoggerPlugin(),
+            LogoutPlugin(tokenRepository: tokenRepository)
         ])
     }
 }

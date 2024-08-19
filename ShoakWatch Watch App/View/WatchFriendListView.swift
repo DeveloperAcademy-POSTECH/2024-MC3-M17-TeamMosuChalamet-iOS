@@ -18,9 +18,7 @@ struct WatchFriendListView: View {
             .buttonStyle(.borderedProminent)
 
 
-            if !shoakDataManager.isLoading && shoakDataManager.friends.isEmpty {
-                Text("휴대폰에서 다시 로그인 해주세요")
-            } else if shoakDataManager.isLoading {
+            if shoakDataManager.isLoading {
                 ProgressView()
             } else if shoakDataManager.friends.isEmpty {
                 Text("휴대폰에서 친구를 추가해주세요")

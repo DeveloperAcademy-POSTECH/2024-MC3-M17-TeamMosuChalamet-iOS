@@ -16,7 +16,7 @@ struct AddTokenPlugin: PluginType {
     func prepare(_ request: URLRequest, target: any TargetType) -> URLRequest {
         print("\n🐈🐈🐈🐈 Moya AddTokenPlugin 🐈🐈🐈🐈")
 
-        // 헤더에 Access, Refresh이 있다면 그 값을 채워준다.
+        // 헤더에 Access, Refresh, Device, Identity 토큰들이 있다면 그 값을 채워준다.
         let modifiedRequest = addHeader(request: request)
 
         return modifiedRequest

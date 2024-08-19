@@ -52,7 +52,6 @@ extension DefaultRequestInterceptor {
                     completion(.doNotRetry)
                 }
             }
-            completion(.doNotRetry)
         }
     }
 }

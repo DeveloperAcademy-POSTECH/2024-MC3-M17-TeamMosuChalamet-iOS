@@ -26,7 +26,7 @@ struct StoreTokenPlugin: PluginType {
             print("🐈🐈🐈🐈 try to store accessToken : \(accessToken.token)")
             tokenRepository.save(accessToken: accessToken)
         } else {
-            print("❌❌❌❌ No Access Token")
+            print("❌❌❌❌ No Access Token to store")
         }
 
         if let refreshTokenString = response.response?.allHeaderFields["Refresh"] as? String,
@@ -35,7 +35,7 @@ struct StoreTokenPlugin: PluginType {
             print("🐈🐈🐈🐈 try to store refreshToken : \(extracted)")
             tokenRepository.save(refreshToken: refreshToken)
         } else {
-            print("❌❌❌❌ No Refresh Token")
+            print("❌❌❌❌ No Refresh Token to store")
         }
     }
 

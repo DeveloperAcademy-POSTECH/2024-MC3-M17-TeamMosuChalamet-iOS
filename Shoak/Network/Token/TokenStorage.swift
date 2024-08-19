@@ -8,7 +8,6 @@
 import Foundation
 
 /// Keychain을 활용하는 토큰 스토리지.
-/// 접근 시 자동으로 만료 체크를 함. 만료 체크는 단순히 expiration 비교로 진행.
 /// 세팅하면 자동으로 keychain에 저장함.
 @propertyWrapper
 struct TokenStorage<Item: Token>: Sendable {
