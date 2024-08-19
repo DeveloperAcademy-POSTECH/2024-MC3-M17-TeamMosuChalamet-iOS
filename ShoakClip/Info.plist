@@ -16,5 +16,7 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>kMDItemKeywords</key>
+	<string>쇽, 속, 슉, 숙, 슥, 숑, 청각, Shaok, Shock</string>
 </dict>
 </plist>
