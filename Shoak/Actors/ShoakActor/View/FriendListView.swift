@@ -156,7 +156,10 @@ struct FriendListView: View {
                         .padding(.leading, 19)
 
                     Spacer()
-
+                }
+                .frame(minHeight: 110)
+                .background(property.backgroundColor)
+                .overlay(alignment: .trailing) {
                     property.accessoryView(onButtonTapped: {
                         switch property {
                         case .confirm:
@@ -168,8 +171,6 @@ struct FriendListView: View {
                     .frame(width: 100, height: 60)
                     .padding(.trailing, 23)
                 }
-                .frame(minHeight: 110)
-                .background(property.backgroundColor)
                 .contentShape(Rectangle())
                 .clipShapeBorder(RoundedRectangle(cornerRadius: 12), Color.strokeBlack, 1.0)
             }
