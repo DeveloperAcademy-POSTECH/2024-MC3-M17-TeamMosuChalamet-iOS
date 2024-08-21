@@ -5,7 +5,9 @@ import StoreKit
 struct FriendListView: View {
     @Environment(ShoakDataManager.self) private var shoakDataManager
     @Environment(NavigationManager.self) private var navigationManager
+#if APPCLIP
     @State private var showAppStoreOverlay = false
+#endif
     var body: some View {
         @Bindable var navigationManager = navigationManager
         VStack {
@@ -14,14 +16,18 @@ struct FriendListView: View {
         }
         .onAppear {
             shoakDataManager.refreshFriends()
+#if APPCLIP
             showAppStoreOverlay = true
+#endif
         }
         .sheet(item: $navigationManager.invitation) { invitation in
             AcceptInvitationView()
         }
+#if APPCLIP
         .appStoreOverlay(isPresented: $showAppStoreOverlay) {
             SKOverlay.AppClipConfiguration(position: .bottom)
         }
+#endif
     }
     
     struct TopButtons: View {
