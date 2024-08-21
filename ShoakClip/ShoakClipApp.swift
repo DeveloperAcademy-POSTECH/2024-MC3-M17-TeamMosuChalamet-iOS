@@ -16,6 +16,8 @@ struct ShoakClipApp: App {
     private var invitationManager: InvitationManager
     private var watchConnectivityManager: WatchConnectivityManager
 
+    @State private var lastProcessedURL: URL = URL(string: "https://example.com")!
+
     init() {
         let tokenRepository = KeychainTokenRepository()
         let tokenRefreshRepository = DefaultTokenRefreshRepository(tokenRepository: tokenRepository)
@@ -60,11 +62,12 @@ struct ShoakClipApp: App {
                 .environment(invitationManager)
                 .environment(watchConnectivityManager)
                 .onOpenURL { url in
+                    print("url : \(url)")
                     handleDeepLink(navigationManager, url: url)
                 }
                 .onContinueUserActivity(NSUserActivityTypeBrowsingWeb) { userActivity in
-                    guard let incomingURL = userActivity.webpageURL
-                    else {
+                    print("continue user activity : \(userActivity)")
+                    guard let incomingURL = userActivity.webpageURL else {
                         return
                     }
 
@@ -76,6 +79,11 @@ struct ShoakClipApp: App {
     private func handleDeepLink(_ navigationManager: NavigationManager, url: URL) {
         print("Deep link URL: \(url.absoluteString)")
 
+        guard lastProcessedURL != url else {
+            print("건너뜀!")
+            return
+        }
+
         guard let components = URLComponents(url: url, resolvingAgainstBaseURL: true),
               let memberID = components.queryItems?.first(where: { $0.name == "memberID" })?.value,
               let memberIDToInt64 = Int64(memberID, radix: 10) else {
@@ -83,5 +91,6 @@ struct ShoakClipApp: App {
         }
 
         navigationManager.invitation = memberIDToInt64
+        lastProcessedURL = url
     }
 }

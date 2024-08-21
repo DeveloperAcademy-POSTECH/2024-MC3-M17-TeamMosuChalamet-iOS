@@ -84,7 +84,7 @@ extension UserAPI: NeedAccessTokenTargetType {
                     },
                     {
                         "id": 3,
-                        "name": "정모수Test",
+                        "name": "여덟글자꽉채워서",
                         "imageURL": "https://ada-mc3.s3.ap-northeast-2.amazonaws.com/profile/mosu.png"
                     }
                 ]

@@ -29,6 +29,13 @@ class AccountManager: @unchecked Sendable {
         tokenUseCase.save(identityToken: credential.token)
 #if os(iOS)
         await UIApplication.shared.registerForRemoteNotifications()
+        // 5초 동안 getDeviceToken()이 nil이 아닌지 확인
+        let deviceTokenObtained = await waitForDeviceToken(timeout: 5.0)
+
+        // 만약 5초 내에 deviceToken이 설정되지 않으면 false 반환
+        if !deviceTokenObtained {
+            return false
+        }
 #endif
         let result = await authUseCase.loginOrSignUp(credential: credential)
 
@@ -84,6 +91,21 @@ class AccountManager: @unchecked Sendable {
 }
 
 extension AccountManager {
+    private func waitForDeviceToken(timeout: TimeInterval) async -> Bool {
+        let startTime = Date().timeIntervalSince1970
+
+        while Date().timeIntervalSince1970 - startTime < timeout {
+            // tokenUseCase.getDeviceToken()이 nil이 아닌지 확인
+            if tokenUseCase.getDeviceToken() != nil {
+                return true
+            }
+            // 100ms 동안 대기
+            try? await Task.sleep(nanoseconds: 100_000_000)
+        }
+
+        // 타임아웃이 발생하면 false 반환
+        return false
+    }
     func isLoggedIn() -> Bool {
         tokenUseCase.isLoggedIn()
     }
