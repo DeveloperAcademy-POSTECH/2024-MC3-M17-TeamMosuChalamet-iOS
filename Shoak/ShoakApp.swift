@@ -17,6 +17,8 @@ struct ShoakApp: App {
     private var invitationManager: InvitationManager
     private var watchConnectivityManager: WatchConnectivityManager
 
+    @State private var lastProcessedURL: URL = URL(string: "https://example.com")!
+
     init() {
         let tokenRepository = KeychainTokenRepository()
         let tokenRefreshRepository = DefaultTokenRefreshRepository(tokenRepository: tokenRepository)
@@ -78,6 +80,11 @@ struct ShoakApp: App {
     private func handleDeepLink(_ navigationManager: NavigationManager, url: URL) {
         print("Deep link URL: \(url.absoluteString)")
 
+        guard lastProcessedURL != url else {
+            print("건너뜀!")
+            return
+        }
+
         guard let components = URLComponents(url: url, resolvingAgainstBaseURL: true),
               let memberID = components.queryItems?.first(where: { $0.name == "memberID" })?.value,
               let memberIDToInt64 = Int64(memberID, radix: 10) else {
@@ -85,5 +92,6 @@ struct ShoakApp: App {
         }
 
         navigationManager.invitation = memberIDToInt64
+        lastProcessedURL = url
     }
 }
