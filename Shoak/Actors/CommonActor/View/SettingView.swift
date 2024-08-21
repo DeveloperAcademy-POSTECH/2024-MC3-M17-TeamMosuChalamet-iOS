@@ -246,6 +246,7 @@ struct MyProfileView: View {
                     }
                 }
             }
+            .disabled(name.count > 8 || name.isEmpty)
         } message: {
             Text("수정할 이름을 입력해주세요 (최대 8글자)")
         }
