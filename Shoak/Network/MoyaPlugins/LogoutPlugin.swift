@@ -18,7 +18,7 @@ struct LogoutPlugin: PluginType {
     }
     func didReceive(_ result: Result<Response, MoyaError>, target: any TargetType) {
         if case .failure(let failure) = result {
-            if failure.response?.statusCode == 403 {
+            if failure.response?.statusCode == 401 || failure.response?.statusCode == 403 {
                 tokenRepository.deleteAllTokens()
 #if os(iOS)
                 UIApplication.shared.unregisterForRemoteNotifications()
