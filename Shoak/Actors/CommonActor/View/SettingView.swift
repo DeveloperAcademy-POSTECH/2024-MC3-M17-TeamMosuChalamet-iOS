@@ -131,13 +131,14 @@ struct SettingView: View {
     }
 }
 
-
 struct MyProfileView: View {
     @Environment(NavigationManager.self) private var navigationManager
     @Environment(AccountManager.self) private var accountManager
 
     var isShowEditProfileButton: Bool = true
     @State private var isShowChangeNameAlert = false
+    @State private var isShowImagePicker = false
+    @State private var selectedImage: UIImage? = nil
     @State private var name = ""
 
     var body: some View {
@@ -184,19 +185,21 @@ struct MyProfileView: View {
                     }
                 }
                 .overlay(alignment: .bottomTrailing) {
-                    Button {
-                        navigationManager.setView(to: .editProfile)
-                    } label: {
-                        Image(systemName: "photo.fill")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 20, height: 20)
+                    if isShowEditProfileButton {
+                        Button {
+                            isShowImagePicker.toggle()
+                        } label: {
+                            Image(systemName: "photo.fill")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 20, height: 20)
+                        }
+                        .padding(4)
+                        .background(Color.bgGray)
+                        .clipShapeBorder(Circle(), Color.strokeBlack, 1)
+                        .shadow(radius: 4)
+                        .buttonStyle(.plain)
                     }
-                    .padding(4)
-                    .background(Color.bgGray)
-                    .clipShapeBorder(Circle(), Color.strokeBlack, 1)
-                    .shadow(radius: 4)
-                    .buttonStyle(.plain)
                 }
 
                 Text(accountManager.profile?.name ?? "(이름 없음)")
@@ -204,8 +207,10 @@ struct MyProfileView: View {
                     .foregroundStyle(Color.textBlack)
                     .padding(.leading, 21)
                     .onTapGesture {
-                        self.name = accountManager.profile?.name ?? ""
-                        self.isShowChangeNameAlert.toggle()
+                        if isShowEditProfileButton {
+                            self.name = accountManager.profile?.name ?? ""
+                            self.isShowChangeNameAlert.toggle()
+                        }
                     }
 
                 Spacer()
@@ -249,6 +254,17 @@ struct MyProfileView: View {
             .disabled(name.count > 8 || name.isEmpty)
         } message: {
             Text("수정할 이름을 입력해주세요 (최대 8글자)")
+        }
+        .sheet(isPresented: $isShowImagePicker) {
+            ImagePicker(image: $selectedImage) { image in
+                if let image = image {
+                    Task {
+                        if case .success = await accountManager.updateProfileImage(image) {
+                            await accountManager.getProfile()
+                        }
+                    }
+                }
+            }
         }
         .task {
             await accountManager.getProfile()
