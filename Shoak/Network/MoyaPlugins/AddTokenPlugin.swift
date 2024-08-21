@@ -28,13 +28,13 @@ struct AddTokenPlugin: PluginType {
         if needAccessToken(request),
            let accessToken = tokenRepository.getAccessToken() {
             print("\n🐈🐈🐈🐈 헤더에 Access Token 추가 완료!")
-            request.setValue("Bearer \(accessToken.token)1", forHTTPHeaderField: "Access")
+            request.setValue("Bearer \(accessToken.token)", forHTTPHeaderField: "Access")
         }
 
         if needRefreshToken(request),
            let refreshToken = tokenRepository.getRefreshToken() {
             print("\n🐈🐈🐈🐈 헤더에 Refresh Token 추가 완료!")
-            request.setValue("Bearer \(refreshToken.token)1", forHTTPHeaderField: "Refresh")
+            request.setValue("Bearer \(refreshToken.token)", forHTTPHeaderField: "Refresh")
         }
 
         if needIdentityToken(request),
