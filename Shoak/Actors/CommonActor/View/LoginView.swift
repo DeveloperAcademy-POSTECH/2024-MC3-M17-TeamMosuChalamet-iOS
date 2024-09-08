@@ -31,12 +31,18 @@ struct LoginView: View {
                     print("credential : \(credential)")
                     Task {
                         let result = await accountManager.loginOrSignUp(credential: credential)
-                        if result {
+                        if result == 200 {
+                            navigationManager.setView(to: .checkMyProfile(onNext: {
+                                navigationManager.setView(to: .friendList, saveHistory: false)
+                            }), saveHistory: false)
+                        } else if result == 201 {
+                            navigationManager.setView(to: .checkMyProfile(onNext: {
 #if APPCLIP
-                            navigationManager.setView(to: .friendList, saveHistory: false)
+                                navigationManager.setView(to: .friendList, saveHistory: false)
 #else
-                            navigationManager.setView(to: .onboarding, saveHistory: false)
+                                navigationManager.setView(to: .onboarding, saveHistory: false)
 #endif
+                            }), saveHistory: false)
                         }
                     }
                 },
