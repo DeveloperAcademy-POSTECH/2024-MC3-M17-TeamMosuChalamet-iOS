@@ -17,11 +17,11 @@ final class AuthRepository {
         self.provider = apiClient.resolve(for: AuthAPI.self)
     }
 
-    func loginOrSignUp(credential: TMUserCredentialDTO) async -> Result<Void, NetworkError> {
+    func loginOrSignUp(credential: TMUserCredentialDTO) async -> Result<Int, NetworkError> {
         let response = await provider.request(.loginOrSignUp(credential: credential))
         switch response {
         case .success(let response):
-            return NetworkHandler.requestPlain(by: response)
+            return .success(response.statusCode)
         case .failure(let failure):
             return .failure(.other(failure.localizedDescription))
         }

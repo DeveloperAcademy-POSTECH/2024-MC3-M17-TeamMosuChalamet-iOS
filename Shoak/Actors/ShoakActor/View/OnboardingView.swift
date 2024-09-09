@@ -9,7 +9,7 @@ import SwiftUI
 
 struct OnboardingView: View {
     @Environment(NavigationManager.self) private var navigationManager
-    @State private var currentPage: ContinuousView = .profile
+    @State private var currentPage: ContinuousView = .addShortcut
 
     var body: some View {
         VStack(spacing: 0) {
@@ -26,7 +26,7 @@ struct OnboardingView: View {
         @Binding var currentPage: ContinuousView
         var body: some View {
             HStack {
-                if currentPage != .profile {
+                if currentPage != .addShortcut {
                     BackButton {
                         withAnimation {
                             self.currentPage = self.currentPage.prev()
@@ -44,20 +44,9 @@ struct OnboardingView: View {
         @Environment(NavigationManager.self) private var navigationManager
         @Binding var currentPage: ContinuousView
         var body: some View {
-            Button {
+            BottomButton {
                 buttonAction()
-            } label: {
-                Text("다음")
-                    .font(.textButton)
-                    .frame(maxWidth: .infinity, maxHeight: 58)
-                    .background(Color.shoakYellow)
-                    .overlay {
-                        Image(systemName: "chevron.right")
-                            .offset(x: 30)
-                    }
             }
-            .buttonStyle(.plain)
-            .clipShapeBorder(RoundedRectangle(cornerRadius: 12), Color.strokeBlack, 1)
         }
 
         func buttonAction() {
@@ -97,7 +86,6 @@ extension OnboardingView {
 // MARK: - Define Continuous View
 extension OnboardingView {
     enum ContinuousView: View, CaseIterable {
-        case profile
         case addShortcut
         case turnOnWatchApp
         case configureAccessibility
@@ -110,8 +98,6 @@ extension OnboardingView {
 
         var body: some View {
             switch self {
-            case .profile:
-                OnboardingProfileView()
             case .addShortcut:
                 AddShortcutView()
             case .turnOnWatchApp:
@@ -143,21 +129,6 @@ extension OnboardingView {
 }
 
 // MARK: - Views for Onboarding
-private struct OnboardingProfileView: View {
-    var body: some View {
-        VStack {
-            Spacer()
-            Text("다음 프로필로 시작합니다")
-                .font(.textListTitle)
-                .foregroundStyle(Color.textBlack)
-                .multilineTextAlignment(.center)
-                .padding(.bottom, 35)
-            MyProfileView()
-            Spacer()
-        }
-    }
-}
-
 import AppIntents
 private struct AddShortcutView: View {
     @State private var showActivityView = false

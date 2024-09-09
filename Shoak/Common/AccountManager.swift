@@ -25,7 +25,11 @@ class AccountManager: @unchecked Sendable {
         self.tokenUseCase = tokenUseCase
     }
 
-    public func loginOrSignUp(credential: TMUserCredentialVO) async -> Bool {
+    /// return : login result code
+    ///     200 : 로그인 성공
+    ///     201 : 회원가입 성공
+    ///     other : 실패
+    public func loginOrSignUp(credential: TMUserCredentialVO) async -> Int {
         tokenUseCase.save(identityToken: credential.token)
 #if os(iOS)
         await UIApplication.shared.registerForRemoteNotifications()
@@ -34,16 +38,16 @@ class AccountManager: @unchecked Sendable {
 
         // 만약 5초 내에 deviceToken이 설정되지 않으면 false 반환
         if !deviceTokenObtained {
-            return false
+            return 401
         }
 #endif
         let result = await authUseCase.loginOrSignUp(credential: credential)
 
-        if case .success = result {
-            return true
+        if case .success(let code) = result {
+            return code
         }
 
-        return false
+        return 404
     }
     
     public func refreshProfile() {

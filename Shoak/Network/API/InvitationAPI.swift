@@ -33,7 +33,7 @@ extension InvitationAPI: NeedAccessTokenTargetType {
 
     var contentType: ContentType {
         switch self {
-        case .acceptInvitation(let tMMemberID):
+        case .acceptInvitation:
             return .json
         }
     }

@@ -53,8 +53,9 @@ class NavigationManager {
 
 #if os(iOS) && !APPCLIP
 extension NavigationManager {
-    enum SwitchableView: View, CaseIterable {
+    enum SwitchableView: View {
         case login
+        case checkMyProfile(onNext: () -> Void = {})
         case onboarding
         case friendList
         case settings
@@ -66,6 +67,8 @@ extension NavigationManager {
             switch self {
             case .login:
                 LoginView()
+            case .checkMyProfile(let onNext):
+                CheckMyProfileView(onNext: onNext)
             case .onboarding:
                 OnboardingView()
             case .friendList:
@@ -84,8 +87,9 @@ extension NavigationManager {
 }
 #elseif os(iOS) && APPCLIP
 extension NavigationManager {
-    enum SwitchableView: View, CaseIterable {
+    enum SwitchableView: View {
         case login
+        case checkMyProfile(onNext: () -> Void = {})
         case friendList
         case settings
         case inviteFriends
@@ -96,6 +100,8 @@ extension NavigationManager {
             switch self {
             case .login:
                 LoginView()
+            case .checkMyProfile(let onNext):
+                CheckMyProfileView(onNext: onNext)
             case .friendList:
                 FriendListView()
             case .settings:

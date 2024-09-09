@@ -16,11 +16,11 @@ final class AuthUseCase {
         self.tokenRepository = tokenRepository
     }
 
-    func loginOrSignUp(credential: TMUserCredentialVO) async -> Result<Void, NetworkError> {
+    func loginOrSignUp(credential: TMUserCredentialVO) async -> Result<Int, NetworkError> {
         let result = await authRepository.loginOrSignUp(credential: toDTO(credential))
         switch result {
-        case .success:
-            return .success(())
+        case .success(let statusCode):
+            return .success(statusCode)
         case .failure(let failure):
             return .failure(failure)
         }
