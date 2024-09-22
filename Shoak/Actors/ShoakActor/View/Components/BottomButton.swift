@@ -9,19 +9,35 @@ import SwiftUI
 
 struct BottomButton: View {
     let action: () -> Void
-    let text: String = "다음"
+    let text: String
+    let backgroundColor: Color
+    let textColor: Color
+    init(text: String = "다음", backgroundColor: Color = .shoakYellow, textColor: Color = .textBlack, action: @escaping () -> Void) {
+        self.text = text
+        self.action = action
+        self.backgroundColor = backgroundColor
+        self.textColor = textColor
+    }
     var body: some View {
         Button {
             action()
         } label: {
-            Text(text)
-                .font(.textButton)
-                .frame(maxWidth: .infinity, maxHeight: 58)
-                .background(Color.shoakYellow)
-                .overlay {
-                    Image(systemName: "chevron.right")
-                        .offset(x: 30)
-                }
+            HStack(spacing: 16) {
+                Spacer()
+
+                Image(systemName: "chevron.right") // 중앙을 적절히 맞추기 위한 장치
+                    .hidden()
+
+                Text(text)
+                    .font(.textButton)
+                    .frame(maxHeight: 58)
+
+                Image(systemName: "chevron.right")
+
+                Spacer()
+            }
+            .background(backgroundColor)
+            .foregroundStyle(textColor)
         }
         .buttonStyle(.plain)
         .clipShapeBorder(RoundedRectangle(cornerRadius: 12), Color.strokeBlack, 1)

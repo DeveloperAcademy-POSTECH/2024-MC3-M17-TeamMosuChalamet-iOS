@@ -6,170 +6,98 @@
 //
 
 import SwiftUI
+import AppIntents
 
 struct OnboardingView: View {
     @Environment(NavigationManager.self) private var navigationManager
-    @State private var currentPage: ContinuousView = .addShortcut
+    @State private var currentPage: ContinuousView = .short1
+    @State private var shortcutURL: URL?
 
     var body: some View {
         VStack(spacing: 0) {
             TopButtons(currentPage: $currentPage)
 
+            Spacer()
+
             currentPage
 
-            BottomButtons(currentPage: $currentPage)
+            Spacer()
+
+            if currentPage == .addShortcut, let url = shortcutURL {
+                BottomButton {
+                    currentPage.next()
+                }
+                .padding(.vertical, 16)
+
+                ShareLink(item: url, preview: .init("쇽 시작하기 단축어 추가하기", image: Image("ShoakLogoFilled"))) {
+                    HStack(spacing: 16) {
+                        Spacer()
+
+                        Image(systemName: "chevron.right") // 중앙을 적절히 맞추기 위한 장치
+                            .hidden()
+
+                        Text("단축어 생성하기")
+                            .font(.textButton)
+                            .frame(maxHeight: 58)
+
+                        Image(systemName: "chevron.right")
+
+                        Spacer()
+                    }
+                    .background(Color.shoakNavy)
+                    .foregroundStyle(Color.textWhite)
+                    .buttonStyle(.plain)
+                    .clipShapeBorder(RoundedRectangle(cornerRadius: 12), Color.strokeBlack, 1)
+                }
+
+            } else if currentPage == .finish {
+                BottomButton {
+                    self.navigationManager.setView(to: .friendList)
+                }
+            } else {
+                BottomButton {
+                    currentPage.next()
+                }
+            }
+
+
         }
         .padding()
+        .onAppear {
+            loadShortcut()
+        }
     }
 
     struct TopButtons: View {
+        @Environment(NavigationManager.self) private var navigationManager
         @Binding var currentPage: ContinuousView
         var body: some View {
             HStack {
-                if currentPage != .addShortcut {
+                if currentPage != .short1 {
                     BackButton {
                         withAnimation {
                             self.currentPage = self.currentPage.prev()
                         }
                     }
+                } else {
+                    BackButton()
+                        .hidden()
                 }
 
                 Spacer()
+
+                Text("")
+
+                Spacer()
+
+                CloseButton {
+                    navigationManager.setView(to: .friendList, saveHistory: false)
+                }
             }
             .frame(maxHeight: 44)
         }
     }
 
-    struct BottomButtons: View {
-        @Environment(NavigationManager.self) private var navigationManager
-        @Binding var currentPage: ContinuousView
-        var body: some View {
-            BottomButton {
-                buttonAction()
-            }
-        }
-
-        func buttonAction() {
-            withAnimation {
-                switch self.currentPage {
-                case .finish:
-                    Task { await self.navigationManager.setView(to: .friendList) }
-                default:
-                    self.currentPage = self.currentPage.next()
-                }
-            }
-        }
-    }
-}
-
-// MARK: - Computed Properties for currentPage
-extension OnboardingView {
-    var currentActionLabel: String {
-        switch currentPage {
-        case .finish:
-            "친구들 보러 가기"
-        default:
-            "다음"
-        }
-    }
-
-    var currentAction: () async -> Void {
-        switch currentPage {
-        case .finish:
-            { await navigationManager.setView(to: .friendList, saveHistory: false) }
-        default:
-            { currentPage = currentPage.next() }
-        }
-    }
-}
-
-// MARK: - Define Continuous View
-extension OnboardingView {
-    enum ContinuousView: View, CaseIterable {
-        case addShortcut
-        case turnOnWatchApp
-        case configureAccessibility
-        case activateAssistiveTouch1
-        case activateAssistiveTouch2
-        case activateHandGestureView1
-        case activateHandGestureView2
-        case handGestureCustomView
-        case finish
-
-        var body: some View {
-            switch self {
-            case .addShortcut:
-                AddShortcutView()
-            case .turnOnWatchApp:
-                TurnOnWatchAppView()
-            case .configureAccessibility:
-                ConfigureAccessibilityView()
-            case .activateAssistiveTouch1:
-                ActivateAssistiveTouchView1()
-            case .activateAssistiveTouch2:
-                ActivateAssistiveTouchView2()
-            case .activateHandGestureView1:
-                ActivateHandGestureView1()
-            case .activateHandGestureView2:
-                ActivateHandGestureView2()
-            case .handGestureCustomView:
-                HandGestureCustomView()
-            case .finish:
-                FinishView()
-            }
-        }
-
-        var label: String {
-            switch self {
-            default:
-                "다음"
-            }
-        }
-    }
-}
-
-// MARK: - Views for Onboarding
-import AppIntents
-private struct AddShortcutView: View {
-    @State private var showActivityView = false
-    @State private var shortcutURL: URL?
-    var body: some View {
-        VStack(spacing: 0) {
-            Spacer()
-            
-            Text("아래 단축어를 클릭해서\n단축어 추가를 해주세요.")
-                .font(.textListTitle)
-                .foregroundStyle(Color.textBlack)
-                .multilineTextAlignment(.center)
-                .padding(.bottom, 35)
-            
-            if let url = shortcutURL {
-                ShareLink(item: url, preview: .init("쇽 시작하기 단축어 추가하기", image: Image("ShoakLogoFilled"))) {
-                    Image("shortcut")
-                }
-            }
-            
-            Text("앱 실행을 위해 생성하는 단축어입니다.")
-                .font(.textListTitle)
-                .foregroundStyle(Color.textBlack)
-                .multilineTextAlignment(.center)
-                .padding(.top, 48)
-            
-            Spacer()
-        }
-        .sheet(isPresented: $showActivityView, onDismiss: {
-            self.shortcutURL = nil
-        }) {
-            if let url = shortcutURL {
-                ShareLink(item: url)
-            } else {
-                Text("No shortcut available")
-            }
-        }
-        .onAppear {
-            loadShortcut()
-        }
-    }
     func loadShortcut() {
         if let url = Bundle.main.url(forResource: "쇽 시작하기", withExtension: "shortcut") {
             self.shortcutURL = url
@@ -179,90 +107,181 @@ private struct AddShortcutView: View {
     }
 }
 
-private struct TurnOnWatchAppView: View {
+// MARK: - Define Continuous View
+enum ContinuousView: View, CaseIterable {
+    case short1
+    case short2
+    case short3
+    case short4
+    case short5
+    case addShortcut
+    case watch1
+    case watch2
+    case watch3
+    case watch4
+    case watch5
+    case watch6
+    case watch7
+    case watch8
+    case finish
+
     var body: some View {
-        VStack(spacing: 0) {
-            Spacer()
-            
-            Image(.watch)
-            
-            Text("‘워치'앱을 켜주세요")
-                .font(.textListTitle)
-                .foregroundStyle(Color.textBlack)
-                .padding(.top, 80)
-            
-            Spacer()
+        switch self {
+        case .short1:
+            OnboardingShortcut1()
+        case .short2:
+            OnboardingShortcut2()
+        case .short3:
+            OnboardingShortcut3()
+        case .short4:
+            OnboardingShortcut4()
+        case .short5:
+            OnboardingShortcut5()
+        case .addShortcut:
+            AddShortcut()
+        case .watch1:
+            OnboardingWatch1()
+        case .watch2:
+            OnboardingWatch2()
+        case .watch3:
+            OnboardingWatch3()
+        case .watch4:
+            OnboardingWatch4()
+        case .watch5:
+            OnboardingWatch5()
+        case .watch6:
+            OnboardingWatch6()
+        case .watch7:
+            OnboardingWatch7()
+        case .watch8:
+            OnboardingWatch8()
+        case .finish:
+            FinishView()
+        }
+    }
+
+    var label: String {
+        switch self {
+        default:
+            "다음"
+        }
+    }
+
+    mutating func next() {
+        withAnimation {
+            self = self.next()
         }
     }
 }
 
-private struct ConfigureAccessibilityView: View {
+// MARK: - Views for Onboarding
+private struct OnboardingShortcut1: View {
     var body: some View {
-        Image(.ob1)
+        Image(.short1)
             .resizable()
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .padding(.horizontal, 30)
-            .padding(.vertical, 10)
+            .aspectRatio(contentMode: .fit)
     }
 }
-
-private struct ActivateAssistiveTouchView1: View {
+private struct OnboardingShortcut2: View {
     var body: some View {
-        Image(.ob2)
+        Image(.short2)
             .resizable()
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .padding(.horizontal, 30)
-            .padding(.vertical, 10)
+            .aspectRatio(contentMode: .fit)
     }
 }
-
-private struct ActivateAssistiveTouchView2: View {
+private struct OnboardingShortcut3: View {
     var body: some View {
-        Image(.ob3)
+        Image(.short3)
             .resizable()
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .padding(.horizontal, 30)
-            .padding(.vertical, 10)
+            .aspectRatio(contentMode: .fit)
     }
 }
-
-private struct ActivateHandGestureView1: View {
+private struct OnboardingShortcut4: View {
     var body: some View {
-        Image(.ob4)
+        Image(.short4)
             .resizable()
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .padding(.horizontal, 30)
-            .padding(.vertical, 10)
+            .aspectRatio(contentMode: .fit)
     }
 }
-
-private struct ActivateHandGestureView2: View {
+private struct OnboardingShortcut5: View {
     var body: some View {
-        Image(.ob5)
+        Image(.short5)
             .resizable()
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .padding(.horizontal, 30)
-            .padding(.vertical, 10)
+            .aspectRatio(contentMode: .fit)
     }
 }
-
-private struct HandGestureCustomView: View {
+private struct AddShortcut: View {
     var body: some View {
-        Image(.ob6)
-            .resizable()
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .padding(.horizontal, 30)
-            .padding(.vertical, 10)
+        VStack(spacing: 16) {
+            Text("단축어를 생성합니다")
+            Image(.shortcut)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .padding(80)
+        }
     }
 }
-
+private struct OnboardingWatch1: View {
+    var body: some View {
+        Image(.watch1)
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+    }
+}
+private struct OnboardingWatch2: View {
+    var body: some View {
+        Image(.watch2)
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+    }
+}
+private struct OnboardingWatch3: View {
+    var body: some View {
+        Image(.watch3)
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+    }
+}
+private struct OnboardingWatch4: View {
+    var body: some View {
+        Image(.watch4)
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+    }
+}
+private struct OnboardingWatch5: View {
+    var body: some View {
+        Image(.watch5)
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+    }
+}
+private struct OnboardingWatch6: View {
+    var body: some View {
+        Image(.watch6)
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+    }
+}
+private struct OnboardingWatch7: View {
+    var body: some View {
+        Image(.watch7)
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+    }
+}
+private struct OnboardingWatch8: View {
+    var body: some View {
+        Image(.watch8)
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+    }
+}
 private struct FinishView: View {
     var body: some View {
-        Image(.ob7)
+        Image(.watch9)
             .resizable()
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .padding(.horizontal, 30)
-            .padding(.vertical, 10)
+            .aspectRatio(contentMode: .fit)
     }
 }
 
