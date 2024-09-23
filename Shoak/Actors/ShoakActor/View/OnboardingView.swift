@@ -25,7 +25,9 @@ struct OnboardingView: View {
 
             if currentPage == .addShortcut, let url = shortcutURL {
                 BottomButton {
-                    currentPage.next()
+                    withAnimation {
+                        currentPage.next()
+                    }
                 }
                 .padding(.vertical, 16)
 
@@ -52,11 +54,15 @@ struct OnboardingView: View {
 
             } else if currentPage == .finish {
                 BottomButton {
-                    self.navigationManager.setView(to: .friendList)
+                    withAnimation {
+                        self.navigationManager.setView(to: .friendList)
+                    }
                 }
             } else {
                 BottomButton {
-                    currentPage.next()
+                    withAnimation {
+                        currentPage.next()
+                    }
                 }
             }
 
@@ -86,7 +92,8 @@ struct OnboardingView: View {
 
                 Spacer()
 
-                Text("")
+                Text(currentPage.title)
+                    .font(.textPageTitle)
 
                 Spacer()
 
@@ -167,10 +174,19 @@ enum ContinuousView: View, CaseIterable {
         }
     }
 
-    mutating func next() {
-        withAnimation {
-            self = self.next()
+    var title: String {
+        switch self {
+        case .short1, .short2, .short3, .short4, .short5, .addShortcut:
+            "단축어 설치"
+        case .watch1, .watch2, .watch3, .watch4, .watch5, .watch6, .watch7, .watch8:
+            "Watch 설정"
+        case .finish:
+            "Watch 설정 (마무리)"
         }
+    }
+
+    mutating func next() {
+        self = self.next()
     }
 }
 
@@ -214,6 +230,7 @@ private struct AddShortcut: View {
     var body: some View {
         VStack(spacing: 16) {
             Text("단축어를 생성합니다")
+                .font(.textListTitle)
             Image(.shortcut)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
