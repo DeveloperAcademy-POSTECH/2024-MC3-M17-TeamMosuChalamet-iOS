@@ -129,6 +129,8 @@
 		6F4779B02C611D090028C1D7 /* String+Int64.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4779AE2C611D040028C1D7 /* String+Int64.swift */; };
 		6F4779B12C611D270028C1D7 /* String+Int64.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4779AE2C611D040028C1D7 /* String+Int64.swift */; };
 		6F4779B32C61A3970028C1D7 /* DeleteFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4779B22C61A3970028C1D7 /* DeleteFriendView.swift */; };
+		6F4DABE12CA06BA500C9C680 /* Closebutton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4DABE02CA06BA200C9C680 /* Closebutton.swift */; };
+		6F4DABE22CA06BA500C9C680 /* Closebutton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4DABE02CA06BA200C9C680 /* Closebutton.swift */; };
 		6F8602EF2C61C6FD004F417C /* TMDeviceTokenDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8602EE2C61C6FD004F417C /* TMDeviceTokenDTO.swift */; };
 		6F8602F02C61C6FD004F417C /* TMDeviceTokenDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8602EE2C61C6FD004F417C /* TMDeviceTokenDTO.swift */; };
 		6F8602F22C61CB5F004F417C /* TokenRefreshRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8602F12C61CB5F004F417C /* TokenRefreshRepository.swift */; };
@@ -390,6 +392,7 @@
 		6F4779AA2C611CB20028C1D7 /* Int64+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int64+.swift"; sourceTree = "<group>"; };
 		6F4779AE2C611D040028C1D7 /* String+Int64.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Int64.swift"; sourceTree = "<group>"; };
 		6F4779B22C61A3970028C1D7 /* DeleteFriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteFriendView.swift; sourceTree = "<group>"; };
+		6F4DABE02CA06BA200C9C680 /* Closebutton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Closebutton.swift; sourceTree = "<group>"; };
 		6F8602EE2C61C6FD004F417C /* TMDeviceTokenDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDeviceTokenDTO.swift; sourceTree = "<group>"; };
 		6F8602F12C61CB5F004F417C /* TokenRefreshRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenRefreshRepository.swift; sourceTree = "<group>"; };
 		6F8602F42C624A06004F417C /* RequestInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestInterceptor.swift; sourceTree = "<group>"; };
@@ -606,6 +609,7 @@
 		6F3D64902C8D967900167F2A /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				6F4DABE02CA06BA200C9C680 /* Closebutton.swift */,
 				6F3D64912C8D968B00167F2A /* BottomButton.swift */,
 			);
 			path = Components;
@@ -1294,6 +1298,7 @@
 				6F1522772C67E809005A9C13 /* InvitationRepository.swift in Sources */,
 				6F1522782C67E809005A9C13 /* UserRepository.swift in Sources */,
 				6F1522792C67E809005A9C13 /* AuthRepository.swift in Sources */,
+				6F4DABE12CA06BA500C9C680 /* Closebutton.swift in Sources */,
 				6F15226E2C67E802005A9C13 /* UserUseCase.swift in Sources */,
 				6F15226F2C67E802005A9C13 /* DeleteFriendView.swift in Sources */,
 				6F1522342C67E69C005A9C13 /* ShoakClipApp.swift in Sources */,
@@ -1448,6 +1453,7 @@
 				6F4779A62C6112720028C1D7 /* InvitationAPI.swift in Sources */,
 				6FDFDAD52C57E39400A98D7E /* AddTokenPlugin.swift in Sources */,
 				6FC0A18A2C567AB0004560E3 /* TokenRepository.swift in Sources */,
+				6F4DABE22CA06BA500C9C680 /* Closebutton.swift in Sources */,
 				6FC0A12C2C54CA29004560E3 /* OnboardingView.swift in Sources */,
 				1E2168452C57E67F007463D0 /* InviteFriendsView.swift in Sources */,
 				6F4779B32C61A3970028C1D7 /* DeleteFriendView.swift in Sources */,
