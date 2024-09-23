@@ -11,7 +11,7 @@ struct FriendListView: View {
     var body: some View {
         @Bindable var navigationManager = navigationManager
         VStack {
-            TopButtons()
+            TopButtons(friendCount: shoakDataManager.friends.count)
             FriendsList()
         }
         .onAppear {
@@ -32,10 +32,17 @@ struct FriendListView: View {
     
     struct TopButtons: View {
         @Environment(NavigationManager.self) private var navigationManager
+        var friendCount: Int
+        @State private var isShowingFriendLimitAlert = false
+
         var body: some View {
             HStack {
                 Button {
-                    navigationManager.setView(to: .inviteFriends)
+                    if friendCount >= 20 {
+                        isShowingFriendLimitAlert = true
+                    } else {
+                        navigationManager.setView(to: .inviteFriends)
+                    }
                 } label: {
                     Image(systemName: "person.fill.badge.plus")
                         .resizable()
@@ -43,13 +50,18 @@ struct FriendListView: View {
                         .frame(maxHeight: 38)
                         .foregroundStyle(Color.textBlack)
                         .padding(.top, 4)
-                        .padding(.leading, 4) // 아이콘 자체가 치우쳐져 있어서 미세조정
+                        .padding(.leading, 4)
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                         .background(Color.shoakYellow, ignoresSafeAreaEdges: [])
                         .clipShapeBorder(RoundedRectangle(cornerRadius: 12), Color.strokeBlack, 1)
                     // https://developer.apple.com/documentation/swiftui/view/background(_:ignoressafeareaedges:)
                 }
                 .buttonStyle(ShrinkingButtonStyle())
+                .alert("친구 추가 불가", isPresented: $isShowingFriendLimitAlert) {
+                    Button("확인", role: .cancel) {}
+                } message: {
+                    Text("최대 친구 수(20명)를 초과했습니다.\n더 이상 친구를 추가할 수 없습니다.")
+                }
 
                 Button {
                     navigationManager.setView(to: .settings)
