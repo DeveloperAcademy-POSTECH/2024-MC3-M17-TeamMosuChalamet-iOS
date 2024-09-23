@@ -214,6 +214,7 @@ private struct AddShortcut: View {
     var body: some View {
         VStack(spacing: 16) {
             Text("단축어를 생성합니다")
+                .font(.textListTitle)
             Image(.shortcut)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
