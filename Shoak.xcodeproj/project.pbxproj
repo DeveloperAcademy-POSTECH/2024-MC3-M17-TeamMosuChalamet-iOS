@@ -152,6 +152,12 @@
 		6FA442B02C591A1A00E3E69E /* TMUserCredentialVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA442AE2C591A1A00E3E69E /* TMUserCredentialVO.swift */; };
 		6FA442B22C59239E00E3E69E /* ShoakAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA442B12C59239E00E3E69E /* ShoakAppDelegate.swift */; };
 		6FA442B52C59DDA300E3E69E /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA442B42C59DDA300E3E69E /* BackButton.swift */; };
+		6FAE7A102CAA248700A1D1CE /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 6FAE7A0F2CAA248700A1D1CE /* Localizable.xcstrings */; };
+		6FAE7A112CAA248700A1D1CE /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 6FAE7A0F2CAA248700A1D1CE /* Localizable.xcstrings */; };
+		6FAE7A122CAA248700A1D1CE /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 6FAE7A0F2CAA248700A1D1CE /* Localizable.xcstrings */; };
+		6FAE7A132CAA248700A1D1CE /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 6FAE7A0F2CAA248700A1D1CE /* Localizable.xcstrings */; };
+		6FAE7A142CAA248700A1D1CE /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 6FAE7A0F2CAA248700A1D1CE /* Localizable.xcstrings */; };
+		6FAE7A152CAA248700A1D1CE /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 6FAE7A0F2CAA248700A1D1CE /* Localizable.xcstrings */; };
 		6FBEED432C5B5F1C00431B7F /* WatchConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBEED422C5B5F1C00431B7F /* WatchConnectivityManager.swift */; };
 		6FBEED452C5B632700431B7F /* PhoneConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBEED442C5B632700431B7F /* PhoneConnectivityManager.swift */; };
 		6FBEED482C5C73AA00431B7F /* StartShoakShortcuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBEED472C5C73AA00431B7F /* StartShoakShortcuts.swift */; };
@@ -406,6 +412,7 @@
 		6FA442AE2C591A1A00E3E69E /* TMUserCredentialVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMUserCredentialVO.swift; sourceTree = "<group>"; };
 		6FA442B12C59239E00E3E69E /* ShoakAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoakAppDelegate.swift; sourceTree = "<group>"; };
 		6FA442B42C59DDA300E3E69E /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
+		6FAE7A0F2CAA248700A1D1CE /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		6FBEED422C5B5F1C00431B7F /* WatchConnectivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchConnectivityManager.swift; sourceTree = "<group>"; };
 		6FBEED442C5B632700431B7F /* PhoneConnectivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneConnectivityManager.swift; sourceTree = "<group>"; };
 		6FBEED472C5C73AA00431B7F /* StartShoakShortcuts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartShoakShortcuts.swift; sourceTree = "<group>"; };
@@ -634,6 +641,14 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		6FAE7A0E2CAA245F00A1D1CE /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				6FAE7A0F2CAA248700A1D1CE /* Localizable.xcstrings */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
 		6FC0A1282C53873D004560E3 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -841,6 +856,7 @@
 		6FF9B7842C50E5FF00FC0CB2 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				6FAE7A0E2CAA245F00A1D1CE /* Localization */,
 				6FBEED4A2C5D489800431B7F /* 쇽 시작하기.shortcut */,
 				6FF9B7AF2C51400400FC0CB2 /* Intents */,
 				1E21684A2C586F01007463D0 /* InvitationManager.swift */,
@@ -1192,6 +1208,7 @@
 			files = (
 				1E21682D2C5686D8007463D0 /* Assets.xcassets in Resources */,
 				6F15229A2C67E917005A9C13 /* LogoAnimate.json in Resources */,
+				6FAE7A142CAA248700A1D1CE /* Localizable.xcstrings in Resources */,
 				1E21682B2C5686D8007463D0 /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1202,6 +1219,7 @@
 			files = (
 				6FD978E32C68E81000787EA7 /* Check.json in Resources */,
 				6F15223B2C67E69E005A9C13 /* Preview Assets.xcassets in Resources */,
+				6FAE7A122CAA248700A1D1CE /* Localizable.xcstrings in Resources */,
 				6F15229B2C67E917005A9C13 /* LogoAnimate.json in Resources */,
 				6FD978E22C67EB9000787EA7 /* Secret.plist in Resources */,
 				6F31E2662C73804700353EFE /* Assets.xcassets in Resources */,
@@ -1212,6 +1230,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FAE7A132CAA248700A1D1CE /* Localizable.xcstrings in Resources */,
 				6FC0A17C2C561499004560E3 /* TestAssets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1220,6 +1239,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FAE7A152CAA248700A1D1CE /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1232,6 +1252,7 @@
 				6F96CEC82C64AEFB00BF5A9C /* Check.json in Resources */,
 				6FD978E02C67EB9000787EA7 /* Secret.plist in Resources */,
 				6F1522982C67E917005A9C13 /* LogoAnimate.json in Resources */,
+				6FAE7A112CAA248700A1D1CE /* Localizable.xcstrings in Resources */,
 				6FF9B7782C4F896A00FC0CB2 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1245,6 +1266,7 @@
 				6FF9B7C42C52378C00FC0CB2 /* Preview Assets.xcassets in Resources */,
 				6FD978E12C67EB9000787EA7 /* Secret.plist in Resources */,
 				6F1522992C67E917005A9C13 /* LogoAnimate.json in Resources */,
+				6FAE7A102CAA248700A1D1CE /* Localizable.xcstrings in Resources */,
 				6FF9B7C12C52378C00FC0CB2 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1854,6 +1876,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -1910,6 +1933,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
