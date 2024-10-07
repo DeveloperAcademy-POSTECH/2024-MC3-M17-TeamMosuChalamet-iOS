@@ -51,12 +51,42 @@
         }
       }
     },
+    "Watch 설정" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Setting Watch"
+          }
+        }
+      }
+    },
+    "Watch 설정 (마무리)" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Setting Watch (finish)"
+          }
+        }
+      }
+    },
     "내 프로필" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "My Profile"
+          }
+        }
+      }
+    },
+    "다음" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Next"
           }
         }
       }
@@ -77,6 +107,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Make Shortcut"
+          }
+        }
+      }
+    },
+    "단축어 설치" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Install Shortcut"
           }
         }
       }

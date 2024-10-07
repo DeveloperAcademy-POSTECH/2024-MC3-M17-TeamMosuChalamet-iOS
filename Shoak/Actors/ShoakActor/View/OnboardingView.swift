@@ -167,21 +167,21 @@ enum ContinuousView: View, CaseIterable {
         }
     }
 
-    var label: String {
+    var label: LocalizedStringKey {
         switch self {
         default:
-            "다음"
+            LocalizedStringKey("다음")
         }
     }
 
-    var title: String {
+    var title: LocalizedStringKey {
         switch self {
         case .short1, .short2, .short3, .short4, .short5, .addShortcut:
-            "단축어 설치"
+            LocalizedStringKey("단축어 설치")
         case .watch1, .watch2, .watch3, .watch4, .watch5, .watch6, .watch7, .watch8:
-            "Watch 설정"
+            LocalizedStringKey("Watch 설정")
         case .finish:
-            "Watch 설정 (마무리)"
+            LocalizedStringKey("Watch 설정 (마무리)")
         }
     }
 

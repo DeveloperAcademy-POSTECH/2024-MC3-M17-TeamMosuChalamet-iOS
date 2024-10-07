@@ -9,10 +9,10 @@ import SwiftUI
 
 struct BottomButton: View {
     let action: () -> Void
-    let text: String
+    let text: LocalizedStringKey
     let backgroundColor: Color
     let textColor: Color
-    init(text: String = "다음", backgroundColor: Color = .shoakYellow, textColor: Color = .textBlack, action: @escaping () -> Void) {
+    init(text: LocalizedStringKey = "다음", backgroundColor: Color = .shoakYellow, textColor: Color = .textBlack, action: @escaping () -> Void) {
         self.text = text
         self.action = action
         self.backgroundColor = backgroundColor
