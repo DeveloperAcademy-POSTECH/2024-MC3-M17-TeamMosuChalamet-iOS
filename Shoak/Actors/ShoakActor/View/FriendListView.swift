@@ -88,17 +88,48 @@ struct FriendListView: View {
         @Environment(NavigationManager.self) private var navigationManager
         
         var body: some View {
-            List(shoakDataManager.friends, id: \.memberID) { member in
-                FriendButton(friend: member)
-                    .listRowInsets(EdgeInsets())
-                    .listRowBackground(Color.clear)
-                    .listRowSeparator(.hidden)
-                    .padding(.horizontal, 16)
-            }
-            .listRowSpacing(5)
-            .listStyle(.plain)
-            .refreshable {
-                shoakDataManager.refreshFriends()
+            if shoakDataManager.friends.isEmpty {
+                VStack {
+                    Spacer()
+                    
+                    Button(action: {
+                        navigationManager.setView(to: .inviteFriends)
+                    }) {
+                        HStack {
+                            Image(systemName: "plus.circle.fill")
+                                .foregroundStyle(Color.textBlack)
+                                .padding(.trailing, 8)
+                            
+                            Text("친구 추가하기")
+                                .font(.textTitle)
+                                .foregroundStyle(Color.textBlack)
+                        }
+                        .padding(.horizontal, 20)
+                        .padding(.vertical, 15)
+                        .background(Color.shoakWhite)
+                        .cornerRadius(25)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 25)
+                                .inset(by: 0.5)
+                                .stroke(Color.strokeBlack, lineWidth: 1)
+                        )
+                    }
+                    
+                    Spacer()
+                }
+            } else {
+                List(shoakDataManager.friends, id: \.memberID) { member in
+                    FriendButton(friend: member)
+                        .listRowInsets(EdgeInsets())
+                        .listRowBackground(Color.clear)
+                        .listRowSeparator(.hidden)
+                        .padding(.horizontal, 16)
+                }
+                .listRowSpacing(5)
+                .listStyle(.plain)
+                .refreshable {
+                    shoakDataManager.refreshFriends()
+                }
             }
         }
     }

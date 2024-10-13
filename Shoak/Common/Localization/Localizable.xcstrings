@@ -391,6 +391,16 @@
         }
       }
     },
+    "친구 추가하기" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add Friends"
+          }
+        }
+      }
+    },
     "친구를 삭제하시겠습니까?" : {
       "localizations" : {
         "en" : {
